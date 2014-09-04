@@ -20,12 +20,6 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/camera/camera.css';?>"/>
 <link rel='stylesheet'  href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
-
-<link rel='stylesheet' id='contact-form-7-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.8' type='text/css' media='all'/>
-<link rel='stylesheet' id='woocommerce-layout-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.1.12' type='text/css' media='all'/>
-<link rel='stylesheet' id='woocommerce-general-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.1.12' type='text/css' media='all'/>
-<link rel='stylesheet' id='theme51107-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
-<link rel='stylesheet' id='magnific-popup-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/css/magnific-popup.css?ver=0.9.3' type='text/css' media='all'/>
 <link rel='stylesheet' id='options_typography_Open+Sans-css' href='//fonts.googleapis.com/css?family=Open+Sans&#038;subset=latin' type='text/css' media='all'/>
 
 
