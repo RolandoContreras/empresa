@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Acerca extends CI_Controller {
+class About extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,6 +19,9 @@ class Acerca extends CI_Controller {
 	 */
 	public function index()
 	{
+            
+            echo "hola";
+            die();
             		$this->load->view('acerca');
 	}
 }

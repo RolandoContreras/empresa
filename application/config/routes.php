@@ -39,6 +39,10 @@
 */
 
 $route['default_controller'] = "home";
+$route['acerca'] = "about";
+
+
+$route[''] = "home";
 $route['404_override'] = '';
 
 
