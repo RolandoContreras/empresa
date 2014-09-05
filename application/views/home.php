@@ -13,13 +13,13 @@
     <div class="span12 full-top-shop" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
         <div id="woocommerce_widget_cart-2" class="cart-holder">
             <h3>Carrito</h3>
-            <div class="widget_shopping_cart_content"></div>
+            <div class="widget_shopping_cart_content"></div><!--Mensaje de carrito no hay productos-->
         </div>
          <div class="shop-nav">
              <ul id="shopnav" class="shop-menu">
-                    <li><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-login.php?action=register&amp;redirect_to=/woocommerce_51107/" class='register-link' title="Registration">Registro</a></li>
-                    <li id="menu-item-2020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2020"><a href="http://livedemo00.template-help.com/woocommerce_51107/delivery/">Delivery</a></li>
-                    <li id="menu-item-2021" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2021"><a href="http://livedemo00.template-help.com/woocommerce_51107/my-account/">Mi Cuenta</a></li>
+                    <li><a href="" class='register-link' title="Registro">Registro</a></li>
+                    <li id="menu-item-2020" title=""><a href="Delivery">Delivery</a></li>
+                    <li id="menu-item-2021" title="Mi Cuenta"><a href="">Mi Cuenta</a></li>
             </ul>
          </div> 
     </div>
@@ -30,59 +30,24 @@
     <div class="span12 full-top-nav">
     <div class="row">
     <div class="span3" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
-
-    <div class="logo pull-left">
-    <a href="http://livedemo00.template-help.com/woocommerce_51107/" class="logo_h logo_h__img"><img src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/images/logo.png" alt="Electronics" title=""></a>
+        <div class="logo pull-left">
+            <a href="<?php echo site_url().'home';?>" class="logo_h logo_h__img"><img src="<?php echo site_url().'static/images/logo.png';?>" alt="TradeE&C" title="Logo"></a>
+        </div>
     </div>
-      </div>
     <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">
-
-        <nav class="nav nav__primary clearfix">
-            <ul id="topnav" class="sf-menu"><li id="menu-item-1998" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item"><a href="http://livedemo00.template-help.com/woocommerce_51107/">Home</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="<?php echo site_url().'acerca';?>">Acerca</a>
-                <ul class="sub-menu">
-                    <li id="menu-item-2001" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Testimonios</a></li>
-                    <li id="menu-item-2002" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Archivos</a></li>
-                    <li id="menu-item-1996" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Preguntas Frecuentes</a></li>
-                </ul>
-                </li>
-                
-                <li id="menu-item-2014" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://livedemo00.template-help.com/woocommerce_51107/shop/">Shop</a>
-                <ul class="sub-menu">
-                    <li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/">Lorem ipsum</a></li>
-                    <li id="menu-item-2015" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/">Donec vitae</a></li>
-                    <li id="menu-item-2019" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-3/">Ut eget tortor</a></li>
-                    <li id="menu-item-2016" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-4/">Nam felis nulla</a></li>
-                    <li id="menu-item-2017" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/">Proin ut</a></li>
-                </ul>
-                </li>
-                
-                <li id="menu-item-1999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/">Portfolio</a>
-                <ul class="sub-menu">
-                    <li id="menu-item-2005" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-2/">Portfolio 2</a></li>
-                    <li id="menu-item-2004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/">Portfolio 3</a>
-                        <ul class="sub-menu">
-                        <li id="menu-item-2013" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/category-1/">Category 1</a></li>
-                        <li id="menu-item-2012" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/category-2/">Category 2</a></li>
-                        <li id="menu-item-2011" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/category-3/">Category 3</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-2003" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-4/">Portfolio 4</a></li>
-                </ul>
-                </li>
-                
-                <li id="menu-item-1997" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/blog/">Blog</a></li>
-                <li id="menu-item-1995" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/contacts/">Contacts</a></li>
-            </ul>
-        </nav>  
+        <!--Show the NAV-->
+        <?php $this->load->view("nav");?>
+        <!---------------->
     </div>
     <div class="span3" data-motopress-type="static" data-motopress-static-file="static/static-search.php">
 
     <div class="search-form search-form__h clearfix">
+        
     <form id="search-header" class="navbar-form pull-right" method="get" action="http://livedemo00.template-help.com/woocommerce_51107/" accept-charset="utf-8">
     <input type="text" name="s" placeholder="search" class="search-form_it">
     <input type="submit" value="Go" id="search-form_is" class="search-form_is">
     </form>
+        
     </div>
       </div>
     </div>

@@ -40,9 +40,8 @@
 
 $route['default_controller'] = "home";
 $route['acerca'] = "about";
-
-
-$route[''] = "home";
+$route['compras'] = "shop";
+$route['contacto'] = "contact";
 $route['404_override'] = '';
 
 
