@@ -16,13 +16,14 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 //]]>
 </script>
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css';?>"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $hola =  site_url().'static/css/bootstrap/bootstrap.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/camera/camera.css';?>"/>
 <link rel='stylesheet'  href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
 <link rel='stylesheet' id='theme51107-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
 
 <!--Banner Grande-->
+
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-migrate-1.2.1.min.js';?>'></script>
 <!--Banner Grande-->
