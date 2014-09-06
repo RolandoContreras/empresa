@@ -1,0 +1,7 @@
+footer.footer .footer-widgets {
+	display:none;
+	padding-bottom:0px !important;
+}
+@media (max-width: 767px) {
+	footer.footer .footer-widgets { text-align:center; }
+}
