@@ -5,3 +5,4 @@ footer.footer .footer-widgets {
 @media (max-width: 767px) {
 	footer.footer .footer-widgets { text-align:center; }
 }
+.nav_custom1{ padding-left: 10% !important;}
