@@ -117,7 +117,7 @@
         <div class="custom_banners_wrap_inner">
             <div class="row ">
                 <div class="span4 ">
-                    <a href="product/product-12/" title="Meat Grinder -20%" class="banner-wrap ">
+                    <a href="<?php echo site_url().'detalle';?>" title="Meat Grinder -20%" class="banner-wrap ">
                         <figure class="featured-thumbnail">
                             <img src="<?php echo site_url().'static/images/custom/banner01.jpg';?>" title="Meat Grinder -20%" alt=""/>
                         </figure>
