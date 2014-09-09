@@ -63,36 +63,36 @@
     <div id="parallax-slider-5406108c1acd1" class="parallax-slider">
       <ul class="baseList">
           <li data-preview="<?php echo site_url().'static/images/banner/slide01.jpg';?>">
-                <div class="slider_caption>"><h2><span>Productos Top</span></h2>
+<!--                <div class="slider_caption>"><h2><span>Productos Top</span></h2>
                     <h3>
                         <p>
                         <span>Lorem ipsum dolor sit amet, consectetur. </span>
                         </p>
-                        <a href="blog/">Mostrar Ahora!</a> <!--Go to product's detail-->
+                        <a href="blog/">Mostrar Ahora!</a> Go to product's detail
                     </h3>
-                </div>
+                </div>-->
           </li>
           <li data-preview="<?php echo site_url().'static/images/banner/slide02.jpg';?>">
-              <div class="slider_caption>"><h2><span>Productos Top</span></h2>
+<!--              <div class="slider_caption>"><h2><span>Productos Top</span></h2>
                     <h3>
                         <p>
                         <span>Lorem ipsum dolor sit amet, consectetur. </span>
                         </p>
-                        <a href="blog/">Mostrar Ahora!</a> <!--Go to product's detail-->
+                        <a href="blog/">Mostrar Ahora!</a> Go to product's detail
                     </h3>
-            </div>
+            </div>-->
           </li>
           
           <!--<li data-preview="<?php echo site_url().'static/images/banner/slide03.jpg';?>" data-img-width="1920" data-img-height="700">-->
           <li data-preview="<?php echo site_url().'static/images/banner/slide03.jpg';?>">
-                <div class="slider_caption>"><h2><span>Productos Top</span></h2>
+<!--                <div class="slider_caption>"><h2><span>Productos Top</span></h2>
                     <h3>
                         <p>
                         <span>Lorem ipsum dolor sit amet, consectetur. </span>
                         </p>
-                        <a href="blog/">Mostrar Ahora!</a> <!--Go to product's detail-->
+                        <a href="blog/">Mostrar Ahora!</a> Go to product's detail
                     </h3>
-                </div>
+                </div>-->
           </li>
       </ul>
     </div>

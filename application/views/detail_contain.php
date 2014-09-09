@@ -6,13 +6,13 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en-US"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US"> <!--<![endif]-->
 <head>
-<title> Acer h233h bmid 23-inch</title>
-<meta name="description" content=" &raquo; Acer h233h bmid 23-inch | "/>
+<title> Behringer headphones hps3000</title>
+<meta name="description" content=" &raquo; Behringer headphones hps3000 | "/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript">
 //<![CDATA[
-try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dokv=88e434a982/"},atok:"5a877ddb20342ca394ea7633a5a0c3ed",petok:"8b5abe98a9e31f42f8302ab006dd616b29b68f54-1410212956-86400",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"},"ga_key":{"ua":"UA-7078796-5","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dokv=97fb4d042e/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dokv=88e434a982/"},atok:"5a877ddb20342ca394ea7633a5a0c3ed",petok:"593b96f35363ef235c67f68890361aaa221d27a3-1410212927-86400",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"},"ga_key":{"ua":"UA-7078796-5","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dokv=97fb4d042e/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
 //]]>
 </script>
 <link rel="profile" href="//gmpg.org/xfn/11"/>
@@ -26,7 +26,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 <link rel="stylesheet" type="text/css" media="all" href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/style.css"/>
 <link rel="alternate" type="application/rss+xml" title="Electronics &raquo; Feed" href="http://livedemo00.template-help.com/woocommerce_51107/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="Electronics &raquo; Comments Feed" href="http://livedemo00.template-help.com/woocommerce_51107/comments/feed/"/>
-<link rel="alternate" type="application/rss+xml" title="Electronics &raquo; Acer h233h bmid 23-inch Comments Feed" href="http://livedemo00.template-help.com/woocommerce_51107/product/product-15/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Electronics &raquo; Behringer headphones hps3000 Comments Feed" href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/feed/"/>
 <link rel='stylesheet' id='flexslider-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/cherry-plugin/lib/js/FlexSlider/flexslider.css?ver=2.2.0' type='text/css' media='all'/>
 <link rel='stylesheet' id='owl-carousel-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/cherry-plugin/lib/js/owl-carousel/owl.carousel.css?ver=1.24' type='text/css' media='all'/>
 <link rel='stylesheet' id='owl-theme-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/cherry-plugin/lib/js/owl-carousel/owl.theme.css?ver=1.24' type='text/css' media='all'/>
@@ -44,6 +44,8 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 <![endif]-->
 <link rel='stylesheet' id='mpce-bootstrap-grid-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/motopress-content-editor/bootstrap/bootstrap-grid.min.css?ver=1.4.8' type='text/css' media='all'/>
 <link rel='stylesheet' id='mpce-theme-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/motopress-content-editor/includes/css/theme.css?ver=1.4.8' type='text/css' media='all'/>
+
+
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/jquery/jquery.js?ver=1.8'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/swfobject.js?ver=2.2-20120417'></script>
@@ -64,8 +66,8 @@ var motopressGoogleChartsPHPData = {"motopressCE":"0"};
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://livedemo00.template-help.com/woocommerce_51107/wp-includes/wlwmanifest.xml"/>
 <meta name="generator" content="WordPress 3.9.1"/>
 <meta name="generator" content="WooCommerce 2.1.12"/>
-<link rel='canonical' href='http://livedemo00.template-help.com/woocommerce_51107/product/product-15/'/>
-<link rel='shortlink' href='http://livedemo00.template-help.com/woocommerce_51107/?p=1958'/>
+<link rel='canonical' href='http://livedemo00.template-help.com/woocommerce_51107/product/product-12/'/>
+<link rel='shortlink' href='http://livedemo00.template-help.com/woocommerce_51107/?p=1946'/>
 <link rel="alternate" type="application/rss+xml" title="New products" href="http://livedemo00.template-help.com/woocommerce_51107/shop/feed/"/><script>
  var system_folder = 'http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/admin/data_management/',
 	 CHILD_URL ='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107',
@@ -144,16 +146,16 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 /* ]]> */
 </script>
 </head>
-<body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop">
+<body class="single single-product postid-1946 woocommerce woocommerce-page has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
  
 <header class="motopress-wrapper header">
 <div class="container">
 <div class="row">
-<div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="540e245be5bb3">
+<div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="540e243e4744b">
 <div class="row">
 <div class="span12 full-top-shop" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
-<div id="woocommerce_widget_cart-2" class="cart-holder"><h3>Cart</h3><div class="widget_shopping_cart_content"></div></div> <div class="shop-nav"><ul id="shopnav" class="shop-menu"><li><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-login.php?action=register&amp;redirect_to=/woocommerce_51107/product/product-15/" class='register-link' title="Registration">Registration</a></li><li><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-login.php?action=login&amp;redirect_to=/woocommerce_51107/product/product-15/" title="Log In">Log In</a></li><li id="menu-item-2020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2020"><a href="http://livedemo00.template-help.com/woocommerce_51107/delivery/">Delivery</a></li>
+<div id="woocommerce_widget_cart-2" class="cart-holder"><h3>Cart</h3><div class="widget_shopping_cart_content"></div></div> <div class="shop-nav"><ul id="shopnav" class="shop-menu"><li><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-login.php?action=register&amp;redirect_to=/woocommerce_51107/product/product-12/" class='register-link' title="Registration">Registration</a></li><li><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-login.php?action=login&amp;redirect_to=/woocommerce_51107/product/product-12/" title="Log In">Log In</a></li><li id="menu-item-2020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2020"><a href="http://livedemo00.template-help.com/woocommerce_51107/delivery/">Delivery</a></li>
 <li id="menu-item-2022" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2022"><a href="http://livedemo00.template-help.com/woocommerce_51107/checkout/">Checkout</a></li>
 <li id="menu-item-2021" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2021"><a href="http://livedemo00.template-help.com/woocommerce_51107/my-account/">My Account</a></li>
 </ul></div> </div>
@@ -180,11 +182,11 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </li>
 <li id="menu-item-2014" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current_page_parent"><a href="http://livedemo00.template-help.com/woocommerce_51107/shop/">Shop</a>
 <ul class="sub-menu">
-<li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/">Lorem ipsum</a></li>
-<li id="menu-item-2015" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/">Donec vitae</a></li>
+<li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/">Lorem ipsum</a></li>
+<li id="menu-item-2015" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/">Donec vitae</a></li>
 <li id="menu-item-2019" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-3/">Ut eget tortor</a></li>
-<li id="menu-item-2016" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-4/">Nam felis nulla</a></li>
-<li id="menu-item-2017" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/">Proin ut</a></li>
+<li id="menu-item-2016" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-4/">Nam felis nulla</a></li>
+<li id="menu-item-2017" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent"><a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/">Proin ut</a></li>
 </ul>
 </li>
 <li id="menu-item-1999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/">Portfolio</a>
@@ -223,29 +225,29 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="row">
 <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php"><section class="title-section">
 <h1 class="title-header">
-Acer h233h bmid 23-inch </h1>
+Behringer headphones hps3000 </h1>
  
-<ul class="breadcrumb breadcrumb__t"><a class="home" href="http://livedemo00.template-help.com/woocommerce_51107">Home</a> / <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/">Donec vitae</a> / Acer h233h bmid... </ul>  
+<ul class="breadcrumb breadcrumb__t"><a class="home" href="http://livedemo00.template-help.com/woocommerce_51107">Home</a> / <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/">Lorem ipsum</a> / Behringer headphones hps3000</ul>  
 </section> </div>
 </div>
 <div class="row">
 <div class="span9 right" id="content">
-<div itemscope itemtype="http://schema.org/Product" id="product-1958" class="post-1958 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-vel-mauris instock">
+<div itemscope itemtype="http://schema.org/Product" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
 <div class="images">
-<a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1.jpg" itemprop="image" class="woocommerce-main-image zoom" title="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1" data-rel="prettyPhoto[product-gallery]"><img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1-300x300.jpg" class="attachment-shop_single wp-post-image" alt="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1" title="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1"/></a>
-<div class="thumbnails"><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_3.jpg" class="zoom first" title="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_3" data-rel="prettyPhoto[product-gallery]"><img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_3-90x90.jpg" class="attachment-shop_thumbnail" alt="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_3"/></a><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1.jpg" class="zoom" title="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1" data-rel="prettyPhoto[product-gallery]"><img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1-90x90.jpg" class="attachment-shop_thumbnail" alt="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_1"/></a><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_2.jpg" class="zoom last" title="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_2" data-rel="prettyPhoto[product-gallery]"><img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/acer_h233h_bmid_23-inch_widescreen_lcd_display_black_2-90x90.jpg" class="attachment-shop_thumbnail" alt="acer_h233h_bmid_23-inch_widescreen_lcd_display_black_2"/></a></div>
+<a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1.jpg" itemprop="image" class="woocommerce-main-image zoom" title="behringer_headphones_hps3000_1" data-rel="prettyPhoto[product-gallery]"><img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1-300x300.jpg" class="attachment-shop_single wp-post-image" alt="behringer_headphones_hps3000_1" title="behringer_headphones_hps3000_1"/></a>
+<div class="thumbnails"><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_3.jpg" class="zoom first" title="behringer_headphones_hps3000_3" data-rel="prettyPhoto[product-gallery]"><img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_3-90x90.jpg" class="attachment-shop_thumbnail" alt="behringer_headphones_hps3000_3"/></a><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1.jpg" class="zoom" title="behringer_headphones_hps3000_1" data-rel="prettyPhoto[product-gallery]"><img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1-90x90.jpg" class="attachment-shop_thumbnail" alt="behringer_headphones_hps3000_1"/></a><a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_2.jpg" class="zoom last" title="behringer_headphones_hps3000_2" data-rel="prettyPhoto[product-gallery]"><img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_2-90x90.jpg" class="attachment-shop_thumbnail" alt="behringer_headphones_hps3000_2"/></a></div>
 </div>
 <div class="summary entry-summary">
 <div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-<div class="star-rating" title="Rated 5.00 out of 5">
-<span style="width:100%">
-<strong itemprop="ratingValue" class="rating">5.00</strong> out of 5 </span>
+<div class="star-rating" title="Rated 4.00 out of 5">
+<span style="width:80%">
+<strong itemprop="ratingValue" class="rating">4.00</strong> out of 5 </span>
 </div>
-<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<span itemprop="ratingCount" class="count">1</span> customer review)</a>
+<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<span itemprop="ratingCount" class="count">2</span> customer reviews)</a>
 </div>
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-<p class="price"><span class="amount">&#36;95.00</span></p>
-<meta itemprop="price" content="95"/>
+<p class="price"><span class="amount">&#36;120.00</span></p>
+<meta itemprop="price" content="120"/>
 <meta itemprop="priceCurrency" content="USD"/>
 <link itemprop="availability" href="http://schema.org/InStock"/>
 </div><div itemprop="description">
@@ -254,12 +256,12 @@ Acer h233h bmid 23-inch </h1>
 <p class="stock ">150 in stock</p>
 <form class="cart" method="post" enctype='multipart/form-data'>
 <div class="quantity"><input type="number" step="1" min="1" max="150" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/></div>
-<input type="hidden" name="add-to-cart" value="1958"/>
+<input type="hidden" name="add-to-cart" value="1946"/>
 <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
 </form>
 <div class="product_meta">
-<span class="posted_in">Categories: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/" rel="tag">Donec vitae</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-4/" rel="tag">Nam felis nulla</a>.</span>
-<span class="tagged_as">Tags: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/etiam-dictum/" rel="tag">Etiam dictum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/mauris-posuere/" rel="tag">Mauris posuere</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/vel-mauris/" rel="tag">vel mauris</a>.</span>
+<span class="posted_in">Categories: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/" rel="tag">Lorem ipsum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/" rel="tag">Proin ut</a>.</span>
+<span class="tagged_as">Tags: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/lorem-ipsum/" rel="tag">Lorem ipsum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/sed-blandit-massa/" rel="tag">Sed blandit massa</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/vel-mauris/" rel="tag">vel mauris</a>.</span>
 </div>
  
  
@@ -285,10 +287,10 @@ Acer h233h bmid 23-inch </h1>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </li>
 <li class="facebook">
-<div id="fb-root"></div><div class="fb-like" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-15/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
+<div id="fb-root"></div><div class="fb-like" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
 </li>
 <li class="google">
-<div class="g-plusone" data-size="medium" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-15/"></div>
+<div class="g-plusone" data-size="medium" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"></div>
 </li>
 <li class="pinterest">
 <a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src='//assets.pinterest.com/images/PinExt.png' alt=""/></a>
@@ -301,7 +303,7 @@ Acer h233h bmid 23-inch </h1>
 <a href="#tab-description">Description</a>
 </li>
 <li class="reviews_tab">
-<a href="#tab-reviews">Reviews (1)</a>
+<a href="#tab-reviews">Reviews (2)</a>
 </li>
 </ul>
 <div class="panel entry-content" id="tab-description">
@@ -313,19 +315,34 @@ Acer h233h bmid 23-inch </h1>
 <div class="panel entry-content" id="tab-reviews">
 <div id="reviews">
 <div id="comments">
-<h2>1 review for Acer h233h bmid... </h2>
+<h2>2 reviews for Behringer headphones hps3000</h2>
 <ol class="commentlist">
-<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment even thread-even depth-1" id="li-comment-35">
-<div id="comment-35" class="comment_container">
+<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment even thread-even depth-1" id="li-comment-29">
+<div id="comment-29" class="comment_container">
+<img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
+<div class="comment-text">
+<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 3 out of 5">
+<span style="width:60%"><strong itemprop="ratingValue">3</strong> out of 5</span>
+</div>
+<p class="meta">
+<strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:02+00:00">January 27, 2014</time>:
+</p>
+<div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum ornare molestie scelerisque eros dignissim. Phasellus fringilla hendrerit lectus nec vehicula.</p>
+</div>
+</div>
+</div>
+</li> 
+<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30">
+<div id="comment-30" class="comment_container">
 <img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
 <div class="comment-text">
 <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 5 out of 5">
 <span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
 </div>
 <p class="meta">
-<strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:21+00:00">January 27, 2014</time>:
+<strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:39+00:00">January 27, 2014</time>:
 </p>
-<div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum ornare molestie scelerisque eros dignissim.</p>
+<div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget</p>
 </div>
 </div>
 </div>
@@ -335,7 +352,7 @@ Acer h233h bmid 23-inch </h1>
 <div id="review_form_wrapper">
 <div id="review_form">
 <div id="respond" class="comment-respond">
-<h3 id="reply-title" class="comment-reply-title">Add a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/woocommerce_51107/product/product-15/#respond" style="display:none;">Cancel reply</a></small></h3>
+<h3 id="reply-title" class="comment-reply-title">Add a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/woocommerce_51107/product/product-12/#respond" style="display:none;">Cancel reply</a></small></h3>
 <form action="http://livedemo00.template-help.com/woocommerce_51107/wp-comments-post.php" method="post" id="commentform" class="comment-form">
 <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"/></p>
 <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"/></p>
@@ -348,7 +365,7 @@ Acer h233h bmid 23-inch </h1>
 <option value="1">Very Poor</option>
 </select></p><p class="comment-form-comment"><label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p> <p class="form-submit">
 <input name="submit" type="submit" id="submit" value="Submit"/>
-<input type='hidden' name='comment_post_ID' value='1958' id='comment_post_ID'/>
+<input type='hidden' name='comment_post_ID' value='1946' id='comment_post_ID'/>
 <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
 </p>
 </form>
@@ -356,21 +373,22 @@ Acer h233h bmid 23-inch </h1>
 </div>
 </div>
 <div class="clear"></div>
-div> </div>
+</div> </div>
 </div>
 <div class="related products">
 <h2>Related Products</h2>
 <ul class="products">
-<li class="post-1950 product type-product status-publish has-post-thumbnail first featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-<a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-13/">
-<img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/apple_mac_mini_1-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="apple_mac_mini_1"/>
-<h3>Apple mac mini</h3>
-<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div>
+<li class="post-1954 product type-product status-publish has-post-thumbnail first sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+<a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-14/">
+<span class="onsale">Sale!</span>
+<img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/altec_lansing_fx3022_expressionist_bass_2-way_speaker_for_pc_and_mp3_3-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="altec_lansing_fx3022_expressionist_bass_2-way_speaker_for_pc_and_mp3_3"/>
+<h3>Altec lansing fx3022... </h3>
+<div class="star-rating" title="Rated 4.50 out of 5"><span style="width:90%"><strong class="rating">4.50</strong> out of 5</span></div>
 </a>
 <div class="short_desc">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-<span class="price"><span class="amount">&#36;100.00</span></span>
-<a href="/woocommerce_51107/product/product-15/?add-to-cart=1950" rel="nofollow" data-product_id="1950" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+<span class="price"><del><span class="amount">&#36;75.00</span></del> <ins><span class="amount">&#36;70.00</span></ins></span>
+<a href="/woocommerce_51107/product/product-12/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
 </li>
 <li class="post-1938 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
 <a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-10/">
@@ -381,30 +399,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
 <div class="short_desc">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
 <span class="price"><span class="amount">&#36;104.00</span></span>
-<a href="/woocommerce_51107/product/product-15/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+<a href="/woocommerce_51107/product/product-12/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
 </li>
-<li class="post-1930 product type-product status-publish has-post-thumbnail first shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-<a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-8/">
-<img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/canon_xl2_video_camera_1-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="canon_xl2_video_camera_1"/>
-<h3>Canon xl2 video... </h3>
-<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div>
+<li class="post-1923 product type-product status-publish has-post-thumbnail first shipping-taxable purchasable product-type-variable product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+<a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-5/">
+<img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/creative_gigaworks_t40_series_ii_1-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="creative_gigaworks_t40_series_ii_1"/>
+<h3>Creative gigaworks t40... </h3>
 </a>
 <div class="short_desc">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-<span class="price"><span class="amount">&#36;99.50</span></span>
-<a href="/woocommerce_51107/product/product-15/?add-to-cart=1930" rel="nofollow" data-product_id="1930" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+<span class="price"><span class="amount">&#36;67.00</span>&ndash;<span class="amount">&#36;76.00</span></span>
+<a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-5/" rel="nofollow" data-product_id="1923" data-product_sku="" class="button add_to_cart_button product_type_variable">Select options</a>
 </li>
 </ul>
 </div>
-    
-    
-    
-</div>
-    
-    
-    
-    
-<meta itemprop="url" content="http://livedemo00.template-help.com/woocommerce_51107/product/product-15/"/>
+<meta itemprop="url" content="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"/>
 </div> 
 </div>
 <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
@@ -428,12 +437,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
 </div>
 </div>
 </div>
-    
-    
-    <footer class="motopress-wrapper footer">
+<footer class="motopress-wrapper footer">
 <div class="container">
 <div class="row">
-<div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="540e245c3e025">
+<div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="540e243f03ab6">
 <div class="row footer-widgets">
 <div class="span6" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-1">
 <div id="text-2" class="visible-all-devices "> <div class="textwidget"><div class="free_shipping">
@@ -486,7 +493,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
 </div>
 </div>
 </footer>
-    
+ 
+</div>
 <div id="back-top-wrapper" class="visible-desktop">
 <p id="back-top">
 <a href="#top"><span></span></a> </p>
