@@ -1,8 +1,7 @@
 <footer class="motopress-wrapper footer">
         <div class="container">
         <div class="row">
-            <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="5406108c5da2d">
-                <div class="row footer-widgets">
+            <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer">
                     <div class="row copyright">
                         <div class="span8 pull-left" data-motopress-type="static" data-motopress-static-file="static/static-footer-nav.php">
                             <nav class="nav footer-nav">
@@ -37,7 +36,6 @@
                         </div> 
                         </div>
                     </div> 
-                </div>
             </div>
         </div>
     </div>
