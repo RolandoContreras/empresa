@@ -41,7 +41,7 @@
 $route['default_controller'] = "home";
 $route['acerca'] = "about";
 $route['compras'] = "shop";
-$route['contacto'] = "contact";
+$route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
 $route['404_override'] = '';
 
