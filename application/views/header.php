@@ -25,8 +25,13 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 <link rel='stylesheet' id='woocommerce-general-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.1.12' type='text/css' media='all'/>
 
 
-<!--Banner Grande-->
+<link rel='stylesheet' id='woocommerce_prettyPhoto_css-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=3.9.1' type='text/css' media='all'/>
+<link rel='stylesheet' id='woocommerce-layout-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.1.12' type='text/css' media='all'/>
+<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/jquery/jquery.js?ver=1.8'></script>
+<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
 
+
+<!--Banner Grande-->
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-migrate-1.2.1.min.js';?>'></script>
 <!--Banner Grande-->
