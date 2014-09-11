@@ -4,11 +4,11 @@
  
 <header class="motopress-wrapper header">
 <div class="container">
-<div class="row">
-<div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="540610a997216">
- <?php $this->load->view("nav_secondary");?>
-</div>
-</div>
+    <div class="row">
+        <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="540610a997216">
+         <?php $this->load->view("nav_secondary");?>
+        </div>
+    </div>
 </div>
 </header>
 <div class="motopress-wrapper content-holder clearfix woocommerce">

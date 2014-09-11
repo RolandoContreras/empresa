@@ -8,7 +8,7 @@
              <ul id="shopnav" class="shop-menu">
                     <li><a href="" class='register-link' title="Registro">Registro</a></li>
                     <li id="menu-item-2020" title=""><a href="Delivery">Delivery</a></li>
-                    <li id="menu-item-2021" title="Mi Cuenta"><a href="">Mi Cuenta</a></li>
+                    <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Mi Cuenta</a></li>
             </ul>
          </div> 
     </div>

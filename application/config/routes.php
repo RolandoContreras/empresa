@@ -43,6 +43,7 @@ $route['acerca'] = "about";
 $route['compras'] = "shop";
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
+$route['micuenta'] = "myaccount";
 $route['404_override'] = '';
 
 
