@@ -22,6 +22,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 <link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
 <link rel='stylesheet' href='<?php echo site_url().'static/css/style/style.css'?>' type='text/css' media='all'/>
 <link rel='stylesheet' id='theme51107-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
+<link rel='stylesheet' id='woocommerce-general-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.1.12' type='text/css' media='all'/>
 
 
 <!--Banner Grande-->
