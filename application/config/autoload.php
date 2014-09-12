@@ -64,7 +64,7 @@ $autoload['libraries'] = array('pagination','form_validation','image_lib','datab
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','form','string');
+$autoload['helper'] = array('url','form','string','basico');
 
 
 /*

@@ -74,38 +74,19 @@
     <div class="custom_banners">
         <div class="custom_banners_wrap_inner">
             <div class="row ">
-                <div class="span4 ">
-                    <a href="<?php echo site_url().'detalle';?>" title="Meat Grinder -20%" class="banner-wrap ">
-                        <figure class="featured-thumbnail">
-                            <img src="<?php echo site_url().'static/images/custom/banner01.jpg';?>" title="Meat Grinder -20%" alt=""/>
-                        </figure>
-                        <div class="extra-wrap"><h5>Meat Grinder -20%</h5><p><span>Nunc pulvinar turpis</span></p>
-                            <div class="link-align banner-btn">Comprar Ahora</div>
+                <?php foreach ($product_custom as $value) {?>
+                        <div class="span4 ">
+                            <a href="<?php echo site_url().'detalle';?>" title="Meat Grinder -20%" class="banner-wrap ">
+                                <figure class="featured-thumbnail">
+                                    <img src="<?php echo site_url().'static/images/custom/banner01.jpg';?>" title="Meat Grinder -20%" alt=""/>
+                                </figure>
+                                <div class="extra-wrap"><h5><?php echo corta_texto($value->name,20); ?></h5>
+                                    <div class="link-align banner-btn">Comprar Ahora</div>
+                                </div>
+                            </a> 
                         </div>
-                    </a> 
-                </div>
+                <?php } ?>
 
-                <div class="span4 ">
-                    <a href="product/product-9/" title=" Vacuum Cleaner -10%" class="banner-wrap ">
-                        <figure class="featured-thumbnail">
-                            <img src="<?php echo site_url().'static/images/custom/banner02.jpg';?>" title=" Vacuum Cleaner -10%" alt=""/>
-                        </figure>
-                        <div class="extra-wrap"><h5> Vacuum Cleaner -10%</h5><p><span>Nunc pulvinar turpis</span></p>
-                            <div class="link-align banner-btn">Comprar Ahora</div>
-                        </div>
-                    </a> 
-                </div>
-
-                <div class="span4 ">
-                    <a href="product/product-4/" title="Plasma Television -15%" class="banner-wrap ">
-                        <figure class="featured-thumbnail">
-                            <img src="<?php echo site_url().'static/images/custom/banner03.jpg';?>" title="Plasma Television -15%" alt=""/>
-                        </figure>
-                        <div class="extra-wrap"><h5>Plasma Television -15%</h5><p><span>Alli Nunc pulvinar turpis</span></p>
-                            <div class="link-align banner-btn">Comprar Ahora</div>
-                        </div>
-                    </a> 
-                </div>
             </div> 
         </div>
     </div>
@@ -118,36 +99,15 @@
             <div class="featured_categories_wrap_inner">
                 <h2>Categorias</h2>
                 <ul class='advanced_categories cols_1'>
-                    <li class='advanced_categories_item last'>
-                        <div class='advanced_categories_item_inner'>
-                        <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/'>ElectroHogar</a></h4>
-                        </div>
-                    </li>
+                    <?php foreach ($category as $value) { ?>
+                            <li class='advanced_categories_item last'>
+                                <div class='advanced_categories_item_inner'>
+                                <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/'><?php echo $value->name;?></a></h4>
+                                </div>
+                            </li>
+                    <?php } ?>
                     
-                    <li class='advanced_categories_item last'>
-                        <div class='advanced_categories_item_inner'>
-                        <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/'>Tecnología</a></h4>
-                        </div>
-                    </li>
-                    
-                    <li class='advanced_categories_item last'>
-                        <div class='advanced_categories_item_inner'>
-                        <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-4/'>Muebles</a></h4>
-                        </div>
-                    </li>
-                    
-                    <li class='advanced_categories_item last'>
-                        <div class='advanced_categories_item_inner'>
-                        <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/'>Infantil</a></h4>
-                        </div>
-                    </li>
-                    
-                    <li class='advanced_categories_item last'>
-                        <div class='advanced_categories_item_inner'>
-                        <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-3/'>Accesorios y Belleza</a></h4>
-                        </div>
-                    </li>
-                </ul>
+                  </ul>
             </div>
         </div>
         <!---------------->
@@ -160,90 +120,22 @@
                 <h2>Productos Destacados</h2>
                     <div class="woocommerce columns-3">
                         <ul class="products">
-   
-                        <?php// foreach ($data as $obj_product){ ?>    
-                        <li class="post-1958 product type-product status-publish has-post-thumbnail first featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-vel-mauris instock">
-                            <a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-15/">
-                                <span class="onsale">Sale!</span>
-                                <img width="300" height="300" src="<?php echo site_url().'upload/products/acer.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=""/>
-                                <h3>Acer<?php //echo $obj_product->name;?></h3>
-                                
-                                <div class="star-rating" title="Rated 5.00 out of 5">
-                                    <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
-                                </div>
-                            </a>
-                            <div class="short_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                            <span class="price">
-                                    <span class="amount">&#36;70.00</span>
-                            </span>
-                            <a href="/woocommerce_51107/?add-to-cart=1958" rel="nofollow" data-product_id="1958" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                        </li>
-                             <?php //} ?> 
-                        
-                        <li class="post-1958 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                            <a href="">
-                                <img  width="300" height="300" src="<?php echo site_url().'upload/products/spaker.jpg'?>" class="attachment-shop_catalog wp-post-image" alt=""/>
-                                <h3>Altec lansing fx3022... </h3>
-                            </a>
-                            <div class="short_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                            <span class="price">
-                                    <span class="amount">&#36;70.00</span>
-                            </span>
-                            <a href="/woocommerce_51107/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                        </li>
-                        
-                        <li class="post-1958 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                            <a href="">
-                                <img src="<?php echo site_url().'upload/products/apple.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=""/>
-                            <h3>Apple mac mini</h3>
-                            </a>
-                            
-                            <div class="short_desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </div>
-                            <span class="price">
-                                <span class="amount">&#36;100.00</span>
-                            </span>
-                            <a href="/woocommerce_51107/?add-to-cart=1950" rel="nofollow" data-product_id="1950" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                        </li>
-                        
-                        <li class="post-1946 product type-product status-publish has-post-thumbnail first featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                            <a href="">
-                            <img src="<?php echo site_url().'upload/products/headphone.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=""/>
-                            <h3>Behringer headphones hps3000</h3>
-                            </a>
-                            
-                            <div class="short_desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-                            <span class="price"><span class="amount">&#36;120.00</span></span>
-                            <a href="/woocommerce_51107/?add-to-cart=1946" rel="nofollow" data-product_id="1946" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                        </li>
-                        
-                        <li class="post-1942 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                            <a href="">
-                            <img src="<?php echo site_url().'upload/products/loudspeakers.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=""/>
-                            <h3>B-e-w 803 diamond... </h3>
-                            </a>
-                            
-                            <div class="short_desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-                            <span class="price"><del><span class="amount">&#36;94.50</span></del> <ins><span class="amount">&#36;80.00</span></ins></span>
-                            <a href="/woocommerce_51107/?add-to-cart=1942" rel="nofollow" data-product_id="1942" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                        </li>
-                        
-                        <li class="post-1938 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                            <a href="">
-                            <img src="<?php echo site_url().'upload/products/camera.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=/>
-                            <h3>Canon eos rebel... </h3>
-                            </a>
-                            
-                            <div class="short_desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-                            <span class="price">
-                                <span class="amount">&#36;104.00</span>
-                            </span>
-                            <a href="/woocommerce_51107/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                        </li>
+
+                        <?php foreach ($data as $product) {?>
+                                    <li class="post-1946 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+                                        <a href="">
+                                        <img src="<?php echo site_url().'upload/products/camera.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=/>
+                                        <h3><?php echo corta_texto($product->name,17);?></h3>
+                                        </a>
+                                        <div class="short_desc">
+                                            <?php echo corta_texto($product->description,100);?>
+                                        </div>
+                                        <span class="price">
+                                            <span class="amount"><?php echo $product->price?></span>
+                                    </span>
+                                        <a href="/woocommerce_51107/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                                    </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
