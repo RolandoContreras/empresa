@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "home";
+$route['home'] = "home";
 $route['acerca'] = "about";
 $route['compras'] = "shop";
 $route['contacto'] = "contacs";

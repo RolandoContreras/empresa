@@ -160,11 +160,13 @@
                 <h2>Productos Destacados</h2>
                     <div class="woocommerce columns-3">
                         <ul class="products">
+   
+                        <?php// foreach ($data as $obj_product){ ?>    
                         <li class="post-1958 product type-product status-publish has-post-thumbnail first featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-vel-mauris instock">
                             <a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-15/">
-                                <!--<span class="onsale">Sale!</span>-->
+                                <span class="onsale">Sale!</span>
                                 <img width="300" height="300" src="<?php echo site_url().'upload/products/acer.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=""/>
-                                <h3>Acer h233h bmid... </h3>
+                                <h3>Acer<?php //echo $obj_product->name;?></h3>
                                 
                                 <div class="star-rating" title="Rated 5.00 out of 5">
                                     <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
@@ -172,15 +174,13 @@
                             </a>
                             <div class="short_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                             <span class="price">
-                                <del><span class="amount">&#36;75.00</span></del><!----Precio tachado----->
-                                <ins>
                                     <span class="amount">&#36;70.00</span>
-                                </ins>
                             </span>
                             <a href="/woocommerce_51107/?add-to-cart=1958" rel="nofollow" data-product_id="1958" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
                         </li>
+                             <?php //} ?> 
                         
-                        <li class="post-1954 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+                        <li class="post-1958 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
                             <a href="">
                                 <img  width="300" height="300" src="<?php echo site_url().'upload/products/spaker.jpg'?>" class="attachment-shop_catalog wp-post-image" alt=""/>
                                 <h3>Altec lansing fx3022... </h3>
@@ -192,7 +192,7 @@
                             <a href="/woocommerce_51107/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
                         </li>
                         
-                        <li class="post-1950 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+                        <li class="post-1958 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-2 product-cat-product-category-4 product-tag-etiam-dictum product-tag-mauris-posuere product-tag-sed-blandit-massa product-tag-vel-mauris instock">
                             <a href="">
                                 <img src="<?php echo site_url().'upload/products/apple.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=""/>
                             <h3>Apple mac mini</h3>
