@@ -45,6 +45,8 @@ $route['compras'] = "shop";
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
 $route['micuenta'] = "myaccount";
+
+$route['dashboard'] = "dashboard";
 $route['404_override'] = '';
 
 
