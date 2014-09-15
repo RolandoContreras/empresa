@@ -47,6 +47,7 @@ $route['detalle'] = "detail_contain";
 $route['micuenta'] = "myaccount";
 
 $route['dashboard'] = "dashboard";
+$route['dashboard/panel'] = "panel";
 $route['404_override'] = '';
 
 

@@ -133,5 +133,12 @@ class Users_Model extends CI_Model{
         $dato = $query->row();
         return $dato;       
   }
+  public function verificar_email($email,$password){        
+        $this->db->where('email',$email);
+        $this->db->where('password', $password);
+        $this->db->from($this->table);
+        $query = $this->db->get();                     
+        return $query->row();        
+    }
 } //FIN DEL MODELO EXTENDIDO
 ?>

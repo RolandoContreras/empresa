@@ -28,7 +28,8 @@ class Dashboard extends CI_Controller {
     	        array_pop($cadena3);
     	        array_shift($cadena3);                
     	        $data['print'] = $cadena3[0];
-                $data['message'] = "false";               
+                $data['message'] = "false";       
+                
     	    }else{
                 $data['message'] = "true";
     	        $data['print'] = "Bienvenido al sistema";
@@ -42,13 +43,16 @@ class Dashboard extends CI_Controller {
     public function validar_user($email){        
         $password = $this->input->post('password');  
         $obj_user = $this->obj_user->verificar_email($email,$password);       
-        if (count($obj_user)>0){            
+        
+      
+        
+        if (count($obj_user)>0){
+            
             if ($obj_user->status_value == 1){                            
                 $data_user_session['user_id'] = $obj_user->user_id;
                 $data_user_session['name'] = $obj_user->first_name.' '.$obj_user->last_name;
                 $data_user_session['email'] = $obj_user->email;
                 $data_user_session['logged_usercms'] = "TRUE";
-                $data_user_session['department'] = $obj_user->department;
                 $data_user_session['status'] = $obj_user->status_value;
                 $_SESSION['usercms'] = $data_user_session;                  
                 return true;    
@@ -67,11 +71,4 @@ class Dashboard extends CI_Controller {
 	$this->session->destroy();
         redirect('dashboard'); 
     }
-        
-    public function demo(){
-        $password = "123456";
-       echo md5(get_semilla().$password);
-    }
-    
-    
 }

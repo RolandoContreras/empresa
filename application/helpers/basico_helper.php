@@ -24,4 +24,8 @@ function corta_texto($texto, $longitud=400) {
     }
     return $texto; 
 }
+function get_semilla(){
+    $semilla='ab513c75f48d82bcd30aa48e478d2e6e';
+    return $semilla;
+}
 ?>
