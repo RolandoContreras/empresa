@@ -53,6 +53,10 @@ class Product_Model extends CI_Model{
 	
 	$this->fields = new products_model_atributos();
     }   
+    
+    public function fields(){
+    }
+    
     public function insert($data){
       $this->db->insert($this->table, $data);
     }

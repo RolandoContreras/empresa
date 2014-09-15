@@ -48,6 +48,10 @@ $route['micuenta'] = "myaccount";
 
 $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
+$route['dashboard/productos'] = "d_products";
+$route['dashboard/d_products/load'] = "d_products/load";
+
+
 $route['404_override'] = '';
 
 

@@ -3,7 +3,7 @@
 class Panel extends CI_Controller{
     public function __construct() {
         parent::__construct();      
-        $this->load->library('controller_basecms');
+      //  $this->load->library('controller_basecms');
         //$this->controller_basecms->get_sesion();
     }
     
@@ -16,7 +16,7 @@ class Panel extends CI_Controller{
         $this->tmp_mastercms->set('link_modulo',$link_modulo);
         $this->tmp_mastercms->set('seccion',$seccion);
         $this->tmp_mastercms->render('panel');
-        $this->load->view("panel");
+      
         
      }
      
