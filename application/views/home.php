@@ -130,10 +130,12 @@
                                         <div class="short_desc">
                                             <?php echo corta_texto($product->description,100);?>
                                         </div>
-                                        <span class="price">
-                                            <span class="amount"><?php echo $product->price?></span>
-                                    </span>
+                                            <span class="price">
+                                                <span class="amount">S/.<?php echo $product->price?></span>
+                                            </span>
+                                       <br/><br/>
                                         <a href="/woocommerce_51107/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                                      
                                     </li>
                         <?php } ?>
                     </ul>

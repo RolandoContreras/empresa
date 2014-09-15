@@ -9,12 +9,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- CSS -->
-        <link href="static/cms/css/core/bootstrap.css" rel="stylesheet">	
-        <link href="static/cms/css/core/combine_fonts.css" rel="stylesheet">	
-        <link href="static/cms/css/core/buttons.css" rel="stylesheet">
-        <link href="static/cms/css/style.css" rel="stylesheet">
+        <link href="<?php echo site_url()?>static/cms/css/core/bootstrap.css" rel="stylesheet">	
+        <link href="<?php echo site_url()?>static/cms/css/core/combine_fonts.css" rel="stylesheet">	
+        <link href="<?php echo site_url()?>static/cms/css/core/buttons.css" rel="stylesheet">
+        <link href="<?php echo site_url()?>static/cms/css/style.css" rel="stylesheet">
         <!-- color style -->
-        <link href="static/cms/css/core/dark.css" rel="stylesheet">
+        <link href="<?php echo site_url()?>static/cms/css/core/dark.css" rel="stylesheet">
         
         <link href="static/cms/css/core/bootstrap-responsive.css" rel="stylesheet">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

@@ -9,7 +9,9 @@ class Dashboard extends CI_Controller {
     public function index(){    
         
        $this->load->view('dashboard');
-       session_destroy();
+       if(isset($_SESSION)){
+           session_destroy();
+       }
     }
     
     public function validate(){
