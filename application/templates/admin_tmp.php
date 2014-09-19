@@ -44,7 +44,7 @@
     <div id="header" class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
-                <a class="brand" href="<?php echo site_url();?>home"><img src="static/cms/images/qimages.jpg" />WaveLine</a> 
+                <a class="brand" href="<?php echo site_url();?>dashboard/panel">WaveLine</a> 
                 <div class="btn-toolbar pull-right">                        
                 <!-- /btn-group -->
                     <div class="btn-group">
@@ -79,7 +79,7 @@
                             <div class="accordion-group fs">
                                     <div class="accordion-heading">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#dashboardsb">
-                                            <i class="icon-large icon-th-large head_icon"></i> Mantenimientos  
+                                        Mantenimientos  
                                         </a>
                                     </div>
                                     <div id="dashboardsb" class="accordion-body collapse in">
@@ -99,7 +99,7 @@
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#recursos">
-                                            <i class="icon-large icon-th-large head_icon"></i> Recursos
+                                    Recursos
                                     </a>
                                 </div>
                                 <div id="recursos" class="accordion-body collapse">

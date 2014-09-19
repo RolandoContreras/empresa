@@ -13,16 +13,16 @@ class Home extends CI_Controller {
             //SELECT PRODUCT COMMUN
             $params = array(
                         "select" =>"",
-                        "where" => "status_value = 2",
+                        "where" => "position = 2 and status_value = 1",
                         "order" => "status_value DESC LIMIT 3"
                         );
            
              $obj_products['product_custom'] = $this->obj_products->search($params);
              
-            //SELECT PRODUCT COMMUN
+             //SELECT PRODUCT COMMUN
             $params_product = array(
                         "select" =>"",
-                        "where" => "status_value = 1",
+                        "where" => "status_value = 1 and position = 1",
                         "order" => "status_value DESC LIMIT 6"
                         );
            

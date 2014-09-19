@@ -6,26 +6,28 @@ class D_products extends CI_Controller{
         parent::__construct();
         //$this->load->model("menu_model","obj_menu");
         $this->load->model("product_model","obj_products");
+        $this->load->model("categories_model","obj_categories");
 //        $this->load->library('controller_basecms');
 //        $this->controller_basecms->get_sesion();        
     }   
                 
     public function index(){  
-     
            $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
            $params = array(
-                        "select" =>"product_id,
-                                    id_category,
-                                    name,
-                                    description,
-                                    big_image,
-                                    medium_image,
-                                    small_image,
-                                    price,
-                                    stock,
-                                    status_value ",
-                         "where" => "name like '%$search_text%'",
-                         "order" => "product_id DESC",
+                        "select" =>"products.product_id,
+                                    products.name as tittle,
+                                    categories.name,
+                                    products.description,
+                                    products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
+                                    products.price,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.name like '%$search_text%'",
+                         "order" => "position DESC",
+                         "join" => array('categories, products.id_category = categories.id_category')
             ); 
             /// PAGINADO
             $config=array();
@@ -56,8 +58,7 @@ class D_products extends CI_Controller{
 
             /// DATA
             $obj_products= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(4));
-      
-            
+        
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
@@ -68,184 +69,111 @@ class D_products extends CI_Controller{
 
     }
     
-    public function load($menu_id=NULL){
+    public function load($product_id=NULL){
         
         $obj_products = $this->obj_products->fields;         
         
-        if ($menu_id != ""){
+        if ($product_id != ""){
             /// PARAMETROS PARA EL SELECT 
-            $where = "menu_id = $menu_id";
+            $where = "product_id = $product_id";
             $params = array(
                            "select" => "", 
                            "where" => $where);
-            $obj_menu  = $this->obj_products->get_search_row($params);   
+            $obj_product  = $this->obj_products->get_search_row($params);   
+            $this->tmp_mastercms->set("obj_product",$obj_product);
           }
-            //$where_parent = "menus.menu_id in (1,2,34)";
-            $params_parent = array(
-                           "select" => "menu_id,parent_menu_id,tittle",
-                           "where" => "");
-            $obj_menu  = $this->obj_products->search($params_parent); 
-        
-        $modulos ='Menu'; 
-        $seccion = 'Formulario';        
-        $link_modulo =  site_url().'dashboard/'.$modulos; 
-        
-        $this->tmp_mastercms->set('link_modulo',$link_modulo);
-        $this->tmp_mastercms->set('modulos',$modulos);
-        $this->tmp_mastercms->set('seccion',$seccion);
-        $this->tmp_mastercms->set("obj_menu",$obj_menu);
-        $this->tmp_mastercms->set('obj_menu_parent',$obj_menu_parent);
-        $this->tmp_mastercms->render("dashboard/product/product_form");    
-    }
-	
-/*    public function upload_menu(){
-		$month_banner = date("m");   
-		$year_banner = date("Y");           
+            //Select ccateory name
+            $params = array("select" => "");
+            $obj_category  = $this->obj_categories->search($params);   
+            $this->tmp_mastercms->set("obj_category",$obj_category);
+            
+            $modulos ='productos'; 
+            $seccion = 'Formulario';        
+            $link_modulo =  site_url().'dashboard/'.$modulos; 
 
-		
-        $config                     =   array();
-        $config['upload_path']      = './upload/banner/'.$year_banner.'/'.$month_banner;
-        $config['allowed_types']    = 'gif|jpg|png|jpeg';
-        $config['max_size']         = '100';
-        $config['max_width']        = '705';
-        $config['max_height']       = '252';
-        $config['encrypt_name']     =   TRUE; 
-        
-        $exist=FALSE;
-        if(!is_dir($config['upload_path'])){
-			if(!is_dir('./upload/banner/'.$year_banner)){							
-				@mkdir('./upload/banner/'.$year_banner, 0777);
-			}
-            $exist=@mkdir($config['upload_path'], 0777);
-        }else{
-            $exist=TRUE;
-        }    
-				
-        $nom_img ="";
-		
-        if($exist===TRUE){                                               
-            $this->load->library('upload', $config);            
-          if ($this->upload->do_upload('file_banner')){            
-                $foto = $this->upload->data();
-				
-                $nom_img = 'upload/banner/'.$year_banner."/".$month_banner."/".$foto["file_name"];                       
-            }      
-        }       
-        return $nom_img;
+            $this->tmp_mastercms->set('link_modulo',$link_modulo);
+            $this->tmp_mastercms->set('modulos',$modulos);
+            $this->tmp_mastercms->set('seccion',$seccion);
+            $this->tmp_mastercms->render("dashboard/product/product_form");    
     }
 	
-*/	
     public function validate(){
-        $menu_id = $this->input->post("menu_id");
-		
-		 $data = array(
-                'parent_menu_id' => $this->input->post('parent_menu_id'),
-                'tittle' => $this->input->post('tittle'),
-                'url' => $this->input->post('url'),
-                'position' => $this->input->post('position'),
-                'status_value' => $this->input->post('status_value'),
-                'created_at' => date("Y-m-d H:i:s"),
-                'created_by' => $_SESSION['usercms']['user_id'],
-                'updated_at' => date("Y-m-d H:i:s"),
-                'updated_by' => $_SESSION['usercms']['user_id']
-            );          
-		                         
-            if ($menu_id != ""){
-                $this->obj_menu->update($menu_id, $data);
-            }else{
-                $this->obj_menu->insert($data);                
-            }
-            redirect(site_url()."dashboard/menu");
-    }
-
-
-    public function addMenu(){
-         if($this->input->is_ajax_request()){                      
-                    
-            $tittle = $this->input->post('tittle');
-			$position = $this->input->post('position');
-            $status=$this->input->post('status');
-            
-            if (isset($tittle) && strlen($tittle)>0){   
-                 $data_tittle = array(
-                    'tittle' => $tittle,
-                    'status_value'  => $status,
-					'position' => $position,
-                    );
-                         
-                $obj_menu= $this->obj_menu->insert($data_menu);
-               $data['message'] = "true";
-                
-            }else{
-                $data['print'] = "Ingrese un valor correcto";
-                $data['message'] = "false";
-            }          
-            
-            echo json_encode($data);      
-                 exit();
-        }
-    }
-    
-    public function getAllMenu(){
-        if($this->input->is_ajax_request()){  
-            
-            $showmenu=$this->input->post('valmenu');
-            $params = array(
-                            "select" =>"",
-                            "where" => "",
-                            "order" => "url ASC"
-                            );
-            $obj_menu= $this->obj_menu->search($params);
-            
-            $data['message']="true";
-            $cadena="";
-            foreach ($obj_menu as $value) {
-                if($value->status_value==1){$state='Activo';}else{$state='Inactivo';}
-              $cadena=$cadena.'<tr><td><input type="checkbox" class="chkbck" /></td>
-                  <td>'.$value->tittle.'</td>
-                  <td>'.$state.'</td></tr>';
-            }
-            $data['print']=$cadena;
-               
-            echo json_encode($data);      
-            exit();
-        }
-    }
-    
         
-
-    public function delete(){        
-        $arr_url = $this->uri->uri_to_assoc(2);
-        $pk_s = count($arr_url)==2?$arr_url["id"]:"";
-
-        if ($pk_s != ""){
-            $this->obj_s->delete($pk_s);
-        }
-        /*LLAMANDO A LA VISTA*/
-       redirect(redirect_site("dashboard/e-marketing/s"));
-    }
-
-    public function delete_seleccionado(){
-        if($this->input->is_ajax_request()){
-             $data=array("result"=>"0");
-             $s= unserialize(stripslashes($this->input->get("s")));
-                 
-             if(!empty($s)){
-                foreach ($s as $s) {
-                    if(!empty($s)){
-                        $pk_s = decrypt_help($s);
-                        if(is_numeric($pk_s)){
-                            $this->obj_s->delete($pk_s);
-                            $data=array("result"=>"1");    
-                        }
-                    } 
-                }
+        $big    = $this->upload_img("big_image","1500","1500");
+        $medium = $this->upload_img("medium_image","1500","1500"); 
+        $small  = $this->upload_img("small_image","1500","1500");
+        
+        $product_id = $this->input->post("product_id");
+		
+        $data = array(
+               'name' => $this->input->post('tittle'),
+               'description' => $this->input->post('description'),
+               'id_category' => $this->input->post('id_category'),
+               'price' => $this->input->post('price'),
+               'stock' => $this->input->post('stock'),
+               'big_image' => $big,
+               'medium_image' => $medium,
+               'small_image' => $small,
+               'position' => $this->input->post('position'),
+               'status_value' => $this->input->post('status_value'),
+               'created_at' => date("Y-m-d H:i:s"),
+//             'created_by' => $_SESSION['usercms']['user_id'],
+               'updated_at' => date("Y-m-d H:i:s"),
+//             'updated_by' => $_SESSION['usercms']['user_id']
+        );          
+	      
+            if ($product_id != ""){
+                $this->obj_products->update($product_id, $data);
+            }else{
+                $this->obj_products->insert($data);                
             }
-            echo json_encode($data);
-            exit();
+            redirect(site_url()."dashboard/productos");
+    }
+    
+    public function upload_img($img,$width,$height ){
+        $config                     =   array();
+        $config['upload_path']      = './upload/temporal/';
+        $config['allowed_types']    = 'gif|jpg|png|jpeg';
+        $config['max_size']         = '2000';
+        $config['max_width']        = $width;
+        $config['max_height']       = $height;        
+        $config['file_name'] = substr(md5(time()), 0, 16);
+        $this->load->library('upload', $config);          
+        $nom_img ="";
+        if ($this->upload->do_upload($img)){            
+            $product = array('upload_data' => $this->upload->data());
+            $nom_img = $product['upload_data']['file_name'];            
         }else{
-            redirect();
-        }
+            $nom_img = "false";
+        }          
+        return $nom_img ;
+    }  
+    
+//    public function ftp_movie($anio,$mes,$dia,$imagen){
+//        $this->load->library('ftp');
+//        $config['hostname'] = 'server1.flatina.com';
+//        $config['username'] = 'flvideos';
+//        $config['password'] = 'FlbQ81Gd99';
+//        $config['debug'] = false;
+//        $this->ftp->connect($config);
+//        $this->ftp->mkdir('/videos/peliculas/', 0777);
+//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/', 0777);
+//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/'.$mes.'/', 0777);
+//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/'.$mes.'/'.$dia.'/', 0777);
+//        $destino = '/videos/peliculas/'.$anio.'/'.$mes.'/'.$dia.'/'.$imagen;        
+//        $this->ftp->upload(SERVER2.$imagen, $destino,'auto');
+//        $this->ftp->close();
+//        unlink(SERVER2.$imagen);
+//    }
+    
+     public function delete_img($imagen) {
+        $this->load->library('ftp');
+        $config['hostname'] = 'localhost';
+        $config['username'] = '';
+        $config['password'] = '';
+        $config['debug'] = false;
+        $this->ftp->connect($config);
+        $this->ftp->delete_file($imagen);
     }
 }
 ?>

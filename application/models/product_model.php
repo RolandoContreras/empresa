@@ -25,6 +25,7 @@ class products_model_atributos{
     var $price='';
     var $stock='';
     var $status_value='';
+    var $position='';
     var $created_at='';
     var $created_by='';
     var $updated_at='';
@@ -46,6 +47,7 @@ class Product_Model extends CI_Model{
 	$this->price='';
 	$this->stock='';
 	$this->status_value='';
+        $this->position='';
 	$this->created_at='';
 	$this->created_by='';
 	$this->updated_at='';
