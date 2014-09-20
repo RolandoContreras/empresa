@@ -4,15 +4,15 @@
             <div class="navbar navbar-static navbar_as_heading">
                 <div class="navbar-inner">
                     <div class="container" style="width: auto;">
-                        <a class="brand">Listado de Productos</a>
-                        <a class="btn pull-right" onclick="new_products();" >Agregar</a>
+                        <a class="brand">Listado de Categorias</a>
+                        <a class="btn pull-right" onclick="new_categories();" >Agregar</a>
                     </div>
                 </div>
             </div>
             <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/productos">
+                <form method="post" action="<?php echo site_url();?>dashboard/menu">
                  <div class="span2">
-                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Menu">
+                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Categoria">
                  </div>
                 <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
                 <div class="span4">
@@ -30,44 +30,30 @@
                     <tr>
                         <td style="width:20px;"><input type="checkbox" id="chkbck" /></td>
                         <td>Nombre</td>
-                        <td>Descripcion</td>
-                        <td>Categoria</td>
-                        <td>Precio</td>
-                        <td>Stock</td>
-                        <td>Posicion</td>
-                        <td>Imagen 1 </td>
-                        <td>Imagen 2</td>
-                        <td>Imagen 3</td>
+                        <td>Observacion</td>
                         <td>Estado</td>
                     </tr>
                 </thead>
                 <tbody> 
-                    <?php foreach ($obj_products as $value): ?>
+                    <?php foreach ($obj_categories as $value): ?>
                         <tr>
                             <td>
                                 
-                                <?php echo $value->product_id == 0 ? "<img src='static/cms/images/warning.gif'>" : "<img src='static/cms/images/ok.gif'>"; ?>
+                                <?php echo $value->id_category == 0 ? "<img src='static/cms/images/warning.gif'>" : "<img src='static/cms/images/ok.gif'>"; ?>
                             </td>
                             
                             <td>
-                                <div class="post_title"><?php echo $value->tittle;?>
+                                <div class="post_title"><?php echo $value->name;?>
                                     <div class="operation">
                                         <div class="btn-group">
-                                            <button class="btn btn-small" onclick="edit_product('<?php echo $value->product_id;?>');"><i class="icon-pencil"></i> Editar</button>
-                                            <button class="btn btn-small" onclick="delete_product('<?php echo $value->product_id;?>');"><i class="icon-trash-1"></i>Eliminar</button>
+                                            <button class="btn btn-small" onclick="edit_product('<?php echo $value->id_category;?>');"><i class="icon-pencil"></i> Editar</button>
+                                            <button class="btn btn-small" onclick="delete_product('<?php echo $value->id_category;?>');"><i class="icon-trash-1"></i>Eliminar</button>
                                         </div>
                                     </div>
                                 </div>
 
                             </td>
-                            <td><?php echo $value->description; ?></td>
-                            <td><div class="post_title"><?php echo $value->name;?></div></td>
-                            <td><?php echo $value->price; ?></td>
-                            <td><?php echo $value->stock; ?></td>
-                            <td><?php echo $value->position; ?></td>
-                            <td><img src="<?php echo SERVER2.$value->big_image?>" height="42" width="42"></td>
-                            <td><img src="<?php echo SERVER2.$value->medium_image?>" height="42" width="42"></td>
-                            <td><img src="<?php echo SERVER2.$value->small_image?>" height="42" width="42"></td>
+                            <td><?php echo $value->observation; ?></td>
                             <td>
                                 <?php if ($value->status_value == 1) {
                                     $valor = "Activo";
@@ -102,4 +88,4 @@
     </div>
 </div>
 
-<script src="static/cms/js/products.js"></script>
+<script src="static/cms/js/categories.js"></script>

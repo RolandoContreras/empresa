@@ -2,14 +2,8 @@
 <script src="static/cms/js/core/bootstrap-fileupload.js"></script>
 <script src="static/cms/js/products.js"></script>
 <!-- main content -->
- 
-<?php 
-//var_dump($obj_category);
-//die();
-?>
 
 <form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/productos/validate";?>">
-    
 <div id="main_content" class="span7">
     <div class="row-fluid">
         <div class="widget_container">

@@ -16,14 +16,9 @@
 ****/
 
 class categories_model_atributos{	
-    var $product_id='';
+    var $id_category='';
     var $name='';
-    var $description='';
-    var $bid_image='';
-    var $medium_image='';
-    var $small_image='';
-    var $price='';
-    var $stock='';
+    var $observation='';
     var $status_value='';
     var $created_at='';
     var $created_by='';

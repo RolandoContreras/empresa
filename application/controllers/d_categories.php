@@ -1,37 +1,30 @@
 <?php if ( ! defined("BASEPATH")) exit("No direct script access allowed"); 
 
-class D_products extends CI_Controller{    
+class D_categories extends CI_Controller{    
     
     public function __construct(){
         parent::__construct();
-        $this->load->model("product_model","obj_products");
-        $this->load->model("categories_model","obj_categories");
+          $this->load->model("categories_model","obj_categories");
 //        $this->load->library('controller_basecms');
 //        $this->controller_basecms->get_sesion();        
     }   
                 
     public function index(){  
            $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
+           
            $params = array(
-                        "select" =>"products.product_id,
-                                    products.name as tittle,
-                                    categories.name,
-                                    products.description,
-                                    products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
-                                    products.price,
-                                    products.stock,
-                                    products.position,
-                                    products.status_value ",
-                         "where" => "products.name like '%$search_text%'",
-                         "order" => "position DESC",
-                         "join" => array('categories, products.id_category = categories.id_category')
-            ); 
+                        "select" =>"id_category,
+                                    name,
+                                    observation,
+                                    status_value",
+                         "where" => "name like '%$search_text%'",
+                         "order" => "id_category DESC",
+            );
+      
             /// PAGINADO
             $config=array();
-            $config["base_url"] = site_url("dashboard/productos/index"); 
-            $config["total_rows"] = $this->obj_products->total_records($params) ;  
+            $config["base_url"] = site_url("dashboard/categories/index"); 
+            $config["total_rows"] = $this->obj_categories->total_records($params) ;  
             $config["per_page"] = 20; 
             $config["num_links"] = 2;
             $config["uri_segment"] = 4;   
@@ -56,74 +49,44 @@ class D_products extends CI_Controller{
             $link_modulo =  site_url().'dashboard/'.$modulos; 
 
             /// DATA
-            $obj_products= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(4));
-        
+            $obj_categories= $this->obj_categories->search_data($params, $config["per_page"],$this->uri->segment(4));
+                
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
-            $this->tmp_mastercms->set("obj_products",$obj_products);
+            $this->tmp_mastercms->set("obj_categories",$obj_categories);
             $this->tmp_mastercms->set("pagination",$obj_pagination);
-            $this->tmp_mastercms->render("dashboard/product/product_list");
+            $this->tmp_mastercms->render("dashboard/categories/categories_list");
 
     }
     
-    public function load($product_id=NULL){
+    public function load($id_category=NULL){
         
-        $obj_product = $this->obj_products->fields;         
-        
-        if ($product_id != ""){
-            
+        if ($id_category != ""){
             /// PARAMETROS PARA EL SELECT 
-            $where = "product_id = $product_id";
+            $where = "id_category = $id_category";
             $params = array(
                            "select" => "", 
                            "where" => $where);
-            $obj_product  = $this->obj_products->get_search_row($params);  
-            $this->tmp_mastercms->set("obj_product",$obj_product);
+            $obj_categories  = $this->obj_categories->get_search_row($params);  
+            $this->tmp_mastercms->set("obj_categories",$obj_categories);
           }
-            //Select ccateory name
-            $params = array("select" => "");
-            $obj_category  = $this->obj_categories->search($params);   
-            $this->tmp_mastercms->set("obj_category",$obj_category);
-            
-            $modulos ='productos'; 
+            $modulos ='categorias'; 
             $seccion = 'Formulario';        
             $link_modulo =  site_url().'dashboard/'.$modulos; 
 
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
-            $this->tmp_mastercms->render("dashboard/product/product_form");    
+            $this->tmp_mastercms->render("dashboard/categories/categories_form");    
     }
 	
     public function validate(){
-        
-        $big    = $this->upload_img("big_image","1500","1500");
-        $medium = $this->upload_img("medium_image","1500","1500"); 
-        $small  = $this->upload_img("small_image","1500","1500");
-        
-        if($big=="false"){
-             $big = $this->input->post('big_image');
-        }
-        if($medium=="false"){
-             $medium = $this->input->post('medium_image');
-        }
-        if($small=="false"){
-             $small = $this->input->post('small_image');
-        }
-        
-        $product_id = $this->input->post("product_id");
+        $id_category = $this->input->post("id_category");
         $data = array(
-               'name' => $this->input->post('tittle'),
-               'description' => $this->input->post('description'),
-               'id_category' => $this->input->post('id_category'),
-               'price' => $this->input->post('price'),
-               'stock' => $this->input->post('stock'),
-               'big_image' => $big,
-               'medium_image' => $medium,
-               'small_image' => $small,
-               'position' => $this->input->post('position'),
+               'name' => $this->input->post('name'),
+               'observation' => $this->input->post('observation'),
                'status_value' => $this->input->post('status_value'),
                'created_at' => date("Y-m-d H:i:s"),
 //             'created_by' => $_SESSION['usercms']['user_id'],
@@ -131,12 +94,12 @@ class D_products extends CI_Controller{
 //             'updated_by' => $_SESSION['usercms']['user_id']
         );          
         
-            if ($product_id != ""){
-                $this->obj_products->update($product_id, $data);
+            if ($id_category != ""){
+                $this->obj_categories->update($id_category, $data);
             }else{
-                $this->obj_products->insert($data);                
+                $this->obj_categories->insert($data);                
             }
-            redirect(site_url()."dashboard/productos");
+            redirect(site_url()."dashboard/categorias");
     }
     
     public function delete(){      

@@ -1,25 +1,12 @@
 $(document).ready(function(){	
         $('#product-form').validate({
 	    rules: {
-              id_category: {
-	      required: true
-	      },	
-	      tittle: {
+              name: {
 	      minlength: 2,
 	      required: true
 	      },	
-	      description: {
+	      observation: {
 	      minlength: 2,
-	      required: true
-	      },
-              precio: {
-	      required: true
-	      },
-              stock: {
-	      required: true
-	      },
-              position: {
-	      minlength: 1,
 	      required: true
 	      },
           status_value:{
@@ -39,16 +26,16 @@ $(document).ready(function(){
 	  
 }); // end document.ready
 
-function new_products(){
-     var url = 'dashboard/productos/load';
+function new_categories(){
+     var url = 'dashboard/categorias/load';
      location.href = site+url;
 }
 function edit_product(product_id){    
      var url = 'dashboard/productos/load/'+product_id;
      location.href = site+url;   
 }
-function cancelar_product(){
-	var url= 'dashboard/productos';
+function cancelar_categories(){
+	var url= 'dashboard/categorias';
 	location.href = site+url;
 }
 function delete_product(product_id){
