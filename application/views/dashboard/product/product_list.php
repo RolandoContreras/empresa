@@ -35,6 +35,7 @@
                         <td>Precio</td>
                         <td>Stock</td>
                         <td>Posicion</td>
+                        <td>Imagen Principal</td>
                         <td>Imagen 1 </td>
                         <td>Imagen 2</td>
                         <td>Imagen 3</td>
@@ -65,6 +66,7 @@
                             <td><?php echo $value->price; ?></td>
                             <td><?php echo $value->stock; ?></td>
                             <td><?php echo $value->position; ?></td>
+                            <td><img src="<?php echo SERVER2.$value->custom_image?>" height="42" width="42"></td>
                             <td><img src="<?php echo SERVER2.$value->big_image?>" height="42" width="42"></td>
                             <td><img src="<?php echo SERVER2.$value->medium_image?>" height="42" width="42"></td>
                             <td><img src="<?php echo SERVER2.$value->small_image?>" height="42" width="42"></td>

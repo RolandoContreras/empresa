@@ -62,15 +62,15 @@
                                 <div class="inner">
                                     <div data-provides="fileupload" class="fileupload fileupload-new">
                                         <input type="hidden" value="<?php echo isset($obj_product->big_image)?$obj_product->big_image:"";?>" id="big_image" name="big_image">
-                                        <span class="help-block"><center>Ancho:117px X Alto:171px</center></span>
-                                        <div style="max-width: 227px; max-height: 276px; line-height: 20px;" class="fileupload-new thumbnail">
+                                        <span class="help-block"><center>Ancho:300px X Alto:300px</center></span>
+                                        <div style="max-width: 300px; max-height: 300px; line-height: 20px;" class="fileupload-new thumbnail">
 					<?php if (isset($obj_product->big_image)==""){?>
                                                 <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
                                         <?php }else{ ?>
                                                 <img class="thumbnail_videosmall" src="<?php echo SERVER2.$obj_product->big_image?>">
                                         <?php } ?>
                                         </div>
-                                        <div style="max-width: 227px; max-height: 276px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
+                                        <div style="max-width: 300px; max-height: 300px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
 
                                         </div>
                                         <br>
@@ -92,8 +92,8 @@
                                 <div class="inner">
                                     <div data-provides="fileupload" class="fileupload fileupload-new">
                                         <input type="hidden" value="<?php echo isset($obj_product->medium_image)?$obj_product->medium_image:"";?>" id="medium_image" name="medium_image">
-                                        <span class="help-block"><center>Ancho:227px X Alto:276px</center></span>
-                                        <div style="max-width: 227px; max-height: 276px; line-height: 20px;" class="fileupload-new thumbnail">
+                                        <span class="help-block"><center>Ancho:300px X Alto:300px</center></span>
+                                        <div style="max-width: 300px; max-height: 300px; line-height: 20px;" class="fileupload-new thumbnail">
 					<?php if (isset($obj_product->medium_image)==""){?>
                                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
                                         <?php }else{ ?>
@@ -102,7 +102,7 @@
                                                 
                                         <?php } ?>
                                         </div>
-                                        <div style="max-width: 227px; max-height: 276px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
+                                        <div style="max-width: 300px; max-height: 300px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
 
                                         </div>
                                         <br>
@@ -121,15 +121,15 @@
                                 <div class="inner">
                                     <div data-provides="fileupload" class="fileupload fileupload-new">
                                         <input type="hidden" value="<?php echo isset($obj_product->small_image)?$obj_product->small_image:"";?>" id="small_image" name="small_image">
-                                        <span class="help-block"><center>Ancho:433px X Alto:276px</center></span>
-                                        <div style="max-width: 433px; max-height: 276px; line-height: 20px;" class="fileupload-new thumbnail">
+                                        <span class="help-block"><center>Ancho:300px X Alto:300px</center></span>
+                                        <div style="max-width: 300px; max-height: 300px; line-height: 20px;" class="fileupload-new thumbnail">
 					<?php if (isset($obj_product->small_image)==""){?>
-                                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
+                                                <img src="http://www.placehold.it/300x300/EFEFEF/AAAAAA&amp;text=no+image">
                                         <?php }else{ ?>
                                                 <img src="<?php echo SERVER2.$obj_product->small_image?>">
                                         <?php } ?>
                                         </div>
-                                        <div style="max-width: 433px; max-height: 276px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
+                                        <div style="max-width: 300px; max-height: 300px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
 
                                         </div>
                                         <br>
@@ -143,6 +143,34 @@
                                     </div>                                    
                                 </div>
                             </div>
+                            <!-------------------------------------------------------->
+                            <div class="tab-content">
+                                <div class="inner">
+                                    <div data-provides="fileupload" class="fileupload fileupload-new">
+                                        <input type="hidden" value="<?php echo isset($obj_product->custom_image)?$obj_product->custom_image:"";?>" id="custom_image" name="custom_image">
+                                        <span class="help-block"><center>Ancho:368px X Alto:171px</center></span>
+                                        <div style="max-width: 368px; max-height: 171px; line-height: 20px;" class="fileupload-new thumbnail">
+					<?php if (isset($obj_product->custom_image)==""){?>
+                                                <img src="http://www.placehold.it/368x171/EFEFEF/AAAAAA&amp;text=no+image">
+                                        <?php }else{ ?>
+                                                <img src="<?php echo SERVER2.$obj_product->custom_image?>">
+                                        <?php } ?>
+                                        </div>
+                                        <div style="max-width: 368px; max-height: 171px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail">
+
+                                        </div>
+                                        <br>
+                                        <div>
+                                          <span class="btn btn-file">
+                                              <span class="fileupload-new">Seleccionar Imagen</span>
+                                              <span class="fileupload-exists">Cambiar</span>
+                                              <input type="file" name="custom_image" id="custom_image"></span>
+                                          <a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Eliminar</a>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                           <!--------------------------------------------------------> 
                         </div>
                     </div>
                 </div>

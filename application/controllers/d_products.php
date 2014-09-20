@@ -17,6 +17,7 @@ class D_products extends CI_Controller{
                                     products.name as tittle,
                                     categories.name,
                                     products.description,
+                                    products.custom_image,
                                     products.big_image,
                                     products.medium_image,
                                     products.small_image,
@@ -99,10 +100,14 @@ class D_products extends CI_Controller{
 	
     public function validate(){
         
+        $custom    = $this->upload_img("custom_image","1500","1500");
         $big    = $this->upload_img("big_image","1500","1500");
         $medium = $this->upload_img("medium_image","1500","1500"); 
         $small  = $this->upload_img("small_image","1500","1500");
         
+        if($custom=="false"){
+             $custom = $this->input->post('custom_image');
+        }
         if($big=="false"){
              $big = $this->input->post('big_image');
         }
@@ -120,6 +125,7 @@ class D_products extends CI_Controller{
                'id_category' => $this->input->post('id_category'),
                'price' => $this->input->post('price'),
                'stock' => $this->input->post('stock'),
+               'custom_image' => $custom,
                'big_image' => $big,
                'medium_image' => $medium,
                'small_image' => $small,

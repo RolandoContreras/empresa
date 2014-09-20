@@ -12,7 +12,14 @@ class Home extends CI_Controller {
 	{
             //SELECT PRODUCT COMMUN
             $params = array(
-                        "select" =>"",
+                        "select" =>"product_id,
+                                id_category,
+                                name,
+                                description,
+                                custom_image,
+                                big_image,
+                                price,
+                                position",
                         "where" => "position = 2 and status_value = 1",
                         "order" => "status_value DESC LIMIT 3"
                         );

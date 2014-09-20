@@ -76,21 +76,20 @@
             <div class="row ">
                 <?php foreach ($product_custom as $value) {?>
                         <div class="span4 ">
-                            <a href="<?php echo site_url().'detalle';?>" title="Meat Grinder -20%" class="banner-wrap ">
+                            <a href="<?php echo site_url().'detalle';?>" class="banner-wrap ">
                                 <figure class="featured-thumbnail">
-                                    <img src="<?php echo site_url().'static/images/custom/banner01.jpg';?>" title="Meat Grinder -20%" alt=""/>
+                                    <img src="<?php echo SERVER2.$value->custom_image;?>" alt="<?php echo $value->name;?>"/>
                                 </figure>
-                                <div class="extra-wrap"><h5><?php echo corta_texto($value->name,20); ?></h5>
+                                <div class="extra-wrap"><h5><?php echo corta_texto($value->name,16); ?></h5>
                                     <div class="link-align banner-btn">Comprar Ahora</div>
                                 </div>
                             </a> 
                         </div>
                 <?php } ?>
-
             </div> 
         </div>
     </div>
-    <!----Custom banners---->    
+    <!------------------>    
         
     <div class="row ">
     <div class="span3 ">
@@ -102,7 +101,7 @@
                     <?php foreach ($category as $value) { ?>
                             <li class='advanced_categories_item last'>
                                 <div class='advanced_categories_item_inner'>
-                                <h4><a href='http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-2/'><?php echo $value->name;?></a></h4>
+                                <h4><a href=''><?php echo $value->name;?></a></h4>
                                 </div>
                             </li>
                     <?php } ?>
@@ -124,7 +123,7 @@
                         <?php foreach ($data as $product) {?>
                                     <li class="post-1946 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
                                         <a href="">
-                                        <img src="<?php echo site_url().'upload/products/camera.jpg';?>" class="attachment-shop_catalog wp-post-image" alt=/>
+                                        <img src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt=/>
                                         <h3><?php echo corta_texto($product->name,17);?></h3>
                                         </a>
                                         <div class="short_desc">

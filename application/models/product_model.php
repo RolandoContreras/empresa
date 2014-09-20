@@ -19,6 +19,7 @@ class products_model_atributos{
     var $product_id='';
     var $name='';
     var $description='';
+    var $custom_image='';
     var $bid_image='';
     var $medium_image='';
     var $small_image='';
@@ -41,6 +42,7 @@ class Product_Model extends CI_Model{
         $this->product_id='';
 	$this->name='';
 	$this->description='';
+        $this->custom_image='';
 	$this->bid_image='';
 	$this->medium_image='';
         $this->small_image='';
