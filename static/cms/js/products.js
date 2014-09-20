@@ -43,12 +43,30 @@ function new_products(){
      var url = 'dashboard/productos/load';
      location.href = site+url;
 }
+
+function edit_gallery(image_id){     
+     var url = 'dashboard/foto/load/'+image_id;
+     location.href = site+url;    
+}
+
+
+function edit_product(product_id){    
+     var url = 'dashboard/productos/load/'+product_id;
+     location.href = site+url;   
+}
 function cancelar_product(){
 	var url= 'dashboard/productos';
 	location.href = site+url;
 }
-
-function edit_menu(menu_id){    
-     var url = 'dashboard/menu/load/'+menu_id;
-     location.href = site+url;   
+function delete_product(product_id){
+	  $.ajax({
+            type: "post",
+            url: site+"dashboard/productos/delete/"+product_id,
+            dataType: "json",
+            data: {product_id : product_id},
+            success:function(data){  
+			alert("El producto ha sido eliminado")          
+          	location.reload();
+            }         
+     }); 
 }

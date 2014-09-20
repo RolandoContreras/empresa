@@ -50,6 +50,8 @@ $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
 $route['dashboard/productos'] = "d_products";
 $route['dashboard/productos/load'] = "d_products/load";
+$route['dashboard/productos/load/([0-9]+)'] = "d_products/load/$1";
+$route['dashboard/productos/delete/([0-9]+)'] = "d_products/delete/$1";
 $route['dashboard/productos/validate'] = "d_products/validate";
 
 

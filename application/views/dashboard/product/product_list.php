@@ -53,8 +53,8 @@
                                 <div class="post_title"><?php echo $value->tittle;?>
                                     <div class="operation">
                                         <div class="btn-group">
-                                            <button class="btn btn-small" onclick="edit_menu('<?php echo $value->product_id; ?>');"><i class="icon-pencil"></i> Editar</button>
-                                            <button class="btn btn-small"><i class="icon-trash-1"></i>Eliminar</button>
+                                            <button class="btn btn-small" onclick="edit_product('<?php echo $value->product_id;?>');"><i class="icon-pencil"></i> Editar</button>
+                                            <button class="btn btn-small" onclick="delete_product('<?php echo $value->product_id;?>');"><i class="icon-trash-1"></i>Eliminar</button>
                                         </div>
                                     </div>
                                 </div>

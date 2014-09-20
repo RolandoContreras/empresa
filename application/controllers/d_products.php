@@ -71,15 +71,16 @@ class D_products extends CI_Controller{
     
     public function load($product_id=NULL){
         
-        $obj_products = $this->obj_products->fields;         
+        $obj_product = $this->obj_products->fields;         
         
         if ($product_id != ""){
+            
             /// PARAMETROS PARA EL SELECT 
             $where = "product_id = $product_id";
             $params = array(
                            "select" => "", 
                            "where" => $where);
-            $obj_product  = $this->obj_products->get_search_row($params);   
+            $obj_product  = $this->obj_products->get_search_row($params);  
             $this->tmp_mastercms->set("obj_product",$obj_product);
           }
             //Select ccateory name
@@ -103,8 +104,17 @@ class D_products extends CI_Controller{
         $medium = $this->upload_img("medium_image","1500","1500"); 
         $small  = $this->upload_img("small_image","1500","1500");
         
+        if($big=="false"){
+             $big = $this->input->post('big_image');
+        }
+        if($medium=="false"){
+             $medium = $this->input->post('medium_image');
+        }
+        if($small=="false"){
+             $small = $this->input->post('small_image');
+        }
+        
         $product_id = $this->input->post("product_id");
-		
         $data = array(
                'name' => $this->input->post('tittle'),
                'description' => $this->input->post('description'),
@@ -121,13 +131,26 @@ class D_products extends CI_Controller{
                'updated_at' => date("Y-m-d H:i:s"),
 //             'updated_by' => $_SESSION['usercms']['user_id']
         );          
-	      
+        
             if ($product_id != ""){
                 $this->obj_products->update($product_id, $data);
             }else{
                 $this->obj_products->insert($data);                
             }
             redirect(site_url()."dashboard/productos");
+    }
+    
+    public function delete(){      
+	if($this->input->is_ajax_request()){   
+            $product_id = $this->input->post("product_id");
+            if (count($product_id) > 0){
+                $this->obj_products->delete($product_id);
+                $dato['print'] = "El producto ha sido eliminado"; 
+            }
+            $dato['print'] = "Error"; 
+            echo json_encode($dato);            
+        exit();
+            }
     }
     
     public function upload_img($img,$width,$height ){
