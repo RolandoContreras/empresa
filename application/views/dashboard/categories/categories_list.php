@@ -14,7 +14,7 @@
                  <div class="span2">
                          <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Categoria">
                  </div>
-                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
+                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/categorias"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
                 <div class="span4">
                     <div class="pagination">
                         <?php echo $pagination; ?>
@@ -46,8 +46,8 @@
                                 <div class="post_title"><?php echo $value->name;?>
                                     <div class="operation">
                                         <div class="btn-group">
-                                            <button class="btn btn-small" onclick="edit_product('<?php echo $value->id_category;?>');"><i class="icon-pencil"></i> Editar</button>
-                                            <button class="btn btn-small" onclick="delete_product('<?php echo $value->id_category;?>');"><i class="icon-trash-1"></i>Eliminar</button>
+                                            <button class="btn btn-small" onclick="edit_categories('<?php echo $value->id_category;?>');"><i class="icon-pencil"></i> Editar</button>
+                                            <button class="btn btn-small" onclick="delete_categories('<?php echo $value->id_category;?>');"><i class="icon-trash-1"></i>Eliminar</button>
                                         </div>
                                     </div>
                                 </div>

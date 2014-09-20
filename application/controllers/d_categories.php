@@ -44,7 +44,7 @@ class D_categories extends CI_Controller{
             
             $this->pagination->initialize($config);        
             $obj_pagination = $this->pagination->create_links();
-            $modulos ='productos'; 
+            $modulos ='categorias'; 
             $seccion = 'Lista';        
             $link_modulo =  site_url().'dashboard/'.$modulos; 
 
@@ -104,61 +104,15 @@ class D_categories extends CI_Controller{
     
     public function delete(){      
 	if($this->input->is_ajax_request()){   
-            $product_id = $this->input->post("product_id");
-            if (count($product_id) > 0){
-                $this->obj_products->delete($product_id);
-                $dato['print'] = "El producto ha sido eliminado"; 
+            $id_category = $this->input->post("id_category");
+            if (count($id_category) > 0){
+                $this->obj_categories->delete($id_category);
+                $dato['print'] = "La Categoria ha sido eliminado"; 
             }
             $dato['print'] = "Error"; 
             echo json_encode($dato);            
         exit();
             }
-    }
-    
-    public function upload_img($img,$width,$height ){
-        $config                     =   array();
-        $config['upload_path']      = './upload/temporal/';
-        $config['allowed_types']    = 'gif|jpg|png|jpeg';
-        $config['max_size']         = '2000';
-        $config['max_width']        = $width;
-        $config['max_height']       = $height;        
-        $config['file_name'] = substr(md5(time()), 0, 16);
-        $this->load->library('upload', $config);          
-        $nom_img ="";
-        if ($this->upload->do_upload($img)){            
-            $product = array('upload_data' => $this->upload->data());
-            $nom_img = $product['upload_data']['file_name'];            
-        }else{
-            $nom_img = "false";
-        }          
-        return $nom_img ;
-    }  
-    
-//    public function ftp_movie($anio,$mes,$dia,$imagen){
-//        $this->load->library('ftp');
-//        $config['hostname'] = 'server1.flatina.com';
-//        $config['username'] = 'flvideos';
-//        $config['password'] = 'FlbQ81Gd99';
-//        $config['debug'] = false;
-//        $this->ftp->connect($config);
-//        $this->ftp->mkdir('/videos/peliculas/', 0777);
-//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/', 0777);
-//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/'.$mes.'/', 0777);
-//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/'.$mes.'/'.$dia.'/', 0777);
-//        $destino = '/videos/peliculas/'.$anio.'/'.$mes.'/'.$dia.'/'.$imagen;        
-//        $this->ftp->upload(SERVER2.$imagen, $destino,'auto');
-//        $this->ftp->close();
-//        unlink(SERVER2.$imagen);
-//    }
-    
-     public function delete_img($imagen) {
-        $this->load->library('ftp');
-        $config['hostname'] = 'localhost';
-        $config['username'] = '';
-        $config['password'] = '';
-        $config['debug'] = false;
-        $this->ftp->connect($config);
-        $this->ftp->delete_file($imagen);
     }
 }
 ?>

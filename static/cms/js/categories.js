@@ -30,22 +30,22 @@ function new_categories(){
      var url = 'dashboard/categorias/load';
      location.href = site+url;
 }
-function edit_product(product_id){    
-     var url = 'dashboard/productos/load/'+product_id;
+function edit_categories(id_category){    
+     var url = 'dashboard/categorias/load/'+id_category;
      location.href = site+url;   
 }
 function cancelar_categories(){
 	var url= 'dashboard/categorias';
 	location.href = site+url;
 }
-function delete_product(product_id){
+function delete_categories(id_category){
 	  $.ajax({
             type: "post",
-            url: site+"dashboard/productos/delete/"+product_id,
+            url: site+"dashboard/categorias/delete/"+id_category,
             dataType: "json",
-            data: {product_id : product_id},
+            data: {id_category : id_category},
             success:function(data){  
-			alert("El producto ha sido eliminado")          
+		alert("La Categoria ha sido eliminado")          
           	location.reload();
             }         
      }); 
