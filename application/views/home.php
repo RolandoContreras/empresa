@@ -1,5 +1,11 @@
 <?php $this->load->view("header");?>
 
+<?php 
+
+//var_dump($data);
+//die();
+?>
+
 <body class="home page page-id-203 page-template page-template-page-home-php has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
     <header class="motopress-wrapper header">
@@ -76,7 +82,7 @@
             <div class="row ">
                 <?php foreach ($product_custom as $value) {?>
                         <div class="span4 ">
-                            <a href="<?php echo site_url().'detalle';?>" class="banner-wrap ">
+                            <a href="<?php echo site_url().$value->category;?>" class="banner-wrap ">
                                 <figure class="featured-thumbnail">
                                     <img src="<?php echo SERVER2.$value->custom_image;?>" alt="<?php echo $value->name;?>"/>
                                 </figure>
@@ -89,11 +95,10 @@
             </div> 
         </div>
     </div>
-    <!------------------>    
         
     <div class="row ">
     <div class="span3 ">
-        <!----Categories---->            
+        <!---------------------Categories--------------->            
         <div class="featured_categories">
             <div class="featured_categories_wrap_inner">
                 <h2>Categorias</h2>
@@ -109,7 +114,7 @@
                   </ul>
             </div>
         </div>
-        <!---------------->
+        <!--------------------------------------------->
     </div>
       
     <!-----Featured Products----->    
@@ -122,7 +127,7 @@
 
                         <?php foreach ($data as $product) {?>
                                     <li class="post-1946 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                                        <a href="">
+                                        <a href="<?php echo site_url().$product->category;?>">
                                         <img src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt=/>
                                         <h3><?php echo corta_texto($product->name,17);?></h3>
                                         </a>

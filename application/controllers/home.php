@@ -10,31 +10,42 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{
-            //SELECT PRODUCT COMMUN
+            
+            //SELECT PRODUCT CUSTOM
             $params = array(
-                        "select" =>"product_id,
-                                id_category,
-                                name,
-                                description,
-                                custom_image,
-                                big_image,
-                                price,
-                                position",
-                        "where" => "position = 2 and status_value = 1",
-                        "order" => "status_value DESC LIMIT 3"
+                        "select" =>"products.product_id,
+                                    products.id_category,
+                                    products.name,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.price,
+                                    categories.name as category,
+                                    products.position",
+                        "where" => "products.position = 2 and products.status_value = 1",
+                        "order" => "products.product_id DESC LIMIT 3",
+                        "join" => array('categories, products.id_category = categories.id_category')
                         );
            
              $obj_products['product_custom'] = $this->obj_products->search($params);
              
              //SELECT PRODUCT COMMUN
             $params_product = array(
-                        "select" =>"",
-                        "where" => "status_value = 1 and position = 1",
-                        "order" => "status_value DESC LIMIT 6"
+                        "select" =>"products.product_id,
+                                    products.id_category,
+                                    products.name,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.price,
+                                    categories.name as category,
+                                    products.position",
+                        "where" => "products.status_value = 1 and position = 1",
+                        "order" => "products.product_id DESC LIMIT 6",
+                        "join" => array('categories, products.id_category = categories.id_category')
                         );
            
              $obj_products['data'] = $this->obj_products->search($params_product);
-             
              
             //SELECT CATEGORIES
             $param_category = array(
