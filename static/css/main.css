@@ -1,0 +1,14 @@
+/* 
+    Document   : main.css
+    Created on : Nov 3, 2013, 12:04:26 PM
+    Author     : hrpoliveira
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div.error-message {
+    background-color:   #f2dede;
+    border-color:       #eed3d7;
+    color:              #b94a48;
+    padding:            15px;
+}

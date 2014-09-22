@@ -59,6 +59,8 @@ $route['micuenta/validar_user'] = "myaccount/validar_user";
 $route['checkout'] = "checkout";
 $route['checkout/pagar'] = "checkout/pay";
 
+$route['backoffice'] = "backoffice";
+
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
 

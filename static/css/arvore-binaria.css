@@ -1,0 +1,415 @@
+/* Tela da Minha Rede / Arvore BinÃ¡ria */
+
+.arvore .button{
+	background-color: #FFF;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0px 2px 6px -3px rgba(0,0,0,.4);
+	color: #333;
+	display: inline-block;
+	font-weight: 700;
+	padding:3px 8px;
+	position: relative;
+}
+.arvore .button:hover{
+	background-color: #f8f8f8;
+	text-decoration: none;
+}
+.arvore .button span{
+	background: url(images/sprite-arrow-buttons.png) no-repeat;
+	height: 18px;
+	position: absolute;
+	top:4px;
+	width: 18px;
+}
+
+.arvore .button .arrow-sign-up{background-position: 0 0;}
+.arvore .button .angle-up{background-position: -18px 0;}
+.arvore .button .arrow-sign-left-down{background-position: 0 -18px;}
+.arvore .button .arrow-sign-right-down{background-position: -18px -18px;}
+
+.arvore .button.button-icon-left{padding-left: 34px;}
+.arvore .button.button-icon-left span{left: 8px;}
+
+.arvore .button.button-icon-right{padding-right: 34px;}
+.arvore .button.button-icon-right span{right: 8px;}
+
+.arvore .network-view{
+	margin: 15px 0 30px;
+	position: relative;
+}
+
+.arvore .network-view .button-information{
+	background-color: #0295d1;
+	border: 1px solid #ccc;
+	color:#FFF;
+	display: block;
+	font-size: 24px;
+	left: 0;
+	padding: 2px 8px;
+	position: absolute;
+	top: 0;
+}
+.arvore .network-view .button-information:hover{
+	background-color: #00adf4;
+	text-decoration: none;
+}
+
+.network-view .niveis:before,
+.network-view .niveis:after {
+    content:"";
+    display:table;
+}
+.network-view .niveis:after {
+    clear:both;
+}
+.network-view .niveis {
+    zoom:1;
+}
+
+.network-view .niveis .posicao{
+	display: block;
+	margin: 0 auto;
+	width:50px;
+	position: relative;
+	z-index: 20;
+	overflow:hidden;
+	color:#ebebeb;
+}
+
+.network-view .niveis .nivel{position: relative;}
+
+.network-view .niveis .nivel.n1{
+	margin: 0 auto;
+	width: 426px;
+}
+.network-view .niveis .nivel.n2{
+	margin-top: 10px;
+	width: 250px;
+}
+.network-view .niveis .nivel.n3{
+	margin-top: -5px;
+	width: 123px;
+}
+.network-view .niveis .nivel.n4{
+	margin-top: 10px;
+	width: 62px;
+}
+.network-view .niveis .nivel.n5{
+	margin-top: 5px;
+}
+
+.network-view .niveis .posicao img {
+	width:50px;
+	border:4px solid;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+
+}
+
+
+.network-view .niveis .nivel.n1 img,
+.network-view .niveis .nivel.n1 a  {width:75px;}
+.network-view .niveis .nivel.n2 img,
+.network-view .niveis .nivel.n2 a {width:70px;}
+.network-view .niveis .nivel.n3 img,
+.network-view .niveis .nivel.n3 a {width:65px;}
+.network-view .niveis .nivel.n4 img,
+.network-view .niveis .nivel.n4 a {width:55px;}
+.network-view .niveis .nivel.n5 img,
+.network-view .niveis .nivel.n5 a {width:45px;}
+
+.network-view .niveis .nivel.esquerda{float: left;}
+.network-view .niveis .nivel.direita{float: right;}
+
+.network-view .niveis .nivel.n2.esquerda{margin-left: -135px;}
+.network-view .niveis .nivel.n2.direita{margin-right: -135px;}
+
+.network-view .niveis .nivel.n3.esquerda{margin-left: -50px;}
+.network-view .niveis .nivel.n3.direita{margin-right: -50px;}
+
+.network-view .niveis .nivel.n4.esquerda{margin-left: -25px;}
+.network-view .niveis .nivel.n4.direita{margin-right: -25px;}
+
+.network-view .niveis .nivel.n5.esquerda{margin-left: -20px;}
+.network-view .niveis .nivel.n5.direita{margin-right: -20px;}
+
+.network-view .niveis .nivel.n1:after,
+.network-view .niveis .nivel.n2:after,
+.network-view .niveis .nivel.n3:after,
+.network-view .niveis .nivel.n4:after{
+	background: url(images/sprite-arvore-ligacoes.png) no-repeat;
+	content: "";
+	left: 0;
+	position: absolute;
+	z-index: 5;
+}
+
+.network-view .niveis .nivel.n1:after{
+	background-position:0 -127px;
+	height: 60px;
+	width: 456px;
+	top:35px;
+}
+
+.network-view .niveis .nivel.n2:after{
+	background-position: 0 -187px;
+	height: 55px;
+	width: 229px;
+	top:35px;
+}
+
+.network-view .niveis .nivel.n3:after{
+	background-position: 0 -242px;
+	height: 52px;
+	width: 123px;
+	top:30px;
+}
+
+.network-view .niveis .nivel.n4:after{
+	background-position: 0 -294px;
+	height: 32px;
+	width: 62px;
+	top:35px;
+}
+
+
+.network-view .niveis .nivel.ultimo:after{
+	background: none;
+	display: none;
+	height: 0;
+	width: 0;
+}
+
+.network-view .posicao.member						{color:#ffffff;}
+.network-view .posicao.elite						{color:#f0df9c;}
+.network-view .posicao.platinum						{color:#c7d1dc;}
+.network-view .posicao.premier						{color:#3074d0;}
+.network-view .posicao.constructor					{color:#60cf2f;}
+.network-view .posicao.consultant					{color:#e88d2a;}
+.network-view .posicao.supervisor					{color:#ff0000;}
+.network-view .posicao.supervisor-senior			{color:#a43232;}
+.network-view .posicao.manager						{color:#b145b1;}
+.network-view .posicao.senior-manager				{color:#663399;}
+.network-view .posicao.director						{color:#12408d;}
+.network-view .posicao.executive-director			{color:#2f9cb0;}
+.network-view .posicao.presidente					{color:#a39b5b;}
+.network-view .posicao.chairman						{color:#729520;}
+.network-view .posicao.expirado						{color:#aaa; opacity:0.5;}
+
+
+/* Modal de Legenda */
+
+.legenda .group-legend{
+	float: left;
+	width: 32%;
+}
+
+.legenda .group-legend + .group-legend {margin-left: 2%;}
+
+.legenda .posicao{
+	display: block;
+	height: 25px;
+	float: left;
+	margin-right: 5px;
+	width: 25px;
+	border-radius:50%;
+}
+
+.legenda .posicao.member						{background:#ffffff;}
+.legenda .posicao.elite							{background:#f0df9c;}
+.legenda .posicao.platinum						{background:#c7d1dc;}
+.legenda .posicao.premier						{background:#3074d0;}
+.legenda .posicao.constructor					{background:#60cf2f;}
+.legenda .posicao.consultant					{background:#e88d2a;}
+.legenda .posicao.supervisor					{background:#ff0000;}
+.legenda .posicao.supervisor-senior			{background:#a43232;}
+.legenda .posicao.manager						{background:#b145b1;}
+.legenda .posicao.senior-manager				{background:#663399;}
+.legenda .posicao.director						{background:#12408d;}
+.legenda .posicao.executive-director		{background:#2f9cb0;}
+.legenda .posicao.presidente					{background:#a39b5b;}
+.legenda .posicao.chairman						{background:#729520;}
+
+.legenda .elemento{clear: both; overflow:hidden; margin-bottom:15px;}
+
+.legenda .elemento p{
+	margin: 0;
+	font-size: 15px;
+	float:left;
+}
+
+@media  (max-width: 991px) {
+	.legenda .elemento p{
+		margin: 0;
+		padding-top: 18px;
+		font-size: 13px;
+	}
+	
+
+	.network-view .niveis .nivel.n1{
+		margin: 0 auto;
+		width: 280px;
+	}
+	.network-view .niveis .nivel.n2{
+		margin-top: 5px;
+		width: 120px;
+	}
+	.network-view .niveis .nivel.n3{
+		margin-top: 0;
+		width: 82px;
+	}
+	.network-view .niveis .nivel.n4{
+		margin-top: 5px;
+		width: 50px;
+	}
+	
+	.network-view .niveis .nivel.esquerda{float: left;}
+	.network-view .niveis .nivel.direita{float: right;}
+	
+	.network-view .niveis .nivel.n2.esquerda{margin-left: -65px;}
+	.network-view .niveis .nivel.n2.direita{margin-right: -65px;}
+	
+	.network-view .niveis .nivel.n3.esquerda{margin-left: -50px;}
+	.network-view .niveis .nivel.n3.direita{margin-right: -50px;}
+	
+	.network-view .niveis .nivel.n4.esquerda{margin-left: -20px;}
+	.network-view .niveis .nivel.n4.direita{margin-right: -20px;}
+	
+	
+	.network-view .niveis .nivel.n4:after,
+	.network-view .niveis .nivel.n5 {display:none;}
+	
+	.network-view .niveis .nivel.n1:after{
+		background-position:0 0;
+		height: 60px;
+		width: 280px;
+		top:35px;
+	}
+	
+	.network-view .niveis .nivel.n2:after{
+		background-position: 0 -60px;
+		height: 30px;
+		width: 120px;
+		top:50px;
+	}
+	
+	.network-view .niveis .nivel.n3:after{
+		background-position: 0 -92px;
+		height: 35px;
+		top: 45px;
+		width: 82px;
+	}
+	
+	.network-view .niveis .nivel.ultimo:after{
+		background: none;
+		display: none;
+		height: 0;
+		width: 0;
+	}
+	
+	
+	
+	
+}
+
+@media  (max-width: 768px) {
+	.network-view .niveis {overflow-x:auto;}
+	.network-view .niveis .nivel.n1 {margin-left: 135px}
+}
+
+
+.title{
+font-size:16px;
+}
+
+.title.member                                                 {color:#ccc;}
+.title.elite                                                  {color:#ceb966;}
+.title.platinum                                               {color:#c7d1dc;}
+.title.premier                                                {color:#3074d0;}
+.title.constructor                                            {color:#60cf2f;}
+.title.consultant                                            {color:#e88d2a;}
+.title.supervisor                                            {color:#ff0000;}
+.title.supervisor-senior                                     {color:#a43232;}
+.title.manager                                                {color:#b145b1;}
+.title.senior-manager                                        {color:#663399;}
+.title.director                                               {color:#12408d;}
+.title.executive-director                                    {color:#2f9cb0;}
+.title.presidente                                            {color:#a39b5b;}
+.title.chairman                                               {color:#729520;}
+
+
+
+.moldura{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;  
+    border-style: solid;
+    border-width:6px;
+    float:left;
+}
+
+.moldura.member                                                 {border-color:#ffffff; -webkit-box-shadow: 0px 0px 11px rgba(50, 50, 50, 0.47);
+-moz-box-shadow:    0px 0px 11px rgba(50, 50, 50, 0.47);
+box-shadow:         0px 0px 11px rgba(50, 50, 50, 0.47);}
+.moldura.elite                                                  {border-color:#f0df9c;}
+.moldura.platinum                                               {border-color:#c7d1dc;}
+.moldura.premier                                                {border-color:#3074d0;}
+.moldura.constructor                                            {border-color:#60cf2f;}
+.moldura.consultant                                            {border-color:#e88d2a;}
+.moldura.supervisor                                            {border-color:#ff0000;}
+.moldura.supervisor-senior                                     {border-color:#a43232;}
+.moldura.manager                                                {border-color:#b145b1;}
+.moldura.senior-manager                                        {border-color:#663399;}
+.moldura.director                                               {border-color:#12408d;}
+.moldura.executive-director                                    {border-color:#2f9cb0;}
+.moldura.presidente                                            {border-color:#a39b5b;}
+.moldura.chairman                                               {border-color:#729520;}
+
+
+
+/*Myrank*/
+
+.myrank{
+
+}
+
+.myrank.member                                                 {background-color:#ffffff;}
+.myrank.elite                                                  {background-color:#f0df9c;}
+.myrank.platinum                                               {background-color:#c7d1dc;}
+.myrank.premier                                                {background-color:#3074d0;}
+.myrank.constructor                                            {background-color:#60cf2f;}
+.myrank.consultant                                            {background-color:#e88d2a;color:#ffffff;}
+.myrank.supervisor                                            {background-color:#ff0000;color:#ffffff;}
+.myrank.supervisor-senior                                     {background-color:#a43232;color:#ffffff;}
+.myrank.manager                                                {background-color:#b145b1;color:#ffffff;}
+.myrank.senior-manager                                        {background-color:#663399;color:#ffffff;}
+.myrank.director                                               {background-color:#12408d;color:#ffffff;}
+.myrank.executive-director                                    {background-color:#2f9cb0;color:#ffffff;}
+.myrank.presidente                                            {background-color:#a39b5b;color:#ffffff;}
+.myrank.chairman                                               {background-color:#729520;color:#ffffff;}
+
+/*Posicao Label color*/
+.rank{
+
+}
+
+.rank.member                                                 {color:#ffffff;}
+.rank.elite                                                  {color:#f0df9c;}
+.rank.platinum                                               {color:#c7d1dc;}
+.rank.premier                                                {color:#3074d0;}
+.rank.constructor                                            {color:#60cf2f;}
+.rank.consultant                                            {color:#e88d2a;}
+.rank.supervisor                                            {color:#ff0000;}
+.rank.supervisor-senior                                     {color:#a43232;}
+.rank.manager                                                {color:#b145b1;}
+.rank.senior-manager                                        {color:#663399;}
+.rank.director                                               {color:#12408d;}
+.rank.executive-director                                    {color:#2f9cb0;}
+.rank.presidente                                            {color:#a39b5b;}
+.rank.chairman                                               {color:#729520;}
