@@ -6,9 +6,17 @@ class Detail_contain extends CI_Controller {
         parent::__construct();
     }
 	
-	public function index()
+	public function index($slug)
 	{
-            echo "HOla";
+           
+            $ruta = explode("/",uri_string()); 
+            
+            var_dump($ruta);
+            die();
+            
+            echo $slug;
+
+            die();
             
             		$this->load->view('detail_contain');
 	}

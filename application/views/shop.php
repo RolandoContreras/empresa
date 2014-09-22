@@ -43,7 +43,7 @@
                     <ul class='page-numbers'>
                         <li><a class="prev page-numbers" href="">←</a></li>
                         
-                        <li><a class="next page-numbers" href="<?php echo site_url().?>">&rarr;</a></li>
+                        <li><a class="next page-numbers" href="">&rarr;</a></li>
                     </ul>
                 </nav>
        <?php  } ?>
