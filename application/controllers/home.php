@@ -10,7 +10,6 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{
-            
             //SELECT PRODUCT CUSTOM
             $params = array(
                         "select" =>"products.product_id,

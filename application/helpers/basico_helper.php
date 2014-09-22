@@ -24,6 +24,12 @@ function corta_texto($texto, $longitud=400) {
     }
     return $texto; 
 }
+function convert_slug($url){
+    $search  = array('á', 'é', 'í', 'ó', 'ú',' ','ñ');
+    $replace = array('a', 'e', 'i', 'o', 'u','-','n');    
+    return strtolower(str_replace($search, $replace, $url));
+}
+
 function get_semilla(){
     $semilla='ab513c75f48d82bcd30aa48e478d2e6e';
     return $semilla;

@@ -8,6 +8,8 @@ class Detail_contain extends CI_Controller {
 	
 	public function index()
 	{
+            echo "HOla";
+            
             		$this->load->view('detail_contain');
 	}
 }
