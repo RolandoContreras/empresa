@@ -60,6 +60,7 @@ $route['checkout'] = "checkout";
 $route['checkout/pagar'] = "checkout/pay";
 
 $route['backoffice'] = "backoffice";
+$route['perfil'] = "b_profile";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 

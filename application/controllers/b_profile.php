@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Backoffice extends CI_Controller {
+class B_profile extends CI_Controller {
 
 	
     function __construct() {
@@ -12,6 +12,6 @@ class Backoffice extends CI_Controller {
     {
         
         /// VISTA
-            $this->tmp_backoffice->render("backoffice/backoffice");
+            $this->tmp_backoffice->render("backoffice/profile");
     }
 }
