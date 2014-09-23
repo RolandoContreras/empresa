@@ -1,7 +1,6 @@
 <?php 
 $this->load->view("header");
 ?>
-
 <body class="single single-product postid-1946 woocommerce woocommerce-page has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
  
@@ -21,10 +20,10 @@ $this->load->view("header");
 <div class="row">
 <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
     <section class="title-section">
-        <h1 class="title-header">Behringer headphones hps3000 </h1>
+        <h1 class="title-header"><?php echo $obj_products->name;?></h1>
         <ul class="breadcrumb breadcrumb__t">
             <a class="home" href="<?php echo site_url().'home';?>">Home</a> / 
-            <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/">Lorem ipsum</a> / Behringer headphones hps3000</ul>  
+            <a href="<?php echo site_url().convert_slug($obj_products->category);?>"><?php echo $obj_products->category ?></a> / <?php echo $obj_products->name;?></ul>  
     </section> 
 </div>
 </div>
@@ -33,37 +32,35 @@ $this->load->view("header");
 <div itemscope itemtype="http://schema.org/Product" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
     <div class="images">
     <!---------Principal Image----------->    
-    <a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1.jpg" itemprop="image" class="woocommerce-main-image zoom" title="behringer_headphones_hps3000_1" data-rel="prettyPhoto[product-gallery]">
-        <img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1-300x300.jpg" class="attachment-shop_single wp-post-image" alt="behringer_headphones_hps3000_1" title="behringer_headphones_hps3000_1"/>
+    <a href="<?php echo SERVER2.$obj_products->medium_image;?>" itemprop="image" class="woocommerce-main-image zoom">
+        <img src="<?php echo SERVER2.$obj_products->medium_image;?>" class="attachment-shop_single wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
     </a>
-    <!----------------------------------->
     <!---------Show Thumbnails---------->
-    <div class="thumbnails">
-        <a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_3.jpg" class="zoom first" title="behringer_headphones_hps3000_3" data-rel="prettyPhoto[product-gallery]">
-            <img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_3-90x90.jpg" class="attachment-shop_thumbnail" alt="behringer_headphones_hps3000_3"/>
-        </a>
-        <a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1.jpg" class="zoom" title="behringer_headphones_hps3000_1" data-rel="prettyPhoto[product-gallery]">
-            <img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_1-90x90.jpg" class="attachment-shop_thumbnail" alt="behringer_headphones_hps3000_1"/>
-        </a>
-        <a href="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_2.jpg" class="zoom last" title="behringer_headphones_hps3000_2" data-rel="prettyPhoto[product-gallery]">
-            <img width="90" height="90" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/behringer_headphones_hps3000_2-90x90.jpg" class="attachment-shop_thumbnail" alt="behringer_headphones_hps3000_2"/>
-        </a>
-    </div>
+        <div class="thumbnails">
+            <a href="<?php echo SERVER2.$obj_products->big_image;?>" class="zoom first" data-rel="prettyPhoto[product-gallery]">
+                <img width="90" height="90" src="<?php echo SERVER2.$obj_products->big_image;?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/>
+            </a>
+            <a href="<?php echo SERVER2.$obj_products->medium_image;?>" class="zoom" data-rel="prettyPhoto[product-gallery]">
+                <img width="90" height="90" src="<?php echo SERVER2.$obj_products->medium_image;?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/>
+            </a>
+            <a href="<?php echo SERVER2.$obj_products->small_image;?>" class="zoom last" data-rel="prettyPhoto[product-gallery]">
+                <img width="90" height="90" src="<?php echo SERVER2.$obj_products->small_image;?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/>
+            </a>
+        </div>
     <!---------------------------------->
     </div>
     
 <div class="summary entry-summary">
     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <p class="price"><span class="amount">&#36;120.00</span></p>
+    <p class="price"><span class="amount">S/.<?php echo $obj_products->price;?></span></p>
     <meta itemprop="price" content="120"/>
     <meta itemprop="priceCurrency" content="USD"/>
     <link itemprop="availability" href="http://schema.org/InStock"/>
     </div>
     
     <div itemprop="description">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
-<p class="stock ">150 in stock</p>
+<p class="stock "><?php echo $obj_products->stock;?> en stock</p>
 
 <form class="cart" method="post" enctype='multipart/form-data'>
 <div class="quantity"><input type="number" step="1" min="1" max="150" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/></div>
@@ -92,154 +89,145 @@ $this->load->view("header");
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 			})();
 		</script>
-<ul class="share-buttons unstyled clearfix">
-<li class="twitter">
-<a href="//twitter.com/share" class="twitter-share-button">Tweet this article</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</li>
-<li class="facebook">
-<div id="fb-root"></div><div class="fb-like" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
-</li>
-<li class="google">
-<div class="g-plusone" data-size="medium" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"></div>
-</li>
-<li class="pinterest">
-<a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src='//assets.pinterest.com/images/PinExt.png' alt=""/></a>
-</li>
-</ul> 
-</div> 
-<div class="woocommerce-tabs">
-<ul class="tabs">
-<li class="description_tab">
-<a href="#tab-description">Description</a>
-</li>
-<li class="reviews_tab">
-<a href="#tab-reviews">Comentarios (2)</a>
-</li>
-</ul>
-<div class="panel entry-content" id="tab-description">
-<h2>Descripcion del Producto</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut tempus nunc. Aliquam sit amet consequat dui. Nullam ut tempus ex. Praesent eu aliquam ligula, in scelerisque est. Ut tristique, sem nec iaculis mollis, orci nisi malesuada sapien, eu vestibulum magna magna eu purus. Nam felis nulla, eleifend eget varius vitae, porttitor quis ligula. Praesent pellentesque sollicitudin velit at pretium. Quisque quis ligula non elit aliquam mollis in at libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In vitae rhoncus ipsum, sit amet feugiat lacus. Pellentesque aliquam finibus magna ut tincidunt. Nunc quis mauris consectetur, dictum sapien non, suscipit lorem. Sed fermentum urna eu arcu porta congue. Integer eget velit pharetra, molestie eros sit amet, convallis eros.</p>
-<p>Donec vitae dui viverra, ultrices lectus sed, pulvinar ante. Mauris fringilla dui justo, interdum blandit lectus placerat a. Donec porta varius purus et porta. Ut eget tortor feugiat, blandit eros ut, pharetra est. Donec imperdiet, mauris ut varius fermentum, dui diam facilisis purus, in posuere risus nulla sit amet lorem. Morbi id risus lorem. Sed interdum tellus purus, a luctus enim commodo eget. Proin condimentum ipsum id nisi tincidunt, sed molestie risus lacinia.</p>
-<p>Sed dapibus eget massa id placerat. Suspendisse dictum lorem sagittis lacinia faucibus. Nullam ac pellentesque augue. Vestibulum condimentum tincidunt tellus ac laoreet. Cras vehicula ullamcorper ligula eget lobortis. Curabitur non posuere tellus, sagittis varius quam. Curabitur fringilla leo odio, sit amet semper justo gravida sed. Curabitur semper diam nibh, ac feugiat magna ullamcorper sit amet. Vestibulum consectetur venenatis malesuada. Morbi commodo orci in erat posuere, in commodo libero consectetur. Duis ultrices urna id enim porta, a sollicitudin ex dictum. Quisque suscipit eu eros at accumsan.</p>
-</div>
-<div class="panel entry-content" id="tab-reviews">
-<div id="reviews">
-<div id="comments">
-<h2>2 reviews for Behringer headphones hps3000</h2>
-<ol class="commentlist">
-<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment even thread-even depth-1" id="li-comment-29">
-<div id="comment-29" class="comment_container">
-<img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
-<div class="comment-text">
-<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 3 out of 5">
-<span style="width:60%"><strong itemprop="ratingValue">3</strong> out of 5</span>
-</div>
-<p class="meta">
-<strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:02+00:00">January 27, 2014</time>:
-</p>
-<div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum ornare molestie scelerisque eros dignissim. Phasellus fringilla hendrerit lectus nec vehicula.</p>
-</div>
-</div>
-</div>
-</li> 
-<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30">
-<div id="comment-30" class="comment_container">
-<img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
-<div class="comment-text">
-<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 5 out of 5">
-<span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
-</div>
-<p class="meta">
-<strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:39+00:00">January 27, 2014</time>:
-</p>
-<div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget</p>
-</div>
-</div>
-</div>
-</li> 
-</ol>
-</div>
-<div id="review_form_wrapper">
-<div id="review_form">
-<div id="respond" class="comment-respond">
-<h3 id="reply-title" class="comment-reply-title">Add a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/woocommerce_51107/product/product-12/#respond" style="display:none;">Cancel reply</a></small></h3>
-<form action="http://livedemo00.template-help.com/woocommerce_51107/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"/></p>
-<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"/></p>
-<p class="comment-form-rating"><label for="rating">Your Rating</label><select name="rating" id="rating">
-<option value="">Rate&hellip;</option>
-<option value="5">Perfect</option>
-<option value="4">Good</option>
-<option value="3">Average</option>
-<option value="2">Not that bad</option>
-<option value="1">Very Poor</option>
-</select></p><p class="comment-form-comment"><label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p> <p class="form-submit">
-<input name="submit" type="submit" id="submit" value="Submit"/>
-<input type='hidden' name='comment_post_ID' value='1946' id='comment_post_ID'/>
-<input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
-</p>
-</form>
-</div> 
-</div>
-</div>
-<div class="clear"></div>
-</div> </div>
-</div>
-<div class="related products">
-<h2>Productos Relacionados</h2>
-    <ul class="products">
-        <li class="post-1954 product type-product status-publish has-post-thumbnail first sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-            <a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-14/">
-            <span class="onsale">Sale!</span>
-            <img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/altec_lansing_fx3022_expressionist_bass_2-way_speaker_for_pc_and_mp3_3-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="altec_lansing_fx3022_expressionist_bass_2-way_speaker_for_pc_and_mp3_3"/>
-            <h3>Altec lansing fx3022... </h3>
-            </a>
-        <div class="short_desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        </div>
-        <span class="price"><del><span class="amount">&#36;75.00</span></del> <ins><span class="amount">&#36;70.00</span></ins></span>
-        <a href="/woocommerce_51107/product/product-12/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+    <ul class="share-buttons unstyled clearfix">
+        <li class="twitter">
+        <a href="//twitter.com/share" class="twitter-share-button">Tweet this article</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </li>
         
-        <li class="post-1938 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-            <a href="<?php echo site_url().'detalle';?>">
-        <img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/canon_eos_rebel_t2i_dslr_camera_1-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="canon_eos_rebel_t2i_dslr_camera_1"/>
-        <h3>Canon eos rebel... </h3>
-        </a>
-        <div class="short_desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        </div>
-        <span class="price"><span class="amount">&#36;104.00</span></span>
-        <a href="/woocommerce_51107/product/product-12/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+        <li class="facebook">
+        <div id="fb-root"></div><div class="fb-like" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
         </li>
         
-        <li class="post-1923 product type-product status-publish has-post-thumbnail first shipping-taxable purchasable product-type-variable product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-        <a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-5/">
-        <img width="300" height="300" src="http://livedemo00.template-help.com/woocommerce_51107/wp-content/uploads/2013/09/creative_gigaworks_t40_series_ii_1-300x300.jpg" class="attachment-shop_catalog wp-post-image" alt="creative_gigaworks_t40_series_ii_1"/>
-        <h3>Creative gigaworks t40... </h3>
-        </a>
-        <div class="short_desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-        <span class="price"><span class="amount">&#36;67.00</span>&ndash;<span class="amount">&#36;76.00</span></span>
-        <a href="http://livedemo00.template-help.com/woocommerce_51107/product/product-5/" rel="nofollow" data-product_id="1923" data-product_sku="" class="button add_to_cart_button product_type_variable">Select options</a>
+        <li class="google">
+        <div class="g-plusone" data-size="medium" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"></div>
         </li>
+        
+        <li class="pinterest">
+        <a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src='//assets.pinterest.com/images/PinExt.png' alt=""/></a>
+        </li>
+    </ul> 
+</div> 
+    <div class="woocommerce-tabs">
+    <ul class="tabs">
+    <li class="description_tab">
+    <a href="#tab-description">Description</a>
+    </li>
+    <li class="reviews_tab">
+    <a href="#tab-reviews">Comentarios (2)</a>
+    </li>
     </ul>
-</div>
-<meta itemprop="url" content="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"/>
-</div> 
-</div>
-<div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
-    <div id="categories-3" class="visible-all-devices widget">
-        <h3>Categorías</h3> 
-        <ul>
-        <li class="cat-item cat-item-13"><a href="" title="View all posts filed under Fusce feugiat">Fusce feugiat</a></li>
-        <li class="cat-item cat-item-15"><a href="" title="View all posts filed under Phasellus porta">Phasellus porta</a></li>
-        <li class="cat-item cat-item-16"><a href="" title="View all posts filed under Sit amet">Sit amet</a></li>
-        <li class="cat-item cat-item-1"><a href="" title="View all posts filed under Uncategorized">Uncategorized</a></li>
+        <div class="panel entry-content" id="tab-description">
+        <h2>Descripcion del Producto</h2>
+        <p><?php echo $obj_products->description;?></p>
+        </div>
+        
+    <div class="panel entry-content" id="tab-reviews">
+        <div id="reviews">
+            <div id="comments">
+            <h2>2 reviews for Behringer headphones hps3000</h2>
+                <ol class="commentlist">
+                    <li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment even thread-even depth-1" id="li-comment-29">
+                        <div id="comment-29" class="comment_container">
+                        <img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
+                            <div class="comment-text">
+                                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 3 out of 5">
+                                <span style="width:60%"><strong itemprop="ratingValue">3</strong> out of 5</span>
+                                </div>
+                            <p class="meta">
+                            <strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:02+00:00">January 27, 2014</time>:
+                            </p>
+                            <div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum ornare molestie scelerisque eros dignissim. Phasellus fringilla hendrerit lectus nec vehicula.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </li> 
+                
+                    <li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30">
+                        <div id="comment-30" class="comment_container">
+                        <img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
+                            <div class="comment-text">
+                                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 5 out of 5">
+                                <span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
+                                </div>
+                            <p class="meta">
+                            <strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:39+00:00">January 27, 2014</time>:
+                            </p>
+                            <div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget</p>
+                            </div>
+                            </div>
+                        </div>
+                    </li> 
+                </ol>
+            </div>
+            
+        <div id="review_form_wrapper">
+            <div id="review_form">
+                <div id="respond" class="comment-respond">
+                <h3 id="reply-title" class="comment-reply-title">Add a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/woocommerce_51107/product/product-12/#respond" style="display:none;">Cancel reply</a></small></h3>
+                    <form action="http://livedemo00.template-help.com/woocommerce_51107/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+                    <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"/></p>
+                    <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"/></p>
+                    <p class="comment-form-rating"><label for="rating">Your Rating</label>
+                        <select name="rating" id="rating">
+                            <option value="">Rate&hellip;</option>
+                            <option value="5">Perfect</option>
+                            <option value="4">Good</option>
+                            <option value="3">Average</option>
+                            <option value="2">Not that bad</option>
+                            <option value="1">Very Poor</option>
+                        </select>
+                    </p>
+                    <p class="comment-form-comment"><label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p> <p class="form-submit">
+                    <input name="submit" type="submit" id="submit" value="Submit"/>
+                    <input type='hidden' name='comment_post_ID' value='1946' id='comment_post_ID'/>
+                    <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                    </p>
+                    </form>
+                </div> 
+            </div>
+        </div>
+        <div class="clear"></div>
+        </div> 
+    </div>
+    </div>
+    <!---------------PRODUCTOS RELACIONADOS----------------->
+    <div class="related products">
+    <h2>Productos Relacionados</h2>
+        <ul class="products">
+           <?php foreach ($related as $value) { ?>
+                    <li class="post-1954 product type-product status-publish has-post-thumbnail first sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+                        <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>">
+                        <span class="onsale">Sale!</span>
+                        <img src="<?php echo SERVER2.$value->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($value->name);?>"/>
+                        <h3><?php echo corta_texto($value->name,20);?></h3>
+                        </a>
+                            <div class="short_desc">
+                            <?php echo corta_texto($value->description,100);?> 
+                            </div>
+                    <span class="price"><ins><span class="amount">S/.<?php echo $value->price; ?></span></ins></span>
+                    <br/><br/>
+                    <a href="/woocommerce_51107/product/product-12/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                    </li>
+            <?php } ?>
         </ul>
     </div>
+    
+    <meta itemprop="url" content="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"/>
+</div> 
 </div>
+    <!-------------CATEGORIAS-------------------------->
+        <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
+            <div id="categories-3" class="visible-all-devices widget">
+                <h3>Categorías</h3> 
+                <ul>
+                    <?php foreach ($category as $value) { ?>
+                    <li class="cat-item cat-item-13"><a href="<?php echo site_url().  convert_slug($value->name);?>"><?php echo $value->name;?></a></li>
+                     <?php } ?>
+                </ul>
+            </div>
+        </div>
+    <!-------------------------------------------------->
 </div>
 </div>
 </div>

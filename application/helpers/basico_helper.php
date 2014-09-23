@@ -30,6 +30,13 @@ function convert_slug($url){
     return strtolower(str_replace($search, $replace, $url));
 }
 
+function convert_query($slug){
+    $search  = array('-');
+    $replace = array(' ');    
+    return strtolower(str_replace($search, $replace, $slug));
+}
+
+
 function get_semilla(){
     $semilla='ab513c75f48d82bcd30aa48e478d2e6e';
     return $semilla;

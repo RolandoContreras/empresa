@@ -27,7 +27,7 @@ class Shop extends CI_Controller {
                                     categories.name as category,
                                     products.position",
                         "where" => "categories.name = '$slug' and products.status_value = 1",
-                        "order" => "products.product_id DESC LIMIT 1",
+                        "order" => "products.product_id DESC",
                         "join" => array('categories, products.id_category = categories.id_category')
                         );
              $obj_products['obj_products'] = $this->obj_products->search($params);  

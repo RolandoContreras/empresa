@@ -25,6 +25,7 @@ class products_model_atributos{
     var $small_image='';
     var $price='';
     var $stock='';
+    var $tags='';
     var $status_value='';
     var $position='';
     var $created_at='';
@@ -48,6 +49,7 @@ class Product_Model extends CI_Model{
         $this->small_image='';
 	$this->price='';
 	$this->stock='';
+        $this->tags='';
 	$this->status_value='';
         $this->position='';
 	$this->created_at='';
