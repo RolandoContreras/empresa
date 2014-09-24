@@ -45,6 +45,7 @@ $route['compras'] = "shop";
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
 $route['micuenta'] = "myaccount";
+$route['checkout'] = "checkout";
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 

@@ -1,3 +1,7 @@
+<?php 
+//session_start();
+//session_destroy();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
@@ -34,6 +38,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 
 <!--Banner Grande-->
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>
+<script src="static/cms/js/core/jquery.js"></script>  
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-migrate-1.2.1.min.js';?>'></script>
 <!--Banner Grande-->
 
@@ -64,5 +69,8 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 				};
 			scaleFix();
 		})
+</script>
+<script type="text/javascript">
+            var site = '<?php echo site_url();?>';
 </script>
 </head>

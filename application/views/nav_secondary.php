@@ -1,14 +1,26 @@
- <div class="row">
+<div class="row">
     <div class="span12 full-top-shop" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
         <div id="woocommerce_widget_cart-2" class="cart-holder">
             <h3>Carrito</h3>
-            <div class="widget_shopping_cart_content"></div><!--Mensaje de carrito no hay productos-->
+            <div class="widget_shopping_cart_content">
+                <?php 
+                if(isset($_SESSION['product_car'])){
+                    
+                    $product_id = $_SESSION['product_car']['product_id'];
+                    $product_id;
+                    echo count($product_id) ." productos";
+                }else{
+                    echo "0 productos";
+                }
+                ?>
+                </div>
         </div>
          <div class="shop-nav">
              <ul id="shopnav" class="shop-menu">
                     <li><a href="" class='register-link' title="Registro">Registro</a></li>
                     <li id="menu-item-2020" title=""><a href="Delivery">Delivery</a></li>
                     <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Mi Cuenta</a></li>
+                    <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'checkout';?>">Checkout</a></li>
             </ul>
          </div> 
     </div>

@@ -1,5 +1,4 @@
 <?php $this->load->view("header");?>
-
 <body class="home page page-id-203 page-template page-template-page-home-php has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
     <header class="motopress-wrapper header">
@@ -132,7 +131,7 @@
                                                 <span class="amount">S/.<?php echo $product->price?></span>
                                             </span>
                                        <br/><br/>
-                                        <a href="/woocommerce_51107/?add-to-cart=1938" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                                       <a onclick="add_car('<?php echo $product->product_id;?>');" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
                                       
                                     </li>
                         <?php } ?>
@@ -157,7 +156,7 @@
     <?php $this->load->view("footer");?>
 <!------call footer----->
 </div>
-    
+<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>

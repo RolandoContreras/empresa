@@ -53,20 +53,6 @@
                 </ul>
                 </li>
                 
-<!--                <li id="menu-item-1999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/">Portfolio</a>
-                <ul class="sub-menu">
-                    <li id="menu-item-2005" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-2/">Portfolio 2</a></li>
-                    <li id="menu-item-2004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/">Portfolio 3</a>
-                        <ul class="sub-menu">
-                        <li id="menu-item-2013" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/category-1/">Category 1</a></li>
-                        <li id="menu-item-2012" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/category-2/">Category 2</a></li>
-                        <li id="menu-item-2011" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-3/category-3/">Category 3</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-2003" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://livedemo00.template-help.com/woocommerce_51107/portfolio/portfolio-4/">Portfolio 4</a></li>
-                </ul>
-                </li>-->
-                
 <li id="menu-item-1995" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo site_url().'contacto';?>">Contacto</a></li>
             </ul>
-        </nav>  
+</nav>  
