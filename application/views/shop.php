@@ -28,7 +28,7 @@
                     <li class="post-1954 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
                         <a href="<?php echo site_url().convert_slug($obj_products->category."/".$obj_products->name);?>">
                             <img width="300" height="300" src="<?php echo SERVER2.$obj_products->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
-                            <h3><?php echo corta_texto($obj_products->name,25);?> </h3>
+                            <h3><?php echo corta_texto($obj_products->name,22);?> </h3>
                          </a>
                         <div class="short_desc"><?php echo corta_texto($obj_products->description,100);?></div>
                         <span class="price"><ins><span class="amount">S/.<?php echo $obj_products->price;?></span></ins></span>

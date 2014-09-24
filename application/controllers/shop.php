@@ -1,4 +1,4 @@
-  <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Shop extends CI_Controller {
     
@@ -57,7 +57,7 @@ class Shop extends CI_Controller {
             $config=array();
             $config["base_url"] = site_url("$slug"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
-            $config["per_page"] = 1; 
+            $config["per_page"] = 9; 
             $config["num_links"] = 3;
             $config["uri_segment"] = 2;   
             
@@ -78,8 +78,6 @@ class Shop extends CI_Controller {
             
             $obj_products['obj_pagination'] = $this->pagination->create_links();
             $obj_products['obj_products']= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(2));
-            //$obj_products['obj_products'] = $this->obj_products->search($params);  
-            // $obj_products['total_products'] = $this->obj_products->total_records($params);
              
             //SELECT CATEGORIES
             $param_category = array(
