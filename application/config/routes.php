@@ -45,12 +45,14 @@ $route['compras'] = "shop";
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
 $route['micuenta'] = "myaccount";
-$route['([0-9a-z_-]+)'] = "shop/categories/$1"; 
-$route['([0-9a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 
+$route['([a-z_-]+)'] = "shop/categories/$1"; 
+$route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
+$route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 
 
 $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
 $route['dashboard/productos'] = "d_products";
+$route['dashboard/productos/([0-9]+)'] = "d_products/index/$1";
 $route['dashboard/productos/load'] = "d_products/load";
 $route['dashboard/productos/load/([0-9]+)'] = "d_products/load/$1";
 $route['dashboard/productos/delete/([0-9]+)'] = "d_products/delete/$1";

@@ -31,11 +31,11 @@ class D_products extends CI_Controller{
             ); 
             /// PAGINADO
             $config=array();
-            $config["base_url"] = site_url("dashboard/productos/index"); 
+            $config["base_url"] = site_url("dashboard/productos"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
-            $config["per_page"] = 20; 
-            $config["num_links"] = 2;
-            $config["uri_segment"] = 4;   
+            $config["per_page"] = 10; 
+            $config["num_links"] = 3;
+            $config["uri_segment"] = 3;   
             
             $config['first_tag_open'] = '<li>';
             $config['first_tag_close'] = '</li>';
@@ -57,7 +57,7 @@ class D_products extends CI_Controller{
             $link_modulo =  site_url().'dashboard/'.$modulos; 
 
             /// DATA
-            $obj_products= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(4));
+            $obj_products= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
         
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);

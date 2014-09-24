@@ -15,56 +15,38 @@
 * Fecha: 29/09/2012
 ****/
 
-class products_model_atributos{	
-    var $product_id='';
-    var $name='';
+class comments_model_atributos{	
     var $comment_id='';
-    var $description='';
-    var $custom_image='';
-    var $bid_image='';
-    var $medium_image='';
-    var $small_image='';
-    var $price='';
-    var $stock='';
-    var $tags='';
+    var $name='';
+    var $email='';
+    var $comment='';
+    var $date_comment='';
     var $status_value='';
-    var $position='';
     var $created_at='';
     var $created_by='';
     var $updated_at='';
     var $updated_by='';
 }
 
-class Product_Model extends CI_Model{ 
+class Comments_Model extends CI_Model{ 
 
     public function __construct() {
         parent::__construct();  
-        $this->table = 'products';
-	$this->table_id = 'product_id';
-        $this->product_id='';
-	$this->name='';
+        $this->table = 'comments';
+	$this->table_id = 'comment_id';
         $this->comment_id='';
-	$this->description='';
-        $this->custom_image='';
-	$this->bid_image='';
-	$this->medium_image='';
-        $this->small_image='';
-	$this->price='';
-	$this->stock='';
-        $this->tags='';
+	$this->name='';
+        $this->email='';
+        $this->comment='';
+        $this->date_comment='';
 	$this->status_value='';
-        $this->position='';
 	$this->created_at='';
 	$this->created_by='';
 	$this->updated_at='';
 	$this->updated_by='';
 	
-	$this->fields = new products_model_atributos();
+	$this->fields = new categories_model_atributos();
     }   
-    
-    public function fields(){
-    }
-    
     public function insert($data){
       $this->db->insert($this->table, $data);
     }

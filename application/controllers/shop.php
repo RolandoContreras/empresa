@@ -9,12 +9,34 @@ class Shop extends CI_Controller {
     }
    
     public function index()
-    {
+    {               
+        $params = array(
+                        "select" =>"products.product_id,
+                                    products.id_category,
+                                    products.name,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.price,
+                                    categories.name as category,
+                                    products.position",
+                        "where" => "categories.name = '$slug' and products.status_value = 1",
+                        "order" => "products.product_id DESC",
+                        "join" => array('categories, products.id_category = categories.id_category')
+                        );
+       
+            /// DATA
+            $obj_products= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+        
+        
+        $obj_products['obj_products'] = $this->obj_products->search($params);  
+        
                     $this->load->view('shop');
     }
     
     public function categories($slug)
-    {
+    {   
+        
          //SELECT PRODUCT BY CATEGORY
             $params = array(
                         "select" =>"products.product_id,
@@ -30,8 +52,34 @@ class Shop extends CI_Controller {
                         "order" => "products.product_id DESC",
                         "join" => array('categories, products.id_category = categories.id_category')
                         );
-             $obj_products['obj_products'] = $this->obj_products->search($params);  
-             $obj_products['total_products'] = $this->obj_products->total_records($params);
+            
+             /// PAGINADO
+            $config=array();
+            $config["base_url"] = site_url("$slug"); 
+            $config["total_rows"] = $this->obj_products->total_records($params) ;  
+            $config["per_page"] = 1; 
+            $config["num_links"] = 3;
+            $config["uri_segment"] = 2;   
+            
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';            
+            $config['num_tag_open']='<li>';
+            $config['num_tag_close'] = '</li>';            
+            $config['cur_tag_open']= '<li class="active"><a>';
+            $config['cur_tag_close']= '</li></a>';            
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';            
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            
+            $this->pagination->initialize($config);     
+            
+            $obj_products['obj_pagination'] = $this->pagination->create_links();
+            $obj_products['obj_products']= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(2));
+            //$obj_products['obj_products'] = $this->obj_products->search($params);  
+            // $obj_products['total_products'] = $this->obj_products->total_records($params);
              
             //SELECT CATEGORIES
             $param_category = array(

@@ -40,11 +40,10 @@ class Dashboard extends CI_Controller {
         }
     }
     
-    public function validar_user($email){        
+    public function validar_user($email){
+        
         $password = $this->input->post('password');  
         $obj_user = $this->obj_user->verificar_email($email,$password);       
-        
-      
         
         if (count($obj_user)>0){
             

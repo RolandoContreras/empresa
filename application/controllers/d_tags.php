@@ -13,56 +13,27 @@
 * Descripcion: se utilizara para nuevas funciones
 * Creador: Marco Cristobal D.
 * Fecha: 29/09/2012
-****/
+****/	
 
-class products_model_atributos{	
-    var $product_id='';
-    var $name='';
-    var $comment_id='';
-    var $description='';
-    var $custom_image='';
-    var $bid_image='';
-    var $medium_image='';
-    var $small_image='';
-    var $price='';
-    var $stock='';
-    var $tags='';
-    var $status_value='';
-    var $position='';
-    var $created_at='';
-    var $created_by='';
-    var $updated_at='';
-    var $updated_by='';
-}
-
-class Product_Model extends CI_Model{ 
-
+class Tags_Model extends CI_Model{    
+    
+    var $table;    
+    var $table_id;   
+    var $arr_where = array();
+    var $arr_join = array();  
+    
     public function __construct() {
-        parent::__construct();  
-        $this->table = 'products';
-	$this->table_id = 'product_id';
-        $this->product_id='';
+	parent::__construct();  
+	$this->table = 'tags';
+	$this->table_id = 'tag_id';
+	$this->tag_id='';
 	$this->name='';
-        $this->comment_id='';
-	$this->description='';
-        $this->custom_image='';
-	$this->bid_image='';
-	$this->medium_image='';
-        $this->small_image='';
-	$this->price='';
-	$this->stock='';
-        $this->tags='';
 	$this->status_value='';
-        $this->position='';
 	$this->created_at='';
 	$this->created_by='';
 	$this->updated_at='';
 	$this->updated_by='';
 	
-	$this->fields = new products_model_atributos();
-    }   
-    
-    public function fields(){
     }
     
     public function insert($data){
@@ -144,5 +115,17 @@ class Product_Model extends CI_Model{
         $dato = $query->row();
         return $dato;       
   }
+  
+    public function valid_name($name){
+      $this->db->select("tag_id, name");
+      $this->db->where("name",$name);
+      $this->db->from($this->table);
+      $query = $this->db->get();
+      $dato = $query->result();
+      return $dato;       
+  }
+
+    
+	
 } //FIN DEL MODELO EXTENDIDO
 ?>

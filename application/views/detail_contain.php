@@ -119,6 +119,7 @@ $this->load->view("header");
     </ul>
         <div class="panel entry-content" id="tab-description">
         <h2>Descripcion del Producto</h2>
+        <br/>
         <p><?php echo $obj_products->description;?></p>
         </div>
         

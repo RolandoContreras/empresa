@@ -26,7 +26,7 @@
     <ul class="products">
         <?php foreach ($obj_products as $obj_products) { ?>
                     <li class="post-1954 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                        <a href="">
+                        <a href="<?php echo site_url().convert_slug($obj_products->category."/".$obj_products->name);?>">
                             <img width="300" height="300" src="<?php echo SERVER2.$obj_products->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
                             <h3><?php echo corta_texto($obj_products->name,25);?> </h3>
                          </a>
@@ -37,18 +37,17 @@
                     </li> 
         <?php } ?>
     </ul>
-        <!-----paginado---------->   
-        <?php if($total_products > 0){ ?>
-                <nav class="woocommerce-pagination">
-                    <ul class='page-numbers'>
-                        <li><a class="prev page-numbers" href="">←</a></li>
-                        
-                        <li><a class="next page-numbers" href="">&rarr;</a></li>
-                    </ul>
-                </nav>
-       <?php  } ?>
-            
-        <!-----paginado--------->
+        <!-----PAGINATE---------->   
+        <nav class="woocommerce-pagination">
+            <div class="subnav nobg">
+                <div class="span8">
+                    <div class="pagination" style="margin-left: 50%">
+                        <?php echo $obj_pagination; ?>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-----PAGINATE--------->
 </div>
 <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
     <div id="woocommerce_price_filter-2" class="widget"><h3>Filter by price</h3>

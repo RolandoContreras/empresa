@@ -17,6 +17,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 </script>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css';?>"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/cms/css/core/bootstrap_1.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/camera/camera.css';?>"/>
 <link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
