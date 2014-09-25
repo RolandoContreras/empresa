@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "home";
 $route['home'] = "home";
+$route['home/empty_car'] = "home/empty_car";
 $route['acerca'] = "about";
 $route['compras'] = "shop";
 $route['compras/([0-9_-]+)'] = "shop/index";

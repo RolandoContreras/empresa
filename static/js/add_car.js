@@ -24,6 +24,13 @@ function add_car(product_id){
 }
 
 function empty_car(){
-    	var url= 'home/empty_car';
-	location.href = site+url;
+    	  $.ajax({
+            type: "post",
+            url: site+"home/empty_car",
+            dataType: "json",
+            success:function(dato){  
+ 		alert("Carrito Vacio")          
+                location.reload();
+            }         
+     }); 
 }

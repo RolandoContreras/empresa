@@ -99,7 +99,6 @@ class Home extends CI_Controller {
         
         public function empty_car(){
            $this->cart->destroy();
-           redirect('checkout');
         }
                
 }

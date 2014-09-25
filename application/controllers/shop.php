@@ -31,7 +31,7 @@ class Shop extends CI_Controller {
             $config=array();
             $config["base_url"] = site_url("compras"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
-            $config["per_page"] = 1; 
+            $config["per_page"] = 9; 
             $config["num_links"] = 3;
             $config["uri_segment"] = 2;   
             

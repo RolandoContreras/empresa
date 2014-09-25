@@ -4,11 +4,11 @@
             <h3>Carrito</h3>
             <div class="widget_shopping_cart_content">
                 <?php 
-                if(isset($_SESSION['product_car'])){
+                
+                if(count($this->cart->contents())!=0){
                     
-                    $product_id = $_SESSION['product_car']['product_id'];
-                    $product_id;
-                    echo count($product_id) ." productos";
+                   $total =  count($this->cart->contents());
+                    echo $total ." productos";
                 }else{
                     echo "0 productos";
                 }
