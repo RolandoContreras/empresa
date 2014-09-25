@@ -61,9 +61,8 @@ class Home extends CI_Controller {
         public function add_car(){
             if($this->input->is_ajax_request()){   
                 $product_id = $this->input->post("product_id");
-
+                    
                     if (count($product_id) > 0){
-                        
                         //SELECT PRODUCT TO ADD CAR
                         $params = array(
                                     "select" =>"products.id_category,
@@ -80,42 +79,15 @@ class Home extends CI_Controller {
                                     );
 
                         $obj_products = $this->obj_products->get_search_row($params);
-                        
                         $data = array(
-                                    'product_id'      => $product_id,
-                                    'name'    => $obj_products->name,
-                                    'amount'     => 1,
-                                    'price'   => 39.95,
+                                    'id'      => $product_id,
+                                    'qty'    => 1,
+                                    'price'     => $obj_products->price,
+                                    'name'   => $obj_products->name,
+                                    'big_image'   => $obj_products->big_image,
 //                                    'options' => array('Size' => 'L', 'Color' => 'Red')
                                  );
                         $this->cart->insert($data);
-                        
-                        
-                        //SELECT PRODUCT TO ADD CAR
-//                        $params = array(
-//                                    "select" =>"products.id_category,
-//                                                products.name,
-//                                                products.description,
-//                                                products.custom_image,
-//                                                products.big_image,
-//                                                products.price,
-//                                                categories.name as category,
-//                                                products.status_value,
-//                                                products.position",
-//                                    "where" => "products.product_id = $product_id and products.status_value = 1",
-//                                    "join" => array('categories, products.id_category = categories.id_category')
-//                                    );
-//
-//                        $obj_products = $this->obj_products->get_search_row($params);
-//                        
-//                        $data_product_session['product_id'] = $product_id;
-//                        $data_product_session['name'] = $obj_products->name;
-//                        $data_product_session['image'] = $obj_products->big_image;
-//                        $data_product_session['price'] = $obj_products->price;
-//                        $data_product_session['description'] = $obj_products->description;
-//                        $data_product_session['logged_usercms'] = "TRUE";
-//                        $data_product_session['status_value'] = $obj_products->status_value;
-//                        $_SESSION['product_car'] = $data_product_session;                  
                         $dato['print'] = "Producto Agregado"; 
                     }else{
                         $dato['print'] = "Fuera de Stock"; 
@@ -124,4 +96,10 @@ class Home extends CI_Controller {
         exit();
             }
         }
+        
+        public function empty_car(){
+           $this->cart->destroy();
+           redirect('checkout');
+        }
+               
 }

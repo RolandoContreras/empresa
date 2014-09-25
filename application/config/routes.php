@@ -42,6 +42,7 @@ $route['default_controller'] = "home";
 $route['home'] = "home";
 $route['acerca'] = "about";
 $route['compras'] = "shop";
+$route['compras/([0-9_-]+)'] = "shop/index";
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
 $route['micuenta'] = "myaccount";

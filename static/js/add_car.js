@@ -22,3 +22,8 @@ function add_car(product_id){
             }         
      }); 
 }
+
+function empty_car(){
+    	var url= 'home/empty_car';
+	location.href = site+url;
+}

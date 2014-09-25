@@ -67,7 +67,8 @@
         </form>
     </div>
     
-    <div id="categories-3" class="visible-all-devices widget"><h3>Categorías</h3> 
+    <div id="categories-3" class="visible-all-devices widget">
+        <h3>Categorías</h3> 
         <ul>
             <?php foreach ($category as $value) { ?>
             <li class="cat-item cat-item-13"><a href="<?php echo site_url().convert_slug($value->name);?>" title="View all posts filed under Fusce feugiat"><?php echo $value->name;?></a></li>

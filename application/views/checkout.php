@@ -20,36 +20,79 @@
 <div class="row">
 <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
 <section class="title-section">
-<h1 class="title-header">
-Cart </h1>
+<h1 class="title-header">Carrito</h1>
  
-    <ul class="breadcrumb breadcrumb__t"><li><a href="<?php echo site_url().'home';?>">Home</a></li><li class="divider"></li><li class="active">Cart</li></ul>  
+    <ul class="breadcrumb breadcrumb__t"><li><a href="<?php echo site_url().'home';?>">Home</a></li><li class="divider"></li><li class="active">Carrito</li></ul>  
 </section>  </div>
 </div>
 <div class="row">
-<div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
-<div id="post-1915" class="post-1915 page type-page status-publish hentry page">
-<div class="woocommerce">
-<p class="cart-empty">Your cart is currently empty.</p>
-<p class="return-to-shop"><a class="button wc-backward" href="<?php echo site_url().'compras';?>">Volver a Comprar</a></p></div>
-<div class="clear"></div>
- 
-</div> 
-</div>
-<div class="span3 sidebar" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
-<div id="categories-3" class="visible-all-devices widget"><h3>Categories</h3> <ul>
-<li class="cat-item cat-item-13"><a href="http://livedemo00.template-help.com/woocommerce_51107/category/fusce-feugiat/" title="View all posts filed under Fusce feugiat">Fusce feugiat</a>
-</li>
-<li class="cat-item cat-item-15"><a href="http://livedemo00.template-help.com/woocommerce_51107/category/phasellus-porta/" title="View all posts filed under Phasellus porta">Phasellus porta</a>
-</li>
-<li class="cat-item cat-item-16"><a href="http://livedemo00.template-help.com/woocommerce_51107/category/sit-amet-2/" title="View all posts filed under Sit amet">Sit amet</a>
-</li>
-<li class="cat-item cat-item-1"><a href="http://livedemo00.template-help.com/woocommerce_51107/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
-</li>
-</ul>
-</div>
- 
-</div>
+    <div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
+        <div id="post-1915" class="post-1915 page type-page status-publish hentry page">
+            <div class="woocommerce">
+                <?php
+                if(count($this->cart->contents())!=0){ ?>
+                    
+                
+                    <table class="table smallfont">
+                        <thead>
+                            <tr>
+                                <td><b>IMAGEN</b></td>
+                                <td><b>NOMBRE</b></td>
+                                <td><b>PRECIO</b></td>
+                                <td><b>CANTIDAD</b></td>
+                                <td><b>SUB TOTAL</b></td>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            <?php 
+                                $i = 1;
+                                foreach ($this->cart->contents() as $item): ?>
+                                <input type="hidden" name="<?php echo $i;?>['rowid']" value="<?php echo $item['rowid'];?>" >
+                                    <tr>
+                                        <td><img src="<?php echo SERVER2.$item['big_image'];?>" height="42" width="42"></td>
+                                        <td><div class="post_title"><?php echo $item['name'];?></div></td>
+                                        <td>S/.<?php echo $this->cart->format_number($item['price']);?></td>
+                                        <td><?php echo $item['qty']; ?></td>
+                                        <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
+                                    </tr>
+                            <?php 
+                              $i++;
+                            endforeach; ?>
+                                 <tr>
+                                     <td><p class="return-to-shop"><a class="button" href="<?php echo site_url().'compras';?>"> Actualizar</a></p></td>
+                                    <td><p class="return-to-shop"><a onclick="empty_car();" class="button"> Vaciar</a></p></td>
+                                    <td></td>
+                                    <td class="right"><strong>Total</strong></td>
+                                    <td class="right">S/.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                  </tr>   
+
+                        </tbody>
+                    </table>
+                <?php }else{ ?>
+                        <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
+                <?php } ?>
+                
+            
+            
+            
+            
+            <p class="return-to-shop"><a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a></p>
+            </div>
+            
+        <div class="clear"></div>
+        </div> 
+    </div>
+    
+    <div class="span3 sidebar" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
+        <div id="categories-3" class="visible-all-devices widget">
+            <h3>Categorías</h3>
+            <ul>
+                <?php foreach ($category as $value) { ?>
+                    <li class="cat-item cat-item-13"><a href="<?php echo site_url().convert_slug($value->name);?>" title="View all posts filed under Fusce feugiat"><?php echo $value->name;?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
 </div>
 </div>
 </div>
