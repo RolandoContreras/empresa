@@ -62,11 +62,14 @@ $this->load->view("header");
     </div>
 <p class="stock "><?php echo $obj_products->stock;?> en stock</p>
 
-<form class="cart" method="post" enctype='multipart/form-data'>
-<div class="quantity"><input type="number" step="1" min="1" max="150" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/></div>
-<input type="hidden" name="add-to-cart" value="1946"/>
-<button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
+<form class="cart" method="post" action="<?php echo site_url()."home/add_car"?>">
+    <div class="quantity">
+        <input type="number" step="1" min="1" max="150" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+        <input type="hidden" name="product_id" value="<?php echo $obj_products->product_id;?>" class="input-text qty text" size="4"/>
+    </div>
+<button onclick="add_car('<?php echo $obj_products->product_id;?>');" class="single_add_to_cart_button button alt">Agregar al Carro</button>
 </form>
+
 <div class="product_meta">
 <span class="posted_in">Categories: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/" rel="tag">Lorem ipsum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/" rel="tag">Proin ut</a>.</span>
 <span class="tagged_as">Tags: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/lorem-ipsum/" rel="tag">Lorem ipsum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/sed-blandit-massa/" rel="tag">Sed blandit massa</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/vel-mauris/" rel="tag">vel mauris</a>.</span>
@@ -236,8 +239,11 @@ $this->load->view("header");
 
 $this->load->view("footer");
 ?>
- 
 </div>
+    
+ 
+<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
+    
 
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/comment-reply.min.js?ver=3.9.1'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>

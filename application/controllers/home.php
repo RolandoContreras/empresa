@@ -94,11 +94,48 @@ class Home extends CI_Controller {
                     }
                 echo json_encode($dato);            
         exit();
+            }else{
+                $product_id = $this->input->post('product_id');
+                $qty        = $this->input->post('quantity');
+                
+                $params = array(
+                                    "select" =>"products.id_category,
+                                                products.name,
+                                                products.description,
+                                                products.custom_image,
+                                                products.big_image,
+                                                products.price,
+                                                categories.name as category,
+                                                products.status_value,
+                                                products.position",
+                                    "where" => "products.product_id = $product_id and products.status_value = 1",
+                                    "join" => array('categories, products.id_category = categories.id_category')
+                                    );
+
+                        $obj_products = $this->obj_products->get_search_row($params);
+                        $data = array(
+                                    'id'         =>     $product_id,
+                                    'qty'        =>     $qty,
+                                    'price'      =>     $obj_products->price,
+                                    'name'       =>     $obj_products->name,
+                                    'big_image'  =>     $obj_products->big_image,
+//                                    'options' => array('Size' => 'L', 'Color' => 'Red')
+                                 );
+                        $this->cart->insert($data);
+                        redirect('checkout');
             }
         }
         
         public function empty_car(){
            $this->cart->destroy();
         }
-               
+        
+        public function change_car(){
+           $data = $this->input->post();
+           
+           var_dump($data);
+           die();
+           
+           $this->cart->update($data);
+        }
 }

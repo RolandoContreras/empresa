@@ -31,9 +31,9 @@
             <div class="woocommerce">
                 <?php
                 if(count($this->cart->contents())!=0){ ?>
-                    
-                
+                <form action="<?php echo site_url().'home/add_car';?>" method="post">
                     <table class="table smallfont">
+                        
                         <thead>
                             <tr>
                                 <td><b>IMAGEN</b></td>
@@ -52,14 +52,14 @@
                                         <td><img src="<?php echo SERVER2.$item['big_image'];?>" height="42" width="42"></td>
                                         <td><div class="post_title"><?php echo $item['name'];?></div></td>
                                         <td>S/.<?php echo $this->cart->format_number($item['price']);?></td>
-                                        <td><?php echo $item['qty']; ?></td>
+                                        <td><input type="number" value="<?php echo $item['qty']; ?>" size="0"></td>
                                         <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
                                     </tr>
                             <?php 
                               $i++;
                             endforeach; ?>
                                  <tr>
-                                     <td><p class="return-to-shop"><a class="button" href="<?php echo site_url().'compras';?>"> Actualizar</a></p></td>
+                                     <td><p class="return-to-shop"><button class="button"> Actualizar</button></p></td>
                                     <td><p class="return-to-shop"><a onclick="empty_car();" class="button"> Vaciar</a></p></td>
                                     <td></td>
                                     <td class="right"><strong>Total</strong></td>
@@ -67,7 +67,9 @@
                                   </tr>   
 
                         </tbody>
+                      
                     </table>
+                </form>
                 <?php }else{ ?>
                         <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
                 <?php } ?>

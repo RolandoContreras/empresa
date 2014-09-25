@@ -131,7 +131,7 @@
                                                 <span class="amount">S/.<?php echo $product->price?></span>
                                             </span>
                                        <br/><br/>
-                                       <a onclick="add_car('<?php echo $product->product_id;?>');" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                                       <a onclick="add_car('<?php echo $product->product_id;?>');" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
                                       
                                     </li>
                         <?php } ?>

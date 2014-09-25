@@ -33,7 +33,7 @@
                         <div class="short_desc"><?php echo corta_texto($obj_products->description,100);?></div>
                         <span class="price"><ins><span class="amount">S/.<?php echo $obj_products->price;?></span></ins></span>
                         <br/><br/>
-                        <a href="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                        <a onclick="add_car('<?php echo $obj_products->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
                     </li> 
         <?php } ?>
     </ul>
@@ -82,7 +82,7 @@
 </div>
     <?php $this->load->view("footer"); ?>
 </div>
-    
+<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>      
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>   
 <script type="text/javascript" src='<?php echo site_url().'static/js/superfish.js';?>'></script>   
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.ui.widget.min.js';?>'></script> 
