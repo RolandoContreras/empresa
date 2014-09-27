@@ -31,7 +31,8 @@
             <div class="woocommerce">
                 <?php
                 if(count($this->cart->contents())!=0){ ?>
-                <form action="<?php echo site_url().'home/add_car';?>" method="post">
+                <form class="cart" method="post" action="<?php echo base_url()."home/change_car"?>">
+                    
                     <table class="table smallfont">
                         
                         <thead>
@@ -41,26 +42,35 @@
                                 <td><b>PRECIO</b></td>
                                 <td><b>CANTIDAD</b></td>
                                 <td><b>SUB TOTAL</b></td>
+                                <td><b>ACCIONES</b></td>
                             </tr>
                         </thead>
                         <tbody> 
                             <?php 
-                                $i = 1;
+                            $i = 1;
                                 foreach ($this->cart->contents() as $item): ?>
                                 <input type="hidden" name="<?php echo $i;?>['rowid']" value="<?php echo $item['rowid'];?>" >
                                     <tr>
                                         <td><img src="<?php echo SERVER2.$item['big_image'];?>" height="42" width="42"></td>
                                         <td><div class="post_title"><?php echo $item['name'];?></div></td>
                                         <td>S/.<?php echo $this->cart->format_number($item['price']);?></td>
-                                        <td><input type="number" value="<?php echo $item['qty']; ?>" size="0"></td>
+                                        <td>
+                                            <div class="quantity">
+                                                <input name="qty" type="number" value="<?php echo $item['qty']; ?>" class="input-text qty text" size="4">
+                                            </div>
+                                        </td>
                                         <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
+                                        <td><p><a onclick="update_car('<?php echo $item['rowid'];?>');" class="button">Editar</a> </p>
+                                            <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="button">Eliminar</a> </p>
+                                        </td>
                                     </tr>
                             <?php 
                               $i++;
                             endforeach; ?>
                                  <tr>
-                                     <td><p class="return-to-shop"><button class="button"> Actualizar</button></p></td>
+                                    
                                     <td><p class="return-to-shop"><a onclick="empty_car();" class="button"> Vaciar</a></p></td>
+                                    <td></td>
                                     <td></td>
                                     <td class="right"><strong>Total</strong></td>
                                     <td class="right">S/.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
@@ -69,6 +79,7 @@
                         </tbody>
                       
                     </table>
+                        
                 </form>
                 <?php }else{ ?>
                         <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
@@ -114,8 +125,6 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
 <!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
-<!----------------------------------------------------->
 <script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
 
 <script>
@@ -127,5 +136,9 @@
 				});
 			})(jQuery);
 </script>
+
+
+<!--var porId=document.getElementById("nombre").value;-->
+
 </body>
 </html>

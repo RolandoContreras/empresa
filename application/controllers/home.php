@@ -97,9 +97,9 @@ class Home extends CI_Controller {
             }else{
                 $product_id = $this->input->post('product_id');
                 $qty        = $this->input->post('quantity');
-                
                 $params = array(
-                                    "select" =>"products.id_category,
+                                    "select" =>"products.product_id,
+                                                products.id_category,
                                                 products.name,
                                                 products.description,
                                                 products.custom_image,
@@ -108,13 +108,14 @@ class Home extends CI_Controller {
                                                 categories.name as category,
                                                 products.status_value,
                                                 products.position",
-                                    "where" => "products.product_id = $product_id and products.status_value = 1",
+                                    "where" => "products.product_id = $product_id",
                                     "join" => array('categories, products.id_category = categories.id_category')
                                     );
 
                         $obj_products = $this->obj_products->get_search_row($params);
+                        
                         $data = array(
-                                    'id'         =>     $product_id,
+                                    'id'         =>     $obj_products->product_id,
                                     'qty'        =>     $qty,
                                     'price'      =>     $obj_products->price,
                                     'name'       =>     $obj_products->name,
@@ -130,12 +131,28 @@ class Home extends CI_Controller {
            $this->cart->destroy();
         }
         
-        public function change_car(){
-           $data = $this->input->post();
-           
-           var_dump($data);
-           die();
-           
-           $this->cart->update($data);
+        public function delete_car(){
+            if($this->input->is_ajax_request()){ 
+                    $row_id = $this->input->post('row_id');
+                    $data = array(
+                         'rowid' => $row_id,
+                         'qty' => 0
+                     );
+                    $this->cart->update($data);
+             }
+            exit();
+        }
+        
+        public function update_car(){
+            if($this->input->is_ajax_request()){ 
+                $row_id = $this->input->post('row_id');
+                $qty = $this->input->post('qty');
+                $data = array(
+                     'rowid' => $row_id,
+                     'qty' => $qty
+                 );
+                $this->cart->update($data);
+                }
+          exit();
         }
 }

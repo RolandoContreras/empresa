@@ -41,17 +41,23 @@
 $route['default_controller'] = "home";
 $route['home'] = "home";
 $route['home/add_car'] = "home/add_car";
-$route['home/change_car'] = "home/change_car";
+$route['home/delete_car'] = "home/delete_car";
+$route['home/update_car'] = "home/update_car";
 $route['home/empty_car'] = "home/empty_car";
+
 $route['acerca'] = "about";
+
 $route['compras'] = "shop";
 $route['compras/([0-9_-]+)'] = "shop/index";
+
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
 $route['micuenta'] = "myaccount";
 $route['checkout'] = "checkout";
+
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
+
 $route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 
 
 $route['dashboard'] = "dashboard";
