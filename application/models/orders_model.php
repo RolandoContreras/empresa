@@ -21,6 +21,7 @@ class orders_model_atributos{
     var $address='';
     var $references='';
     var $city='';
+    var $total='';
     var $date_order='';
     var $date_send='';
     var $status_value='';
@@ -41,6 +42,7 @@ class Orders_Model extends CI_Model{
         $this->address='';
         $this->references='';
         $this->city='';
+        $this->total='';
         $this->date_order='';
         $this->date_send='';
 	$this->status_value='';

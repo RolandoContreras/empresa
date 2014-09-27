@@ -15,7 +15,7 @@ font-size: 13px;
 line-height: 16px;
 margin-left: 18px; 
 }
-.logo{
-/*    position: absolute;
-    top: -40px;*/
+.pay{
+    background: none repeat scroll 0 0 greenyellow !important;
+    color:#2b353d !important; 
 }

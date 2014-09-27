@@ -74,6 +74,7 @@
                                     <td></td>
                                     <td class="right"><strong>Total</strong></td>
                                     <td class="right">S/.<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                    <td></td>
                                   </tr>   
 
                         </tbody>
@@ -84,12 +85,10 @@
                 <?php }else{ ?>
                         <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
                 <?php } ?>
-                
-            
-            
-            
-            
-            <p class="return-to-shop"><a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a></p>
+            <p class="return-to-shop">
+                <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
+                <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>"> Pagar</a>
+            </p>
             </div>
             
         <div class="clear"></div>
