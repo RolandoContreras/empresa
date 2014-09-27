@@ -167,15 +167,5 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
 <!----------------------------------------------------->
 <script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
-
-<script>
-			(function($) {
-				$(window).load(function() {
-					if ($('.widget_shopping_cart_content').is(':empty')) {
-						$('.widget_shopping_cart_content').text('No products in the cart.');
-					}
-				});
-			})(jQuery);
-</script>
 </body>
 </html>

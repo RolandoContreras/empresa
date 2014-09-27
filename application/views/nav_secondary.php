@@ -1,16 +1,11 @@
 <div class="row">
     <div class="span12 full-top-shop" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
        <?php 
-       if(isset($_SESSION['cms_users'])){?>
+       if(isset($_SESSION['customer'])){?>
            <div class="cart-holder">
-            <h4 class="users">Bienvenido Carlos Escalante</h4>
+            <h4 class="users">Bienvenido <?php echo $_SESSION['customer']['name'];?></h4>
         </div>
        <?php }?>
-        
-        <div class="cart-holder">
-                    <h4 class="users">Bienvenido Rolando Contreras</h4>
-        </div>
-        
         <div id="woocommerce_widget_cart-2" class="cart-holder">
             <h3>Carrito</h3>
             <div class="widget_shopping_cart_content">

@@ -52,7 +52,9 @@ $route['compras/([0-9_-]+)'] = "shop/index";
 
 $route['contacto'] = "contacs";
 $route['detalle'] = "detail_contain";
+
 $route['micuenta'] = "myaccount";
+$route['micuenta/validar_user'] = "myaccount/validar_user";
 $route['checkout'] = "checkout";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
