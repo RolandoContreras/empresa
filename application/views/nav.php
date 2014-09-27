@@ -4,7 +4,6 @@
                 <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item"><a href="<?php echo site_url().'acerca';?>">Acerca</a>
                 <ul class="sub-menu">
                     <li id="menu-item-2001" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Testimonios</a></li>
-                    <!--<li id="menu-item-2002" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Archivos</a></li>-->
                     <li id="menu-item-1996" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">FAQs</a></li>
                 </ul>
                 </li>

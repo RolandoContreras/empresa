@@ -6,3 +6,16 @@ footer.footer .footer-widgets {
 	footer.footer .footer-widgets { text-align:center; }
 }
 .nav_custom1{ padding-left: 10% !important;}
+.users
+{
+color: white !important; 
+font-weight: bold;
+text-transform: uppercase;
+font-size: 13px;
+line-height: 16px;
+margin-left: 18px; 
+}
+.logo{
+/*    position: absolute;
+    top: -40px;*/
+}

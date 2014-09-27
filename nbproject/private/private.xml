@@ -5,12 +5,9 @@
         <group>
             <file>file:/C:/wamp/www/empresa/application/controllers/home.php</file>
             <file>file:/C:/wamp/www/empresa/application/views/checkout.php</file>
-            <file>file:/C:/wamp/www/empresa/application/controllers/detail_contain.php</file>
-            <file>file:/C:/wamp/www/empresa/application/controllers/checkout.php</file>
+            <file>file:/C:/wamp/www/empresa/application/config/autoload.php</file>
             <file>file:/C:/wamp/www/empresa/application/views/detail_contain.php</file>
-            <file>file:/C:/wamp/www/empresa/application/views/home.php</file>
             <file>file:/C:/wamp/www/empresa/application/config/routes.php</file>
-            <file>file:/C:/wamp/www/empresa/application/config/config.php</file>
             <file>file:/C:/wamp/www/empresa/static/js/add_car.js</file>
         </group>
     </open-files>

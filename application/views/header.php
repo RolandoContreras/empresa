@@ -1,7 +1,3 @@
-<?php 
-//session_start();
-//session_destroy();
-?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
@@ -42,7 +38,18 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-migrate-1.2.1.min.js';?>'></script>
 <!--Banner Grande-->
 
-<style type='text/css'>h1{font:normal 30px/35px Open Sans;color:#000000;}h2{font:normal 22px/22px Open Sans;color:#000000;}h3{font:normal 18px/22px Open Sans;color:#000000;}h4{font:normal 15px/18px Open Sans;color:#000000;}h5{font:normal 12px/18px Open Sans;color:#000000;}h6{font:normal 12px/18px Open Sans;color:#000000;}body{font-weight:normal;}.logo_h__txt,.logo_link{font:normal 40px/48px Open Sans;color:#2a343c;}.sf-menu>li>a{font:normal 14px/18px Open Sans;color:#626262;}.nav.footer-nav a{font:normal 13px/18px Open Sans;color:#ffffff;}</style>
+<style type='text/css'>
+    h1{font:normal 30px/35px Open Sans;color:#000000;}
+    h2{font:normal 22px/22px Open Sans;color:#000000;}
+    h3{font:normal 18px/22px Open Sans;color:#000000;}
+    h4{font:normal 15px/18px Open Sans;color:#000000;}
+    h5{font:normal 12px/18px Open Sans;color:#000000;}
+    h6{font:normal 12px/18px Open Sans;color:#000000;}
+    body{font-weight:normal;}
+    .logo_h__txt,.logo_link{font:normal 40px/48px Open Sans;color:#2a343c;}
+    .sf-menu>li>a{font:normal 14px/18px Open Sans;color:#626262;}
+    .nav.footer-nav a{font:normal 13px/18px Open Sans;color:#ffffff;}
+</style>
 
 <script type="text/javascript">
 		jQuery(function(){

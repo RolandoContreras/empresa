@@ -1,10 +1,20 @@
 <div class="row">
     <div class="span12 full-top-shop" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
+       <?php 
+       if(isset($_SESSION['cms_users'])){?>
+           <div class="cart-holder">
+            <h4 class="users">Bienvenido Carlos Escalante</h4>
+        </div>
+       <?php }?>
+        
+        <div class="cart-holder">
+                    <h4 class="users">Bienvenido Rolando Contreras</h4>
+        </div>
+        
         <div id="woocommerce_widget_cart-2" class="cart-holder">
             <h3>Carrito</h3>
             <div class="widget_shopping_cart_content">
                 <?php 
-                
                 if(count($this->cart->contents())!=0){
                     
                    $total =  count($this->cart->contents());
@@ -13,25 +23,28 @@
                     echo "0 productos";
                 }
                 ?>
-                </div>
+                
+             </div>
         </div>
+        
          <div class="shop-nav">
              <ul id="shopnav" class="shop-menu">
+                    <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Login</a></li>
                     <li><a href="" class='register-link' title="Registro">Registro</a></li>
-                    <li id="menu-item-2020" title=""><a href="Delivery">Delivery</a></li>
-                    <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Mi Cuenta</a></li>
+                    <li id="menu-item-2020" title=""><a href="Delivery">Back Office</a></li>
                     <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'checkout';?>">Checkout</a></li>
             </ul>
          </div> 
+        
     </div>
-    </div>
+</div>
 
     <div class="row">
     <div class="span12 full-top-nav">
     <div class="row">
     <div class="span3" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
-        <div class="logo pull-left">
-            <a href="<?php echo site_url().'home';?>" class="logo_h logo_h__img"><img src="<?php echo site_url().'static/images/logo.png';?>" alt="TradeE&C" title="Logo"></a>
+        <div class="logo">
+            <a href="<?php echo site_url().'home';?>" class="logo_h logo_h__img"><img src="<?php echo site_url().'static/images/logo.png';?>" alt="TradeE&C"></a>
         </div>
     </div>
     <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">
