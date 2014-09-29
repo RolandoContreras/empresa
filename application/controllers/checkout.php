@@ -44,16 +44,13 @@ class Checkout extends CI_Controller {
              'updated_at'       => date("Y-m-d H:i:s"),
              'updated_by'       => $_SESSION['customer']['customer_id'],         
              );
-//            
-//             var_dump($data_order);
-//             die();
             
-            $oder_id = $this->obj_order->insert($data_order);
+            $order_id = $this->obj_order->insert($data_order);
             
             foreach ($this->cart->contents() as $item){
                 //INSERT DETAIL_ORDER
             $data_order_details = array( 
-                 'order_id   '      => $oder_id,
+                 'order_id   '      => $order_id,
                  'product_id'       => $item['id'],
                  'price'            => $item['price'],
                  'quantity'         => $item['qty'],

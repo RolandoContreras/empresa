@@ -15,9 +15,6 @@
                  </div>
                 <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
                 <div class="span8">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
                 </div>
                 </form>
             </div>
@@ -27,29 +24,24 @@
             <table class="table smallfont">
                 <thead>
                     <tr>
-                        <td>Numero de Order</td>
-                        <td>Cliente</td>
-                        <td>Fecha de Pedido</td>
-                        <td>Fecha de Envio</td>
-                        <td>Direccion</td>
-                        <td>Ciudad</td>
-                        <td>Referencias</td>
+                        <td>Producto</td>
+                        <td>Imagen</td>
+                        <td>Precio</td>
+                        <td>Cantidad</td>
+                        <td>SubTotal</td>
                         <td>Estado</td>
-                        <td>Detalle</td>
                     </tr>
                 </thead>
                 <tbody> 
-                    <?php foreach ($obj_order as $value): ?>
+                    <?php foreach ($obj_detail as $value): ?>
                         <tr>
                             <td>
-                                <div class="post_title"><?php echo $value->order_id;?></div>
+                                <div class="post_title"><?php echo $value->name;?></div>
                             </td>
-                            <td><?php echo $value->first_name." ".$value->last_name; ?></td>
-                            <td><?php echo $value->date_order;?></td>
-                            <td><div class="post_title"><?php echo $value->date_send; ?></div></td>
-                            <td><?php echo $value->address; ?></td>
-                            <td><?php echo $value->city; ?></td>
-                            <td><?php echo $value->references; ?></td>
+                            <td><img src="<?php echo SERVER2.$value->big_image;?>" height="42" width="42"></td>
+                            <td><?php echo format_number($value->price);?></td>
+                            <td><?php echo $value->quantity; ?></td>
+                            <td><?php echo format_number($value->subtotal);   ?></td>
                             <td>
                                 <?php if ($value->status_value == 1) {
                                     $valor = "Pendiente";
@@ -59,14 +51,6 @@
                                     $stilo = "label label-success";
                                 } ?>
                                 <span class="<?php echo $stilo ?>"><?php echo $valor; ?></span>
-                            </td>
-                            <td>
-                                <div class="operation">
-                                        <div class="btn-group">
-                                            <button class="btn btn-small" onclick="order_send('<?php echo $value->order_id;?>');">Enviado</button>
-                                            <button class="btn btn-small" onclick="view_details('<?php echo $value->order_id;?>');">Ver</button>
-                                        </div>
-                                    </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -83,13 +67,10 @@
                 <div class="span2"></div>
                 <div class="span1"></div>
                 <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="static/cms/js/orders.js"></script>
+<script src="static/cms/js/products.js"></script>

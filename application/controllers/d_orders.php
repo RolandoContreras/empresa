@@ -5,6 +5,7 @@ class D_orders extends CI_Controller{
     public function __construct(){
         parent::__construct();
           $this->load->model("orders_model","obj_order");
+          $this->load->model("order_details_model","obj_order_detail");
     }   
                 
     public function index(){  
@@ -63,48 +64,36 @@ class D_orders extends CI_Controller{
             $this->tmp_mastercms->set("obj_order",$obj_order);
             $this->tmp_mastercms->set("pagination",$obj_pagination);
             $this->tmp_mastercms->render("dashboard/pedidos/orders_list");
-
     }
     
-    public function load($id_category=NULL){
-        
-        if ($id_category != ""){
-            /// PARAMETROS PARA EL SELECT 
-            $where = "id_category = $id_category";
+    public function view_detail($order_id){
+            //SELECT DATA FROM ORDER_DETAIL
             $params = array(
-                           "select" => "", 
-                           "where" => $where);
-            $obj_categories  = $this->obj_categories->get_search_row($params);  
-            $this->tmp_mastercms->set("obj_categories",$obj_categories);
-          }
-            $modulos ='categorias'; 
-            $seccion = 'Formulario';        
-            $link_modulo =  site_url().'dashboard/'.$modulos; 
-
+                        "select" =>"order_details.order_id,
+                                    order_details.product_id,
+                                    order_details.product_id,
+                                    order_details.price,
+                                    products.name,
+                                    products.big_image,
+                                    order_details.quantity,
+                                    order_details.subtotal,
+                                    order_details.status_value,",
+                         "where" => "order_details.order_id = '$order_id'",
+                         "join" => array('products, products.product_id = order_details.product_id')
+            );
+            $obj_detail = $this->obj_order_detail->search($params);
+            
+            $modulos ='pedidos'; 
+            $seccion = 'Lista';        
+            $link_modulo =  site_url().'dashboard/pedidos'; 
+            
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
-            $this->tmp_mastercms->render("dashboard/categories/categories_form");    
+            $this->tmp_mastercms->set("obj_detail",$obj_detail);
+            $this->tmp_mastercms->render("dashboard/pedidos/order_detail_list");
     }
-	
-    public function validate(){
-        $id_category = $this->input->post("id_category");
-        $data = array(
-               'name' => $this->input->post('name'),
-               'observation' => $this->input->post('observation'),
-               'status_value' => $this->input->post('status_value'),
-               'created_at' => date("Y-m-d H:i:s"),
-//             'created_by' => $_SESSION['usercms']['user_id'],
-               'updated_at' => date("Y-m-d H:i:s"),
-//             'updated_by' => $_SESSION['usercms']['user_id']
-        );          
         
-            if ($id_category != ""){
-                $this->obj_categories->update($id_category, $data);
-            }else{
-                $this->obj_categories->insert($data);                
-            }
-            redirect(site_url()."dashboard/categorias");
-    }
-}
+ }
+
 ?>

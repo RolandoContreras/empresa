@@ -56,8 +56,8 @@ class Orders_Model extends CI_Model{
 	$this->fields = new orders_model_atributos();
     }   
     public function insert($data){
-      $query = $this->db->insert($this->table, $data);
-      return $query;
+      $this->db->insert($this->table, $data);
+      return $this->db->insert_id();
     }
   
     public function insert_lote($data){

@@ -36,6 +36,11 @@ function convert_query($slug){
     return strtolower(str_replace($search, $replace, $slug));
 }
 
+function format_number($number){
+    $decimals ="2";
+    $number = number_format($number, $decimals);
+    return "S/. ".$number;
+}
 
 function get_semilla(){
     $semilla='ab513c75f48d82bcd30aa48e478d2e6e';
