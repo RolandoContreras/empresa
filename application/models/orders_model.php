@@ -21,6 +21,7 @@ class orders_model_atributos{
     var $address='';
     var $references='';
     var $city='';
+    var $department='';
     var $total='';
     var $date_order='';
     var $date_send='';
@@ -42,6 +43,7 @@ class Orders_Model extends CI_Model{
         $this->address='';
         $this->references='';
         $this->city='';
+        $this->department='';
         $this->total='';
         $this->date_order='';
         $this->date_send='';
@@ -51,10 +53,11 @@ class Orders_Model extends CI_Model{
 	$this->updated_at='';
 	$this->updated_by='';
 	
-	$this->fields = new categories_model_atributos();
+	$this->fields = new orders_model_atributos();
     }   
     public function insert($data){
-      $this->db->insert($this->table, $data);
+      $query = $this->db->insert($this->table, $data);
+      return $query;
     }
   
     public function insert_lote($data){

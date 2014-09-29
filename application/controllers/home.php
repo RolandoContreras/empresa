@@ -80,11 +80,11 @@ class Home extends CI_Controller {
 
                         $obj_products = $this->obj_products->get_search_row($params);
                         $data = array(
-                                    'id'      => $product_id,
-                                    'qty'    => 1,
+                                    'id'        => $product_id,
+                                    'qty'       => 1,
                                     'price'     => $obj_products->price,
-                                    'name'   => $obj_products->name,
-                                    'big_image'   => $obj_products->big_image,
+                                    'name'      => $obj_products->name,
+                                    'big_image' => $obj_products->big_image,
 //                                    'options' => array('Size' => 'L', 'Color' => 'Red')
                                  );
                         $this->cart->insert($data);

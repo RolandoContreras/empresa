@@ -73,6 +73,8 @@ $route['dashboard/productos/load/([0-9]+)'] = "d_products/load/$1";
 $route['dashboard/productos/delete/([0-9]+)'] = "d_products/delete/$1";
 $route['dashboard/productos/validate'] = "d_products/validate";
 
+$route['dashboard/pedidos'] = "d_orders";
+
 $route['dashboard/categorias'] = "d_categories";
 $route['dashboard/categorias/load'] = "d_categories/load";
 $route['dashboard/categorias/load/([0-9]+)'] = "d_categories/load/$1";

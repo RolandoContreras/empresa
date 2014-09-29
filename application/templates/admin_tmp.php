@@ -82,7 +82,7 @@
                                         Mantenimientos  
                                         </a>
                                     </div>
-                                    <div id="dashboardsb" class="accordion-body collapse in">
+                                    <div id="dashboardsb" class="accordion-body collapse">
                                       <div class="accordion-inner">
                                         <ul class="nav nav-list">
                                          <li class="active"><a href="<?php echo site_url()."dashboard/productos";?>"><i class="icon-large icon-th"></i>Productos</a></li>
@@ -95,7 +95,22 @@
                                     </div>
                             </div>
                  
-                            
+                            <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#pedidos">
+                                        Pedidos
+                                        </a>
+                                    </div>
+                                    <div id="pedidos" class="accordion-body collapse">
+                                      <div class="accordion-inner">
+                                        <ul class="nav nav-list">
+                                             <li><a href="<?php echo site_url()."dashboard/pedidos";?>"><i class="icon-large icon-th"></i>Pedidos</a></li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                            </div>
+    
+                        
                             <div class="accordion-group">
                                 <div class="accordion-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#recursos">

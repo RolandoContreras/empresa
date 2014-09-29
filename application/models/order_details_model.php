@@ -15,12 +15,13 @@
 * Fecha: 29/09/2012
 ****/
 
-class orders_details_model_atributos{	
+class order_details_model_atributos{	
     var $order_details_id='';
     var $product_id='';
     var $price='';
-    var $amount='';
+    var $quantity='';
     var $tax='';
+    var $subtotal='';
     var $status_value='';
     var $created_at='';
     var $created_by='';
@@ -28,7 +29,7 @@ class orders_details_model_atributos{
     var $updated_by='';
 }
 
-class Orders_Details_Model extends CI_Model{ 
+class Order_Details_Model extends CI_Model{ 
 
     public function __construct() {
         parent::__construct();  
@@ -37,15 +38,16 @@ class Orders_Details_Model extends CI_Model{
         $this->order_details_id='';
 	$this->product_id='';
         $this->price='';
-        $this->amount='';
+        $this->quantity='';
         $this->tax='';
-       $this->status_value='';
+        $this->subtotal='';
+        $this->status_value='';
 	$this->created_at='';
 	$this->created_by='';
 	$this->updated_at='';
 	$this->updated_by='';
 	
-	$this->fields = new categories_model_atributos();
+	$this->fields = new order_details_model_atributos();
     }   
     public function insert($data){
       $this->db->insert($this->table, $data);

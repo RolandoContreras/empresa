@@ -6,6 +6,8 @@ class Checkout extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model("categories_model","obj_category");
+        $this->load->model("orders_model","obj_order");
+        $this->load->model("order_details_model","obj_detail");
     }
     
     public function index()
@@ -21,40 +23,51 @@ class Checkout extends CI_Controller {
     }
     public function pay(){
         if(isset($_SESSION['customer'])){
-            $customer_id =  $_SESSION['customer']['customer_id'];
+            $customer_id    =  $_SESSION['customer']['customer_id'];
+            $total          =  $this->cart->total();
+            $date_order     =  date("Y-m-d H:i:s");
+            $dia_enviar     =  date("d")+2;
+            $date_send      =  date("Y-m-$dia_enviar H:i:s");
             
-            $product_id = "";
-            $i = 1;
+            //INSERT ORDER
+            $data_order = array( 
+             'customer_id'      => $customer_id,
+             'address'          => $_SESSION['customer']['address'],
+             'city'             => $_SESSION['customer']['city'],
+             'department'       => $_SESSION['customer']['department'],
+             'total'            => $total,  
+             'date_order'       => $date_order,
+             'date_send'        => $date_send, 
+             'status_value'     => 1,
+             'created_at'       => date("Y-m-d H:i:s"),
+             'created_by'       => $_SESSION['customer']['customer_id'],
+             'updated_at'       => date("Y-m-d H:i:s"),
+             'updated_by'       => $_SESSION['customer']['customer_id'],         
+             );
+//            
+//             var_dump($data_order);
+//             die();
             
-            foreach ($this->cart->contents() as $item):
-                //INSERT 
-                             $param_category = array(
-                        "select" =>"",
-                        "where" => "status_value = 1",
-                           );
-           
-             $obj_products['category'] = $this->obj_category->search($param_category);
-//                                    <tr>
-//                                        <td><img src="<?php echo SERVER2.$item['big_image'];?>" height="42" width="42"></td>
-//                                        <td><div class="post_title"><?php echo $item['name'];?></div></td>
-                                        <td>S/.//<?php echo $this->cart->format_number($item['price']);?></td>
-                                        <td>
-                                            <div class="quantity">
-                                                <input name="qty" type="number" value="//<?php echo $item['qty']; ?>" class="input-text qty text" size="4">
-                                            </div>
-                                        </td>
-                                        <td>S/.//<?php echo $this->cart->format_number($item['subtotal']);?></td>
-                                        <td><p><a onclick="update_car('//<?php echo $item['rowid'];?>');" class="button">Editar</a> </p>
-                                            <a onclick="delete_car('//<?php echo $item['rowid'];?>');" class="button">Eliminar</a> </p>
-                                        </td>
-                                    </tr>
-            <?php $i++;
-            endforeach; 
-                                
+            $oder_id = $this->obj_order->insert($data_order);
             
-            
-            
-        }else{
+            foreach ($this->cart->contents() as $item){
+                //INSERT DETAIL_ORDER
+            $data_order_details = array( 
+                 'order_id   '      => $oder_id,
+                 'product_id'       => $item['id'],
+                 'price'            => $item['price'],
+                 'quantity'         => $item['qty'],
+                 'subtotal'         => $item['subtotal'],
+                 'status_value'     => 1,
+                 'created_at'       => date("Y-m-d H:i:s"),
+                 'created_by'       => $_SESSION['customer']['customer_id'],
+                 'updated_at'       => date("Y-m-d H:i:s"),
+                 'updated_by'       => $_SESSION['customer']['customer_id'],         
+                 );
+            $this->obj_detail->insert($data_order_details);
+            }
+            redirect('home');
+         }else{
             redirect('micuenta');
         }
     }
