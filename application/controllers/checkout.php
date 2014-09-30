@@ -29,6 +29,26 @@ class Checkout extends CI_Controller {
             $dia_enviar     =  date("d")+2;
             $date_send      =  date("Y-m-$dia_enviar H:i:s");
             
+            
+            //UPDATE STOCK PRODUCTS
+      //      foreach ($this->cart->contents() as $item){
+                
+//            $data_order_details = array( 
+//                 'order_id   '      => $order_id,
+//                 'product_id'       => $item['id'],
+//                 'price'            => $item['price'],
+//                 'quantity'         => $item['qty'],
+//                 'subtotal'         => $item['subtotal'],
+//                 'status_value'     => 1,
+//                 'created_at'       => date("Y-m-d H:i:s"),
+//                 'created_by'       => $_SESSION['customer']['customer_id'],
+//                 'updated_at'       => date("Y-m-d H:i:s"),
+//                 'updated_by'       => $_SESSION['customer']['customer_id'],         
+//                 );
+//            $this->obj_detail->insert($data_order_details);
+//            }
+            
+            
             //INSERT ORDER
             $data_order = array( 
              'customer_id'      => $customer_id,

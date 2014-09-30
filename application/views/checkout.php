@@ -1,18 +1,17 @@
 <?php $this->load->view("header");?>
 <body class="page page-id-1915 page-template-default woocommerce-cart woocommerce-page has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
- 
-<header class="motopress-wrapper header">
-<div class="container">
-    <div class="row">
-        <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="542343104e034">
-            <!--Menu Navigacion Secundary-->
-                 <?php $this->load->view("nav_secondary");?>
-             <!--------------------------->
+    <header class="motopress-wrapper header">
+    <div class="container">
+        <div class="row">
+            <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="542343104e034">
+                <!--Menu Navigacion Secundary-->
+                     <?php $this->load->view("nav_secondary");?>
+                 <!--------------------------->
+            </div>
         </div>
     </div>
-</div>
-</header>
+    </header>
 <div class="motopress-wrapper content-holder clearfix">
 <div class="container">
 <div class="row">
@@ -60,7 +59,7 @@
                                             </div>
                                         </td>
                                         <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
-                                        <td><p><a onclick="update_car('<?php echo $item['rowid'];?>');" class="button">Editar</a> </p>
+                                        <td><p><a onclick="update_car('<?php echo $item['rowid'];?>');" class="button">Editar</a> 
                                             <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="button">Eliminar</a> </p>
                                         </td>
                                     </tr>
@@ -78,7 +77,6 @@
                                   </tr>   
 
                         </tbody>
-                      
                     </table>
                         
                 </form>
@@ -87,7 +85,7 @@
                 <?php } ?>
             <p class="return-to-shop">
                 <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
-                <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>"> Pagar</a>
+                <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>">Hacer Pedido</a>
             </p>
             </div>
             

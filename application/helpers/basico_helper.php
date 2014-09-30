@@ -39,7 +39,7 @@ function convert_query($slug){
 function format_number($number){
     $decimals ="2";
     $number = number_format($number, $decimals);
-    return "S/. ".$number;
+    return "S/.".$number;
 }
 
 function get_semilla(){

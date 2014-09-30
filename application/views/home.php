@@ -20,36 +20,10 @@
     <div id="parallax-slider-5406108c1acd1" class="parallax-slider">
       <ul class="baseList">
           <li data-preview="<?php echo site_url().'static/images/banner/slide01.jpg';?>">
-<!--                <div class="slider_caption>"><h2><span>Productos Top</span></h2>
-                    <h3>
-                        <p>
-                        <span>Lorem ipsum dolor sit amet, consectetur. </span>
-                        </p>
-                        <a href="blog/">Mostrar Ahora!</a> Go to product's detail
-                    </h3>
-                </div>-->
           </li>
           <li data-preview="<?php echo site_url().'static/images/banner/slide02.jpg';?>">
-<!--              <div class="slider_caption>"><h2><span>Productos Top</span></h2>
-                    <h3>
-                        <p>
-                        <span>Lorem ipsum dolor sit amet, consectetur. </span>
-                        </p>
-                        <a href="blog/">Mostrar Ahora!</a> Go to product's detail
-                    </h3>
-            </div>-->
           </li>
-          
-          <!--<li data-preview="<?php echo site_url().'static/images/banner/slide03.jpg';?>" data-img-width="1920" data-img-height="700">-->
           <li data-preview="<?php echo site_url().'static/images/banner/slide03.jpg';?>">
-<!--                <div class="slider_caption>"><h2><span>Productos Top</span></h2>
-                    <h3>
-                        <p>
-                        <span>Lorem ipsum dolor sit amet, consectetur. </span>
-                        </p>
-                        <a href="blog/">Mostrar Ahora!</a> Go to product's detail
-                    </h3>
-                </div>-->
           </li>
       </ul>
     </div>
@@ -79,7 +53,7 @@
                                 <figure class="featured-thumbnail">
                                     <img src="<?php echo SERVER2.$value->custom_image;?>" alt="<?php echo $value->name;?>"/>
                                 </figure>
-                                <div class="extra-wrap"><h5><?php echo corta_texto($value->name,16); ?></h5>
+                                <div class="extra-wrap"><h5><?php echo corta_texto($value->name,16);?></h5>
                                     <div class="link-align banner-btn">Comprar Ahora</div>
                                 </div>
                             </a> 
@@ -128,10 +102,10 @@
                                             <?php echo corta_texto($product->description,100);?>
                                         </div>
                                             <span class="price">
-                                                <span class="amount">S/.<?php echo $product->price?></span>
+                                                <span class=""><?php echo format_number($product->price)?></span>
                                             </span>
                                        <br/><br/>
-                                       <a onclick="add_car('<?php echo $product->product_id;?>');" rel="nofollow" data-product_id="1938" data-product_sku="" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
+                                       <a onclick="add_car('<?php echo $product->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
                                       
                                     </li>
                         <?php } ?>

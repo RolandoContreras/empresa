@@ -31,6 +31,7 @@
                     <tr>
                         <td>Numero de Order</td>
                         <td>Cliente</td>
+                        <td>Total</td>
                         <td>Fecha de Pedido</td>
                         <td>Fecha de Envio</td>
                         <td>Direccion</td>
@@ -47,6 +48,7 @@
                                 <div class="post_title"><?php echo $value->order_id;?></div>
                             </td>
                             <td><?php echo $value->first_name." ".$value->last_name; ?></td>
+                            <td><span class="label label-success"><?php echo format_number($value->total);?></span></td>
                             <td><?php echo $value->date_order;?></td>
                             <td><div class="post_title"><?php echo $value->date_send; ?></div></td>
                             <td><?php echo $value->address; ?></td>
