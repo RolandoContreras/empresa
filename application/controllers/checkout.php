@@ -8,6 +8,7 @@ class Checkout extends CI_Controller {
         $this->load->model("categories_model","obj_category");
         $this->load->model("orders_model","obj_order");
         $this->load->model("order_details_model","obj_detail");
+        $this->load->model("product_model","obj_product");
     }
     
     public function index()
@@ -15,8 +16,7 @@ class Checkout extends CI_Controller {
         //SELECT CATEGORIES
             $param_category = array(
                         "select" =>"",
-                        "where" => "status_value = 1",
-                           );
+                        "where" => "status_value = 1");
            
              $obj_products['category'] = $this->obj_category->search($param_category);
              $this->load->view('checkout',$obj_products);
@@ -31,23 +31,25 @@ class Checkout extends CI_Controller {
             
             
             //UPDATE STOCK PRODUCTS
-      //      foreach ($this->cart->contents() as $item){
-                
-//            $data_order_details = array( 
-//                 'order_id   '      => $order_id,
-//                 'product_id'       => $item['id'],
-//                 'price'            => $item['price'],
-//                 'quantity'         => $item['qty'],
-//                 'subtotal'         => $item['subtotal'],
-//                 'status_value'     => 1,
-//                 'created_at'       => date("Y-m-d H:i:s"),
-//                 'created_by'       => $_SESSION['customer']['customer_id'],
-//                 'updated_at'       => date("Y-m-d H:i:s"),
-//                 'updated_by'       => $_SESSION['customer']['customer_id'],         
-//                 );
-//            $this->obj_detail->insert($data_order_details);
-//            }
+            foreach ($this->cart->contents() as $item){
+            $product_id = $item['id']; 
+            $qty = $item['qty']; 
             
+            //SELECT CATEGORIES
+            $param_product = array(
+                        "select" =>"product_id,
+                                    stock",
+                        "where" => "product_id = '$product_id'");
+            
+            $obj_products = $this->obj_product->get_search_row($param_product);
+            $quantity     = $obj_products->stock;   
+            
+            //INSERT ORDER
+            $update_stock = array( 
+             'stock'     => $quantity - $qty,
+             );
+                $this->obj_product->update($obj_products->product_id,$update_stock);
+            }
             
             //INSERT ORDER
             $data_order = array( 
@@ -64,7 +66,6 @@ class Checkout extends CI_Controller {
              'updated_at'       => date("Y-m-d H:i:s"),
              'updated_by'       => $_SESSION['customer']['customer_id'],         
              );
-            
             $order_id = $this->obj_order->insert($data_order);
             
             foreach ($this->cart->contents() as $item){
