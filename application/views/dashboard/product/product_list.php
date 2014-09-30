@@ -1,3 +1,5 @@
+<script src="static/cms/js/core/bootstrap-modal.js"></script>
+<script src="static/cms/js/core/bootbox.min.js"></script>
 <div class="row-fluid">
     <div class="widget_container">
         <div class="well nomargin">

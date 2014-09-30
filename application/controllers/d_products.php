@@ -177,24 +177,7 @@ class D_products extends CI_Controller{
         return $nom_img ;
     }  
     
-//    public function ftp_movie($anio,$mes,$dia,$imagen){
-//        $this->load->library('ftp');
-//        $config['hostname'] = 'server1.flatina.com';
-//        $config['username'] = 'flvideos';
-//        $config['password'] = 'FlbQ81Gd99';
-//        $config['debug'] = false;
-//        $this->ftp->connect($config);
-//        $this->ftp->mkdir('/videos/peliculas/', 0777);
-//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/', 0777);
-//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/'.$mes.'/', 0777);
-//        $this->ftp->mkdir('/videos/peliculas/'.$anio.'/'.$mes.'/'.$dia.'/', 0777);
-//        $destino = '/videos/peliculas/'.$anio.'/'.$mes.'/'.$dia.'/'.$imagen;        
-//        $this->ftp->upload(SERVER2.$imagen, $destino,'auto');
-//        $this->ftp->close();
-//        unlink(SERVER2.$imagen);
-//    }
-    
-     public function delete_img($imagen) {
+    public function delete_img($imagen) {
         $this->load->library('ftp');
         $config['hostname'] = 'localhost';
         $config['username'] = '';

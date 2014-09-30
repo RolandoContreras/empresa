@@ -5,14 +5,10 @@ $(document).ready(function(){
 	      minlength: 2,
 	      required: true
 	      },	
-	      observation: {
-	      minlength: 2,
-	      required: true
-	      },
-          status_value:{
-          required: true,
-          rangelength: [1,2]
-          }
+            status_value:{
+            required: true,
+            rangelength: [1,2]
+            }
 	    },
 	    highlight: function(label) {
 	    	$(label).closest('.control-group').addClass('error');
@@ -39,14 +35,22 @@ function cancelar_categories(){
 	location.href = site+url;
 }
 function delete_categories(id_category){
-	  $.ajax({
-            type: "post",
-            url: site+"dashboard/categorias/delete/"+id_category,
-            dataType: "json",
-            data: {id_category : id_category},
-            success:function(data){  
-		alert("La Categoria ha sido eliminado")          
-          	location.reload();
-            }         
-     }); 
+        bootbox.dialog("Confirma que desea Eliminar el Regístro?", [        
+        { "label" : "Cancelar"},
+        {
+            "label" : "Eliminar",
+            "class" : "btn-danger",
+            "callback": function() {
+               $.ajax({
+                   type: "post",
+                   url: site+"dashboard/categorias/delete/"+id_category,
+                   dataType: "json",
+                   data: {id_category : id_category},
+                   success:function(data){                             
+                   location.reload();
+                   }         
+           });
+            }
+        }
+    ]);
 }

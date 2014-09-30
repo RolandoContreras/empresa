@@ -93,7 +93,40 @@ class D_orders extends CI_Controller{
             $this->tmp_mastercms->set("obj_detail",$obj_detail);
             $this->tmp_mastercms->render("dashboard/pedidos/order_detail_list");
     }
-        
+    
+    public function change_status(){
+            //UPDATE DATA ORDERS
+        if($this->input->is_ajax_request()){   
+                $order_id = $this->input->post("order_id");
+                if (count($order_id) > 0){
+                    $data = array(
+                        'status_value' => 0,
+                        'created_at' => date("Y-m-d H:i:s"),
+                        'updated_at' => date("Y-m-d H:i:s"),
+                    ); 
+                    $this->obj_order->update($order_id,$data);
+                    
+            //SELECT DATA ORDER_DETAIL        
+                    $params = array(
+                                    "select" =>"",
+                                     "where" => "order_id = $order_id",
+                        );            
+                    $obj_detail = $this->obj_order_detail->search($params);
+                   
+                    foreach ($obj_detail as $value) {
+                        $data = array(
+                        'status_value' => 0,
+                        'created_at' => date("Y-m-d H:i:s"),
+                        'updated_at' => date("Y-m-d H:i:s"),
+                    ); 
+                    $this->obj_order_detail->update($value->order_details_id,$data);
+                    }
+                    $data['data'] = "El Registro cambio de Estado"; 
+                }
+                $data['data'] = "Error"; 
+                echo json_encode($data);            
+        exit();
+            }
+    }
  }
-
 ?>

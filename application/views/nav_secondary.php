@@ -11,7 +11,6 @@
             <div class="widget_shopping_cart_content">
                 <?php 
                 if(count($this->cart->contents())!=0){
-                    
                    $total =  count($this->cart->contents());
                     echo $total ." productos";
                 }else{
@@ -39,7 +38,7 @@
     <div class="row">
     <div class="span3" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
         <div class="logo">
-            <a href="<?php echo site_url().'home';?>" class="logo_h logo_h__img"><img src="<?php echo site_url().'static/images/logo.png';?>" alt="TradeE&C"></a>
+            <a href="<?php echo site_url().'home';?>" class="logo_h logo_h__img"><img src="<?php echo site_url().'static/images/logo.png';?>" alt="TradeE&C" width="271" height="105"></a>
         </div>
     </div>
     <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">

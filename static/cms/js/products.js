@@ -52,14 +52,22 @@ function cancelar_product(){
 	location.href = site+url;
 }
 function delete_product(product_id){
-	  $.ajax({
-            type: "post",
-            url: site+"dashboard/productos/delete/"+product_id,
-            dataType: "json",
-            data: {product_id : product_id},
-            success:function(data){  
-			alert("El producto ha sido eliminado")          
-          	location.reload();
-            }         
-     }); 
+        bootbox.dialog("Confirma que desea Eliminar el Regístro?", [        
+        { "label" : "Cancelar"},
+        {
+            "label" : "Eliminar",
+            "class" : "btn-danger",
+            "callback": function() {
+               $.ajax({
+                   type: "post",
+                   url: site+"dashboard/productos/delete/"+product_id,
+                   dataType: "json",
+                   data: {product_id : product_id},
+                   success:function(data){                             
+                   location.reload();
+                   }         
+           });
+            }
+        }
+    ]);
 }
