@@ -5,13 +5,14 @@
 <!--[if gt IE 10]><!--><html lang="pt-br" class="no-js"><!--<![endif]-->
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>WAVELINE</title>
+        <title>WaveLine | Backoffice</title>
         <meta charset="utf-8">
         <meta name="robots" content="noindex, nofollow" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.min.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/font-awesome.min.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/layout.css';?>"/>
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/style/style.css';?>"/>
         
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/arvore-binaria.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/main.css';?>"/>
@@ -94,18 +95,18 @@
                         <ul class="nav">
 				<li class="settings" style="border-left: 1px solid #336699; height: 47px;">
                                     <div style="margin: 10px;">
-                                        <a href="" target="_blank"><img src="<?php echo site_url();?>static/images/social/fb.gif" style="max-width: 25px;"></a>
-                                        <a href="" target="_blank"><img src="<?php echo site_url();?>static/images/social/twitter.gif" style="max-width: 25px;"></a>
+                                        <a href="#" target="_blank"><img src="<?php echo site_url();?>static/images/social/fb.gif" style="max-width: 25px;"></a>
+                                        <a href="#" target="_blank"><img src="<?php echo site_url();?>static/images/social/twitter.gif" style="max-width: 25px;"></a>
                                     </div>
                                 </li>
  			<li class="settings">
-                                <a href="/users/profile" title="Settings" >
-                                    <i class="icon-cog"></i>
+                            <a href="<?php echo site_url().'micuenta';?>" title="Settings" >
+                                    <img class="image_icons_b" src="<?php echo site_url().'static/images/png/settings38.png';?>">
                                 </a>
                             </li>
                             <li class="logout">
-                                <a href="/users/logout" title="Logout">
-                                    <i class="icon-signout"></i>
+                                <a href="<?php echo site_url().'logout';?>" title="Logout">
+                                    <img class="image_icons_b" src="<?php echo site_url().'static/images/png/door9.png';?>">
                                 </a>
                             </li>
                         </ul>
@@ -120,12 +121,35 @@
                     
                     <nav class="main-menu">
                         <ul>
-                            <li class='active' style='margin-top:1px;'><a href="<?php echo site_url().'backoffice';?>"><span>Dashboard</span></a></li>
-                            <li><a href="<?php echo site_url().'backoffice/micuenta';?>"><span>My Account</span></a></li>
-                            <li><a href=<?php echo site_url().'backoffice/comisiones';?>><span>Comisiones</span></a></li>
-                            <li><a href=<?php echo site_url().'backoffice/arbol';?>><span>Arbol</span></a></li>
-                            <li><a href=<?php echo site_url().'backoffice/nuevomiembro';?>><span>Nuevo Miembro</span></a></li>
-                            <li><a href=<?php echo site_url().'backoffice/faq';?>><span>FAQ</span></a></li>
+                            <li class='active' style='margin-top:1px;'>
+                                <a href="<?php echo site_url().'backoffice';?>">
+                                    <span> <img class="image_icons_b" src="<?php echo site_url().'static/images/png/menu48.png';?>">&nbsp;&nbsp;Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url().'backoffice/micuenta';?>">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/user91.png';?>">&nbsp;&nbsp;My Account</span></a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url().'backoffice/comisiones';?>">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/data45.png';?>">&nbsp;&nbsp;Comisiones</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url().'backoffice/arbol';?>">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/cloud189.png';?>">&nbsp;&nbsp;Arbol</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url().'backoffice/nuevomiembro';?>">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/add133.png';?>">&nbsp;&nbsp;Nuevo Miembro</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url().'backoffice/faq';?>">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/male172.png';?>">&nbsp;&nbsp;FAQ</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 

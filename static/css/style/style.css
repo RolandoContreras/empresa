@@ -23,3 +23,10 @@ margin-left: 18px;
     width: 21px;
     height: 19px;
 }
+.image_icons_b{
+    width: 25px;
+    height: 25px;
+}
+.main-menu ul li a span{
+    margin-left: 0 !important;
+}

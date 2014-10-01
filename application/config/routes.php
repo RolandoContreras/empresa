@@ -66,6 +66,7 @@ $route['backoffice/micuenta'] = "b_profile";
 $route['backoffice/comisiones'] = "b_comission";
 $route['backoffice/arbol'] = "b_tree";
 $route['backoffice/nuevomiembro'] = "b_new_member";
+$route['backoffice/faq'] = "b_faq";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
