@@ -6,16 +6,11 @@
     <div class="breadcrumbs transition" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
-                <i class="icon-home home-icon"></i>
-                <a href="#">Home</a>
+                <a href="<?php echo site_url().'home';?>">Home</a> |  <a>My Account</a>
             </li>
-            <li class="active">My Account</li>
-        </ul><!-- .breadcrumb -->
+        </ul>
     </div>
-    <!--<header class="title-page">
-        <h1></h1>
-    </header>-->
-
+  
     <div class="content">
          <section class="widget widget-menu-icons">
             <header class="title-widget">
@@ -28,10 +23,9 @@
 
             <nav class="abas">
                 <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="#aba1" data-toggle="tab">User Information<? echo __('personal_data_title'); ?></a></li>
-                    <li><a href="#aba2" data-toggle="tab">Partner Information</a></li>
-				 	<li><a href="#aba3" data-toggle="tab">Password</a></li>
-                    <li><a href="#aba4" data-toggle="tab">Security Code</a></li>                </ul>
+                    <li class="active"><a href="#aba1" data-toggle="tab">Informacion de Usuario</a></li>
+                    <li><a href="#aba3" data-toggle="tab">Contraseña</a></li>
+                </ul>
             </nav>
 
             <div class="wg-content_nav">
@@ -516,11 +510,8 @@
                 </div>
             </div>
             <br>
-            <input type="submit" class="btn btn-primary" value=Send>
+            <input type="submit" class="btn btn-primary" value=Enviar>
             </form>
-
         </section>
-
-        </section>
-
     </div>
+</article>

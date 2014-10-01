@@ -60,7 +60,10 @@ $route['checkout'] = "checkout";
 $route['checkout/pagar'] = "checkout/pay";
 
 $route['backoffice'] = "backoffice";
-$route['perfil'] = "b_profile";
+$route['backoffice/micuenta'] = "b_profile";
+$route['backoffice/comisiones'] = "b_comission";
+$route['backoffice/arbol'] = "b_tree";
+$route['backoffice/nuevomiembro'] = "b_new_member";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 

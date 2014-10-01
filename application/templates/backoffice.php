@@ -81,24 +81,9 @@
                 <div class="navbar-inside">
                     <div class="logotipo">
                         <h1>
-                            <a href="#"><i class="icon-home"></i>&nbsp;Back Office</a>
-                            <span><i class="icon-caret-down"></i></span>
+                            <img src="<?php echo site_url();?>static/images/logo.png" width="80" height="40"> 
+                            Back Office
                         </h1>
-                     <div class="logotipos-dialog">
-                            <ul class="clearfix">
-                                
-                                <li>
-                                    <img src="<?php echo site_url();?>static/images/logo.png" width="80" height="40">
-                                </li>
-                                <li class="active">
-                                    <a href="/users/dashboard">
-                                        <!--<i class="icon-home"></i>Backoffice-->
-                                        Backoffice
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> 
-                        
                     </div>
                     <nav class="pull-right controls">
                         
@@ -109,8 +94,8 @@
                         <ul class="nav">
 				<li class="settings" style="border-left: 1px solid #336699; height: 47px;">
                                     <div style="margin: 10px;">
-                                        <a href="" target="_blank"><img src="static/images/social/fb.gif" style="max-width: 25px;"></a>
-                                        <a href="" target="_blank"><img src="static/images/social/twitter.gif" style="max-width: 25px;"></a>
+                                        <a href="" target="_blank"><img src="<?php echo site_url();?>static/images/social/fb.gif" style="max-width: 25px;"></a>
+                                        <a href="" target="_blank"><img src="<?php echo site_url();?>static/images/social/twitter.gif" style="max-width: 25px;"></a>
                                     </div>
                                 </li>
  			<li class="settings">
@@ -136,11 +121,11 @@
                     <nav class="main-menu">
                         <ul>
                             <li class='active' style='margin-top:1px;'><a href="<?php echo site_url().'backoffice';?>"><span>Dashboard</span></a></li>
-                            <li><a href="<?php echo site_url().'perfil';?>"><span>My Account</span></a></li>
-                            <li><a href=<?php echo site_url().'perfil';?>><span>Comisiones</span></a></li>
-                            <li><a href=<?php echo site_url().'perfil';?>><span>My Position</span></a></li>
-                            <li><a href=<?php echo site_url().'perfil';?>><span>New Member</span></a></li>
-                            <li><a href=<?php echo site_url().'perfil';?>><span>FAQ</span></a></li>
+                            <li><a href="<?php echo site_url().'backoffice/micuenta';?>"><span>My Account</span></a></li>
+                            <li><a href=<?php echo site_url().'backoffice/comisiones';?>><span>Comisiones</span></a></li>
+                            <li><a href=<?php echo site_url().'backoffice/arbol';?>><span>Arbol</span></a></li>
+                            <li><a href=<?php echo site_url().'backoffice/nuevomiembro';?>><span>Nuevo Miembro</span></a></li>
+                            <li><a href=<?php echo site_url().'backoffice/faq';?>><span>FAQ</span></a></li>
                         </ul>
                     </nav>
 

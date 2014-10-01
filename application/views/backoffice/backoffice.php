@@ -1,12 +1,10 @@
-
-
 <article class="main-content homepage">
     <div class="breadcrumbs transition" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
-                <a href="<?php echo site_url()."home";?>">Home</a>
+                <a href="<?php echo site_url()."home";?>">Home</a> | <a>Backoffice</a>
             </li>
-        </ul> .breadcrumb 
+        </ul>
     </div>
     <div class="content">
         <div class="row">
