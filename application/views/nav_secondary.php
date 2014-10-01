@@ -9,27 +9,29 @@
             
         </div>
        <?php }?>
+        <a href="<?php echo site_url().'checkout';?>">
         <div id="woocommerce_widget_cart-2" class="cart-holder">
             <h3>Carrito</h3>
-            <div class="widget_shopping_cart_content">
+            
+<!--                <div class="widget_shopping_cart_content">
                 <?php 
-                if(count($this->cart->contents())!=0){
-                   $total =  count($this->cart->contents());
-                    echo $total ." productos";
-                }else{
-                    echo "0 productos";
-                }
+//                if(count($this->cart->contents())!=0){
+//                   $total =  count($this->cart->contents());
+//                    echo $total ." productos";
+//                }else{
+//                    echo "0 productos";
+//                }
                 ?>
-                
-             </div>
+             </div>-->
+            
         </div>
-        
+        </a>
          <div class="shop-nav">
              <ul id="shopnav" class="shop-menu">
                     <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Login</a></li>
                     <li><a href="" class='register-link' title="Registro">Registro</a></li>
                     <li id="menu-item-2020" title=""><a href="<?php echo site_url().'backoffice';?>">Back Office</a></li>
-                    <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'checkout';?>">Checkout</a></li>
+                    <!--<li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'checkout';?>">Checkout</a></li>-->
             </ul>
          </div> 
         

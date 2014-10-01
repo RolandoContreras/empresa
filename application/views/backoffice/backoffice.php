@@ -8,24 +8,7 @@
     </div>
     <div class="content">
         <div class="row">
-            
                 <div class="col-xs-12 col-md-7">
-
-                <section class="widget">
-                                        <div class="box-user supervisor">
-                        <header class="title-widget">
-                            <div style="width:90%;">
-                                <img src="" class='moldura consultant'>
-                                     <div style='padding-left: 95px;''>
-                                            <h1 style='padding-top:15px;font-size:22px;text-align:left;'>Rolando Contreras</h1> 
-                                       </div>                            
-                            </div>
-                            <div style="clear:both;"></div>
-                        </header>
-
-                    </div>
-
-                </section>
                 <section class="widget widget-points">
 
                     <div class="row">

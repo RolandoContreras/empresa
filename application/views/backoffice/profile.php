@@ -12,15 +12,7 @@
     </div>
   
     <div class="content">
-         <section class="widget widget-menu-icons">
-            <header class="title-widget">
-                <div style="width:90%;">
-                 <img src=/images/profile/82273_1398035183_9537.jpg class = 'moldura consultant'><div style='padding-left: 95px;''> <h1 style='padding-top:15px;font-size:22px;text-align:left;'>Rolando Contreras</h1> <span class = 'title consultant'>Consultant</span></div>                 </div>
-                <div style="clear:both;"></div>
-            </header>
-        </section>
-                        <section class="widget">
-
+        <section class="widget">
             <nav class="abas">
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#aba1" data-toggle="tab">Informacion de Usuario</a></li>
@@ -38,21 +30,16 @@
                             <input type="hidden" name="data[User][profile_image]" value="/images/profile/82273_1398035183_9537.jpg" id="UserProfileImage"/>
 	
                             <div class="form-group">
-                                <label for="phone">Full Name</label>
-                                <div class="input text"><input name="data[User][nome]" readonly="readonly" class="form-control input-medium" maxlength="45" type="text" value="Rolando Irvyng Contreras Huidobro" id="UserNome"/></div>                            </div>
-
-    
-                            <div class="form-group">
                                 <label for="nome">First Name</label>
-                                <div class="input text required"><input name="data[User][firstName]" readonly="readonly" class="form-control input-small" maxlength="100" type="text" value="Rolando" id="UserFirstName" required="required"/></div>                                
+                                <div class="input text required"><input name="data[User][firstName]" readonly="readonly" class="form-control input-small" maxlength="100" type="text" value="Rolando" id="UserFirstName" required="required"/>
+                                </div>                                
                             </div>
                             <div class="form-group">
                                 <label for="nome">Last Name</label>
-                                <div class="input text required"><input name="data[User][lastName]" readonly="readonly" class="form-control input-small" maxlength="100" type="text" value="Contreras" id="UserLastName" required="required"/></div>                            </div>
-
-                            <div class="">
-                                <label for="sexo">Gender</label>                            
-                                <div class="input required"><input type="radio" name="data[User][sexo]" id="UserSexoF" value="F" required="required" />Female&nbsp;&nbsp;&nbsp;<input type="radio" name="data[User][sexo]" id="UserSexoM" value="M" required="required" checked="checked" />Male</div>                            </div><br>
+                                <div class="input text required"><input name="data[User][lastName]" readonly="readonly" class="form-control input-small" maxlength="100" type="text" value="Contreras" id="UserLastName" required="required"/>
+                                </div>                            
+                            </div>
+                     
                             <div class="form-group">
                                 <label for="email">E-mail Address</label>
                                 <div class="input email required"><input name="data[User][email]" readonly="readonly" class="form-control input-medium" maxlength="45" type="email" value="software.contreras@gmail.com" id="UserEmail" required="required"/></div>                            </div>
@@ -60,16 +47,16 @@
 
                             <div class="form-group">
                                 <!-- lock -->
-                                <label for="nome">Social Security Number</label>
-                                <div class="input text required"><input name="data[User][tax]" class="form-control input-small" maxlength="45" type="text" value="45887343" id="UserTax" required="required"/></div>                            </div>
-
+                               
                             <div class="form-group">
-                                <label for="nome">Tax Number</label>
+                                <label for="nome">DNI</label>
                                 <div class="input text"><input name="data[User][national_identification]" class="form-control input-small" maxlength="45" type="text" value="10458873432" id="UserNationalIdentification"/></div>                            </div>
 
                             <label for="">
-                                Birth date</label>
-                            <div class="false"><div class="controls"><select name="data[User][data_nascimento][day]" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoDay">
+                                Fecha de Nacimiento</label>
+                            <div class="false">
+                                <div class="controls">
+                                    <select name="data[User][data_nascimento][day]" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoDay">
 <option value="01">1</option>
 <option value="02">2</option>
 <option value="03">3</option>
@@ -217,24 +204,9 @@
                             <div class="form-group">
                                 <label for="phone">Mobile</label>
                                 <div class="input text"><input name="data[User][telemovel]" class="form-control input-small" maxlength="45" type="text" value="51995795449" id="UserTelemovel"/></div>                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Skype</label>
-                                <div class="input text"><input name="data[User][skype]" class="form-control input-small" placeholder="Insert your skype ID" maxlength="50" type="text" value="" id="UserSkype"/></div>                            </div>
-
-
-                            <div class="form-group">
-                                <label for="phone">Facebook</label>
-                                <div class="input text"><input name="data[User][facebook]" class="form-control input-small" placeholder="Insert your facebook ID" maxlength="50" type="text" value="" id="UserFacebook"/></div>                            </div>
-
-
+  
                             <h2 class="blue">Address</h2>
                             <hr> 
-
-                            <div class="form-group">
-                                <label for="phone">Street Address</label>
-                                <div class="input text"><input name="data[User][morada]" class="form-control input-medium" maxlength="45" type="text" value="Jr. Los Nogales 230 Urb. Santa Rosa de Quives" id="UserMorada"/></div>                            </div>
-
                             <div class="form-group">
                                 <label for="phone">Address Complement</label>
                                 <div class="input text"><input name="data[User][morada_complementar]" class="form-control input-medium" maxlength="45" type="text" value="" id="UserMoradaComplementar"/></div>                            </div>
@@ -242,10 +214,6 @@
                             <div class="form-group">
                                 <label for="phone">City</label>
                                 <div class="input text"><input name="data[User][cidade]" class="form-control input-medium" maxlength="45" type="text" value="Santa Anita" id="UserCidade"/></div>                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Zip-Code</label>
-                                <div class="input text"><input name="data[User][cod_postal]" class="form-control input-small" maxlength="45" type="text" value="43" id="UserCodPostal"/></div>                            </div>
 
                             <div class="form-group">
                                 <label for="phone">Country</label>
@@ -421,44 +389,46 @@
 
                                <div class="form-group" style = "margin-top: 15px;">
                                     <label for="phone">Phone</label>
-                                    <div class="input text"><input name="data[User][2_telefone]" class="form-control input-small" maxlength="45" type="text" value="" id="User2Telefone"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_telefone]" class="form-control input-small" maxlength="45" type="text" value="" id="User2Telefone"/>
+                                    </div>                                
+                               </div>
 
                                 <div class="form-group">
                                     <label for="phone">Mobile</label>
-                                    <div class="input text"><input name="data[User][2_telemovel]" class="form-control input-small" maxlength="45" type="text" value="" id="User2Telemovel"/></div>                                </div>
-
-                                 <div class="form-group">
-                                 
-                                <label for="phone">Skype</label>
-                                <div class="input text"><input name="data[User][2_skype]" class="form-control input-small" placeholder="Partners Skype ID" type="text" id="User2Skype"/></div>                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="phone">Facebook</label>
-                                    <div class="input text"><input name="data[User][2_facebook]" class="form-control input-small" placeholder="Partners Facebook ID" type="text" id="User2Facebook"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_telemovel]" class="form-control input-small" maxlength="45" type="text" value="" id="User2Telemovel"/>
+                                    </div>                                
+                                </div>
 
                                 <h2 class="blue">Address</h2>
                                 <hr> 
-
                                 <div class="form-group">
                                     <label for="phone">Street Address</label>
-                                    <div class="input text"><input name="data[User][2_morada]" class="form-control input-medium" maxlength="45" type="text" value="" id="User2Morada"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_morada]" class="form-control input-medium" maxlength="45" type="text" value="" id="User2Morada"/>
+                                    </div>                                
+                                </div>
 
                                 <div class="form-group">
                                     <label for="phone">Address Complement</label>
-                                    <div class="input text"><input name="data[User][2_morada_complementar]" class="form-control input-medium" maxlength="45" type="text" value="" id="User2MoradaComplementar"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_morada_complementar]" class="form-control input-medium" maxlength="45" type="text" value="" id="User2MoradaComplementar"/>
+                                    </div>                                
+                                </div>
 
                                 <div class="form-group">
                                     <label for="phone">City</label>
-                                    <div class="input text"><input name="data[User][2_cidade]" class="form-control input-medium" maxlength="45" type="text" value="" id="User2Cidade"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_cidade]" class="form-control input-medium" maxlength="45" type="text" value="" id="User2Cidade"/>
+                                    </div>                                
+                                </div>
 
                                 <div class="form-group">
                                     <label for="phone">Zip-Code</label>
-                                    <div class="input text"><input name="data[User][2_cod_postal]" class="form-control input-small" maxlength="45" type="text" value="rolandocontreras" id="User2CodPostal"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_cod_postal]" class="form-control input-small" maxlength="45" type="text" value="rolandocontreras" id="User2CodPostal"/>
+                                    </div>                                
+                                </div>
 
                                 <div class="form-group">
                                     <label for="phone">Country</label>
-                                    <div class="input text"><input name="data[User][2_country]" disabled="disabled" class="form-control input-medium" maxlength="45" type="text" id="User2Country"/></div>                                </div>
+                                    <div class="input text"><input name="data[User][2_country]" disabled="disabled" class="form-control input-medium" maxlength="45" type="text" id="User2Country"/>
+                                    </div>                                </div>
                             </fieldset>
                         </div>
                     </div>
@@ -466,7 +436,7 @@
 					<div class="tab-pane forms" id="aba3">
                         <h2>Change Password</h2>
 						<p style="font-size:14px;">
-							Password must contain minimum of 8 characters, one numeral, one capital letter and one lower letter.						</p>
+							Password must contain minimum of 8 characters, one numeral, one capital letter and one lower letter.</p>
 
                         <div class="form-group">
                             <label for="password">Password</label>
