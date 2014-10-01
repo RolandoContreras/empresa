@@ -3,7 +3,10 @@
        <?php 
        if(isset($_SESSION['customer'])){?>
            <div class="cart-holder">
-            <h4 class="users">Bienvenido <?php echo $_SESSION['customer']['name'];?></h4>
+               <h4 class="users">Bienvenido <?php echo $_SESSION['customer']['name'];?>&nbsp;&nbsp;
+                   <a href="<?php echo site_url().'logout';?>" title="Logout"><img class="image_icons"src="<?php echo site_url().'static/images/logout.png';?>"></a>
+            </h4>
+            
         </div>
        <?php }?>
         <div id="woocommerce_widget_cart-2" class="cart-holder">

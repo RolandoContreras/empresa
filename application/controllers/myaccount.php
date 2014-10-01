@@ -36,14 +36,14 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['department'] = $obj_user->department;
                 $data_customer_session['logged_customer'] = "TRUE";
                 $_SESSION['customer'] = $data_customer_session;                  
-                redirect("home");    
+               echo "<script language=\"javascript\">history.go(-2);</script>";    
             }
         }else{
             redirect("micuenta");
         }
     }
     
-    public function verificar_user($username,$password){
+        public function verificar_user($username,$password){
         //SELECT CATEGORIES
             $param = array(
                         "select" =>"",
@@ -51,7 +51,11 @@ class Myaccount extends CI_Controller {
                            );
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;
-             
-        
     }
+    
+        public function destroy_user(){
+            $this->session->destroy();
+            echo "<script language=\"javascript\">history.go(-1);</script>";
+            
+        }
 }

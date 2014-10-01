@@ -5,13 +5,16 @@ class Backoffice extends CI_Controller {
 	
     function __construct() {
         parent::__construct();
-//        $this->load->model("product_model","obj_product");
     }
     
     public function index()
     {
-        
-        /// VISTA
+        if(isset($_SESSION['customer'])){
+             /// VISTA
             $this->tmp_backoffice->render("backoffice/backoffice");
-    }
+        } else{
+            redirect('micuenta');
+        }  
+            
+   }
 }

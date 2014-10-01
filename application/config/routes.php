@@ -45,6 +45,8 @@ $route['home/delete_car'] = "home/delete_car";
 $route['home/update_car'] = "home/update_car";
 $route['home/empty_car'] = "home/empty_car";
 
+$route['logout'] = "myaccount/destroy_user";
+
 $route['acerca'] = "about";
 
 $route['compras'] = "shop";
