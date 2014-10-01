@@ -49,21 +49,14 @@
                 <!-- /btn-group -->
                     <div class="btn-group">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="icon-user-1"></i> Hola Navigator
+                                <img class="image_icons" src="<?php echo site_url().'static/images/png/user91.png';?>"> 
+                                <?php echo $_SESSION['usercms']['name'];?>
                                 <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu megamenu col2 ud">
-                            <li class="sub">
-                                <div class="img_round img_c_margin"><img width="70" height="70" src="static/cms/images/avatar-sample-05.jpg" /></div>
-                            </li>
-                            <li class="sub">
                                 <ul>
-                                    <li><a href="#"><i class="icon-large icon-cog-2"></i> Profile</a></li>
-                                    <li><a href="#"><i class="icon-large icon-key"></i> Privacy Settings</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="dashboard"><i class="icon-large icon-logout-1"></i> Cerrar Session</a></li>
+                                    <a href="<?php echo site_url().'dashboard/logout';?>"><img class="image_icons" src="<?php echo site_url().'static/images/png/door9.png';?>"> Cerrar Session</a>
                                 </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>

@@ -17,4 +17,9 @@ class Backoffice extends CI_Controller {
         }  
             
    }
+   public function logout(){        
+        $this->session->unset_userdata('customer');
+	$this->session->destroy();
+        redirect('backoffice');
+    }
 }

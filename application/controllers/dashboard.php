@@ -7,11 +7,7 @@ class Dashboard extends CI_Controller {
     }
     
     public function index(){    
-        
        $this->load->view('dashboard');
-       if(isset($_SESSION)){
-           session_destroy();
-       }
     }
     
     public function validate(){
@@ -53,7 +49,7 @@ class Dashboard extends CI_Controller {
                 $data_user_session['email'] = $obj_user->email;
                 $data_user_session['logged_usercms'] = "TRUE";
                 $data_user_session['status'] = $obj_user->status_value;
-                $_SESSION['usercms'] = $data_user_session;                  
+                $_SESSION['usercms'] = $data_user_session;                
                 return true;    
             }else{
                 $this->form_validation->set_message('validar_user', "Usuario Inactivo");

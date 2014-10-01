@@ -5,13 +5,13 @@ class D_categories extends CI_Controller{
     public function __construct(){
         parent::__construct();
           $this->load->model("categories_model","obj_categories");
-//        $this->load->library('controller_basecms');
-//        $this->controller_basecms->get_sesion();        
     }   
                 
     public function index(){  
+        
+           $this->get_session();
+        
            $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
-           
            $params = array(
                         "select" =>"id_category,
                                     name,
@@ -62,7 +62,7 @@ class D_categories extends CI_Controller{
     }
     
     public function load($id_category=NULL){
-        
+        $this->get_session();
         if ($id_category != ""){
             /// PARAMETROS PARA EL SELECT 
             $where = "id_category = $id_category";
@@ -83,15 +83,16 @@ class D_categories extends CI_Controller{
     }
 	
     public function validate(){
+        $this->get_session();
         $id_category = $this->input->post("id_category");
         $data = array(
                'name' => $this->input->post('name'),
                'observation' => $this->input->post('observation'),
                'status_value' => $this->input->post('status_value'),
                'created_at' => date("Y-m-d H:i:s"),
-//             'created_by' => $_SESSION['usercms']['user_id'],
+               'created_by' => $_SESSION['usercms']['user_id'],
                'updated_at' => date("Y-m-d H:i:s"),
-//             'updated_by' => $_SESSION['usercms']['user_id']
+               'updated_by' => $_SESSION['usercms']['user_id']
         );          
         
             if ($id_category != ""){
@@ -113,6 +114,18 @@ class D_categories extends CI_Controller{
             echo json_encode($dato);            
         exit();
             }
+    }
+    
+    public function get_session(){          
+        if (isset($_SESSION['usercms'])){
+            if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               
+                return true;
+            }else{
+                redirect(site_url().'dashboard');
+            }
+        }else{
+            redirect(site_url().'dashboard');
+        }
     }
 }
 ?>

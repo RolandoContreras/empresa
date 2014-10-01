@@ -105,7 +105,7 @@
                                 </a>
                             </li>
                             <li class="logout">
-                                <a href="<?php echo site_url().'logout';?>" title="Logout">
+                                <a href="<?php echo site_url().'backoffice/logout';?>" title="Logout">
                                     <img class="image_icons_b" src="<?php echo site_url().'static/images/png/door9.png';?>">
                                 </a>
                             </li>

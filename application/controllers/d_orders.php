@@ -9,8 +9,8 @@ class D_orders extends CI_Controller{
     }   
                 
     public function index(){  
+           $this->get_session();
            $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
-           
            $params = array(
                         "select" =>"orders.order_id,
                                     orders.address,
@@ -67,6 +67,7 @@ class D_orders extends CI_Controller{
     }
     
     public function view_detail($order_id){
+            $this->get_session();
             //SELECT DATA FROM ORDER_DETAIL
             $params = array(
                         "select" =>"order_details.order_id,
@@ -127,6 +128,18 @@ class D_orders extends CI_Controller{
                 echo json_encode($data);            
         exit();
             }
+    }
+    
+    public function get_session(){          
+        if (isset($_SESSION['usercms'])){
+            if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               
+                return true;
+            }else{
+                redirect(site_url().'dashboard');
+            }
+        }else{
+            redirect(site_url().'dashboard');
+        }
     }
  }
 ?>

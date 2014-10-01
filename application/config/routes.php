@@ -67,6 +67,7 @@ $route['backoffice/comisiones'] = "b_comission";
 $route['backoffice/arbol'] = "b_tree";
 $route['backoffice/nuevomiembro'] = "b_new_member";
 $route['backoffice/faq'] = "b_faq";
+$route['backoffice/logout'] = "backoffice/logout";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
@@ -74,7 +75,9 @@ $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1";
 $route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 
 
 $route['dashboard'] = "dashboard";
+$route['dashboard/validate'] = "dashboard/validate";
 $route['dashboard/panel'] = "panel";
+$route['dashboard/logout'] = "dashboard/logout";
 $route['dashboard/productos'] = "d_products";
 $route['dashboard/productos/([0-9]+)'] = "d_products/index/$1";
 $route['dashboard/productos/load'] = "d_products/load";

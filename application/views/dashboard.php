@@ -13,6 +13,7 @@
         <link href="<?php echo site_url()?>static/cms/css/core/combine_fonts.css" rel="stylesheet">	
         <link href="<?php echo site_url()?>static/cms/css/core/buttons.css" rel="stylesheet">
         <link href="<?php echo site_url()?>static/cms/css/style.css" rel="stylesheet">
+        <link href="<?php echo site_url()?>static/css/style/style.css" rel="stylesheet">
         <!-- color style -->
         <link href="<?php echo site_url()?>static/cms/css/core/dark.css" rel="stylesheet">
         
@@ -32,7 +33,7 @@
                     <div class="navbar navbar-static navbar_as_heading">
                         <div class="navbar-inner">
                             <div class="container" style="width: auto;">
-                                <a class="brand">Frecuencia Latina - CMS Admin</a>
+                                <a class="brand">WaveLine - CMS Admin</a>
                                 
                             </div>
                         </div>
@@ -43,7 +44,8 @@
                                 <label class="control-label" for="prependedInput">Usuario o email</label>
                                 <div class="controls">
                                     <div class="input-prepend">
-                                        <span class="add-on"><i class="icon-large icon-user-1"></i></span><input class="input-xlarge-fluid" id="username" size="16" type="text" >
+                                        <span class="add-on"><img class="image_icons" src="<?php echo site_url().'static/images/png/user91.png';?>"></span>
+                                        <input class="input-xlarge-fluid" id="username" size="16" type="text" >
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +53,8 @@
                                 <label class="control-label" for="prependedInput">Contrase&ntilde;a</label>
                                 <div class="controls">
                                     <div class="input-prepend">
-                                        <span class="add-on"><i class="icon-large icon-lock-1"></i></span><input class="input-xlarge-fluid" id="password" size="16" type="password" >
+                                        <span class="add-on"><img class="image_icons" src="<?php echo site_url().'static/images/png/lock27.png';?>"></span>
+                                        <input class="input-xlarge-fluid" id="password" size="16" type="password" >
                                     </div>
                                 </div>
                             </div>
