@@ -6,9 +6,21 @@ class B_new_member extends CI_Controller {
         parent::__construct();
     }
     
-    public function index()
-    {
+    public function index(){
+        $this->get_session();
         /// VISTA
-            $this->tmp_backoffice->render("backoffice/new_member");
+        $this->tmp_backoffice->render("backoffice/new_member");
+    }
+    
+    public function get_session(){          
+        if (isset($_SESSION['customer'])){
+            if($_SESSION['customer']['logged_customer']=="TRUE" && $_SESSION['customer']['status']==1){               
+                return true;
+            }else{
+                redirect(site_url().'backoffice');
+            }
+        }else{
+            redirect(site_url().'backoffice');
+        }
     }
 }
