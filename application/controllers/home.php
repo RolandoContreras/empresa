@@ -6,12 +6,13 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->model("product_model","obj_products");
         $this->load->model("categories_model","obj_category");
-        $this->load->library('menu_controller');
+        $this->load->model("categories_kind_model","obj_category_kind");
+        $this->load->model("brand_model","obj_brand");
     }
 	
 	public function index()
 	{
-            $obj_nav = $this->menu_controller->get_menu();
+            $obj_products = $this->get_menu();
             //SELECT PRODUCT CUSTOM
             $params = array(
                         "select" =>"products.product_id,
@@ -28,7 +29,7 @@ class Home extends CI_Controller {
                         "join" => array('categories, products.id_category = categories.id_category')
                         );
            
-             $obj_products['product_custom'] = $this->obj_products->search($params);
+            $obj_products['product_custom'] = $this->obj_products->search($params);
              
              //SELECT PRODUCT COMMUN
             $params_product = array(
@@ -157,4 +158,46 @@ class Home extends CI_Controller {
                 }
           exit();
         }
+        
+        public function get_menu(){    
+        
+        //SELECT CATEGORIES
+        $param_category = array(
+                    "select" =>"",
+                    "where" => "status_value = 1");
+        $menu = $this->obj_category->search($param_category);
+        
+        foreach ($menu as $key =>$value){               
+                 $submenu[] = $this->get_submenu($value->id_category);
+                 
+                        foreach ($submenu[$key] as $key => $value) {
+                            $submenutwo[] = $this->get_submenu_two($value->categories_king_id);
+                        }
+        }
+        
+        $data['menu'] = $menu;
+        $data['submenu'] = $submenu;
+        $data['submenutwo'] = $submenutwo;
+        return $data;
+    }
+    
+    public function get_submenu($id_category){
+        
+        $where="id_category ='$id_category' and status_value = 1";
+        $params = array("select" =>"",
+                              "where" =>$where,
+                            );
+        $obj_submenu = $this->obj_category_kind->search($params); 
+        return $obj_submenu;
+    }
+    
+    public function get_submenu_two($id){
+        
+        $where="categories_kind_id ='$id' and status_value = 1";
+        $params = array("select" =>"",
+                              "where" =>$where,
+                            );
+        $obj_submenutwo = $this->obj_brand->search($params); 
+        return $obj_submenutwo;
+    }
 }
