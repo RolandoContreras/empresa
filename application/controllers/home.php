@@ -6,10 +6,12 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->model("product_model","obj_products");
         $this->load->model("categories_model","obj_category");
+        $this->load->library('menu_controller');
     }
 	
 	public function index()
 	{
+            $obj_nav = $this->menu_controller->get_menu();
             //SELECT PRODUCT CUSTOM
             $params = array(
                         "select" =>"products.product_id,
@@ -53,7 +55,7 @@ class Home extends CI_Controller {
                            );
            
              $obj_products['category'] = $this->obj_category->search($param_category);
-       
+             
             /// VISTA
             $this->load->view('home',$obj_products);
 	}
