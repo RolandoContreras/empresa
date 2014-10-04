@@ -5,6 +5,7 @@ class Detail_contain extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model("product_model","obj_products");
+        $this->load->model("comments_model","obj_comments");
         $this->load->model("categories_model","obj_category");
         $this->load->model("categories_kind_model","obj_category_kind");
         $this->load->model("brand_model","obj_brand");
@@ -29,6 +30,7 @@ class Detail_contain extends CI_Controller {
                                     products.medium_image,
                                     products.small_image,
                                     products.stock,
+                                    products.tags,
                                     products.price,
                                     categories.name as category,
                                     products.position",
@@ -46,7 +48,18 @@ class Detail_contain extends CI_Controller {
                         "where" => "status_value = 1",
                            );
            
-             $obj_products['category'] = $this->obj_category->search($param_category);
+            $obj_products['category'] = $this->obj_category->search($param_category);
+             
+            //SELECT COMMENT BY PRODUCT_ID
+            $param_comment = array(
+                                    "select" =>"comments.comment,
+                                                comments.name,
+                                                comments.comment,
+                                                comments.date_comment",
+                                    "where" => "comments.product_id = '$product_id'  and comments.status_value = 1",
+                                    "join" => array('products, comments.product_id = products.product_id')
+                                       );
+            $obj_products['comments'] = $this->obj_comments->search($param_comment);
              
              //SELECT CATEGORIES
             $params = array(

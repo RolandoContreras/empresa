@@ -24,6 +24,7 @@ function corta_texto($texto, $longitud=400) {
     }
     return $texto; 
 }
+
 function convert_slug($url){
     $search  = array('á', 'é', 'í', 'ó', 'ú',' ','ñ');
     $replace = array('a', 'e', 'i', 'o', 'u','-','n');    
@@ -40,6 +41,98 @@ function format_number($number){
     $decimals ="2";
     $number = number_format($number, $decimals);
     return "S/.".$number;
+}
+
+function formato_fecha($fecha){    
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4);
+    
+    $dia_semana = dia_semana($mes,$dia,$anio);
+    $mostrar_mes = mostrar_mes($mes);
+    return  $dia_semana." ".$dia." de ".$mostrar_mes." del ".$anio;
+}
+
+function dia_semana($mes,$dia,$anio){
+    $dia= date("w",mktime(0, 0, 0, $mes, $dia, $anio));
+    switch ($dia) {
+        case 0:
+            $dia_semana = "Domingo";
+            break;
+        case 1:
+            $dia_semana = "Lunes";
+            break;
+        case 2:
+            $dia_semana = "Martes";
+            break;
+        case 3:
+            $dia_semana = "Miercoles";
+            break;
+        case 4:
+            $dia_semana = "Jueves";
+            break;
+        case 5:
+            $dia_semana = "Viernes";
+            break;
+        case 6:
+            $dia_semana = "Sabado";
+            break;
+    }
+    return $dia_semana;
+}
+
+function mostrar_mes($mes){
+	switch($mes){
+		case 1:
+		$nom_mes = "Enero";
+		break;
+		
+		case 2: 
+		$nom_mes = "Febrero";
+		break;
+		 
+		case 3:
+		$nom_mes = "Marzo";
+		break;
+		 
+		case 4:
+		$nom_mes = "Abril";
+		break;
+		 
+		case 5:
+		$nom_mes = "Mayo";
+		break;
+		 
+		case 6:
+		$nom_mes = "Junio";
+		break;
+		 
+		case 7:
+		$nom_mes = "Julio";
+		break;
+		 
+		case 8:
+		$nom_mes = "Agosto";
+		break;
+		 
+		case 9:
+		$nom_mes = "Septiembre";
+		break;
+		 
+		case 10:
+		$nom_mes = "Octubre";
+		break;
+		 
+		case 11:
+		$nom_mes = "Noviembre";
+		break;
+		 
+		case 12:
+		$nom_mes = "Diciembre";
+		break;
+		
+	}
+	return $nom_mes;
 }
 
 function get_semilla(){

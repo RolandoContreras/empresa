@@ -71,10 +71,14 @@ $this->load->view("header");
 </form>
 
 <div class="product_meta">
-<span class="posted_in">Categories: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-1/" rel="tag">Lorem ipsum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-category/product-category-5/" rel="tag">Proin ut</a>.</span>
-<span class="tagged_as">Tags: <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/lorem-ipsum/" rel="tag">Lorem ipsum</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/sed-blandit-massa/" rel="tag">Sed blandit massa</a>, <a href="http://livedemo00.template-help.com/woocommerce_51107/product-tag/vel-mauris/" rel="tag">vel mauris</a>.</span>
+<span class="tagged_as">Tags:
+    <?php $tags = explode(",",$obj_products->tags);
+    
+             foreach ($tags as $value) { ?>
+    <a href="<?php echo site_url().'tags/'.convert_slug($value);?>"><?php echo $value;?></a>&nbsp;
+    <?php }  ?>
+</span>
 </div>
- 
  
 <script>(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
@@ -114,10 +118,10 @@ $this->load->view("header");
     <div class="woocommerce-tabs">
     <ul class="tabs">
     <li class="description_tab">
-    <a href="#tab-description">Description</a>
+    <a href="#tab-description">Descripción</a>
     </li>
     <li class="reviews_tab">
-    <a href="#tab-reviews">Comentarios (2)</a>
+        <a href="#tab-reviews">Comentarios <?php echo "(".count($comments).")";?></a>
     </li>
     </ul>
         <div class="panel entry-content" id="tab-description">
@@ -129,70 +133,53 @@ $this->load->view("header");
     <div class="panel entry-content" id="tab-reviews">
         <div id="reviews">
             <div id="comments">
-            <h2>2 reviews for Behringer headphones hps3000</h2>
                 <ol class="commentlist">
-                    <li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment even thread-even depth-1" id="li-comment-29">
-                        <div id="comment-29" class="comment_container">
-                        <img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
-                            <div class="comment-text">
-                                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 3 out of 5">
-                                <span style="width:60%"><strong itemprop="ratingValue">3</strong> out of 5</span>
+                    <?php foreach ($comments as $value) { ?>
+                            <li class="comment even thread-even depth-1">
+                                <div class="comment_container">
+                                    <img alt='<?php echo $value->name;?>' src='<?php echo site_url().'static/images/person.png';?>' class='avatar avatar-60 photo' height='60' width='60'/>
+                                    <div class="comment-text">
+                                        <p class="meta">
+                                            <strong itemprop="author"><?php echo $value->name;?></strong> &ndash; <time datetime="2014-01-27T16:22:02+00:00"><?php echo formato_fecha($value->date_comment);?></time> 
+                                        </p>
+
+                                        <div class="description">
+                                            <p><?php echo $value->comment;?></p>
+                                        </div>
+                                    </div>
                                 </div>
-                            <p class="meta">
-                            <strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:02+00:00">January 27, 2014</time>:
-                            </p>
-                            <div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum ornare molestie scelerisque eros dignissim. Phasellus fringilla hendrerit lectus nec vehicula.</p>
-                            </div>
-                            </div>
-                        </div>
-                    </li> 
-                
-                    <li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30">
-                        <div id="comment-30" class="comment_container">
-                        <img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
-                            <div class="comment-text">
-                                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 5 out of 5">
-                                <span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
-                                </div>
-                            <p class="meta">
-                            <strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:39+00:00">January 27, 2014</time>:
-                            </p>
-                            <div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget</p>
-                            </div>
-                            </div>
-                        </div>
-                    </li> 
+                            </li> 
+                 <?php } ?>
                 </ol>
             </div>
             
-        <div id="review_form_wrapper">
-            <div id="review_form">
-                <div id="respond" class="comment-respond">
-                <h3 id="reply-title" class="comment-reply-title">Add a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/woocommerce_51107/product/product-12/#respond" style="display:none;">Cancel reply</a></small></h3>
-                    <form action="http://livedemo00.template-help.com/woocommerce_51107/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-                    <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"/></p>
-                    <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"/></p>
-                    <p class="comment-form-rating"><label for="rating">Your Rating</label>
-                        <select name="rating" id="rating">
-                            <option value="">Rate&hellip;</option>
-                            <option value="5">Perfect</option>
-                            <option value="4">Good</option>
-                            <option value="3">Average</option>
-                            <option value="2">Not that bad</option>
-                            <option value="1">Very Poor</option>
-                        </select>
-                    </p>
-                    <p class="comment-form-comment"><label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p> <p class="form-submit">
-                    <input name="submit" type="submit" id="submit" value="Submit"/>
-                    <input type='hidden' name='comment_post_ID' value='1946' id='comment_post_ID'/>
-                    <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
-                    </p>
-                    </form>
-                </div> 
+            <div id="review_form_wrapper">
+                <div id="review_form">
+                    <div id="respond" class="comment-respond">
+                    <h3 id="reply-title" class="comment-reply-title">Agregar un Comentario</h3>
+                    <p></p>
+                        <form action="" method="post" id="commentform" class="comment-form">
+                            <p class="comment-form-author">
+                                <label for="author">Nombre <span class="required">*</span></label> 
+                                <input id="name" name="name" type="text" value="" size="30" aria-required="true"/>
+                            </p>
+                            <p class="comment-form-email">
+                                <label for="email">Correo <span class="required">*</span></label> 
+                                <input id="email" name="email" type="text" value="" size="30" aria-required="true"/>
+                            </p>
+                            <p class="comment-form-comment">
+                                <label for="comment">Comentario</label>
+                                <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                            </p>
+                            <p class="form-submit">
+                                <input name="submit" type="submit" id="submit" value="Enviar"/>
+                            </p>
+                        </form>
+                    </div> 
+                </div>
             </div>
-        </div>
         <div class="clear"></div>
-        </div> 
+      </div> 
     </div>
     </div>
     <!---------------PRODUCTOS RELACIONADOS----------------->

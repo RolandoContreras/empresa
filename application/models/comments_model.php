@@ -17,6 +17,7 @@
 
 class comments_model_atributos{	
     var $comment_id='';
+    var $product_id='';
     var $name='';
     var $email='';
     var $comment='';
@@ -35,6 +36,7 @@ class Comments_Model extends CI_Model{
         $this->table = 'comments';
 	$this->table_id = 'comment_id';
         $this->comment_id='';
+        $this->product_id='';
 	$this->name='';
         $this->email='';
         $this->comment='';
@@ -45,7 +47,7 @@ class Comments_Model extends CI_Model{
 	$this->updated_at='';
 	$this->updated_by='';
 	
-	$this->fields = new categories_model_atributos();
+	$this->fields = new comments_model_atributos();
     }   
     public function insert($data){
       $this->db->insert($this->table, $data);

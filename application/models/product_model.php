@@ -18,7 +18,6 @@
 class products_model_atributos{	
     var $product_id='';
     var $name='';
-    var $comment_id='';
     var $description='';
     var $custom_image='';
     var $bid_image='';
@@ -43,7 +42,6 @@ class Product_Model extends CI_Model{
 	$this->table_id = 'product_id';
         $this->product_id='';
 	$this->name='';
-        $this->comment_id='';
 	$this->description='';
         $this->custom_image='';
 	$this->bid_image='';

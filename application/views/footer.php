@@ -23,7 +23,7 @@
 
                         <ul class="social social__row clearfix unstyled">
                         <li class="social_li">
-                        <a class="social_link social_link__facebook" rel="tooltip" data-original-title="facebook" href="#" target="_blank">
+                        <a class="social_link social_link__facebook" rel="tooltip" data-original-title="facebook" href="https://www.facebook.com/Azulsporturban?fref=ts" target="_blank">
                         <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt=""></span>
                         </a>
                         </li>
