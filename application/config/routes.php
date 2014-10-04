@@ -53,7 +53,7 @@ $route['compras'] = "shop";
 $route['compras/([0-9_-]+)'] = "shop/index";
 
 $route['contacto'] = "contacs";
-$route['detalle'] = "detail_contain";
+
 
 $route['micuenta'] = "myaccount";
 $route['micuenta/validar_user'] = "myaccount/validar_user";
@@ -72,6 +72,7 @@ $route['backoffice/logout'] = "backoffice/logout";
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
 
+$route['detalle'] = "detail_contain";
 $route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 
 
 $route['dashboard'] = "dashboard";

@@ -31,7 +31,7 @@ class Home extends CI_Controller {
            
             $obj_products['product_custom'] = $this->obj_products->search($params);
              
-             //SELECT PRODUCT COMMUN
+            //SELECT PRODUCT COMMUN
             $params_product = array(
                         "select" =>"products.product_id,
                                     products.id_category,
@@ -49,13 +49,32 @@ class Home extends CI_Controller {
            
              $obj_products['data'] = $this->obj_products->search($params_product);
              
-            //SELECT CATEGORIES
+            //SELECT CATEGORIES MEN
             $param_category = array(
                         "select" =>"",
-                        "where" => "status_value = 1",
+                        "where" => "categories_kind.category_name like '%hombre%' and categories.status_value = 1",
+                        "join" => array('categories_kind, categories_kind.id_category = categories.id_category')
                            );
            
-             $obj_products['category'] = $this->obj_category->search($param_category);
+             $obj_products['men'] = $this->obj_category->search($param_category);
+             
+             //SELECT CATEGORIES MEN
+            $param_category = array(
+                        "select" =>"",
+                        "where" => "categories_kind.category_name like '%mujer%' and categories.status_value = 1",
+                        "join" => array('categories_kind, categories_kind.id_category = categories.id_category')
+                           );
+           
+             $obj_products['women'] = $this->obj_category->search($param_category);
+             
+             //SELECT CATEGORIES MEN
+            $param_category = array(
+                        "select" =>"",
+                        "where" => "categories_kind.category_name like '%kids%' and categories.status_value = 1",
+                        "join" => array('categories_kind, categories_kind.id_category = categories.id_category')
+                           );
+           
+             $obj_products['kids'] = $this->obj_category->search($param_category);
              
             /// VISTA
             $this->load->view('home',$obj_products);
@@ -171,7 +190,7 @@ class Home extends CI_Controller {
                  $submenu[] = $this->get_submenu($value->id_category);
                  
                         foreach ($submenu[$key] as $key => $value) {
-                            $submenutwo[] = $this->get_submenu_two($value->categories_king_id);
+                            $submenutwo[] = $this->get_submenu_two($value->id_category);
                         }
         }
         
@@ -181,7 +200,7 @@ class Home extends CI_Controller {
         return $data;
     }
     
-    public function get_submenu($id_category){
+        public function get_submenu($id_category){
         
         $where="id_category ='$id_category' and status_value = 1";
         $params = array("select" =>"",
@@ -191,11 +210,13 @@ class Home extends CI_Controller {
         return $obj_submenu;
     }
     
-    public function get_submenu_two($id){
+        public function get_submenu_two($id){
         
-        $where="categories_kind_id ='$id' and status_value = 1";
-        $params = array("select" =>"",
-                              "where" =>$where,
+        $where="categories_kind.id_category ='$id' and brand.status_value = 1";
+        $params = array("select" =>"brand.name,
+                                    categories_kind.categories_king_id",
+                        "where" =>$where,
+                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_king_id')
                             );
         $obj_submenutwo = $this->obj_brand->search($params); 
         return $obj_submenutwo;
