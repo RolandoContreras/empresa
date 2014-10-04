@@ -73,7 +73,7 @@
                     <?php foreach ($women as $value) { ?>
                             <li class='advanced_categories_item last'>
                                 <div class='advanced_categories_item_inner'>
-                                    <h4><a href='<?php echo site_url().convert_slug($value->name).'/mujeres';?>'><?php echo $value->name;?></a></h4>
+                                    <h4><a href='<?php echo site_url().'mujeres/'.convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
                                 </div>
                             </li>
                     <?php } ?>
@@ -89,7 +89,7 @@
                     <?php foreach ($men as $value) { ?>
                             <li class='advanced_categories_item last'>
                                 <div class='advanced_categories_item_inner'>
-                                    <h4><a href='<?php echo site_url().convert_slug($value->name).'/hombres';?>'><?php echo $value->name;?></a></h4>
+                                    <h4><a href='<?php echo site_url().'hombres/'.convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
                                 </div>
                             </li>
                     <?php } ?>
@@ -105,7 +105,7 @@
                     <?php foreach ($kids as $value) { ?>
                             <li class='advanced_categories_item last'>
                                 <div class='advanced_categories_item_inner'>
-                                    <h4><a href='<?php echo site_url().convert_slug($value->name).'/kids';?>'><?php echo $value->name;?></a></h4>
+                                    <h4><a href='<?php echo site_url().'kids/'.convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
                                 </div>
                             </li>
                     <?php } ?>

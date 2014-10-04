@@ -1,19 +1,54 @@
 <nav class="nav nav__primary clearfix">
     <ul id="topnav" class="sf-menu">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo site_url().'home';?>">Home</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item"><a href="<?php echo site_url().'acerca';?>">Acerca</a>
-                <ul class="sub-menu">
-                    <li id="menu-item-2001" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Testimonios</a></li>
-                        <ul class="sub-menu">
-                        <li id="menu-item-2001" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Testimonios</a></li>
-                        <li id="menu-item-1996" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">FAQs</a></li>
-                    </ul>
-                            
-                    <li id="menu-item-1996" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">FAQs</a></li>
-                </ul>
+        <?php 
+        
+        $ruta = explode("/",uri_string()); 
+        $nav = $ruta[0];
+        
+        $home    = '';
+        $contact = '';
+        $about   = '';
+        $shop    = '';
+        
+        switch ($nav) {
+           case "home":
+                $home = "current_page_item";
+                break;
+            case "acerca":
+                $about = "current_page_item";
+                break;
+            case "compras":
+                $shop = "current_page_item";
+                break;
+            case "contacto":
+                $contact = "current_page_item";
+                break;
+            case "checkout":
+                 $shop = "current_page_item";
+                break;  
+            case "micuenta":
+                 $home = "current_page_item";
+                break;
+            case "registro":
+                 $shop = "current_page_item";
+                break;
+            case "":
+                 $home = "current_page_item";
+                break;
+          default:
+                $shop = "current_page_item";
+                break;
+        }
+        ?>
+        
+                <li class="<?php echo $home;?>">
+                    <a href="<?php echo site_url().'home';?>">Home</a>
                 </li>
-                
-                <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo site_url().'compras';?>">Compras</a>
+                <li class="<?php echo $about;?>">
+                    <a href="<?php echo site_url().'acerca';?>">Acerca</a>
+                </li>
+                <li class="<?php echo $shop;?>">
+                    <a href="<?php echo site_url().'compras';?>">Compras</a>
                     <ul class="sub-menu">
                        <?php foreach ($menu as $key => $value) {?>
                         
@@ -33,7 +68,8 @@
                        <?php } ?>
                     </ul>    
                 </li>
-                
-<li id="menu-item-1995" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo site_url().'contacto';?>">Contacto</a></li>
-            </ul>
+                <li class="<?php echo $contact;?>">
+                    <a href="<?php echo site_url().'contacto';?>">Contacto</a>
+                </li>
+    </ul>
 </nav>  

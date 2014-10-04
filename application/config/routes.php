@@ -71,6 +71,9 @@ $route['backoffice/logout'] = "backoffice/logout";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
+$route['hombres/([a-z_-]+)'] = "shop/categories/$1"; 
+$route['mujeres/([a-z_-]+)'] = "shop/categories/$1"; 
+$route['kids/([a-z_-]+)'] = "shop/categories/$1"; 
 
 $route['detalle'] = "detail_contain";
 $route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1"; 
