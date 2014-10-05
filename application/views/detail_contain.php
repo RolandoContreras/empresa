@@ -15,6 +15,9 @@ $this->load->view("header");
 </div>
 </div>
 </header>
+    
+<!--<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>-->      
+    
 <div class="motopress-wrapper content-holder clearfix woocommerce">
 <div class="container">
 <div class="row">
@@ -29,7 +32,7 @@ $this->load->view("header");
 </div>
 <div class="row">
 <div class="span9 right" id="content">
-<div itemscope itemtype="" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+<div itemscope itemtype="http://schema.org/Product" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
     <div class="images">
     <!---------Principal Image----------->    
     <a href="<?php echo SERVER2.$obj_products->medium_image;?>" itemprop="image" class="woocommerce-main-image zoom">
@@ -97,22 +100,23 @@ $this->load->view("header");
 			})();
 		</script>
     <ul class="share-buttons unstyled clearfix">
-        <li class="twitter">
+<!--        <li class="twitter">
         <a href="//twitter.com/share" class="twitter-share-button">Tweet this article</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </li>
         
         <li class="facebook">
-        <div id="fb-root"></div><div class="fb-like" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
+        <div id="fb-root"></div>
+        <div class="fb-like" data-href="<?php echo site_url().convert_slug($obj_products->category."/".$obj_products->name);?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
         </li>
         
         <li class="google">
-        <div class="g-plusone" data-size="medium" data-href="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"></div>
+        <div class="g-plusone" data-size="medium" data-href=""></div>
         </li>
         
         <li class="pinterest">
         <a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src='//assets.pinterest.com/images/PinExt.png' alt=""/></a>
-        </li>
+        </li>-->
     </ul> 
 </div> 
     <div class="woocommerce-tabs">
@@ -158,9 +162,9 @@ $this->load->view("header");
                     <div id="respond" class="comment-respond">
                     <h3 id="reply-title" class="comment-reply-title">Agregar un Comentario</h3>
                     <p></p>
-                        <form  id="commentform">
+                    <form  id="commentform" action="<?php echo site_url();?>detail_contain/comments" method="post">
                             <p class="comment-form-author">
-                                <input id="product_id" type="hidden" value="<?php echo $obj_products->product_id;?>"/>
+                                <input id="product_id" type="hidden" name="product_id" value="<?php echo $obj_products->product_id;?>"/>
                                 
                                 <label for="author">Nombre <span class="required">*</span></label> 
                                 <input id="name" name="name" type="text" value="" size="30" aria-required="true"/>
@@ -174,7 +178,7 @@ $this->load->view("header");
                                 <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
                             </p>
                             <p class="form-submit">
-                                <a onclick="send_comment();" class="button add_to_cart_button product_type_simple"> Enviar </a>
+                                <input name="submit" type="submit" id="submit" value="Enviar"/>
                             </p>
                         </form>
                     </div> 
@@ -189,23 +193,29 @@ $this->load->view("header");
     <h2>Productos Relacionados</h2>
         <ul class="products">
            <?php foreach ($related as $value) { ?>
+                    
                     <li class="post-1954 product type-product status-publish has-post-thumbnail first sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                        <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>">
-                        <span class="onsale">Sale!</span>
-                        <img src="<?php echo SERVER2.$value->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($value->name);?>"/>
-                        <h3><?php echo corta_texto($value->name,20);?></h3>
-                        </a>
-                            <div class="short_desc">
-                            <?php echo corta_texto($value->description,100);?> 
-                            </div>
-                    <span class="price"><ins><span class="amount">S/.<?php echo $value->price; ?></span></ins></span>
-                    <br/><br/>
-                    <a onclick="add_car('<?php echo $value->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
+                                <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>">
+                                <span class="onsale">Sale!</span>
+                                <img src="<?php echo SERVER2.$value->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($value->name);?>"/>
+                                <h3><?php echo corta_texto($value->name,20);?></h3>
+                                </a>
+                                    <div class="short_desc">
+                                    <?php echo corta_texto($value->description,100);?> 
+                                    </div>
+                            <span class="price"><ins><span class="amount">S/.<?php echo $value->price; ?></span></ins></span>
+                            <br/><br/>
+                            
+                         <form method="post" action="<?php echo site_url()."home/add_car"?>">
+                                <input type="hidden" name="quantity" value="1"/>
+                                <input type="hidden" name="product_id" value="<?php echo $value->product_id;?>"/>   
+                            <button type="submit" class="button add_to_cart_button product_type_simple">Agregar al Carro</button>
+                        </form>
                     </li>
+                    
             <?php } ?>
         </ul>
     </div>
- 
 </div> 
 </div>
     <!-------------CATEGORIAS-------------------------->
@@ -279,20 +289,6 @@ var wc_cart_fragments_params = {"ajax_url":"\/woocommerce_51107\/wp-admin\/admin
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/tmstickup.js?ver=1.0.0'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/device.min.js?ver=1.0.0'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery.zaccordion.min.js?ver=2.1.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/camera.min.js?ver=1.3.4'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/cherry-plugin/includes/js/cherry-plugin.js?ver=1.2.3'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/js/custom-script.js?ver=1.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/js/parallaxSlider.js?ver=1.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/js/smoothing-scroll.js?ver=1.0'></script>
-<script>
-			(function($) {
-				$(window).load(function() {
-					if ($('.widget_shopping_cart_content').is(':empty')) {
-						$('.widget_shopping_cart_content').text('No products in the cart.');
-					}
-				});
-			})(jQuery);
-			</script>
- 
 </body>
 </html>

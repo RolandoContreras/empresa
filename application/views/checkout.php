@@ -1,5 +1,7 @@
 <?php $this->load->view("header");?>
 <body class="page page-id-1915 page-template-default woocommerce-cart woocommerce-page has_woocommerce has_shop">
+<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
+
 <div id="motopress-main" class="main-holder">
     <header class="motopress-wrapper header">
     <div class="container">

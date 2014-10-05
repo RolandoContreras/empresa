@@ -15,6 +15,7 @@
     </div>
     </header>
     
+    <script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
     <!---------Slide fro banner-------->
     <script type='text/javascript' src='<?php echo site_url().'static/js/banner.js';?>'></script>    
     <div id="parallax-slider-5406108c1acd1" class="parallax-slider">

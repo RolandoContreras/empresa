@@ -82,8 +82,7 @@ class Detail_contain extends CI_Controller {
 	}
     
     public function comments(){
-      if($this->input->is_ajax_request()){   
-            
+          
           $product_id = $this->input->post("product_id");
           $name = $this->input->post("name");
           $email = $this->input->post("email");
@@ -91,6 +90,7 @@ class Detail_contain extends CI_Controller {
           
             if (count($product_id) > 0){
                 $data = array(
+                   'product_id' => $product_id,
                    'name' => $name,
                    'email' => $email,
                    'comment' => $comment,
@@ -99,7 +99,10 @@ class Detail_contain extends CI_Controller {
                );
             }
             $this->obj_comments->insert($data);
-      }
+            echo "<script type='text/javascript'>
+                    alert('Gracias por Comentar');
+                    window.history.back(-1);
+                 </script>";
      }    
         
     public function get_menu(){    

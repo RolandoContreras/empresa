@@ -33,17 +33,7 @@ function send_comment(){
      var email      = $("#email").val();
      var comment    = $("#comment").val();
      
-      $.ajax({
-                   type: "post",
-                   url: site+"detail_contain/comments",
-                   dataType: "json",
-                   data: {name : name,
-                          email : email,
-                          product_id : product_id,
-                          comment : comment},
-                   success:function(data){  
-                        bootbox.dialog("Gracias por comentar", []);
-                   }         
-           });
-    location.reload();       
+    var url = 'detail_contain/comments/'+product_id+'/'+name+'/'+email+'/'+comment;
+     location.href = site+url;
+  //   location.reload();       
 }
