@@ -34,11 +34,11 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag
 
 <!--Banner Grande-->
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>
-<script src="static/cms/js/core/jquery.js"></script>  
+<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-migrate-1.2.1.min.js';?>'></script>
 <!--Banner Grande-->
-<script src="static/cms/js/core/bootstrap-modal.js"></script>
-<script src="static/cms/js/core/bootbox.min.js"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootstrap-modal.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js';?>"></script>
 
 <style type='text/css'>
     h1{font:normal 30px/35px Open Sans;color:#000000;}

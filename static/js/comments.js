@@ -26,35 +26,24 @@ $(document).ready(function(){
 	  
 }); // end document.ready
 
-function new_products(){
-     var url = 'dashboard/productos/load';
-     location.href = site+url;
-}
-function edit_product(product_id){    
-     var url = 'dashboard/productos/load/'+product_id;
-     location.href = site+url;   
-}
-function cancelar_product(){
-	var url= 'dashboard/productos';
-	location.href = site+url;
-}
-function delete_product(product_id){
-        bootbox.dialog("Confirma que desea Eliminar el Regístro?", [        
-        { "label" : "Cancelar"},
-        {
-            "label" : "Eliminar",
-            "class" : "btn-danger",
-            "callback": function() {
-               $.ajax({
+function send_comment(){
+     
+     var product_id = $("#product_id").val();
+     var name       = $("#name").val();
+     var email      = $("#email").val();
+     var comment    = $("#comment").val();
+     
+      $.ajax({
                    type: "post",
-                   url: site+"dashboard/productos/delete/"+product_id,
+                   url: site+"detail_contain/comments",
                    dataType: "json",
-                   data: {product_id : product_id},
-                   success:function(data){                             
-                   location.reload();
+                   data: {name : name,
+                          email : email,
+                          product_id : product_id,
+                          comment : comment},
+                   success:function(data){  
+                        bootbox.dialog("Gracias por comentar", []);
                    }         
            });
-            }
-        }
-    ]);
+    location.reload();       
 }

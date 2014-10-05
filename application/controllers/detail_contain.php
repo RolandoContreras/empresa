@@ -80,6 +80,28 @@ class Detail_contain extends CI_Controller {
              $obj_products['related'] = $this->obj_products->search($params);
              $this->load->view('detail_contain',$obj_products);
 	}
+    
+    public function comments(){
+      if($this->input->is_ajax_request()){   
+            
+          $product_id = $this->input->post("product_id");
+          $name = $this->input->post("name");
+          $email = $this->input->post("email");
+          $comment = $this->input->post("comment");
+          
+            if (count($product_id) > 0){
+                $data = array(
+                   'name' => $name,
+                   'email' => $email,
+                   'comment' => $comment,
+                   'date_comment' => date("Y-m-d H:i:s"),
+                   'status_value' => 0
+               );
+            }
+            $this->obj_comments->insert($data);
+      }
+     }    
+        
     public function get_menu(){    
         
         //SELECT CATEGORIES

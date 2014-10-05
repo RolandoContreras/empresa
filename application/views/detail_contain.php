@@ -29,7 +29,7 @@ $this->load->view("header");
 </div>
 <div class="row">
 <div class="span9 right" id="content">
-<div itemscope itemtype="http://schema.org/Product" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+<div itemscope itemtype="" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
     <div class="images">
     <!---------Principal Image----------->    
     <a href="<?php echo SERVER2.$obj_products->medium_image;?>" itemprop="image" class="woocommerce-main-image zoom">
@@ -158,8 +158,10 @@ $this->load->view("header");
                     <div id="respond" class="comment-respond">
                     <h3 id="reply-title" class="comment-reply-title">Agregar un Comentario</h3>
                     <p></p>
-                        <form action="" method="post" id="commentform" class="comment-form">
+                        <form  id="commentform">
                             <p class="comment-form-author">
+                                <input id="product_id" type="hidden" value="<?php echo $obj_products->product_id;?>"/>
+                                
                                 <label for="author">Nombre <span class="required">*</span></label> 
                                 <input id="name" name="name" type="text" value="" size="30" aria-required="true"/>
                             </p>
@@ -172,7 +174,7 @@ $this->load->view("header");
                                 <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
                             </p>
                             <p class="form-submit">
-                                <input name="submit" type="submit" id="submit" value="Enviar"/>
+                                <a onclick="send_comment();" class="button add_to_cart_button product_type_simple"> Enviar </a>
                             </p>
                         </form>
                     </div> 
@@ -198,13 +200,12 @@ $this->load->view("header");
                             </div>
                     <span class="price"><ins><span class="amount">S/.<?php echo $value->price; ?></span></ins></span>
                     <br/><br/>
-                    <a href="/woocommerce_51107/product/product-12/?add-to-cart=1954" rel="nofollow" data-product_id="1954" data-product_sku="" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                    <a onclick="add_car('<?php echo $value->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
                     </li>
             <?php } ?>
         </ul>
     </div>
-    
-    <meta itemprop="url" content="http://livedemo00.template-help.com/woocommerce_51107/product/product-12/"/>
+ 
 </div> 
 </div>
     <!-------------CATEGORIAS-------------------------->
@@ -229,8 +230,9 @@ $this->load->view("footer");
 </div>
     
  
-<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
-    
+<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>  
+<script type='text/javascript' src='<?php echo site_url().'static/js/comments.js';?>'></script>  
+   
 
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/comment-reply.min.js?ver=3.9.1'></script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
