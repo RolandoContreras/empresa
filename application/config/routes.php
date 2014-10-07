@@ -79,6 +79,9 @@ $route['buscar/([a-z_-]+)'] = "search/index/$1";
 $route['tags/([a-z_-]+)'] = "search/tags/$1";
 $route['tags/([a-z_-]+)/([0-9_-]+)'] = "search/tags/$1";
 
+$route['buscar'] = "search";
+//$route['buscar/([a-z_-]+)'] = "search/tags/$1";
+$route['buscar/([a-z_-]+)/([0-9_-]+)'] = "search/index/$1";
 
 $route['detalle'] = "detail_contain";
 $route['detail_contain/comments'] = "detail_contain/comments";

@@ -55,8 +55,8 @@
     <!----Search---->
     <div class="span3" data-motopress-type="static" data-motopress-static-file="static/static-search.php">
         <div class="search-form search-form__h clearfix">
-            <form id="search-header" class="navbar-form pull-right" method="get" action="" accept-charset="utf-8">
-            <input type="text" name="s" placeholder="Buscar" class="search-form_it">
+            <form id="search-header" class="navbar-form pull-right" method="post" action="<?php echo site_url().'buscar';?>" accept-charset="utf-8">
+            <input type="text" name="name" placeholder="Buscar" class="search-form_it">
             <input type="submit" value="Go" id="search-form_is" class="search-form_is">
             </form>
         </div>
