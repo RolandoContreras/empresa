@@ -78,7 +78,7 @@ $this->load->view("header");
     <?php $tags = explode(",",$obj_products->tags);
     
              foreach ($tags as $value) { ?>
-    <a href="<?php echo site_url().'tags/'.convert_slug($value);?>"><?php echo $value;?></a>&nbsp;
+    <a href="<?php echo site_url().'tags/'.convert_slug($value);?>"><?php echo $value;?></a>
     <?php }  ?>
 </span>
 </div>

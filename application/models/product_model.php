@@ -23,7 +23,8 @@ class products_model_atributos{
     var $bid_image='';
     var $medium_image='';
     var $small_image='';
-    var $price='';
+    var $price=''; 
+    var $pay_sale='';
     var $stock='';
     var $tags='';
     var $status_value='';
@@ -48,6 +49,7 @@ class Product_Model extends CI_Model{
 	$this->medium_image='';
         $this->small_image='';
 	$this->price='';
+        $this->pay_sale='';
 	$this->stock='';
         $this->tags='';
 	$this->status_value='';

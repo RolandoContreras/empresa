@@ -31,37 +31,41 @@
 		<div class="row">
                     <div class="span9 right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-blog.php">
                        <!-------PRODUCTS TO SEARCH-------->
-                        <div class="post_wrapper">
-                            <article id="post-1910" class="post-1910 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-elit tag-ipsum-dolor tag-lorem post__holder cat-1-id">
-                                <header class="post-header">
-                                        <h2 class="post-title">
-                                        <a href="http://livedemo00.template-help.com/woocommerce_51107/uncategorized/aliquam-erat-volutpat/" title="Aliquam erat volutpat">Aliquam erat volutpat</a>
-                                        </h2>
-                                </header>
-                                
-                                <figure class="featured-thumbnail thumbnail large" >
-                                    <a href="" title="" >
-                                        <img src="" alt="Aliquam erat volutpat" >
-                                    </a>
-                                </figure>
-                                    <!-- Post Content -->
-                                <div class="post_content">
-                                    <div class="excerpt">
-                                        <h3>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem.</h3>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc... 				
+                       <?php foreach ($obj_products as $value) { ?>
+                                <div class="post_wrapper">
+                                 <article id="post-1910" class="post-1910 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-elit tag-ipsum-dolor tag-lorem post__holder cat-1-id">
+                                     <header class="post-header">
+                                             <h2 class="post-title">
+                                                 <a href="<?php echo site_url().convert_slug($value->category.'/'.$value->name);?>" title="<?php echo $value->name;?>"><?php echo $value->name;?></a>
+                                             </h2>
+                                     </header>
+
+                                     <figure class="featured-thumbnail" style="width: 200px" >
+                                         <a href="<?php echo site_url().convert_slug($value->category.'/'.$value->name);?>" title="<?php echo $value->name;?>" >
+                                             <img src="<?php echo SERVER2.$value->big_image?>" alt="<?php echo $value->name;?>" >
+                                         </a>
+                                     </figure>
+                                         <!-- Post Content -->
+                                     <div class="">
+                                         <div class="excerpt"><?php echo corta_texto($value->description,400);?></div>
+                                         <a href="<?php echo site_url().convert_slug($value->category.'/'.$value->name);?>" class="btn btn-primary" style="margin-top: 30px;">Leer Más</a>
+                                         <div class="clear"></div>
+                                     </div>
+                                 </article>
+                              </div>
+                       <?php } ?>
+                  
+                        <!-----PAGINATE---------->   
+                            <nav class="woocommerce-pagination">
+                                <div class="subnav nobg">
+                                    <div class="span8">
+                                        <div class="pagination" style="margin-left: 50%">
+                                            <?php echo $obj_pagination; ?>
+                                        </div>
                                     </div>
-                                    <div class="clear"></div>
                                 </div>
-                            </article>
-                         </div>
-                       <!-------PRODUCTS TO SEARCH-------->
-                        
-                        <div class="pagination pagination__posts">
-                            <ul>
-                                <li class="active"><a href='#'>1</a></li>
-                                <li><a href='http://livedemo00.template-help.com/woocommerce_51107/page/2/?s' class="inactive">2</a></li>
-                            </ul>
-                        </div>
+                            </nav>
+                            <!-----PAGINATE--------->
                     </div>
                     <!-------------CATEGORIAS-------------------------->
                         <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
@@ -93,8 +97,6 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
 <!----------------------------------------------------->
 <script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
 </body>

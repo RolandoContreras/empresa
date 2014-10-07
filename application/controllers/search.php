@@ -48,14 +48,35 @@ class Search extends CI_Controller {
                         "order" => "products.product_id DESC",
                         "join" => array('categories, products.id_category = categories.id_category')
                         );
-           
-            //$obj_products['obj_products'] = $this->obj_products->search($params);
-            $obj_products = $this->obj_products->search($params);
             
-            var_dump($obj_products);
-            die();
-        
-        //SELECT CATEGORIES
+            /// PAGINADO
+            $config=array();
+            $config["base_url"] = site_url("tags/$tags"); 
+            $config["total_rows"] = $this->obj_products->total_records($params) ;  
+            $config["per_page"] = 10; 
+            $config["num_links"] = 3;
+            $config["uri_segment"] = 3;   
+            
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';            
+            $config['num_tag_open']='<li>';
+            $config['num_tag_close'] = '</li>';            
+            $config['cur_tag_open']= '<li class="active"><a>';
+            $config['cur_tag_close']= '</li></a>';            
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';            
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            
+            $this->pagination->initialize($config);
+            
+            
+            $obj_products['obj_pagination'] = $this->pagination->create_links();
+            $obj_products['obj_products']= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+                       
+            //SELECT CATEGORIES
             $param_category = array(
                         "select" =>"",
                         "where" => "status_value = 1",
