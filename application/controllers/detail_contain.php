@@ -17,9 +17,7 @@ class Detail_contain extends CI_Controller {
         
         $ruta = explode("/",uri_string()); 
         $category = $ruta[0];
-        $ruta = convert_query($ruta[1]);
-            
-            //SELECT DETAIL PRODUCT
+        $ruta = convert_query($ruta[1]);//SELECT DETAIL PRODUCT
             $params = array(
                         "select" =>"products.product_id,
                                     products.id_category,
@@ -61,7 +59,7 @@ class Detail_contain extends CI_Controller {
                                        );
             $obj_products['comments'] = $this->obj_comments->search($param_comment);
              
-             //SELECT CATEGORIES
+             //SELECT PRODUCTS RELATED
             $params = array(
                         "select" =>"products.product_id,
                                     products.id_category,

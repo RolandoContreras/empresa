@@ -75,6 +75,10 @@ $route['hombres/([a-z_-]+)'] = "shop/categories/$1";
 $route['mujeres/([a-z_-]+)'] = "shop/categories/$1"; 
 $route['kids/([a-z_-]+)'] = "shop/categories/$1"; 
 
+$route['buscar/([a-z_-]+)'] = "search/index/$1";
+$route['tags/([a-z_-]+)'] = "search/tags/$1";
+
+
 $route['detalle'] = "detail_contain";
 $route['detail_contain/comments'] = "detail_contain/comments";
 $route['([a-z_-]+)/([0-9a-z_-]+)'] = "detail_contain/index/$1";
