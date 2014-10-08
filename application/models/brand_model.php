@@ -120,5 +120,14 @@ class Brand_Model extends CI_Model{
         $dato = $query->row();
         return $dato;       
   }
+  
+  public function valid_name($name){
+      $this->db->select("brand_id, name");
+      $this->db->where("name",$name);
+      $this->db->from($this->table);
+      $query = $this->db->get();
+      $dato = $query->result();
+      return $dato;       
+  }
 } //FIN DEL MODELO EXTENDIDO
 ?>

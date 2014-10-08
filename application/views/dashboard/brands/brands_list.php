@@ -78,7 +78,7 @@
 						</div>
                                                         <input type="hidden" id="tag_id" name="tag_id" value="" />              
 							<label>Nombre:</label>
-							<input type="text" id="tag_name" class="input-xlarge-fluid" placeholder="Nombre de Tag">							
+							<input type="text" id="tag_name" class="input-xlarge-fluid" placeholder="Nombre de la Marca">							
 							<span class="help-block">El nombre con el que anexarás una publicación.</span>										
                                                         
 							<label>Estatus:</label>

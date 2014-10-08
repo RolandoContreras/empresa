@@ -17,13 +17,13 @@ $(function() {
             data: {
                 name : t_name, 
                 status : t_status,
-				tag_id : t_id
+		tag_id : t_id
             },
             success:function(data){            
                 if (data.message=="true"){
                     get_tags();
                     $("#tag_name").val("");
-     var url = 'dashboard/tags';
+     var url = 'dashboard/marcas';
      location.href = site+url;
 
                 }else{

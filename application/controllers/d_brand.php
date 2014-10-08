@@ -62,11 +62,13 @@ class D_brand extends CI_Controller{
     public function add_brand(){
 
         if($this->input->is_ajax_request()){ 
-		    $tag_id = $this->input->post('tag_id');
+                        $tag_id = $this->input->post('tag_id');
 			$name = $this->input->post('name');
 			$status=$this->input->post('status');
-			 if ($tag_id == "") {		
-					$this->form_validation->set_rules('name','Nombre','required|trim|min_length[2]|callback_validate_name');
+                        
+                        if ($tag_id == "") {
+                            
+                                	$this->form_validation->set_rules('name','Nombre','required|trim|min_length[2]|callback_validate_name');
 					$this->form_validation->set_rules('status','estado','required');
 		
 					$this->form_validation->set_message('required','El %s es requerido');
@@ -81,6 +83,7 @@ class D_brand extends CI_Controller{
 						$data['print'] = $cadena3[0];           
 						$data['message'] = "false"; 
 					}else{
+                                            
 						 $data_tag = array(
 							'name' => $name,
 							'status_value'  => $status,
