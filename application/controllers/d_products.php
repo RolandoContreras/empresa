@@ -6,11 +6,10 @@ class D_products extends CI_Controller{
         parent::__construct();
         $this->load->model("product_model","obj_products");
         $this->load->model("categories_model","obj_categories");
-//        $this->load->library('controller_basecms');
-//        $this->controller_basecms->get_sesion();        
     }   
                 
-    public function index(){  
+    public function index(){
+           $this->get_session();
            $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
            $params = array(
                         "select" =>"products.product_id,
@@ -185,6 +184,18 @@ class D_products extends CI_Controller{
         $config['debug'] = false;
         $this->ftp->connect($config);
         $this->ftp->delete_file($imagen);
+    }
+    
+    public function get_session(){          
+        if (isset($_SESSION['usercms'])){
+            if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               
+                return true;
+            }else{
+                redirect(site_url().'dashboard');
+            }
+        }else{
+            redirect(site_url().'dashboard');
+        }
     }
 }
 ?>

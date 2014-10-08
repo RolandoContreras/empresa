@@ -105,5 +105,4 @@
         </div>
     </div>
 </div>
-
 <script src="static/cms/js/products.js"></script>

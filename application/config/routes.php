@@ -73,7 +73,10 @@ $route['hombres/([a-z_-]+)'] = "shop/by_gender/$1";
 $route['hombres/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_brand/$1"; 
 
 $route['mujeres/([a-z_-]+)'] = "shop/by_gender/$1"; 
+$route['mujeres/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_brand/$1"; 
+
 $route['kids/([a-z_-]+)'] = "shop/by_gender/$1"; 
+$route['kids/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_brand/$1"; 
 
 $route['buscar/([a-z_-]+)'] = "search/index/$1";
 $route['tags/([a-z_-]+)'] = "search/tags/$1";
@@ -90,6 +93,13 @@ $route['dashboard'] = "dashboard";
 $route['dashboard/validate'] = "dashboard/validate";
 $route['dashboard/panel'] = "panel";
 $route['dashboard/logout'] = "dashboard/logout";
+
+$route['dashboard/tags'] = "d_tags";
+$route['dashboard/tags/([0-9]+)'] = "d_tags/index/$1";
+$route['dashboard/tags/load'] = "d_tags/load";
+$route['dashboard/tags/add_tag'] = "d_tags/add_tag";
+$route['dashboard/tags/delete'] = "d_tags/delete";
+
 $route['dashboard/productos'] = "d_products";
 $route['dashboard/productos/([0-9]+)'] = "d_products/index/$1";
 $route['dashboard/productos/load'] = "d_products/load";

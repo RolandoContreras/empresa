@@ -249,7 +249,7 @@ class Shop extends CI_Controller {
                                     products.pay_sale,
                                     products.price,
                                     categories.name as category,
-                                    brand.name,
+                                    brand.name as brand,
                                     products.position",
                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and brand.name = '$brand'",
                         "order" => "products.product_id DESC",
@@ -282,11 +282,8 @@ class Shop extends CI_Controller {
             $this->pagination->initialize($config);     
             
             $obj_products['obj_pagination'] = $this->pagination->create_links();
-//            $obj_products['obj_products'] = $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
-            $obj_products = $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
-            var_dump($obj_products);
-            die();
-             
+            $obj_products['obj_products'] = $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+            
             //SELECT CATEGORIES
             $param_category = array(
                         "select" =>"",

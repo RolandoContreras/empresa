@@ -17,27 +17,66 @@
                 </div>
                 <input type="hidden" name="product_id" value="<?php echo isset($obj_product)?$obj_product->product_id:"";?>">
               
-                <div class="well nomargin" style="width: 200px;">
-                <div class="inner">
-                <strong>Categoría:</strong>
-                    <select name="id_category" id="id_category">
-                    <option value="">[ Seleccionar ]</option>
-                        <?php foreach ($obj_category as $value ): ?>
-                    <option value="<?php echo $value->id_category;?>"
-                        <?php 
-                                if(isset($obj_product->id_category)){
-                                        if($obj_product->id_category==$value->id_category){
-                                            echo "selected";
-                                        }
-                                }else{
-                                          echo "";
-                                }
+                <div class="well nomargin" style="width: 800px;">
+                    <div class="inner">
+                    <strong>Categoría:</strong>
+                        <select name="id_category" id="id_category">
+                        <option value="">[ Seleccionar ]</option>
+                            <?php foreach ($obj_category as $value ): ?>
+                        <option value="<?php echo $value->id_category;?>"
+                            <?php 
+                                    if(isset($obj_product->id_category)){
+                                            if($obj_product->id_category==$value->id_category){
+                                                echo "selected";
+                                            }
+                                    }else{
+                                              echo "";
+                                    }
+
+                            ?>><?php echo $value->name;?>
+                        </option>
+                            <?php endforeach; ?>
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         
-                        ?>><?php echo $value->name;?>
-                    </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                         <strong>Genero:</strong>
+                        <select name="id_category" id="id_category">
+                        <option value="">[ Seleccionar ]</option>
+                            <?php foreach ($obj_category as $value ): ?>
+                        <option value="<?php echo $value->id_category;?>"
+                            <?php 
+                                    if(isset($obj_product->id_category)){
+                                            if($obj_product->id_category==$value->id_category){
+                                                echo "selected";
+                                            }
+                                    }else{
+                                              echo "";
+                                    }
+                            ?>><?php echo $value->name;?>
+                        </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <br/>
+                    <div class="inner">
+                        <strong>Marca:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name="id_category" id="id_category">
+                        <option value="">[ Seleccionar ]</option>
+                            <?php foreach ($obj_category as $value ): ?>
+                        <option value="<?php echo $value->id_category;?>"
+                            <?php 
+                                    if(isset($obj_product->id_category)){
+                                            if($obj_product->id_category==$value->id_category){
+                                                echo "selected";
+                                            }
+                                    }else{
+                                              echo "";
+                                    }
+                            ?>><?php echo $value->name;?>
+                        </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
               
               <input type="hidden" name="movie_id" value="<?php echo isset($obj_product->product_id)?$obj_product->product_id:"";?>">

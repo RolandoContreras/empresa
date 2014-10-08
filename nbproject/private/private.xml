@@ -3,16 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/empresa/static/cms/js/products.js</file>
-            <file>file:/C:/wamp/www/empresa/static/js/comments.js</file>
-            <file>file:/C:/wamp/www/empresa/application/controllers/detail_contain.php</file>
-            <file>file:/C:/wamp/www/empresa/application/views/home.php</file>
-            <file>file:/C:/wamp/www/empresa/application/views/detail_contain.php</file>
-            <file>file:/C:/wamp/www/empresa/application/views/header.php</file>
-            <file>file:/C:/wamp/www/empresa/application/config/routes.php</file>
-            <file>file:/C:/wamp/www/empresa/application/controllers/d_categories.php</file>
-            <file>file:/C:/wamp/www/empresa/static/cms/js/login.js</file>
-            <file>file:/C:/wamp/www/empresa/static/cms/js/orders.js</file>
+            <file>file:/C:/wamp/www/empresa/application/controllers/shop.php</file>
         </group>
     </open-files>
 </project-private>

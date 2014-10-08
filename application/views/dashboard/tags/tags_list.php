@@ -1,107 +1,104 @@
 <div class="row-fluid">
-    <div class="widget_container">
-        <div class="well nomargin">
-            <div class="navbar navbar-static navbar_as_heading">
-                <div class="navbar-inner">
-                    <div class="container" style="width: auto;">
-                        <a class="brand">Listado de Productos</a>
-                        <a class="btn pull-right" onclick="new_products();" >Agregar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/productos">
-                 <div class="span2">
-                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Producto">
-                 </div>
-                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
-                <div class="span8">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-                </form>
-            </div>
+			<!-- main content -->
+			<div id="main_content" class="span5">
+				<div class="widget_container">
+					<div class="well nomargin">
+						<div class="navbar navbar-static navbar_as_heading">
+							<div class="navbar-inner">
+								<div class="container" style="width: auto;">
+									<a class="brand">Tags</a>
+								</div>
+							</div>
+						</div>
+						<div class="subnav nobg">
+							<div class="span6">
+								<form method="post" class="form-search" style="margin-bottom:0;">
+								  <input name="txt_search" id="txt_search" type="text" class="4search-query" style="width:58%;">
+								  <button type="submit" class="btn btn-small btn-duadua">Search</button>
+								</form>
+							</div>
+						</div>
+						
+						<table class="table" id="alltags">
+							<thead>
+                                                            <tr>
+                                                                <td><input type="checkbox" id="chkbck" /></td>
+                                                                <td>Nombre</td>
+                                                                <td> </td>
+                                                                <td>Estatus</td>
+                                                            </tr>
+							</thead>
+							<tbody id="alltags">
+                                                        <?php foreach ($obj_tags as $value) { ?>
+                                                                <tr>
+                                                                    <td><input type="checkbox" class="chkbck" /></td>
+                                                                    <td><?php echo $value->name; ?></td>
+                                                                    <td>                                                                           
+                                                                        <div class="operation">
+                                                                            <div class="btn-group" style="display:none;">      
+                                                                            <button class="btn btn-small" onclick="edit_tag('<?php echo $value->tag_id; ?>');"></i>Editar</button>
+                                                                            <button class="btn btn-small" onclick="eliminar_tag('<?php echo $value->tag_id?>');"></i> Eliminar</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td><?php if($value->status_value==1){echo 'Activo';}else{echo 'Inactivo';} ?></td>
+                                                                </tr>
+                                                        <?php } ?>                                                             
+							</tbody>
+						</table>
+                                            <div class="subnav nobg">
+                                                <div class="span1"></div>
+                                                <div class="span2"></div>
+                                                <div class="span1"></div>
+                                                <div class="span4">
+                                                    <div class="pagination">
+                                                        <?php echo $obj_pagination; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+						<div class="alert alert-info" style="margin-bottom:0;">
+							<strong>Nota:</strong><br />
+							Eliminar un tag no elimina las publicaciones que contienen ese tag.                                                        
+						</div>
+						
+					</div>
+				</div>
+			</div><!-- main content -->
+			
+			<div id="right_sidebar" class="span5">
+				<div class="widget_container">
+					<div class="well">
+						<div class="navbar navbar-static navbar_as_heading">
+							<div class="navbar-inner">
+								<div class="container" style="width: auto;">
+									<a class="brand">Agregar Tag</a>
+								</div>
+							</div>
+						</div>
+                            <input type="hidden" id="tag_id" name="tag_id" value="" />              
+							<label>Nombre:</label>
+							<input type="text" id="tag_name" class="input-xlarge-fluid" placeholder="Nombre de Tag">							
+							<span class="help-block">El nombre con el que anexarás una publicación.</span>										
+                                                        
+							<label>Estatus:</label>
+							<select name="parent" id="tag_status" class="input-xlarge-fluid">
+								<option class="level-0" value="1">Activo</option>
+								<option class="level-0" value="0">Inactivo</option>
+							</select>
+							<span class="help-block">Elige si crear el tag activo o inactivo.</span>							
+                                                        
+							<button id="add_tag" class="btn btn-duadua btn-small"></i> Agregar Nuevo Tag</button>
+                                            
+					</div>
+				</div>
+			</div>
+			
+		</div>
 
-            <!--- INCIO DE TABLA DE RE4GISTRO -->
+    <!-- JS Files
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<?php echo site_url();?>static/cms/js/tags.js"></script>
+   
 
-            <table class="table smallfont">
-                <thead>
-                    <tr>
-                        <td style="width:20px;"><input type="checkbox" id="chkbck" /></td>
-                        <td>Nombre</td>
-                        <td>Descripcion</td>
-                        <td>Categoria</td>
-                        <td>Precio</td>
-                        <td>Stock</td>
-                        <td>Posicion</td>
-                        <td>Imagen Principal</td>
-                        <td>Imagen 1 </td>
-                        <td>Imagen 2</td>
-                        <td>Imagen 3</td>
-                        <td>Estado</td>
-                    </tr>
-                </thead>
-                <tbody> 
-                    <?php foreach ($obj_products as $value): ?>
-                        <tr>
-                            <td>
-                                
-                                <?php echo $value->product_id == 0 ? "<img src='static/cms/images/warning.gif'>" : "<img src='static/cms/images/ok.gif'>"; ?>
-                            </td>
-                            
-                            <td>
-                                <div class="post_title"><?php echo $value->tittle;?>
-                                    <div class="operation">
-                                        <div class="btn-group">
-                                            <button class="btn btn-small" onclick="edit_product('<?php echo $value->product_id;?>');"><i class="icon-pencil"></i> Editar</button>
-                                            <button class="btn btn-small" onclick="delete_product('<?php echo $value->product_id;?>');"><i class="icon-trash-1"></i>Eliminar</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td><?php echo $value->description; ?></td>
-                            <td><div class="post_title"><?php echo $value->name;?></div></td>
-                            <td><?php echo $value->price; ?></td>
-                            <td><?php echo $value->stock; ?></td>
-                            <td><?php echo $value->position; ?></td>
-                            <td><img src="<?php echo SERVER2.$value->custom_image?>" height="42" width="42"></td>
-                            <td><img src="<?php echo SERVER2.$value->big_image?>" height="42" width="42"></td>
-                            <td><img src="<?php echo SERVER2.$value->medium_image?>" height="42" width="42"></td>
-                            <td><img src="<?php echo SERVER2.$value->small_image?>" height="42" width="42"></td>
-                            <td>
-                                <?php if ($value->status_value == 1) {
-                                    $valor = "Activo";
-                                    $stilo = "label label-success";
-                                }else{
-                                    $valor = "Inactivo";
-                                    $stilo = "label label-important";
-                                } ?>
-                                <span class="<?php echo $stilo ?>"><?php echo $valor; ?></span>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
-            <!--- FIN DE TABLA DE RE4GISTRO -->
-
-
-            <div class="subnav nobg">
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span2"></div>
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="static/cms/js/products.js"></script>
