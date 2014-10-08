@@ -23,6 +23,7 @@
     
 <div class="row">
 <div class="span9 right" id="content">
+    <?php if(count($obj_products)>0){ ?>
     <ul class="products">
         <?php foreach ($obj_products as $obj_products) { ?>
                     <li class="post-1954 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
@@ -37,6 +38,9 @@
                     </li> 
         <?php } ?>
     </ul>
+    <?php }else{ ?>
+        <p>No se encontraron resultados.</p>
+    <?php } ?>
         <!-----PAGINATE---------->   
         <nav class="woocommerce-pagination">
             <div class="subnav nobg">

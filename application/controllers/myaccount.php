@@ -39,7 +39,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['logged_customer'] = "TRUE";
                 $data_customer_session['status'] = $obj_user->status_value;
                 $_SESSION['customer'] = $data_customer_session;                  
-               echo "<script language=\"javascript\">history.go(-2);</script>";    
+               redirect("micuenta");    
             }
         }else{
             redirect("micuenta");
@@ -58,7 +58,7 @@ class Myaccount extends CI_Controller {
     
         public function destroy_user(){
             $this->session->destroy();
-            echo "<script language=\"javascript\">history.go(-1);</script>";
+            redirect("home");
             
         }
         
@@ -84,25 +84,27 @@ class Myaccount extends CI_Controller {
         return $data;
     }
     
-        public function get_submenu($id_category){
+    public function get_submenu($id_category){
         
         $where="id_category ='$id_category' and status_value = 1";
         $params = array("select" =>"",
                               "where" =>$where,
+                              "group" => "category_name" 
                             );
         $obj_submenu = $this->obj_category_kind->search($params); 
         return $obj_submenu;
     }
     
-        public function get_submenu_two($id){
-        
-        $where="categories_kind.id_category ='$id' and brand.status_value = 1";
-        $params = array("select" =>"brand.name,
-                                    categories_kind.categories_king_id",
-                        "where" =>$where,
-                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_king_id')
-                            );
-        $obj_submenutwo = $this->obj_brand->search($params); 
-        return $obj_submenutwo;
+    public function get_submenu_two($id){
+
+    $where="categories_kind.id_category ='$id' and brand.status_value = 1";
+    $params = array("select" =>"brand.name,
+                                categories_kind.categories_kind_id",
+                    "where" =>$where,
+                    "group" => "name",
+                    "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_kind_id')
+                        );
+    $obj_submenutwo = $this->obj_brand->search($params); 
+    return $obj_submenutwo;
     }
 }

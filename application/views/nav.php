@@ -40,7 +40,6 @@
                 break;
         }
         ?>
-        
                 <li class="<?php echo $home;?>">
                     <a href="<?php echo site_url().'home';?>">Home</a>
                 </li>
@@ -50,21 +49,24 @@
                 <li class="<?php echo $shop;?>">
                     <a href="<?php echo site_url().'compras';?>">Compras</a>
                     <ul class="sub-menu">
-                       <?php foreach ($menu as $key => $value) {?>
-                        
-                            <li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href=""><?php echo $value->name;?></a>
-                                <ul class="sub-menu">
-                                     <?php foreach ($submenu[$key] as $key2 =>$value):?>                                                
-                                            <li id="menu-item-2013" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=""><?php echo $value->category_name;?></a>
-                                                <ul class="sub-menu">
-                                                    <?php foreach ($submenutwo[$key2] as $key3 => $value) { ?>
-                                                         <li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href=""><?php echo $value->name;?></a></li>
-                                                     <?php } ?>
-                                                 </ul>
-                                            </li>
-                                     <?php endforeach;?>
-                                </ul>
-                            </li>
+                       <?php foreach ($menu as $key => $value_menu) {?>
+                                <li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat">
+                                    <a href="<?php echo site_url().convert_slug($value_menu->name);?>"><?php echo $value_menu->name;?></a>
+                                        <ul class="sub-menu">
+                                             <?php foreach ($submenu[$key] as $key2 =>$value_submenu):?>                                                
+                                                    <li id="menu-item-2013" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                        <a href="<?php echo site_url().convert_slug($value_submenu->category_name.'/'.$value_menu->name);?>"><?php echo $value_submenu->category_name;?></a>
+                                                            <ul class="sub-menu">
+                                                                <?php foreach ($submenutwo[$key2] as $key3 => $value_submenutwo) { ?>
+                                                                     <li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat">
+                                                                         <a href="<?php echo site_url().convert_slug($value_submenu->category_name.'/'.$value_menu->name.'/'.$value_submenutwo->name);?>"><?php echo $value_submenutwo->name;?></a>
+                                                                     </li>
+                                                                 <?php } ?>
+                                                             </ul>
+                                                    </li>
+                                             <?php endforeach;?>
+                                        </ul>
+                                </li>
                        <?php } ?>
                     </ul>    
                 </li>

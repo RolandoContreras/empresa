@@ -69,12 +69,12 @@
         <!---------------------Categories--------------->            
         <div class="featured_categories">
             <div class="featured_categories_wrap_inner">
-                <h2>PARA MUJERES</h2>
+                <h2>Categorias</h2>
                 <ul class='advanced_categories cols_1'>
-                    <?php foreach ($women as $value) { ?>
+                    <?php foreach ($category as $value) { ?>
                             <li class='advanced_categories_item last'>
                                 <div class='advanced_categories_item_inner'>
-                                    <h4><a href='<?php echo site_url().'mujeres/'.convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
+                                    <h4><a href='<?php echo site_url().convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
                                 </div>
                             </li>
                     <?php } ?>
@@ -83,43 +83,8 @@
             </div>
         </div>
         <br/>
-         <div class="featured_categories">
-            <div class="featured_categories_wrap_inner">
-                <h2>PARA HOMBRES</h2>
-                <ul class='advanced_categories cols_1'>
-                    <?php foreach ($men as $value) { ?>
-                            <li class='advanced_categories_item last'>
-                                <div class='advanced_categories_item_inner'>
-                                    <h4><a href='<?php echo site_url().'hombres/'.convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
-                                </div>
-                            </li>
-                    <?php } ?>
-                    
-                  </ul>
-            </div>
-        </div>
-        <br/>
-         <div class="featured_categories">
-            <div class="featured_categories_wrap_inner">
-                <h2>PARA KIDS</h2>
-                <ul class='advanced_categories cols_1'>
-                    <?php foreach ($kids as $value) { ?>
-                            <li class='advanced_categories_item last'>
-                                <div class='advanced_categories_item_inner'>
-                                    <h4><a href='<?php echo site_url().'kids/'.convert_slug($value->name);?>'><?php echo $value->name;?></a></h4>
-                                </div>
-                            </li>
-                    <?php } ?>
-                    
-                  </ul>
-            </div>
-        </div>
         <!--------------------------------------------->
-        
-        
     </div>
-        
-        
       
     <!-----Featured Products----->    
     <div class="span9 ">
@@ -130,14 +95,16 @@
                         <ul class="products">
 
                         <?php foreach ($data as $product) {?>
-                                    <li class="post-1946 product type-product status-publish has-post-thumbnail last featured shipping-taxable purchasable product-type-simple product-cat-product-category-4 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
-                                        <a href="<?php echo site_url().convert_slug($product->category."/".$product->name);?>">
-                                            <img src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt=/>
-                                            <h3><?php echo corta_texto($product->name,17);?></h3>
-                                        </a>
-                                        <div class="short_desc">
-                                            <?php echo corta_texto($product->description,100);?>
-                                        </div>
+                                    <li class="product">
+                                        <span class="onsale"><?php echo format_number($product->pay_sale);?>&nbsp;&nbsp;Ganado</span>
+                                            <a href="<?php echo site_url().convert_slug($product->category."/".$product->name);?>">
+
+                                                <img src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt=/>
+                                                <h3><?php echo corta_texto($product->name,17);?></h3>
+                                            </a>
+                                            <div class="short_desc">
+                                                <?php echo corta_texto($product->description,100);?>
+                                            </div>
                                             <span class="price">
                                                 <span class=""><?php echo format_number($product->price)?></span>
                                             </span>

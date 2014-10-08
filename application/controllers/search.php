@@ -168,18 +168,20 @@ class Search extends CI_Controller {
         $where="id_category ='$id_category' and status_value = 1";
         $params = array("select" =>"",
                               "where" =>$where,
+                              "group" => "category_name" 
                             );
         $obj_submenu = $this->obj_category_kind->search($params); 
         return $obj_submenu;
     }
     
-    public function get_submenu_two($id){
+        public function get_submenu_two($id){
         
         $where="categories_kind.id_category ='$id' and brand.status_value = 1";
         $params = array("select" =>"brand.name,
-                                    categories_kind.categories_king_id",
+                                    categories_kind.categories_kind_id",
                         "where" =>$where,
-                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_king_id')
+                        "group" => "name",
+                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_kind_id')
                             );
         $obj_submenutwo = $this->obj_brand->search($params); 
         return $obj_submenutwo;

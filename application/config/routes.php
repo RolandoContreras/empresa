@@ -46,14 +46,12 @@ $route['home/update_car'] = "home/update_car";
 $route['home/empty_car'] = "home/empty_car";
 
 $route['logout'] = "myaccount/destroy_user";
-
 $route['acerca'] = "about";
 
 $route['compras'] = "shop";
 $route['compras/([0-9_-]+)'] = "shop/index";
 
 $route['contacto'] = "contacs";
-
 
 $route['micuenta'] = "myaccount";
 $route['micuenta/validar_user'] = "myaccount/validar_user";
@@ -71,16 +69,17 @@ $route['backoffice/logout'] = "backoffice/logout";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
-$route['hombres/([a-z_-]+)'] = "shop/categories/$1"; 
-$route['mujeres/([a-z_-]+)'] = "shop/categories/$1"; 
-$route['kids/([a-z_-]+)'] = "shop/categories/$1"; 
+$route['hombres/([a-z_-]+)'] = "shop/by_gender/$1"; 
+$route['hombres/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_brand/$1"; 
+
+$route['mujeres/([a-z_-]+)'] = "shop/by_gender/$1"; 
+$route['kids/([a-z_-]+)'] = "shop/by_gender/$1"; 
 
 $route['buscar/([a-z_-]+)'] = "search/index/$1";
 $route['tags/([a-z_-]+)'] = "search/tags/$1";
 $route['tags/([a-z_-]+)/([0-9_-]+)'] = "search/tags/$1";
 
 $route['buscar'] = "search";
-//$route['buscar/([a-z_-]+)'] = "search/tags/$1";
 $route['buscar/([a-z_-]+)/([0-9_-]+)'] = "search/index/$1";
 
 $route['detalle'] = "detail_contain";

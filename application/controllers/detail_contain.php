@@ -23,6 +23,7 @@ class Detail_contain extends CI_Controller {
                                     products.id_category,
                                     products.name,
                                     products.description,
+                                    products.pay_sale,
                                     products.custom_image,
                                     products.big_image,
                                     products.medium_image,
@@ -64,6 +65,7 @@ class Detail_contain extends CI_Controller {
                         "select" =>"products.product_id,
                                     products.id_category,
                                     products.name,
+                                    products.pay_sale,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
@@ -139,9 +141,9 @@ class Detail_contain extends CI_Controller {
         
         $where="categories_kind.id_category ='$id' and brand.status_value = 1";
         $params = array("select" =>"brand.name,
-                                    categories_kind.categories_king_id",
+                                    categories_kind.categories_kind_id",
                         "where" =>$where,
-                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_king_id')
+                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_kind_id')
                             );
         $obj_submenutwo = $this->obj_brand->search($params); 
         return $obj_submenutwo;

@@ -55,13 +55,14 @@ $this->load->view("header");
     
 <div class="summary entry-summary">
     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <p class="price"><span class="amount">S/.<?php echo $obj_products->price;?></span></p>
+        <p class="price"><span class="amount"><?php echo format_number($obj_products->price);?></span></p>
     <meta itemprop="price" content="120"/>
-    <meta itemprop="priceCurrency" content="USD"/>
+    <meta itemprop="priceCurrency" content="S/."/>
     <link itemprop="availability" href="http://schema.org/InStock"/>
     </div>
     
     <div itemprop="description">
+        <p>Comision Ganada:  <?php echo format_number($obj_products->pay_sale);?></p>
     </div>
 <p class="stock "><?php echo $obj_products->stock;?> en stock</p>
 
@@ -82,24 +83,8 @@ $this->load->view("header");
     <?php }  ?>
 </span>
 </div>
- 
-<script>(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {return;}
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
- 
-<script type="text/javascript">
-			(function() {
-				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				po.src = '//apis.google.com/js/plusone.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			})();
-		</script>
-    <ul class="share-buttons unstyled clearfix">
+
+    <!--<ul class="share-buttons unstyled clearfix">-->
 <!--        <li class="twitter">
         <a href="//twitter.com/share" class="twitter-share-button">Tweet this article</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -117,7 +102,7 @@ $this->load->view("header");
         <li class="pinterest">
         <a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src='//assets.pinterest.com/images/PinExt.png' alt=""/></a>
         </li>-->
-    </ul> 
+    <!--</ul>--> 
 </div> 
     <div class="woocommerce-tabs">
     <ul class="tabs">
@@ -193,10 +178,9 @@ $this->load->view("header");
     <h2>Productos Relacionados</h2>
         <ul class="products">
            <?php foreach ($related as $value) { ?>
-                    
-                    <li class="post-1954 product type-product status-publish has-post-thumbnail first sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+                    <li class="product">
                                 <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>">
-                                <span class="onsale">Sale!</span>
+                                    <span class="onsale"><?php echo format_number($value->pay_sale);?>&nbsp;&nbsp;Ganado</span>
                                 <img src="<?php echo SERVER2.$value->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($value->name);?>"/>
                                 <h3><?php echo corta_texto($value->name,20);?></h3>
                                 </a>
@@ -260,11 +244,6 @@ var wc_add_to_cart_params = {"ajax_url":"\/woocommerce_51107\/wp-admin\/admin-aj
 <script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=2.1.12'></script>
 <script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.5'></script>
 <script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.init.min.js?ver=2.1.12'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
-/* ]]> */
-</script>
 <script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js?ver=2.1.12'></script>
 <script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.60'></script>
 <script type='text/javascript'>

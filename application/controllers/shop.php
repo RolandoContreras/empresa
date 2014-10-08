@@ -120,7 +120,8 @@ class Shop extends CI_Controller {
     }
     
     public function by_categories($slug){   
-         //SELECT PRODUCT BY CATEGORY
+            $obj_products = $this->get_menu();
+            //SELECT PRODUCT BY CATEGORY
             $params = array(
                         "select" =>"products.product_id,
                                     products.id_category,
@@ -172,6 +173,131 @@ class Shop extends CI_Controller {
              $this->load->view('shop',$obj_products);
     }
     
+    public function by_gender($slug){
+            $obj_products = $this->get_menu();
+            $ruta = explode("/",uri_string()); 
+            $gender = $ruta[0];
+            
+            //SELECT PRODUCT BY CATEGORY
+            $params = array(
+                        "select" =>"products.product_id,
+                                    products.id_category,
+                                    products.name,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.pay_sale,
+                                    products.price,
+                                    categories.name as category,
+                                    products.position",
+                        "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender'",
+                        "order" => "products.product_id DESC",
+                        "join" => array('categories, products.id_category = categories.id_category',
+                                        'categories_kind, categories_kind.product_id = products.product_id'),
+                        );
+            
+             /// PAGINADO
+            $config=array();
+            $config["base_url"] = site_url("$gender/$slug"); 
+            $config["total_rows"] = $this->obj_products->total_records($params) ;  
+            $config["per_page"] = 9; 
+            $config["num_links"] = 3;
+            $config["uri_segment"] = 3;   
+            
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';            
+            $config['num_tag_open']='<li>';
+            $config['num_tag_close'] = '</li>';            
+            $config['cur_tag_open']= '<li class="active"><a>';
+            $config['cur_tag_close']= '</li></a>';            
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';            
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            
+            $this->pagination->initialize($config);     
+            
+            $obj_products['obj_pagination'] = $this->pagination->create_links();
+            $obj_products['obj_products'] = $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+             
+            //SELECT CATEGORIES
+            $param_category = array(
+                        "select" =>"",
+                        "where" => "status_value = 1",
+                           );
+           
+             $obj_products['category'] = $this->obj_category->search($param_category);
+             $this->load->view('shop',$obj_products);
+    }
+    
+    public function by_brand($slug){
+            $obj_products = $this->get_menu();
+            $ruta = explode("/",uri_string()); 
+            $gender = $ruta[0];
+            $brand = $ruta[2];
+            
+            //SELECT PRODUCT BY CATEGORY
+            $params = array(
+                        "select" =>"products.product_id,
+                                    products.id_category,
+                                    products.name,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.pay_sale,
+                                    products.price,
+                                    categories.name as category,
+                                    brand.name,
+                                    products.position",
+                        "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and brand.name = '$brand'",
+                        "order" => "products.product_id DESC",
+                        "join" => array('categories, products.id_category = categories.id_category',
+                                        'categories_kind, categories_kind.product_id = products.product_id',
+                                        'brand, brand.categories_kind_id = categories_kind.categories_kind_id'),
+                        );
+            
+             /// PAGINADO
+            $config=array();
+            $config["base_url"] = site_url("$gender/$slug"); 
+            $config["total_rows"] = $this->obj_products->total_records($params) ;  
+            $config["per_page"] = 9; 
+            $config["num_links"] = 3;
+            $config["uri_segment"] = 3;   
+            
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';            
+            $config['num_tag_open']='<li>';
+            $config['num_tag_close'] = '</li>';            
+            $config['cur_tag_open']= '<li class="active"><a>';
+            $config['cur_tag_close']= '</li></a>';            
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';            
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            
+            $this->pagination->initialize($config);     
+            
+            $obj_products['obj_pagination'] = $this->pagination->create_links();
+//            $obj_products['obj_products'] = $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+            $obj_products = $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+            var_dump($obj_products);
+            die();
+             
+            //SELECT CATEGORIES
+            $param_category = array(
+                        "select" =>"",
+                        "where" => "status_value = 1",
+                           );
+           
+             $obj_products['category'] = $this->obj_category->search($param_category);
+             $this->load->view('shop',$obj_products);
+            
+    }
+    
     public function get_menu(){    
         
         //SELECT CATEGORIES
@@ -199,6 +325,7 @@ class Shop extends CI_Controller {
         $where="id_category ='$id_category' and status_value = 1";
         $params = array("select" =>"",
                               "where" =>$where,
+                              "group" => "category_name" 
                             );
         $obj_submenu = $this->obj_category_kind->search($params); 
         return $obj_submenu;
@@ -208,11 +335,12 @@ class Shop extends CI_Controller {
         
         $where="categories_kind.id_category ='$id' and brand.status_value = 1";
         $params = array("select" =>"brand.name,
-                                    categories_kind.categories_king_id",
+                                    categories_kind.categories_kind_id",
                         "where" =>$where,
-                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_king_id')
+                        "group" => "name",
+                        "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_kind_id')
                             );
         $obj_submenutwo = $this->obj_brand->search($params); 
         return $obj_submenutwo;
     }
-    }
+}

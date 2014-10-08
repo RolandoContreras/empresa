@@ -17,7 +17,8 @@
 
 class categories_kind_model_atributos{	
     var $categories_kind_id='';
-    var $id_category='';
+    var $id_category=''; 
+    var $product_id='';
     var $category_name='';
     var $observation='';
     var $status_value='';
@@ -35,6 +36,7 @@ class Categories_kind_Model extends CI_Model{
 	$this->table_id = 'categories_king_id';
         $this->categories_king_id='';
 	$this->id_category='';
+        $this->product_id='';
         $this->category_name='';
         $this->observation='';
 	$this->status_value='';
