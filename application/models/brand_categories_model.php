@@ -15,7 +15,9 @@
 * Fecha: 29/09/2012
 ****/
 
-class brand_model_atributos{	
+class brand_categories_model_atributos{	
+    var $brand_categories_id='';
+    var $categories_kind_id='';
     var $brand_id='';
     var $name='';
     var $status_value='';
@@ -25,12 +27,14 @@ class brand_model_atributos{
     var $updated_by='';
 }
 
-class Brand_Model extends CI_Model{ 
+class Brand_categories_Model extends CI_Model{ 
 
     public function __construct() {
         parent::__construct();  
-        $this->table = 'brand';
-	$this->table_id = 'brand_id';
+        $this->table = 'brand_categories';
+	$this->table_id = 'brand_categories_id';
+        $this->brand_categories_id ='';
+        $this->categories_kind_id='';
         $this->brand_id ='';
         $this->name='';
 	$this->status_value='';
@@ -39,7 +43,7 @@ class Brand_Model extends CI_Model{
 	$this->updated_at='';
 	$this->updated_by='';
 	
-	$this->fields = new brand_model_atributos();
+	$this->fields = new brand_categories_model_atributos();
     }   
     public function insert($data){
       $this->db->insert($this->table, $data);

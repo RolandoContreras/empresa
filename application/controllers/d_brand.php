@@ -1,10 +1,10 @@
 <?php if ( ! defined("BASEPATH")) exit("No direct script access allowed"); 
 
-class D_tags extends CI_Controller{    
+class D_brand extends CI_Controller{    
     
     public function __construct(){
         parent::__construct();
-        $this->load->model("tags_model","obj_tags");
+        $this->load->model("brand_model","obj_brand");
     }   
                 
     public function index(){       
@@ -14,15 +14,15 @@ class D_tags extends CI_Controller{
 						
             /// PARAMETROS PARA EL SELECT 
             $params = array(
-                        "select" =>"tag_id, name, status_value,created_at,created_by,updated_at,updated_by",
+                        "select" =>"brand_id,name,status_value,created_at,created_by,updated_at,updated_by",
                         "where" => $where,
                         "order" => "name DESC"
                         ) ;
 	
             /// PAGINADO
             $config=array();
-            $config["base_url"] = site_url("dashboard/tags"); 
-            $config["total_rows"] = $this->obj_tags->total_records($params) ;  
+            $config["base_url"] = site_url("dashboard/marcas"); 
+            $config["total_rows"] = $this->obj_brand->total_records($params) ;  
             $config["per_page"] = 10; 
             $config["num_links"] = 3;
             $config["uri_segment"] = 3;   
@@ -42,24 +42,24 @@ class D_tags extends CI_Controller{
             
             $this->pagination->initialize($config);        
             $obj_pagination = $this->pagination->create_links();
-            $modulos ='tags'; 
+            $modulos ='marcas'; 
             $seccion = 'Lista';        
             $link_modulo =  site_url().'dashboard/'.$modulos; 
             
             /// DATA
-            $obj_tags= $this->obj_tags->search_data($params, $config["per_page"],$this->uri->segment(3));
+            $obj_brand= $this->obj_brand->search_data($params, $config["per_page"],$this->uri->segment(3));
             
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
-            $this->tmp_mastercms->set("obj_tags",$obj_tags);
+            $this->tmp_mastercms->set("obj_brand",$obj_brand);
             $this->tmp_mastercms->set("obj_pagination",$obj_pagination);
-            $this->tmp_mastercms->render("dashboard/tags/tags_list");
+            $this->tmp_mastercms->render("dashboard/brands/brands_list");
 
     }
     
-    public function add_tag(){
+    public function add_brand(){
 
         if($this->input->is_ajax_request()){ 
 		    $tag_id = $this->input->post('tag_id');
@@ -88,7 +88,7 @@ class D_tags extends CI_Controller{
 							'created_by' => '1'
 							);
 								 
-					   $obj_tags= $this->obj_tags->insert($data_tag);
+					   $obj_tags= $this->obj_brand->insert($data_tag);
 					   $data['message'] = "true";             
 						
 					}		 
@@ -101,7 +101,7 @@ class D_tags extends CI_Controller{
 							'created_by' => '1'
 							);
 								 
-			   $obj_tags= $this->obj_tags->update($tag_id,$data_tag);
+			   $obj_tags= $this->obj_brand->update($tag_id,$data_tag);
 			   $data['message'] = "true";         
 		 }              
            
@@ -112,7 +112,7 @@ class D_tags extends CI_Controller{
     
     public function validate_name($name){        
         
-        $obj_tags = $this->obj_tags->valid_name($name);
+        $obj_tags = $this->obj_brand->valid_name($name);
                 
         if (count($obj_tags)>0){            
             $this->form_validation->set_message('validate_name', "El Tag ya existe");
@@ -174,19 +174,19 @@ class D_tags extends CI_Controller{
     public function load(){        
         if($this->input->is_ajax_request()){ 
         
-            $t_id=$this->input->post('tag_id');
-        
+        $t_id=$this->input->post('tag_id');
+            
         if ($t_id != ""){
-            $where = "tag_id = $t_id";
+            $where = "brand_id = $t_id";
             $params = array("where" => $where);
-            $obj_tag  = $this->obj_tags->get_search_row($params);            
+            $obj_tag  = $this->obj_brand->get_search_row($params);            
         }
         
         if($obj_tag!=null){
             $data['message']="true"; 
             $data['print']=$obj_tag->name;
             $data['print2']=$obj_tag->status_value;
-			 $data['print3']=$obj_tag->tag_id;
+            $data['print3']=$obj_tag->brand_id;
         }else{
             $data['message']="false"; 
         }
@@ -198,9 +198,9 @@ class D_tags extends CI_Controller{
     
     public function delete(){      
 	if($this->input->is_ajax_request()){   
-		$tag_id = $this->input->post("tag_id");
-		if ($tag_id > 0){
-		$this->obj_tags->delete($tag_id);
+		$brand_id = $this->input->post("brand_id");
+		if ($brand_id > 0){
+		$this->obj_brand->delete($brand_id);
 		$dato['print'] = "El Tag ha sido eliminado"; 
 		}
 		$dato['print'] = "Error"; 

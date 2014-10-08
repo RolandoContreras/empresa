@@ -100,6 +100,12 @@ $route['dashboard/tags/load'] = "d_tags/load";
 $route['dashboard/tags/add_tag'] = "d_tags/add_tag";
 $route['dashboard/tags/delete'] = "d_tags/delete";
 
+$route['dashboard/marcas'] = "d_brand";
+$route['dashboard/marcas/([0-9]+)'] = "d_brand/index/$1";
+$route['dashboard/marcas/load'] = "d_brand/load";
+$route['dashboard/marcas/add_brand'] = "d_brand/add_brand";
+$route['dashboard/marcas/delete'] = "d_brand/delete";
+
 $route['dashboard/productos'] = "d_products";
 $route['dashboard/productos/([0-9]+)'] = "d_products/index/$1";
 $route['dashboard/productos/load'] = "d_products/load";
