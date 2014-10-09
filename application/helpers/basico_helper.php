@@ -135,6 +135,17 @@ function mostrar_mes($mes){
 	return $nom_mes;
 }
 
+function get_tag($list_tags, $tag){
+    $tags = explode(",",$list_tags);        
+    $retorno  = "";    
+    foreach ($tags as $value) {
+        if ($value==$tag){
+            $retorno = "selected=''";
+        }
+    }    
+    return $retorno;
+}
+
 function get_semilla(){
     $semilla='ab513c75f48d82bcd30aa48e478d2e6e';
     return $semilla;

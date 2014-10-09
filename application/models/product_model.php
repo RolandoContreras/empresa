@@ -67,6 +67,7 @@ class Product_Model extends CI_Model{
     
     public function insert($data){
       $this->db->insert($this->table, $data);
+      return $this->db->insert_id();
     }
   
     public function insert_lote($data){

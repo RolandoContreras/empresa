@@ -1,6 +1,8 @@
-<link href="static/cms/css/uploadimg.css" rel="stylesheet" />
-<script src="static/cms/js/core/bootstrap-fileupload.js"></script>
-<script src="static/cms/js/products.js"></script>
+<link href="<?php echo site_url();?>static/cms/css/uploadimg.css" rel="stylesheet" />
+<script src="<?php echo site_url();?>static/cms/js/core/bootstrap-fileupload.js"></script>
+<link href="<?php echo site_url();?>static/cms/plugins/tags/chosen.css" rel="stylesheet" />
+<script src="<?php echo site_url();?>static/cms/plugins/tags/chosen.jquery.js"></script>
+<script src="<?php echo site_url();?>static/cms/js/products.js"></script>
 <!-- main content -->
 
 <form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/productos/validate";?>">
@@ -15,7 +17,10 @@
                                 </div>
                         </div>
                 </div>
+                
                 <input type="hidden" name="product_id" value="<?php echo isset($obj_product)?$obj_product->product_id:"";?>">
+                <input type="hidden" name="categories_kind_id" value="<?php echo isset($obj_product)?$obj_product->categories_kind_id:"";?>">
+                <input type="hidden" name="brand_categories_id" value="<?php echo isset($obj_product)?$obj_product->brand_categories_id:"";?>">
               
                 <div class="well nomargin" style="width: 800px;">
                     <div class="inner">
@@ -39,34 +44,32 @@
                         </select>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         
-                         <strong>Genero:</strong>
-                        <select name="id_category" id="id_category">
+                        <strong>Genero:</strong>
+                        <select name="gender" id="gender">
                         <option value="">[ Seleccionar ]</option>
-                            <?php foreach ($obj_category as $value ): ?>
-                        <option value="<?php echo $value->id_category;?>"
-                            <?php 
-                                    if(isset($obj_product->id_category)){
-                                            if($obj_product->id_category==$value->id_category){
-                                                echo "selected";
-                                            }
-                                    }else{
-                                              echo "";
-                                    }
-                            ?>><?php echo $value->name;?>
-                        </option>
-                            <?php endforeach; ?>
+                        <?php 
+                        if(isset($obj_product->category_name)){ ?>
+                                <option value="Hombres" <?php echo $obj_product->category_name=="Hombres"?'selected':'';?>>Hombres</option>
+                                <option value="Mujeres" <?php echo $obj_product->category_name=="Mujeres"?'selected':'';?>>Mujeres</option>
+                                <option value="Kids" <?php echo $obj_product->category_name=="Kids"?'selected':'';?>>Kids</option>
+                        <?php }else{ ?>
+                                <option value="Hombres">Hombres</option>
+                                <option value="Mujeres">Mujeres</option>
+                                <option value="Kids">Kids</option>
+                        <?php } ?>
+                        
                         </select>
                     </div>
                     <br/>
                     <div class="inner">
                         <strong>Marca:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <select name="id_category" id="id_category">
+                        <select name="brand" id="brand">
                         <option value="">[ Seleccionar ]</option>
-                            <?php foreach ($obj_category as $value ): ?>
-                        <option value="<?php echo $value->id_category;?>"
+                            <?php foreach ($obj_brand as $value ): ?>
+                        <option value="<?php echo $value->brand_id;?>"
                             <?php 
-                                    if(isset($obj_product->id_category)){
-                                            if($obj_product->id_category==$value->id_category){
+                                    if(isset($obj_product->brand_id)){
+                                            if($obj_product->brand_id==$value->brand_id){
                                                 echo "selected";
                                             }
                                     }else{
@@ -79,7 +82,6 @@
                     </div>
                 </div>
               
-              <input type="hidden" name="movie_id" value="<?php echo isset($obj_product->product_id)?$obj_product->product_id:"";?>">
               <br><br>
               <input type="text" id="tittle" name="tittle" value="<?php echo isset($obj_product->name)?$obj_product->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
               <br><br>
@@ -91,9 +93,18 @@
               <br>
               <input name="position" type="text" class="input-small-fluid" id="position" placeholder="Posición" value="<?php echo isset($obj_product->position)?$obj_product->position:"";?>" size="3" maxlength="3">
               <br><br>
+              <input name="pay_sale" type="text" class="input-small-fluid" id="comision" placeholder="Comision" value="<?php echo isset($obj_product->pay_sale)?$obj_product->pay_sale:"";?>">
+              <br><br>
                                                 
             <!------------------------------------>
-                
+                           <!-- TAB -->
+               
+                <ul class="nav nav-tabs myTab smallfont" style="width: 99%;">
+                    <li class="active"><a href="#WEA1" data-toggle="tab"><i class="icon-large icon-th"></i>IMAGENES</a></li>                    
+                    <li><a href="#WEA5" data-toggle="tab"><i class="icon-large icon-th"></i> TAGS</a></li>
+                </ul>    
+            
+            
                 <div class="tab-content myTabContent" style="width: 99%;">
                     <div class="tab-pane fade in active" id="WEA1">
                         <div class="tabbable tabs-left xdefault">
@@ -212,7 +223,33 @@
                            <!--------------------------------------------------------> 
                         </div>
                     </div>
+                    
+                    <div class="tab-pane fade" id="WEA5">
+                        <div class="tabbable tabs-left xdefault">
+                            <div class="tab-content fix_tags" style="width: 737px;">
+                                <div class="inner">
+                                    <div class="side-by-side clearfix">       
+                                        
+                                        
+                        <select  data-placeholder="Tags" style="width:350px;" multiple class="chzn-select " tabindex="8" name ="tags" id="tags">
+                            <option value = ""></option>
+                            <?php foreach ($obj_tags as $obj_tags):
+                                    $selected = get_tag($obj_product->tags,$obj_tags->name);
+                                ?>
+                                <option <?php echo $selected;?>><?php echo $obj_tags->name;?></option>
+                            <?php endforeach;?>
+                         </select> 
+                                    </div>
+                                    
+                                    <input type="hidden" name="tag" id="tag" value="<?php echo isset($obj_product->tags)?$obj_product->tags:"";?>">
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                    
                 </div>
+                
+                
             
               <br><br>
               <div class="well nomargin" style="width: 200px;">
@@ -237,3 +274,24 @@
     </div>
 </div><!-- main content -->
 </form>
+<script type="text/javascript">
+    var show = '<?php echo $modulos?>';
+    $(".chzn-select").chosen();
+    
+    $("#tags").chosen().change( function(e){
+        $("#tag").val($(this).val());
+    });         
+    
+    $('#timepicker1').timepicker({
+        minuteStep: 1,    
+        showSeconds: true,
+        showMeridian: false,
+        showInputs: true
+    });
+        
+    $('#timepicker1').on('change', function() {                
+        $("#time").val($(this).val());        
+    });
+    
+
+</script>

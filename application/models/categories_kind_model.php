@@ -33,8 +33,8 @@ class Categories_kind_Model extends CI_Model{
     public function __construct() {
         parent::__construct();  
         $this->table = 'categories_kind';
-	$this->table_id = 'categories_king_id';
-        $this->categories_king_id='';
+	$this->table_id = 'categories_kind_id';
+        $this->categories_kind_id='';
 	$this->id_category='';
         $this->product_id='';
         $this->category_name='';
@@ -49,6 +49,7 @@ class Categories_kind_Model extends CI_Model{
     }   
     public function insert($data){
       $this->db->insert($this->table, $data);
+      return $this->db->insert_id();
     }
   
     public function insert_lote($data){

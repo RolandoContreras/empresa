@@ -34,6 +34,7 @@
                         <td>Nombre</td>
                         <td>Descripcion</td>
                         <td>Categoria</td>
+                        <td>Marca</td>
                         <td>Precio</td>
                         <td>Stock</td>
                         <td>Posicion</td>
@@ -64,9 +65,10 @@
 
                             </td>
                             <td><?php echo $value->description; ?></td>
-                            <td><div class="post_title"><?php echo $value->name;?></div></td>
-                            <td><?php echo $value->price; ?></td>
-                            <td><?php echo $value->stock; ?></td>
+                            <td><?php echo $value->name;?></td>
+                            <td><div class="post_title"><?php echo $value->brand;?></div></td>
+                            <td><?php echo $value->price;?></td>
+                            <td><?php echo $value->stock;?></td>
                             <td><?php echo $value->position; ?></td>
                             <td><img src="<?php echo SERVER2.$value->custom_image?>" height="42" width="42"></td>
                             <td><img src="<?php echo SERVER2.$value->big_image?>" height="42" width="42"></td>

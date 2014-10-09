@@ -18,6 +18,9 @@ $(document).ready(function(){
               stock: {
 	      required: true
 	      },
+              comision: {
+	      required: true
+	      },
               position: {
 	      minlength: 1,
 	      required: true
