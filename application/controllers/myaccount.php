@@ -6,8 +6,8 @@ class Myaccount extends CI_Controller {
         parent::__construct();
         $this->load->model("categories_model","obj_category");
         $this->load->model("categories_kind_model","obj_category_kind");
-        $this->load->model("brand_model","obj_brand");
         $this->load->model("customer_model","obj_customer");
+        $this->load->model("brand_categories_model","obj_brand_categories");
     }
 	
 	public function index()
@@ -72,9 +72,9 @@ class Myaccount extends CI_Controller {
         
         foreach ($menu as $key =>$value){               
                  $submenu[] = $this->get_submenu($value->id_category);
-                 
+                        
                         foreach ($submenu[$key] as $key => $value) {
-                            $submenutwo[] = $this->get_submenu_two($value->id_category);
+                            $submenutwo[] = $this->get_submenu_two($value->categories_kind_id);
                         }
         }
         
@@ -84,7 +84,7 @@ class Myaccount extends CI_Controller {
         return $data;
     }
     
-    public function get_submenu($id_category){
+        public function get_submenu($id_category){
         
         $where="id_category ='$id_category' and status_value = 1";
         $params = array("select" =>"",
@@ -95,16 +95,16 @@ class Myaccount extends CI_Controller {
         return $obj_submenu;
     }
     
-    public function get_submenu_two($id){
-
-    $where="categories_kind.id_category ='$id' and brand.status_value = 1";
-    $params = array("select" =>"brand.name,
-                                categories_kind.categories_kind_id",
-                    "where" =>$where,
-                    "group" => "name",
-                    "join" => array('categories_kind, brand.categories_kind_id = categories_kind.categories_kind_id')
+        public function get_submenu_two($id){
+            
+        $where="brand_categories.categories_kind_id ='$id' and brand.status_value = 1";
+        $params = array("select" =>"brand.name,
+                                    brand_categories.categories_kind_id",
+                        "where" =>$where,
+                        "group" => "name",
+                        "join" => array('brand, brand_categories.brand_id = brand.brand_id')
                         );
-    $obj_submenutwo = $this->obj_brand->search($params); 
-    return $obj_submenutwo;
+        $obj_submenutwo = $this->obj_brand_categories->search($params); 
+        return $obj_submenutwo;
     }
 }
