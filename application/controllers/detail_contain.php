@@ -19,25 +19,33 @@ class Detail_contain extends CI_Controller {
         $ruta = explode("/",uri_string()); 
         $category = $ruta[0];
         $ruta = convert_query($ruta[1]);//SELECT DETAIL PRODUCT
+        
             $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.pay_sale,
+                                    products.tags,
                                     products.custom_image,
                                     products.big_image,
                                     products.medium_image,
                                     products.small_image,
-                                    products.stock,
-                                    products.tags,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "products.name like '%$ruta%'",
-                        "order" => "products.product_id DESC LIMIT 1",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.name like '%$ruta%'",
+                         "order" => "products.product_id DESC LIMIT 1",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+                    
+        
+
            
             $obj_products['obj_products'] = $this->obj_products->get_search_row($params);
             $product_id = $obj_products['obj_products']->product_id;
@@ -64,20 +72,27 @@ class Detail_contain extends CI_Controller {
              //SELECT PRODUCTS RELATED
             $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
-                                    products.pay_sale,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "categories.name like '%$category%'and products.product_id <> $product_id",
-                        "order" => "rand() LIMIT 3",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
-           
+                                    products.pay_sale,
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "categories.name like '%$category%'and products.product_id <> $product_id",
+                         "order" => "rand() LIMIT 3",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+            
              $obj_products['related'] = $this->obj_products->search($params);
              $this->load->view('detail_contain',$obj_products);
 	}

@@ -16,38 +16,52 @@ class Home extends CI_Controller {
             //SELECT PRODUCT CUSTOM
             $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
-                                    products.pay_sale,
                                     products.custom_image,
                                     products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "products.position = 2 and products.status_value = 1",
-                        "order" => "products.product_id DESC LIMIT 3",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
-           
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.position = 2 and products.status_value = 1",
+                         "order" => "products.product_id DESC LIMIT 3",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            ); 
+            
             $obj_products['product_custom'] = $this->obj_products->search($params);
-             
+            
             //SELECT PRODUCT COMMUN
             $params_product = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
-                                    products.pay_sale,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
+                                    products.pay_sale,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "products.status_value = 1 and position = 1",
-                        "order" => "products.product_id DESC LIMIT 6",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.status_value = 1 and position = 1",
+                         "order" => "products.product_id DESC LIMIT 6",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+       
            
              $obj_products['data'] = $this->obj_products->search($params_product);
              
@@ -199,14 +213,15 @@ class Home extends CI_Controller {
         foreach ($menu as $key =>$value){               
                  $submenu[] = $this->get_submenu($value->id_category);
                         
-                        foreach ($submenu[$key] as $key => $value) {
-                            $submenutwo[] = $this->get_submenu_two($value->categories_kind_id);
+                        foreach ($submenu[$key] as $value_submenu) {
+                            $submenutwo[] = $this->get_submenu_two($value_submenu->id_category,$value_submenu->category_name);
                         }
         }
         
         $data['menu'] = $menu;
         $data['submenu'] = $submenu;
-        $data['submenutwo'] = $submenutwo;
+       $data['submenutwo'] = $submenutwo;
+        
         return $data;
     }
     
@@ -221,14 +236,16 @@ class Home extends CI_Controller {
         return $obj_submenu;
     }
     
-        public function get_submenu_two($id){
-            
-        $where="brand_categories.categories_kind_id ='$id' and brand.status_value = 1";
+        public function get_submenu_two($id,$category_name){
+        
+        $where="brand_categories.id_category ='$id' and brand.status_value = 1 and categories_kind.category_name = '$category_name'";
         $params = array("select" =>"brand.name,
+                                    categories_kind.category_name,
                                     brand_categories.categories_kind_id",
                         "where" =>$where,
-                        "group" => "name",
-                        "join" => array('brand, brand_categories.brand_id = brand.brand_id')
+                        "group" => "brand.name",
+                        "join" => array('brand, brand_categories.brand_id = brand.brand_id',
+                                        'categories_kind, brand_categories.categories_kind_id = categories_kind.categories_kind_id')
                         );
         $obj_submenutwo = $this->obj_brand_categories->search($params); 
         return $obj_submenutwo;

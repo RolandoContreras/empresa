@@ -17,19 +17,28 @@ class Shop extends CI_Controller {
         /// DATA
         $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "products.status_value = 1",
-                        "order" => "products.product_id DESC",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
-       
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.status_value = 1",
+                         "order" => "products.product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+        
+        
+        
          /// PAGINADO
             $config=array();
             $config["base_url"] = site_url("compras"); 
@@ -68,21 +77,30 @@ class Shop extends CI_Controller {
     
     public function categories($slug){  
             $obj_products = $this->get_menu();
-         //SELECT PRODUCT BY CATEGORY
+            //SELECT PRODUCT BY CATEGORY
             $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "categories.name = '$slug' and products.status_value = 1",
-                        "order" => "products.product_id DESC",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "categories.name = '$slug' and products.status_value = 1",
+                         "order" => "products.product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+            
+            
             
              /// PAGINADO
             $config=array();
@@ -123,20 +141,28 @@ class Shop extends CI_Controller {
     public function by_categories($slug){   
             $obj_products = $this->get_menu();
             //SELECT PRODUCT BY CATEGORY
+            
             $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "categories.name = '$slug' and products.status_value = 1",
-                        "order" => "products.product_id DESC",
-                        "join" => array('categories, products.id_category = categories.id_category')
-                        );
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "categories.name = '$slug' and products.status_value = 1",
+                         "order" => "products.product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
             
              /// PAGINADO
             $config=array();
@@ -180,22 +206,28 @@ class Shop extends CI_Controller {
             $gender = $ruta[0];
             
             //SELECT PRODUCT BY CATEGORY
+            
             $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
-                                    products.pay_sale,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender'",
-                        "order" => "products.product_id DESC",
-                        "join" => array('categories, products.id_category = categories.id_category',
-                                        'categories_kind, categories_kind.product_id = products.product_id'),
-                        );
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender'",
+                         "order" => "products.product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
             
              /// PAGINADO
             $config=array();
@@ -240,24 +272,29 @@ class Shop extends CI_Controller {
             $brand = $ruta[2];
             
             //SELECT PRODUCT BY CATEGORY
-            $params = array(
+            
+           $params = array(
                         "select" =>"products.product_id,
-                                    products.id_category,
-                                    products.name,
+                                    products.name as name,
+                                    categories.name as category,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,
-                                    products.pay_sale,
+                                    products.medium_image,
+                                    products.small_image,
                                     products.price,
-                                    categories.name as category,
                                     brand.name as brand,
-                                    products.position",
-                        "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and brand.name = '$brand'",
-                        "order" => "products.product_id DESC",
-                        "join" => array('categories, products.id_category = categories.id_category',
-                                        'categories_kind, categories_kind.product_id = products.product_id',
-                                        'brand, brand.categories_kind_id = categories_kind.categories_kind_id'),
-                        );
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and brand.name = '$brand'",
+                         "order" => "products.product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+            
             
              /// PAGINADO
             $config=array();

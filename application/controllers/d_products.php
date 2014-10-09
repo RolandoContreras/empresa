@@ -208,6 +208,7 @@ class D_products extends CI_Controller{
             $data = array(
                'categories_kind_id' => $category_kind_id,
                'brand_id'    => $this->input->post('brand'),
+               'id_category'    => $this->input->post('id_category'),
                'status_value' => $this->input->post('status_value'),
                'created_at' => date("Y-m-d H:i:s"),
                'created_by' => $_SESSION['usercms']['user_id'],

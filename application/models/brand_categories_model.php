@@ -18,6 +18,7 @@
 class brand_categories_model_atributos{	
     var $brand_categories_id='';
     var $categories_kind_id='';
+    var $id_category='';
     var $brand_id='';
     var $status_value='';
     var $created_at='';
@@ -34,6 +35,7 @@ class Brand_categories_Model extends CI_Model{
 	$this->table_id = 'brand_categories_id';
         $this->brand_categories_id ='';
         $this->categories_kind_id='';
+        $this->id_category='';
         $this->brand_id ='';
 	$this->status_value='';
 	$this->created_at='';
