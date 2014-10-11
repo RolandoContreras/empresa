@@ -33,8 +33,8 @@ $this->load->view("header");
 <div itemscope itemtype="http://schema.org/Product" id="product-1946" class="post-1946 product type-product status-publish has-post-thumbnail featured shipping-taxable purchasable product-type-simple product-cat-product-category-1 product-cat-product-category-5 product-tag-lorem-ipsum product-tag-sed-blandit-massa product-tag-vel-mauris instock">
     <div class="images">
     <!---------Principal Image----------->    
-    <a href="<?php echo SERVER2.$obj_products->medium_image;?>" itemprop="image" class="woocommerce-main-image zoom">
-        <img src="<?php echo SERVER2.$obj_products->medium_image;?>" class="attachment-shop_single wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
+    <a href="<?php echo SERVER2.$obj_products->custom_image;?>" itemprop="image" class="woocommerce-main-image zoom">
+        <img src="<?php echo SERVER2.$obj_products->custom_image;?>" class="attachment-shop_single wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
     </a>
     <!---------Show Thumbnails---------->
         <div class="thumbnails">

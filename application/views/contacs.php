@@ -37,48 +37,59 @@
                 </div>
             </div>
             <div class="span4 ">
-                <h2>Información de Contacto</h2>
-                <h5>Centros de Negocios:
-
-
-San Isidro
-Paseo de la República 3151.
-
-</h5>
-            <p>Horario de Atención de Centro de Negocios:De Lunes a Viernes: 9:00 am a 8:00pm,Sábados: 9:00am a 2:00 pm
-            Centro de negocios: 9 am a 10 pm.
-            Call Center : 9 am a 11 pm.<br/>
+                <h2>Información de Contacto</h2><br/>
+                <p><strong>Centro de Negocio</strong><br/>
+                   Jr. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita.
+                </p>
+                <p><b>Horario de Atención: </b></p>
+                <p>De Lunes a Viernes: 9:00 am a 8:00pm
+                    <br/>Sábados: 9:00am a 1:00 pm
+                    <br/>Call Center : (51)1 362-72779</p>
                 <address>
-                    <strong>WaveLine S.A.C.<br/>
+                    <p><strong>WaveLine S.A.C.</strong></p>
                     Jr. Los Nogales 230 Urb. Santa Rosa de Quives<br/>
-                    Santa Anita, Lima- Peru</strong><br/>
-                    Tel: +1 800 603 6035<br/>
-                    Correo: <a href="http://www.cloudflare.com/email-protection#274e4941486743424a484b4e494c09485540"><span class="__cf_email__" data-cfemail="e984888085a98d8c848685808782c7869b8e">[email&nbsp;protected]</span><script type="text/javascript">
-                    /* <![CDATA[ */
-                    (function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
-                    /* ]]> */
-                    </script></a><br/>
+                    Santa Anita, Lima - Perú<br/>
+                    <b>RUC:</b> 20565781023<br/>
+                    Tel: (51)1 362-72779<br/>
+                    Correo: servioalcliente@wavelinetwork.com<br/>
                 </address> 
             </div>
-            <div class="span8 "><h2>Formulario de Contacto</h2>
+            <div class="span8 "><h2>Formulario de Contacto</h2><br/>
             <div class="wpcf7" id="wpcf7-f208-p14-o1">
-            <div class="screen-reader-response"></div>
-            <form action="/woocommerce_51107/contacts/#wpcf7-f208-p14-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-            <div style="display: none;">
-            <input type="hidden" name="_wpcf7" value="208"/>
-            <input type="hidden" name="_wpcf7_version" value="3.8"/>
-            <input type="hidden" name="_wpcf7_locale" value=""/>
-            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f208-p14-o1"/>
-            <input type="hidden" name="_wpnonce" value="993cfb0225"/>
+                <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+                    <div class="row-fluid">
+                    <p class="span6 field">
+                        <span class="wpcf7-form-control-wrap your-name">
+                            <input type="text" name="name" id="name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombres:"/>
+                        </span> 
+                    </p>
+                    <p class="span6 field">
+                        <span class="wpcf7-form-control-wrap your-email">
+                            <input type="email" name="email" id="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Correo:"/>
+                        </span> 
+                    </p>
+                   </div>
+                    
+                   <div class="row-fluid">
+                    <p class="span12 field">
+                        <span class="wpcf7-form-control-wrap your-phone">
+                            <input type="text" name="asunto" id="asunto" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Asunto:"/>
+                        </span> 
+                    </p>
+                   </div> 
+
+                    <p class="field">
+                        <span class="wpcf7-form-control-wrap your-message">
+                            <textarea name="message" id="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Mensaje:"></textarea>
+                        </span> 
+                    </p>
+                    <p class="submit-wrap">
+                        <input type="reset" value="Limpiar" class="btn btn-primary"/>
+                        <input type="button" onclick="send_email();" value="Enviar" class="botom btn btn-primary"/>
+                    </p>
+                </form>
             </div>
-            <div class="row-fluid">
-            <p class="span4 field"><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombres:"/></span> </p>
-            <p class="span4 field"><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Correo:"/></span> </p>
-            <p class="span4 field"><span class="wpcf7-form-control-wrap your-phone"><input type="text" name="your-phone" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Teléfono:"/></span> </p>
             </div>
-            <p class="field"><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Mensaje:"></textarea></span> </p>
-            <p class="submit-wrap"><input type="reset" value="clear" class="btn btn-primary"/><input type="submit" value="send" class="wpcf7-form-control wpcf7-submit btn btn-primary"/></p>
-            </form></div></div>
             </div> 
         <div class="clear"></div>
         </div> 
@@ -88,21 +99,13 @@ Paseo de la República 3151.
 </div>
 </div>
 </div>
-
 <?php $this->load->view("footer"); ?>    
-    
 </div>
-
-    
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
+<script type='text/javascript' src='<?php echo site_url().'static/js/contact.js';?>'></script>        
+<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
-<!----------------------------------------------------->
-<script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
 </body>
 </html>

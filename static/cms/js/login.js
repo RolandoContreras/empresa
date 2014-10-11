@@ -1,8 +1,11 @@
 /* VALIDACIONES Y FUNCIONABILIDAD DEL MODULO LOGIN
      * ======================================================= */
 $(".btn-primary").on("click",function(){
-     usuario = $("#username").val();
-     password = $("#password").val();     
+     name = $("#name").val();
+     email = $("#email").val();     
+     email = $("#email").val();     
+     email = $("#email").val();     
+     
     $.ajax({
         type: "Post",
         url: "dashboard/validate",

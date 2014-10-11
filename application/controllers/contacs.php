@@ -8,11 +8,61 @@ class Contacs extends CI_Controller {
         $this->load->model("categories_model","obj_category");
         $this->load->model("categories_kind_model","obj_category_kind");
         $this->load->model("brand_categories_model","obj_brand_categories");
+        $this->load->library('email');
     }
     
     public function index()
     {               $obj_products = $this->get_menu();
                     $this->load->view('contacs',$obj_products);
+    }
+    
+    public function send_email(){
+        //send email
+        if($this->input->is_ajax_request()){   
+            $name = $this->input->post("name");
+            $email = $this->input->post("email");
+            $asunto = $this->input->post("asunto");
+            $message = $this->input->post("message");
+            
+            
+            
+            $config['protocol'] = 'smtp';
+            $config['smtp_host'] = 'smtp.secureserver.net';
+            //$config['smtp_port'] = '2525';
+            $config['smtp_user'] = 'servicioalcliente@wavelinetwork.com';
+            $config['smtp_pass'] = 'servicioalclientewl1';
+            $config['charset'] = 'utf-8';
+            $config['mailtype'] = 'html';
+            $config['wordwrap'] = TRUE;
+            $this->email->initialize($config);
+
+            $this->email->from("$email", "$name");
+            $this->email->to('servicioalcleinte@wavelinetwork.com');
+           
+            $this->email->subject("$asunto");
+            $this->email->message("$message");
+
+            $this->email->send();
+           // echo $this->email->print_debugger();
+            
+//            $config['protocol'] = 'sendmail';
+//            $config['mailpath'] = '/usr/sbin/sendmail';
+//            $config['charset'] = 'iso-8859-1';
+//            $config['wordwrap'] = TRUE;
+//            $config['mailtype'] = 'html';
+
+//            $this->email->initialize($config);
+//
+//            $this->email->from("$email", "$name");
+//            $this->email->to('servivioalcliente@wavelinetwork.com');
+//
+//            $this->email->subject("$asunto");
+//            $html = "$message";
+//            $this->email->message($html);
+//            $this->email->send();
+//            echo $this->email->print_debugger();
+ 
+        }
     }
     
     public function get_menu(){    
