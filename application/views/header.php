@@ -5,10 +5,17 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en-US"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US"> <!--<![endif]-->
 <head>
-<title>Electronics | </title>
-<meta name="description" content=" | "/>
+<title>Waveline | <?php echo $title?></title>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<?php echo $meta_description;?>" />
+<meta name="keywords" content="<?php echo $meta_keywords;?>" />
+<meta name="abstract" content=""/>
+<meta name="author" content="Waveline S.A.C." />
+<meta name="copyright" content=" Waveline S.A.C." />
+<meta name="rating" content="General" />
+<meta name="robots" CONTENT="index,follow" />
+
 
 <script type="text/javascript">
 //<![CDATA[

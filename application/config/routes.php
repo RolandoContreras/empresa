@@ -45,6 +45,8 @@ $route['home/delete_car'] = "home/delete_car";
 $route['home/update_car'] = "home/update_car";
 $route['home/empty_car'] = "home/empty_car";
 
+$route['ftp'] = "ftp/index";
+
 $route['logout'] = "myaccount/destroy_user";
 $route['acerca'] = "about";
 
@@ -122,6 +124,9 @@ $route['dashboard/categorias/load'] = "d_categories/load";
 $route['dashboard/categorias/load/([0-9]+)'] = "d_categories/load/$1";
 $route['dashboard/categorias/delete/([0-9]+)'] = "d_categories/delete/$1";
 $route['dashboard/categorias/validate'] = "d_categories/validate";
+
+
+
 
 $route['404_override'] = '';
 

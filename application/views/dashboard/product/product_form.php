@@ -193,8 +193,9 @@
                                     </div>                                    
                                 </div>
                             </div>
+                            <br/>
                             <!-------------------------------------------------------->
-                            <div class="tab-content">
+                            <div class="tab-content" style="width: 32%; float: left; margin-right: 1%;">
                                 <div class="inner">
                                     <div data-provides="fileupload" class="fileupload fileupload-new">
                                         <input type="hidden" value="<?php echo isset($obj_product->custom_image)?$obj_product->custom_image:"";?>" id="custom_image" name="custom_image">

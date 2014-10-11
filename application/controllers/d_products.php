@@ -13,6 +13,7 @@ class D_products extends CI_Controller{
     }   
                 
     public function index(){
+        
            $this->get_session();
            $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
            $params = array(
@@ -30,7 +31,7 @@ class D_products extends CI_Controller{
                                     products.position,
                                     products.status_value ",
                          "where" => "products.name like '%$search_text%'",
-                         "order" => "position DESC",
+                         "order" => "position DESC, product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
@@ -145,18 +146,44 @@ class D_products extends CI_Controller{
         $medium = $this->upload_img("medium_image","1500","1500"); 
         $small  = $this->upload_img("small_image","1500","1500");
         
-        if($custom=="false"){
-             $custom = $this->input->post('custom_image');
-        }
-        if($big=="false"){
-             $big = $this->input->post('big_image');
-        }
-        if($medium=="false"){
-             $medium = $this->input->post('medium_image');
-        }
-        if($small=="false"){
-             $small = $this->input->post('small_image');
-        }
+        if ($custom != "false") {
+                $this->ftp($custom);
+                if ($this->input->post('custom_image') != "") {
+                    $this->delete_img($this->input->post('custom_image'));
+                }
+            } else {
+                $custom = $this->input->post('custom_image');
+            }
+        
+        
+        if ($big != "false") {
+                $this->ftp($big);
+                if ($this->input->post('big_image') != "") {
+                    $this->delete_img($this->input->post('big_image'));
+                }
+            } else {
+                $big = $this->input->post('big_img');
+            }
+        
+        if ($medium != "false") {
+                $this->ftp($medium);
+                if ($this->input->post('medium_image') != "") {
+                    $this->delete_img($this->input->post('medium_image'));
+                }
+            } else {
+                $medium = $this->input->post('medium_image');
+            }
+        
+        if ($small != "false") {
+                $this->ftp($small);
+                if ($this->input->post('small_image') != "") {
+                    $this->delete_img($this->input->post('small_image'));
+                }
+            } else {
+                $small = $this->input->post('small_image');
+            }
+        
+        
         
         $product_id = $this->input->post("product_id");
         $category_kind_id = $this->input->post("categories_kind_id");
@@ -240,29 +267,42 @@ class D_products extends CI_Controller{
         $config                     =   array();
         $config['upload_path']      = './upload/temporal/';
         $config['allowed_types']    = 'gif|jpg|png|jpeg';
-        $config['max_size']         = '2000';
+        $config['max_size']         = '3000';
         $config['max_width']        = $width;
         $config['max_height']       = $height;        
         $config['file_name'] = substr(md5(time()), 0, 16);
-        $this->load->library('upload', $config);          
+        $this->load->library('upload', $config);   
         $nom_img ="";
         if ($this->upload->do_upload($img)){            
             $product = array('upload_data' => $this->upload->data());
             $nom_img = $product['upload_data']['file_name'];            
         }else{
             $nom_img = "false";
-        }          
+        }
         return $nom_img ;
     }  
     
     public function delete_img($imagen) {
         $this->load->library('ftp');
-        $config['hostname'] = 'localhost';
-        $config['username'] = '';
-        $config['password'] = '';
+        $config['hostname'] = 'wavelinetwork.com';
+        $config['username'] = 'ftp.waveline';
+        $config['password'] = 'Erb1u?14';
         $config['debug'] = false;
         $this->ftp->connect($config);
         $this->ftp->delete_file($imagen);
+    }
+    
+    public function ftp($imagen) {
+        $this->load->library('ftp');
+        $config['hostname'] = 'wavelinetwork.com';
+        $config['username'] = 'ftp.waveline';
+        $config['password'] = 'Erb1u?14';
+        $config['debug'] = TRUE;
+        $destino = $imagen;
+
+        $this->ftp->upload(SERVER2 . $imagen, $destino, 'auto', '0777');
+        $this->ftp->close();
+        //unlink(SERVER2 . $imagen);
     }
     
     public function get_session(){          

@@ -18,6 +18,7 @@ define('FILE_WRITE_MODE', 0666);
 define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
 define('SERVER2', 'http://localhost/empresa/upload/temporal/');   // TRABAJO
+//define('SERVER2', 'http://www.wavelinetwork.com/upload/temporal/');   // TRABAJO
 
 /*
 |--------------------------------------------------------------------------
