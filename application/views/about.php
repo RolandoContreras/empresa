@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="span12">
-            <!------Call Nav_secundary------->
+            <!--Call Nav_secundary-->
             <?php $this->load->view("nav_secondary");?>
         </div>
     </div>
@@ -84,9 +84,5 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
-<!----------------------------------------------------->
-<script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
 </body>
 </html>
