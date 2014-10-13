@@ -21,6 +21,7 @@ class customer_model_atributos{
     var $password='';
     var $first_name='';
     var $last_name='';
+    var $dni='';
     var $address='';
     var $references='';
     var $country='';
@@ -46,6 +47,7 @@ class Customer_Model extends CI_Model{
         $this->password='';
 	$this->first_name='';
         $this->last_name='';
+        $this->dni='';
         $this->address='';
         $this->references='';
 	$this->country='';

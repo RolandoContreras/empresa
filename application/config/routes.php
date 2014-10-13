@@ -61,7 +61,10 @@ $route['checkout'] = "checkout";
 $route['checkout/pagar'] = "checkout/pay";
 
 $route['backoffice'] = "backoffice";
+
 $route['backoffice/micuenta'] = "b_profile";
+$route['backoffice/micuenta/validate'] = "b_profile/validate";
+
 $route['backoffice/comisiones'] = "b_comission";
 $route['backoffice/arbol'] = "b_tree";
 $route['backoffice/nuevomiembro'] = "b_new_member";

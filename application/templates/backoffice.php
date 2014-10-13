@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/font-awesome.min.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/layout.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/style/style.css';?>"/>
-        
+         
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/arvore-binaria.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/main.css';?>"/>
         <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
@@ -27,6 +27,9 @@
         <script type="text/javascript" src="<?php echo site_url().'static/js/css3-mediaqueries.min.js';?>"></script>
 
         <script type="text/javascript" src="<?php echo site_url().'static/js/scripts.js';?>"></script>
+        <!--<link href="<?php echo site_url();?>static/cms/css/core/bootstrap.css" rel="stylesheet">-->	
+                     
+        
         <script type="text/javascript">
             var site = '<?php echo site_url();?>';
         </script>
@@ -121,7 +124,7 @@
                     
                     <nav class="main-menu">
                         <ul>
-                            <li class='active' style='margin-top:1px;'>
+                            <li>
                                 <a href="<?php echo site_url().'backoffice';?>">
                                     <span> <img class="image_icons_b" src="<?php echo site_url().'static/images/png/menu48.png';?>">&nbsp;&nbsp;Dashboard</span>
                                 </a>
