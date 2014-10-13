@@ -20,6 +20,10 @@ class Myaccount extends CI_Controller {
                            );
            
             $obj_products['category'] = $this->obj_category->search($param_category);
+            
+            $obj_products['title'] = "Mi Cuenta | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Cuenta,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Mi Cuenta, Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
             $this->load->view('myaccount',$obj_products);
 	}
         public function validar_user(){        

@@ -79,6 +79,7 @@
                                       <div class="accordion-inner">
                                         <ul class="nav nav-list">
                                             <li class="active"><a href="<?php echo site_url()."dashboard/productos";?>"><i class="icon-large icon-th"></i>Productos</a></li>
+                                            <li><a href="<?php echo site_url()."dashboard/comentarios";?>"><i class="icon-large icon-th"></i>Comentarios</a></li>
                                             <li><a href="<?php echo site_url()."dashboard/categorias";?>"><i class="icon-large icon-th"></i>Categorias</a></li>
                                             <li><a href="<?php echo site_url()."dashboard/visitors";?>"><i class="icon-large icon-th"></i>Clientes</a></li>
                                             <li><a href="<?php echo site_url()."dashboard/categories";?>"><i class="icon-large icon-th"></i>Usuarios</a></li>

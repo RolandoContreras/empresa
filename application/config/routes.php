@@ -101,6 +101,10 @@ $route['dashboard/tags/load'] = "d_tags/load";
 $route['dashboard/tags/add_tag'] = "d_tags/add_tag";
 $route['dashboard/tags/delete'] = "d_tags/delete";
 
+$route['dashboard/comentarios'] = "d_comments";
+$route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
+$route['dashboard/comentarios/cambiar_status_no'] = "d_comments/change_status_no";
+
 $route['dashboard/marcas'] = "d_brand";
 $route['dashboard/marcas/([0-9]+)'] = "d_brand/index/$1";
 $route['dashboard/marcas/load'] = "d_brand/load";

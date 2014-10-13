@@ -22,7 +22,12 @@ class Checkout extends CI_Controller {
                         "select" =>"",
                         "where" => "status_value = 1");
            
-             $obj_products['category'] = $this->obj_category->search($param_category);
+            $obj_products['category'] = $this->obj_category->search($param_category);
+             
+            $obj_products['title'] = "Checkout | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Checkout,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Checkout,Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+             
              $this->load->view('checkout',$obj_products);
     }
     public function pay(){
