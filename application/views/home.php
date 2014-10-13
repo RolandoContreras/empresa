@@ -8,7 +8,6 @@
     
     <!--Menu Navigacion Secundary-->
  <?php $this->load->view("nav_secondary");?>
-     <!--------------------------->
  
     </div>
     </div>
@@ -16,7 +15,8 @@
     </header>
     
     <script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
-    <!---------Slide fro banner-------->
+    
+   <!--Slide Banner-->
     <script type='text/javascript' src='<?php echo site_url().'static/js/banner.js';?>'></script>    
     <div id="parallax-slider-5406108c1acd1" class="parallax-slider">
       <ul class="baseList">
@@ -28,7 +28,7 @@
           </li>
       </ul>
     </div>
-    <!---------Slide fro banner-------->
+    <!--End Slide for banner-->
     
     <div class="motopress-wrapper content-holder clearfix">
     <div class="container">
@@ -44,7 +44,7 @@
     <div class="span12" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
     <div id="post-203" class="post-203 page type-page status-publish hentry page">
     
-    <!----Custom banners---->    
+    <!--Custom banners-->    
     <div class="custom_banners">
         <div class="custom_banners_wrap_inner">
             <div class="row ">
@@ -66,7 +66,7 @@
         
     <div class="row ">
     <div class="span3 ">
-        <!---------------------Categories--------------->            
+        <!--Categories-->            
         <div class="featured_categories">
             <div class="featured_categories_wrap_inner">
                 <h2>Categorias</h2>
@@ -83,10 +83,9 @@
             </div>
         </div>
         <br/>
-        <!--------------------------------------------->
     </div>
       
-    <!-----Featured Products----->    
+    <!--Featured Products-->    
     <div class="span9 ">
         <div class="featured_products">
             <div class="featured_products_wrap_inner">
@@ -118,7 +117,6 @@
             </div>
         </div>
     </div>
-    <!--------------------------->   
     </div> 
     <div class="clear"></div>
 
@@ -130,9 +128,9 @@
     </div>
     </div>
     
-<!------call footer----->    
+<!--call footer-->    
     <?php $this->load->view("footer");?>
-<!------call footer----->
+<!--End call footer-->
 </div>
 <script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
@@ -141,9 +139,7 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
-<!----------------------------------------------------->
+<!--Script perzonalizado de Mensaje del precio -->
 <script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
 </body>
 </html>

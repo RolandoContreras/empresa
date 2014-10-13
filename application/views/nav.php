@@ -54,7 +54,7 @@
                                     <a href="<?php echo site_url().convert_slug($value_menu->name);?>"><?php echo $value_menu->name;?></a>
                                         <ul class="sub-menu">
                                              <?php foreach ($submenu[$key] as $key2 =>$value_submenu):?>                                                
-                                                    <li id="menu-item-2013" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
                                                         <a href="<?php echo site_url().convert_slug($value_submenu->category_name.'/'.$value_menu->name);?>"><?php echo $value_submenu->category_name;?></a>
                                                     </li>
                                              <?php endforeach;?>

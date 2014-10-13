@@ -6,15 +6,16 @@
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US"> <!--<![endif]-->
 <head>
 <title>Waveline | <?php echo $title?></title>
+<meta name="description" content=" | "/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="description" content="<?php echo $meta_description;?>" />
 <meta name="keywords" content="<?php echo $meta_keywords;?>" />
-<meta name="abstract" content=""/>
 <meta name="author" content="Waveline S.A.C." />
-<meta name="copyright" content=" Waveline S.A.C." />
 <meta name="rating" content="General" />
 <meta name="robots" CONTENT="index,follow" />
+
 
 
 <script type="text/javascript">

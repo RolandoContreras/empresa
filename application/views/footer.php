@@ -69,13 +69,13 @@
 
                         <ul class="social social__row clearfix unstyled">
                         <li class="social_li">
-                        <a class="social_link social_link__facebook" rel="tooltip" data-original-title="facebook" href="https://www.facebook.com/Azulsporturban?fref=ts" target="_blank">
-                        <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt=""></span>
+                        <a class="social_link social_link__facebook" href="https://www.facebook.com/Azulsporturban?fref=ts" target="_blank">
+                        <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt="facebook"/></span>
                         </a>
                         </li>
                         <li class="social_li">
-                        <a class="social_link social_link__twitter" rel="tooltip" data-original-title="twitter" href="#" target="_blank">
-                        <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt=""></span>
+                        <a class="social_link social_link__twitter" target="_blank">
+                        <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt="twitter"/></span>
                         </a>
                         </li>
                         </ul>
