@@ -33,7 +33,7 @@
             <div class="row ">
             <div class="span12 ">
                 <div class="google-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3901.823315165096!2d-76.98059770739201!3d-12.055674704832857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1410448667742" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3901.823315165096!2d-76.98059770739201!3d-12.055674704832857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1410448667742" width="100%" height="300" frameborder="0"></iframe>
                 </div>
             </div>
             <div class="span4 ">
@@ -56,7 +56,7 @@
             </div>
             <div class="span8 "><h2>Formulario de Contacto</h2><br/>
             <div class="wpcf7" id="wpcf7-f208-p14-o1">
-                <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+                <form method="post" class="wpcf7-form" novalidate="novalidate">
                     <div class="row-fluid">
                     <p class="span6 field">
                         <span class="wpcf7-form-control-wrap your-name">
