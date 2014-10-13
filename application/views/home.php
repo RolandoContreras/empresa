@@ -103,7 +103,7 @@
                                                 <h3><?php echo corta_texto($product->name,17);?></h3>
                                             </a>
                                             <div class="short_desc">
-                                                <?php echo corta_texto($product->description,100);?>
+                                                <?php echo corta_texto($product->description,90);?>
                                             </div>
                                             <span class="price">
                                                 <span class=""><?php echo format_number($product->price)?></span>
