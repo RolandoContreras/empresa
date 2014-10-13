@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="<?php echo site_url().'static/css/layout_FAQ.css';?>">
 <article class="main-content homepage">
     <div class="content">
-            <!-- Menu de ícones. Pode vir qualquer link do sistema aqui, colocamos 4 apenas para exemplificar. Os ícones são deste site: http://fortawesome.github.io/Font-Awesome/cheatsheet/       - Eles são usados sempre na tag <i> com a class do ícone desejado. -->
         <section class="widget">
             <header class="title-widget">
                 <h1>Preguntas Frecuentes</h1>
@@ -13,147 +12,77 @@
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Can I transfer my Wings account balance to another Wings Member? 
+                                ¿Puedo transferir el saldo de mi cuenta a otro miembro Waveline ?
                             </a>
                             <div>
-                                <p>You can transfer bonus balance to any Member of Wings. </p>
-                                <p>The minimum transfer amount is $300 with a one-time fee of $5.00 per transaction. </p>
-                                <p>The minimum account balance to receive a transfer is $300.00.</p>
+                                <p>No, Todos los pagos e inscripciones serán a través de tarjetas de crédito o débito, es por ello 
+                                que está totalmente prohibido transferir saldo a otros miembros.</p>
                             </div>
                         </li>
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Can I sell or give my Wings account to another person? 
+                                ¿Puedo dar o vender mi cuenta Waveline a otro miembro? 
                             </a>
                             <div>
-                                <p>Yes.</p>
-                                <p>But for this you must submit a statement signed by the current account owner and the future owner.</p>
-                                <p>You must submit it with copy of the identifications of both of you.</p>
+                                <p>No, La cuenta es personal e intransferible.</p>
                             </div>
                         </li>
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Can I cancel my registration and request a refund of the amount paid?
+                                ¿Puedo cancelar mi inscripción y solicitar la devolución de la cantidad pagada?
                             </a>
                             <div>
-                                <p>Yes.</p>
-                                <p>Under the Members contract terms, you can request cancellation of the account and the money back until the 14th day subsequent to your registration.</p>
-                                <p>After completed the requirements of the contract, Wings have 30 days to accomplish this return.</p>
+                                <p>No, la empresa se encargará de realizar ventas de productos tangibles, para el uso diario, motivo por el cual no existirá la devolución del dinero.</p>
+                                <p>Sin embargo; en el caso de 
+                                    que el producto muestre algún desperfecto, el cliente puede solicitar el cambio de su producto, dentro de un plazo no mayor a 5 días hábiles.</p>
                             </div>
                         </li>
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Can I change my sponsor?
+                                ¿Puedo cambiar de patrocinador?
                             </a>
                             <div>
-                                <p>No.</p>
-                                <p>Under no circumstances you can change your sponsor.</p>
+                                <p>No, Waveline SAC se preocupa por el bienestar de nuestros clientes, es por ello que bajo
+                                    ninguna circunstancia se puede cambiar de patrocinador. </p>
+                                <p>El manual de plan de compensación estará disponible para mayor información. 
+                                    También puede solicitar aclaraciones a través de correo electrónico 
+                                    support@wavelinetwork.com.</p>
                             </div>
                         </li>
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Can I change my registration data, such as email, name, facebook or skype?
+                                ¿Hay algún costo mensual tengo que pagar?
                             </a>
                             <div>
-                                <p>Yes.</p>
-                                <p>You have to send an email with your request to support@wingsnetwork.com, identifying your username and password.</p>
-                                <p>For safety, we recommend that after this operation you change your password.</p>
+                                <p>Sí. Todos los miembros waveline tienen que reconsumir de forma mensual algún producto para
+                                   mantenerse activos dentro del sistema y seguir cobrando sus comisiones.</p>
                             </div>
                         </li>
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Can I change the side of a binary record even after they are active?
+                                ¿Qué sucede si usted deja de pagar el activo mensual?
                             </a>
                             <div>
-                                <p>No.</p>
-                                <p>It's best to have the most attention with the registration of a new member.</p>
+                                <p>Los bonos de ingresos serán suspendidos hasta que reconsuma. </p>
+                                <p>En caso de no realizar ninguna compra durante un periodo de un mes se perderan los bonos.
+                                </p>
                             </div>
                         </li>
                         <li>
                             <a href="#">
                                 <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                I have questions about the compensation plan. How to enlighten me?
+                               ¿Puedo obtener el archivo del logotipo en alta resolución para aplicar a estos materiales?
                             </a>
                             <div>
-                                <p>Firstly you should consult the person who introduced you or your project sponsor.</p>
-                                <p>The compensation plan manual will be available for download soon.</p>
-                                <p>You can also request clarification through support@wingsnetwork.com email.</p>
+                                <p>Si, pero debe ser aprobado previamente por Waveline SAC.</p>
                             </div>
                         </li>
-                        <li>
-                            <a href="#">
-                                <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Is there any monthly cost I have to pay? 
-                            </a>
-                            <div>
-                                <p>Yes.</p>
-                                <p>All Members with Wings products packages must pay a monthly asset in accordance with their degree in Wings career plan (consult the compensation plan manual).</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                What happens if you stop paying the monthly asset?
-                            </a>
-                            <div>
-                                <p>There is a feature in the backoffice that allows to the member that the monthly asset is automatically deducted from your balance.</p>
-                                <p>There is a period of 180 days, after which, verifying the non-payment of the monthly asset, your account will be canceled.</p>
-                                <p>However, if you don’t pay the monthly asset on the required day, your bonuses incomes will be suspended until you pay or until the 180 days are through and your account is cancelled.</p>
-                                <p>At the time you pay the bonus, providing your account hasn’t yet being cancelled, you’ll start receiving your bonuses normally with no retroactive effects.</p>
-                                <p>After the account is canceled, the only way you can go back to being a Wings Member is with a new account.</p>
-                                <p>Your old account is unrecoverable.</p>
-                                <p>Monthly assets, according to your Wings career plan level:</p>
-                                <p>Start - $69 monthly</p>
-                                <p>Executive - $69 monthly</p>
-                                <p>Elite - $89 monthly</p>
-                                <p>Consultant - $99 monthly</p>
-                                <p>Supervisor - $99 monthly</p>
-                                <p>Senior Supervisor - $149 monthly</p>
-                                <p>Manager - $199 monthly</p>
-                                <p>Senior Manager - $199 monthly</p>
-                                <p>Director - $249 monthly</p>
-                                <p>Executive Director - $249 monthly</p>
-                                <p>President - $299 monthly</p>
-                                <p>Chairman - $299 monthly </p>
-
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                Are binary winnings unlimited?
-                            </a>
-                            <div>
-                                <p>No.</p>
-                                <p>Your daily limits are according to your degree in the Wings career path.</p>
-                                <p>Consultant - $2.500</p>
-                                <p>Supervisor - $3.500</p>
-                                <p>Senior Supervisor - $5.000</p>
-                                <p>Manager - $7.500</p>
-                                <p>Senior Manager - $10.000</p>
-                                <p>Director - $12.000</p>
-                                <p>Executive Director - $17.000</p>
-                                <p>President - $20.000</p>
-                                <p>Chairman - $25.000</p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img class="image_icons_b" src="<?php echo site_url().'static/images/png/forward2.png';?>">
-                                I would like to create some promotional materials of the Wings Network project. Can I get the file of the logo in high resolution to apply to these materials? 
-                            </a>
-                            <div>
-                                <p>Any material to be produced must be approved in advance by Wings Network.</p>
-                                <p>So you should send a preview or photo of the piece you want to produce and in which you want to apply the logo.</p>
-                                <p>After our approval we’ll send the logo to your email.</p>
-                            </div>
-                        </li>
-                    </ul>
+                       </ul>
                 </div>
                 <!-- FIM FAQ -->
             </div>
