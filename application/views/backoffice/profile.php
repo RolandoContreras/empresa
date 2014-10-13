@@ -6,7 +6,7 @@
     <div class="breadcrumbs transition" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
-                <a href="<?php echo site_url().'home';?>">Home</a> |  <a>My Account</a>
+                <a href="<?php echo site_url().'home';?>">Home</a> |  <a>Mi Cuenta</a>
             </li>
         </ul>
     </div>

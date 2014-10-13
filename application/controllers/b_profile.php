@@ -11,6 +11,28 @@ class B_profile extends CI_Controller {
     public function index(){
         $this->get_session();
         /// VISTA
+        $params = array(
+                        "select" =>"customer.customer_id,
+                                    products.name as tittle,
+                                    categories.name,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
+                                    products.price,
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.name like '%$search_text%'",
+                         "order" => "position DESC, product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            ); 
+        
         $this->tmp_backoffice->render("backoffice/profile");
     }
     

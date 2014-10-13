@@ -48,21 +48,19 @@
 
 <div class="span6 "><div class="job_opportunities"><div class="job_opportunities_wrap_inner">
 <h2>Oportunidades</h2>
-<h4>Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborun</h4>
-<p>Aliquam biben dum sodales libero, non sagittis augue convallis sit amet. Donec sit amet leo non urna hendreritLorem ipsum dolor sit amet, consectetur adipiscing elit.ivamus sed diam congue nibh volutpat pellentesque et sed sapien. Aliquam bibendum sodales libero, non sagittis augue convallis sit ame</p>
+<p>Waveline va a ayudar a mejorar la vida de millones de personas a nivel mundial. 
+Gracias a nuestra experiencia, logros, y estabilidad, logramos ser incomparables en
+la industria.</p> 
+<p>Así mismo, permitirá que las personas encuentren el éxito manejando un 
+negocio propio con una inversión mínima.
+Es una oportunidad que te permite:</p>
 <div class="list styled angle-list">
 <ul>
-<li>Morbi volutpat enim placerat ipsum</li>
-<li>Praesent porttitor congue elit, non tempus</li>
-<li>Sed libero purus, vulputate</li>
-<li>Lorem ipsum dolor sed leoraesent </li>
-<li>Pestibulum molestieenean nonummy</li>
-<li>Hendreritivamus eget nibh </li>
-<li>Etiam cursus leo psumla facilisii primis nec</li>
-<li>Aenean nec eros luctus </li>
+<li>Mejorar tu calidad de vida.</li>
+<li>Tener ingresos adicionales comercializando productos de la mejor calidad.</li>
+<li>Te permite ser dueño de tu tiempo y sobre todo disfrutar en familia.</li>
 </ul>
 </div>
-<p>Aliquam bibendum sodales libero, non sagittis augue convallis sit amet. Donec sit amet leo non urna hendrerit hendrerit ut id massa. Praesent sed porttitor magna. Etiam tristique, tellus et elementum adipiscing, dui risus pharetra metus, vitae gravida leo massa nec turpis. Aenean ac nunc ut nisi sagittis egestas a quis ligula. Aene an non molestie velit. Quisque volutpat dolor dolor, at vulputate nulla tincidunt non. Nam eget est et mauris sodales pulvinar eget nec erat.</p>
 <div class="spacer"></div> 
 </div></div></div>
 </div> 
