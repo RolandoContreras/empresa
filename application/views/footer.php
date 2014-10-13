@@ -57,9 +57,9 @@
                             </nav>
                             
                             <div id="footer-text" class="footer-text">
-                                <a title="direccion" class="site-name"><b>WaveLine S.A.C.</b> Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru</a><br/>
-                                <a title="Horario de Atencion" class="site-name"><b>Horario de Atención:</b> Lunes a Viernes: 9:00 am a 6:00pm.</a><br/>
-                                <a title="Contacto" class="site-name"><b>Escríbenos:</b> servicioalcliente@wavelinetwork.com.</a><br/>
+                                <b>WaveLine S.A.C.</b> Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru<br/>
+                                <b>Horario de Atención:</b> Lunes a Viernes: 9:00 am a 6:00pm.<br/>
+                                <b>Escríbenos:</b> servicioalcliente@wavelinetwork.com.<br/>
                                 <br/>
                             </div>
                         </div>

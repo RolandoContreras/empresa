@@ -12,6 +12,12 @@ class About extends CI_Controller {
     public function index()
 	{
             $obj_products = $this->get_menu();
+            //SEO
+            $obj_products['title'] = "Acerca | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Empresa, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Empresa líder en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy. Escríbenos a servicioalcliente@wavelinetwork.com";
+             
+            
             $this->load->view('about',$obj_products);
 	}
     public function get_menu(){    

@@ -13,10 +13,14 @@
 <div class="motopress-wrapper content-holder clearfix woocommerce">
 <div class="container">
     <div class="row">
-        <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
+        <div class="span12" data-motopress-type="static">
             <section class="title-section">
                 <h1 class="title-header">Compras</h1>
-                <ul class="breadcrumb breadcrumb__t"><a class="home" href="<?php echo site_url().'home';?>">Home</a> / Compras</ul>  
+                <ul class="breadcrumb breadcrumb__t">
+                    <li><a href="<?php echo site_url().'home';?>">Home</a></li>
+                    <li class="divider"></li>
+                    <li class="active">Compras</li>
+                </ul>  
         </section> 
         </div>
     </div>
@@ -41,7 +45,7 @@
     <?php }else{ ?>
         <p>No se encontraron resultados.</p>
     <?php } ?>
-        <!-----PAGINATE---------->   
+        <!--PAGINATE-->   
         <nav class="woocommerce-pagination">
             <div class="subnav nobg">
                 <div class="span8">
@@ -51,10 +55,10 @@
                 </div>
             </div>
         </nav>
-        <!-----PAGINATE--------->
+        <!--END PAGINATE-->
 </div>
 <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
-    <div id="woocommerce_price_filter-2" class="widget"><h3>Filter by price</h3>
+    <div id="woocommerce_price_filter-2" class="widget"><h3>Filtrar por Precio</h3>
         <form method="get" action="http://livedemo00.template-help.com/woocommerce_51107/shop">
             <div class="price_slider_wrapper">
             <div class="price_slider" style="display:none;"></div>
@@ -99,14 +103,5 @@ var woocommerce_price_slider_params = {"currency_symbol":"$","currency_pos":"lef
 /* ]]> */
 </script>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js?ver=2.1.12'></script>
-<script>
-			(function($) {
-				$(window).load(function() {
-					if ($('.widget_shopping_cart_content').is(':empty')) {
-						$('.widget_shopping_cart_content').text('No products in the cart.');
-					}
-				});
-			})(jQuery);
-</script>
 </body>
 </html>

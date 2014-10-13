@@ -13,6 +13,11 @@ class Contacs extends CI_Controller {
     
     public function index()
     {               $obj_products = $this->get_menu();
+                    
+                    //SEO
+                    $obj_products['title'] = "Contacto | Bienvenido a Nuestra Tienda Virtual";
+                    $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+                    $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. WaveLine S.A.C. Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru. Horario de Atención: Lunes a Viernes: 9:00 am a 6:00pm. Escríbenos: servicioalcliente@wavelinetwork.com";
                     $this->load->view('contacs',$obj_products);
     }
     
