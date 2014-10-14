@@ -18,6 +18,8 @@ class B_profile extends CI_Controller {
                                     password,
                                     first_name,
                                     last_name,
+                                    dni,
+                                    birth_date,
                                     address,
                                     references,
                                     country,
@@ -27,10 +29,9 @@ class B_profile extends CI_Controller {
                                     mobile,
                                     status_value",
                          "where" => "customer_id = $customer_id",
-            ); 
+                        ); 
         
-        /// VISTA
-        
+        // VISTA
         $obj_profile = $this->obj_customer->get_search_row($params);
         $this->tmp_backoffice->set("obj_profile",$obj_profile);
         $this->tmp_backoffice->render("backoffice/profile");;
@@ -38,32 +39,35 @@ class B_profile extends CI_Controller {
     
     public function validate(){
         
-            $date = $this->input->post('date');
-            $month = $this->input->post('month');
-            $year = $this->input->post('year');
-            
-            $date_birth = "$year-$month-$date";
-          
-        $data = array(
+        $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));
+        $password = $this->input->post('password');
+        $password2 = $this->input->post('password2');
+        
+        if($password==$password2){
+            $data = array(
                'first_name' => $this->input->post('first_name'),
                'last_name' => $this->input->post('last_name'),
                'email' => $this->input->post('email'),
                'dni' => $this->input->post('dni'),
-               'birth date' => $date_birth,  
+               'birth_date' => $date_birth,  
                'phone' => $this->input->post('phone'),  
                'mobile' => $this->input->post('mobile'),
                'address' => $this->input->post('address'),
+               'references' => $this->input->post('references'),
                'city' => $this->input->post('city'),
-               'country' => $this->input->post('country'),
-           
-               'status_value' => $this->input->post('status_value'),
+               'password' => $password,
                'created_at' => date("Y-m-d H:i:s"),
-               'created_by' => $_SESSION['usercms']['user_id'],
+               'created_by' => $_SESSION['customer']['customer_id'],
                'updated_at' => date("Y-m-d H:i:s"),
-               'updated_by' => $_SESSION['usercms']['user_id']
+               'updated_by' => $_SESSION['customer']['customer_id']
                 );
-        
-       
+            $customer_id = $_SESSION['customer']['customer_id'];
+            
+            if ($customer_id != ""){
+               $this->obj_customer->update($customer_id, $data);
+            }
+            redirect(site_url()."backoffice/micuenta");
+        }
     }
     
     public function get_session(){          

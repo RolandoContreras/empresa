@@ -146,6 +146,32 @@ function get_tag($list_tags, $tag){
     return $retorno;
 }
 
+function formato_fecha_barras($fecha){    
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4);    
+    return  $dia."/".$mes."/".$anio;
+}
+
+function convert_formato_fecha_db($day,$month,$year){    
+    return $year."/".$month."/".$day;
+}
+
+function get_day_number($fecha){    
+    $dia=substr($fecha, 8, 2);
+    return  $dia;
+}
+
+function get_month_number($fecha){    
+    $mes=substr($fecha, 5, 2);
+    return  $mes;
+}
+
+function get_year_number($fecha){    
+    $anio=substr($fecha, 0, 4); 
+    return  $anio;
+}
+
 function get_semilla(){
     $semilla='ab513c75f48d82bcd30aa48e478d2e6e';
     return $semilla;

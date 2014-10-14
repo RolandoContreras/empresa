@@ -54,34 +54,38 @@
                                 </div>
 
                             <label for="date">Fecha de Nacimiento</label>
+                            <?php 
+                            $day = get_day_number($obj_profile->birth_date);
+                            $month = get_month_number($obj_profile->birth_date);
+                            $year_b = get_year_number($obj_profile->birth_date);
+                            ?>
                             <div class="false">
                                 <div class="controls">
                                     <select name="date" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoDay">
                                        <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                        <option value="<?php echo $i;?>"><?php echo $i?></option>
+                                        <option value="<?php echo $i;?>" <?php echo $day==$i?'selected':'';?>><?php echo $i?></option>
                                        <?php } ?>
-                                        <!--<option value="06" selected="selected">6</option>-->
                                     </select>
                                     
                                     <select name="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoMonth">
-                                        <option value="01">Enero</option>
-                                        <option value="02">Febrero</option>
-                                        <option value="03">Marzo</option>
-                                        <option value="04">Abril</option>
-                                        <option value="05">Mayo</option>
-                                        <option value="06">Junio</option>
-                                        <option value="07">Julio</option>
-                                        <option value="08">Agosto</option>
-                                        <option value="09">Setiembre</option>
-                                        <option value="10">Octubre</option>
-                                        <option value="11">Noviembre</option>
-                                        <option value="12">Diciembre</option>
+                                        <option value="01" <?php echo $month=="01"?'selected':'';?>>Enero</option>
+                                        <option value="02" <?php echo $month=="02"?'selected':'';?>>Febrero</option>
+                                        <option value="03" <?php echo $month=="03"?'selected':'';?>>Marzo</option>
+                                        <option value="04" <?php echo $month=="04"?'selected':'';?>>Abril</option>
+                                        <option value="05" <?php echo $month=="05"?'selected':'';?>>Mayo</option>
+                                        <option value="06" <?php echo $month=="06"?'selected':'';?>>Junio</option>
+                                        <option value="07" <?php echo $month=="07"?'selected':'';?>>Julio</option>
+                                        <option value="08" <?php echo $month=="08"?'selected':'';?>>Agosto</option>
+                                        <option value="09" <?php echo $month=="09"?'selected':'';?>>Setiembre</option>
+                                        <option value="10" <?php echo $month=="10"?'selected':'';?>>Octubre</option>
+                                        <option value="11" <?php echo $month=="11"?'selected':'';?>>Noviembre</option>
+                                        <option value="12" <?php echo $month=="12"?'selected':'';?>>Diciembre</option>
                                     </select>
                                     
                                     <select name="year" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoYear">
                                             <?php  $year = date("Y");?>
                                             <?php for ($i = 1924; $i <= $year; $i++) { ?>
-                                                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                                                 <option value="<?php echo $i;?>" <?php echo $i==$year_b?'selected':'';?>><?php echo $i;?></option>
                                             <?php } ?>
                                     </select>
                                 </div>
@@ -106,12 +110,19 @@
                             <h2 class="blue">Direccion</h2>
                             <hr> 
                             <div class="form-group">
-                                <label for="phone">Dirección</label>
+                                <label for="address">Dirección</label>
                                 <div class="input text">
-                                    <input name="address" class="form-control input-medium" maxlength="45" type="text" value="<?php echo isset($obj_profile->address)?$obj_profile->address:"";?>" id="UserMoradaComplementar"/>
+                                    <input name="address" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->address)?$obj_profile->address:"";?>" id="UserMoradaComplementar"/>
                                 </div>                            
                             </div>
-
+                            
+                            <div class="form-group">
+                                <label for="reference">Referencia</label>
+                                <div class="input text">
+                                    <input name="references" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->references)?$obj_profile->references:"";?>" id="UserMoradaComplementar"/>
+                                </div>                            
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="phone">Ciudad</label>
                                 <div class="input text">
@@ -138,20 +149,21 @@
                             <label for="password">Contraseña</label>
                             <div class="input text">
                                 <div class="input password">
-                                    <input name="" class="form-control input-medium" autocomplete="off" type="password" id="UserPassword"/>
-                                </div>                            </div>
+                                    <input name="password" value="<?php echo isset($obj_profile->password)?$obj_profile->password:"";?>" class="form-control input-medium" autocomplete="off" type="password" id="UserPassword"/>
+                                </div>                            
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Repetir Contraseña</label>
                             <div class="input text">
                                 <div class="input password">
-                                    <input name="" class="form-control input-medium" type="password" id="UserPasswordConfirm"/>
+                                    <input name="password2" value="<?php echo isset($obj_profile->password)?$obj_profile->password:"";?>" class="form-control input-medium" type="password" id="UserPasswordConfirm"/>
                                 </div>                            
                             </div>
                         </div> 
                         </fieldset>
                     </div>
-                     <input type="submit" onclick="validate();" class="btn btn-primary" value=Enviar>
+                     <input type="submit" class="btn btn-primary" value=Enviar>
                 </div>
             </div>
             <br>
