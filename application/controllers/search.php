@@ -45,7 +45,7 @@ class Search extends CI_Controller {
             $config=array();
             $config["base_url"] = site_url("buscar/$search"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
-            $config["per_page"] = 1; 
+            $config["per_page"] = 9; 
             $config["num_links"] = 3;
             $config["uri_segment"] = 3;   
             
@@ -73,6 +73,13 @@ class Search extends CI_Controller {
                            );
            
             $obj_products['category'] = $this->obj_category->search($param_category);
+            
+            $search = ucfirst($search);
+            //SEO
+            $obj_products['title'] = "Buscar | $search | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "$search, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            
             
             $this->load->view('search',$obj_products);
             
