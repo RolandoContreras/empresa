@@ -27,8 +27,6 @@
         <script type="text/javascript" src="<?php echo site_url().'static/js/css3-mediaqueries.min.js';?>"></script>
 
         <script type="text/javascript" src="<?php echo site_url().'static/js/scripts.js';?>"></script>
-        <!--<link href="<?php echo site_url();?>static/cms/css/core/bootstrap.css" rel="stylesheet">-->	
-                     
         
         <script type="text/javascript">
             var site = '<?php echo site_url();?>';

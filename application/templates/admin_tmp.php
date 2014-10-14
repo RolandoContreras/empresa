@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta name="robots" content="noindex, nofollow" />
         <!-- CSS -->
         <link href="static/cms/css/core/bootstrap.css" rel="stylesheet">	
         <link href="static/cms/css/core/combine_fonts.css" rel="stylesheet">	

@@ -29,13 +29,13 @@
                         <form action="<?php echo site_url().'backoffice/micuenta/validate';?>" class="forms" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <label for="nome">First Name</label>
+                                    <label for="nome">Nombres</label>
                                     <div class="input text required">
                                         <input name="first_name" class="form-control input-small" maxlength="100" type="text" value="<?php echo isset($obj_profile->first_name)?$obj_profile->first_name:"";?>" required="required"/>
                                     </div>                                
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Last Name</label>
+                                    <label for="nome">Apellidos</label>
                                     <div class="input text required">
                                         <input name="last_name" class="form-control input-small" maxlength="100" type="text" value="<?php echo isset($obj_profile->last_name)?$obj_profile->last_name:"";?>" required="required"/>
                                     </div>                            

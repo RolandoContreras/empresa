@@ -120,24 +120,8 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
+<!--<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>-->
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
-
-<script>
-			(function($) {
-				$(window).load(function() {
-					if ($('.widget_shopping_cart_content').is(':empty')) {
-						$('.widget_shopping_cart_content').text('No products in the cart.');
-					}
-				});
-			})(jQuery);
-</script>
-
-
-<!--var porId=document.getElementById("nombre").value;-->
-
 </body>
 </html>

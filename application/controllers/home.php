@@ -179,7 +179,12 @@ class Home extends CI_Controller {
         }
         
         public function empty_car(){
-           $this->cart->destroy();
+            
+        if($this->input->is_ajax_request()){ 
+                $this->cart->destroy();
+                $data['print'] = "Success"; 
+                echo json_encode($data); 
+             }
         }
         
         public function delete_car(){
@@ -190,8 +195,10 @@ class Home extends CI_Controller {
                          'qty' => 0
                      );
                     $this->cart->update($data);
+                    $data['print'] = "Error"; 
+                    echo json_encode($data); 
              }
-            exit();
+          exit();
         }
         
         public function update_car(){
