@@ -5,11 +5,25 @@ class B_comission extends CI_Controller {
 	
     function __construct() {
         parent::__construct();
+        $this->load->model("commissions_model","obj_commissions");
     }
     
     public function index(){
         $this->get_session();
         /// VISTA
+        $customer_id = $_SESSION['customer']['customer_id'];
+        $params = array(
+                        "select" =>"parent_id,
+                                    name,
+                                    amount,
+                                    date,
+                                    status_value",
+                         "where" => "parent_id = $customer_id",
+                        );
+        
+        $obj_commissions = $this->obj_commissions->search($params);
+        
+        $this->tmp_backoffice->set("obj_commissions",$obj_commissions);
         $this->tmp_backoffice->render("backoffice/comission");
     }
     

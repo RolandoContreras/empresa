@@ -104,6 +104,7 @@ class B_new_member extends CI_Controller {
              'parent_id'        => $_SESSION['customer']['customer_id'],
              'name'             => "Comisión por Referido",
              'amount'           => $amount,
+             'date'             => date("Y-m-d H:i:s"),
              'status_value'     => 0,
              'created_at'       => date("Y-m-d H:i:s"),
              'created_by'       => $_SESSION['customer']['customer_id'],

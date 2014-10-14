@@ -20,6 +20,7 @@ class commissions_model_atributos{
     var $parent_id='';
     var $name='';
     var $amount='';
+    var $date='';
     var $status_value='';
     var $created_at='';
     var $created_by='';
@@ -37,6 +38,7 @@ class Commissions_Model extends CI_Model{
 	$this->parent_id='';
         $this->name='';
 	$this->amount='';
+        $this->date='';
 	$this->status_value='';
 	$this->created_at='';
 	$this->created_by='';

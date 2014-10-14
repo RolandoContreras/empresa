@@ -19,7 +19,7 @@
             <nav class="abas">
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active">
-                        <a href="#1" data-toggle="tab"><i class="icon-reorder"></i>Ultimos Movimientos</a>
+                        <a href="#1" data-toggle="tab"></i>Ultimos Movimientos</a>
                     </li>
                 </ul>
             </nav>
@@ -31,25 +31,30 @@
                          <table class="table table-hover table-striped table-bordered tabela">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Description</th>
-                                    <th>Reference</th>
-                                    <th>Movement</th>
+                                    <th>Fecha</th>
+                                    <th>Bono</th>
+                                    <th>Movimiento</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2014-06-15 01:33:32</td>
-                                    <td>Bonus Consultant Jun 2014</td>                                
-                                    <td>Wings Network</td>                                
-                                    <td>$8.00</td>
-                                </tr>									
-                                <tr>
-                                    <td>2014-05-13 02:56:25</td>
-                                    <td>Bonus Consultant May 2014</td>                                
-                                    <td>Wings Network</td>                                
-                                    <td>$258.00</td>
-                                </tr>																		 
+                                <?php 
+                                if(count($obj_commissions)>0){
+                                    foreach ($obj_commissions as $value) { ?>
+                                    <tr>
+                                        <td><?php echo formato_fecha($value->date);?></td>
+                                        <td><?php echo $value->name;?></td>                                
+                                        <td><?php echo format_number($value->amount);?></td>
+                                        <td><?php echo $value->status_value==0?"Pendiente de Pago":"Pagado";?></td>
+                                    </tr>	
+                                <?php } 
+                                }else{ ?>
+                                    <tr>
+                                        <td colspan="4">No tiene Comisiones</td>
+                                    </tr>
+                                <?php } ?>
+                                								
+                                																		 
                             </tbody>
                         </table>
                     </div>
