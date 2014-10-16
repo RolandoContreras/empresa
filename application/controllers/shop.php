@@ -148,6 +148,77 @@ class Shop extends CI_Controller {
              $this->load->view('shop',$obj_products);
     }
     
+    public function by_price(){  
+           $obj_products = $this->get_menu();
+           
+           $min_price = $this->input->post("min_price");
+           $max_price = $this->input->post("max_price");
+            
+            //SELECT PRODUCT BY CATEGORY
+            $params = array(
+                        "select" =>"products.product_id,
+                                    products.name as name,
+                                    categories.name as category,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.medium_image,
+                                    products.small_image,
+                                    products.price,
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.status_value = 1 and products.price between $min_price and $max_price ",
+                         "order" => "products.product_id DESC",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+            
+             /// PAGINADO
+            $config=array();
+            $config["base_url"] = site_url("compras/porprecio"); 
+            $config["total_rows"] = $this->obj_products->total_records($params) ;  
+            $config["per_page"] = 21; 
+            $config["num_links"] = 3;
+            $config["uri_segment"] = 3;   
+            
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';            
+            $config['num_tag_open']='<li>';
+            $config['num_tag_close'] = '</li>';            
+            $config['cur_tag_open']= '<li class="active"><a>';
+            $config['cur_tag_close']= '</li></a>';            
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';            
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            
+            $this->pagination->initialize($config);     
+            
+            $obj_products['obj_pagination'] = $this->pagination->create_links();
+            $obj_products['obj_products']= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
+            
+            
+           // $slug = ucfirst($slug);
+            $obj_products['title'] = "Compras | Por Precio | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Precio,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            
+            //SELECT CATEGORIES
+            $param_category = array(
+                        "select" =>"",
+                        "where" => "status_value = 1",
+                           );
+           
+             $obj_products['category'] = $this->obj_category->search($param_category);
+             $this->load->view('shop',$obj_products);
+    }
+    
     public function by_gender($slug){
             $obj_products = $this->get_menu();
             $ruta = explode("/",uri_string()); 

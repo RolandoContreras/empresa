@@ -88,7 +88,7 @@
                 </form>
                 <p class="return-to-shop">
                     <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
-                    <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>">Hacer Pedido</a>
+                    <!--<a class="button pay" href="<?php echo site_url().'checkout/pagar';?>">Hacer Pedido</a>-->
                 </p>
                 
                 <?php }else{ ?>

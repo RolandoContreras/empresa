@@ -51,6 +51,8 @@ $route['acerca'] = "about";
 $route['compras'] = "shop";
 $route['compras/([0-9_-]+)'] = "shop/index";
 
+$route['compras/porprecio'] = "shop/by_price";
+
 $route['contacto'] = "contacs";
 $route['contacto/send_email'] = "contacs/send_email";
 

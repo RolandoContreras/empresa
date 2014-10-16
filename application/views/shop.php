@@ -1,4 +1,5 @@
 <?php $this->load->view("header");?>
+        
 <body class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
     <header class="motopress-wrapper header">
@@ -46,26 +47,34 @@
         <p>No se encontraron resultados.</p>
     <?php } ?>
         <!--PAGINATE-->   
-        <nav class="woocommerce-pagination">
-            <div class="subnav nobg">
-                <div class="span8">
-                    <div class="pagination" style="margin-left: 50%">
-                        <?php echo $obj_pagination; ?>
+        <?php
+        $ruta = explode("/",uri_string()); 
+        $price = $ruta[1];
+        
+            if($price!="porprecio"){ ?>
+                <nav class="woocommerce-pagination">
+                    <div class="subnav nobg">
+                        <div class="span8">
+                            <div class="pagination" style="margin-left: 50%">
+                                <?php echo $obj_pagination; ?>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </nav>
+                </nav>
+          <?php } ?>
+        
         <!--END PAGINATE-->
 </div>
 <div class="sidebar span3" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
-    <div id="woocommerce_price_filter-2" class="widget"><h3>Filtrar por Precio</h3>
-        <form method="get" action="http://livedemo00.template-help.com/woocommerce_51107/shop">
+    <div id="woocommerce_price_filter-2" class="widget">
+        <h3>Filtrar por Precio</h3>
+        <form method="post" action="<?php echo site_url().'compras/porprecio'; ?>">
             <div class="price_slider_wrapper">
             <div class="price_slider" style="display:none;"></div>
                 <div class="price_slider_amount">
                 <input type="text" id="min_price" name="min_price" value="" data-min="30" placeholder="Min price"/>
                 <input type="text" id="max_price" name="max_price" value="" data-max="1000" placeholder="Max price"/>
-                <button type="submit" class="button">Filter</button>
+                <button type="submit" class="button">Filtrar</button>
                 <div class="price_label" style="display:none;">
                 Precio: <span class="from"></span> &mdash; <span class="to"></span>
                 </div>
