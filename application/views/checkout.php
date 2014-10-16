@@ -61,8 +61,12 @@
                                             </div>
                                         </td>
                                         <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
-                                        <td><p><a onclick="update_car('<?php echo $item['rowid'];?>');" class="button">Editar</a> 
-                                            <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="button">Eliminar</a> </p>
+                                        <td>
+                                            <p>
+                                                <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;">
+                                                    <img src="<?php echo site_url().'static/images/png/delete26.png';?>" width="30" alt="Eliminar">
+                                                </a> 
+                                            </p>
                                         </td>
                                     </tr>
                             <?php 
@@ -82,13 +86,18 @@
                     </table>
                         
                 </form>
+                <p class="return-to-shop">
+                    <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
+                    <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>">Hacer Pedido</a>
+                </p>
+                
                 <?php }else{ ?>
                         <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
+                        <p class="return-to-shop">
+                            <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
+                        </p>
                 <?php } ?>
-            <p class="return-to-shop">
-                <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
-                <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>">Hacer Pedido</a>
-            </p>
+            
             </div>
             
         <div class="clear"></div>

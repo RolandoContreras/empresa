@@ -143,7 +143,18 @@ class B_new_member extends CI_Controller {
             }
           }
         }
-      redirect(site_url()."backoffice");      
+            
+        $param = array(
+                            "select" =>"first_name,
+                                        last_name,
+                                        address,
+                                        email,
+                                        password",
+                            "where" => "customer_id = '$customer_id'");
+        
+        $obj_customer = $this->obj_customer->get_search_row($param);
+        $this->tmp_backoffice->set("obj_customer",$obj_customer);
+        $this->tmp_backoffice->render("backoffice/success");
     }
     
     

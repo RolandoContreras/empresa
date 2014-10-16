@@ -75,6 +75,9 @@ $route['backoffice/nuevomiembro'] = "b_new_member";
 $route['backoffice/nuevomiembro/validate'] = "b_new_member/validate";
 
 $route['backoffice/faq'] = "b_faq";
+
+$route['backoffice/exito'] = "b_success";
+
 $route['backoffice/logout'] = "backoffice/logout";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
