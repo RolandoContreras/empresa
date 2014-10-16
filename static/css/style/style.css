@@ -30,3 +30,22 @@ margin-left: 18px;
 .main-menu ul li a span{
     margin-left: 0 !important;
 }
+.image_oferta{
+   width:100px;
+   margin-left: -20px;
+   margin-top: -48px;
+   position: relative;
+   z-index: -1;
+  
+}
+.image_products{
+   margin-top: -80px !important;
+   position: relative;
+   z-index: -2;
+}
+.number_price{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px auto auto -13px;
+}

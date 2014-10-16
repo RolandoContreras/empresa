@@ -95,10 +95,14 @@
 
                         <?php foreach ($data as $product) {?>
                                     <li class="product">
-                                        <span class="onsale"><?php echo format_number($product->pay_sale);?>&nbsp;&nbsp;Ganado</span>
+                                        <p class="number_price"><?php echo format_number($product->pay_sale);?></p>
+                                         <span>
+                                            <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>
+
+                                        </span>
                                             <a href="<?php echo site_url().convert_slug($product->category."/".$product->name);?>">
 
-                                                <img src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt=/>
+                                                <img class="image_products" src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo $product->name;?>"/>
                                                 <h3><?php echo corta_texto($product->name,17);?></h3>
                                             </a>
                                             <div class="short_desc">
