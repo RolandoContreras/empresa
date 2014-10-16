@@ -1,5 +1,4 @@
 <?php $this->load->view("header");?>
-        
 <body class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
     <header class="motopress-wrapper header">
@@ -11,6 +10,8 @@
         </div>
     </div>
     </header>
+    
+<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
 <div class="motopress-wrapper content-holder clearfix woocommerce">
 <div class="container">
     <div class="row">
@@ -104,17 +105,16 @@
     <?php $this->load->view("footer"); ?>
 </div>
 <script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>      
-<script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>   
 <script type="text/javascript" src='<?php echo site_url().'static/js/superfish.js';?>'></script>   
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.ui.widget.min.js';?>'></script> 
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.ui.mouse.min.js';?>'></script>
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.ui.slider.min.js';?>'></script>
-
 <script type='text/javascript'>
 /* <![CDATA[ */
 var woocommerce_price_slider_params = {"currency_symbol":"$","currency_pos":"left","min_price":"","max_price":""};
 /* ]]> */
 </script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js?ver=2.1.12'></script>
+
+<script type='text/javascript' src='<?php echo site_url().'static/js/price-slider.min.js';?>'></script>
 </body>
 </html>
