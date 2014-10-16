@@ -26,6 +26,24 @@ class Myaccount extends CI_Controller {
             $obj_products['meta_description'] = "Mi Cuenta, Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
             $this->load->view('myaccount',$obj_products);
 	}
+        
+        public function backoffice()
+	{
+            $obj_products = $this->get_menu();
+            //SELECT CATEGORIES
+            $param_category = array(
+                        "select" =>"",
+                        "where" => "status_value = 1",
+                           );
+           
+            $obj_products['category'] = $this->obj_category->search($param_category);
+            
+            $obj_products['title'] = "Mi Cuenta | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Cuenta,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Mi Cuenta, Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            $this->load->view('myaccountb',$obj_products);
+	}
+        
         public function validar_user(){        
         $username = $this->input->post('username');  
         $password = $this->input->post('password');  
@@ -42,8 +60,32 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['department'] = $obj_user->department;
                 $data_customer_session['logged_customer'] = "TRUE";
                 $data_customer_session['status'] = $obj_user->status_value;
-                $_SESSION['customer'] = $data_customer_session;                  
-               redirect("micuenta");    
+                $_SESSION['customer'] = $data_customer_session;      
+               redirect("home");    
+            }
+        }else{
+            redirect("micuenta");
+        }
+    }
+    
+        public function validar_user_backoffice(){        
+        $username = $this->input->post('username');  
+        $password = $this->input->post('password');  
+        
+        $obj_user = $this->verificar_user($username, $password);
+        
+        if (count($obj_user)>0){            
+            if ($obj_user->status_value == 1){                            
+                $data_customer_session['customer_id'] = $obj_user->customer_id;
+                $data_customer_session['name'] = $obj_user->first_name;
+                $data_customer_session['address'] = $obj_user->address;
+                $data_customer_session['email'] = $obj_user->email;
+                $data_customer_session['city'] = $obj_user->city;
+                $data_customer_session['department'] = $obj_user->department;
+                $data_customer_session['logged_customer'] = "TRUE";
+                $data_customer_session['status'] = $obj_user->status_value;
+                $_SESSION['customer'] = $data_customer_session;      
+               redirect("backoffice");    
             }
         }else{
             redirect("micuenta");

@@ -91,7 +91,7 @@
                         <?php }else{ ?>
                                 <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
                                 <p class="return-to-shop">
-                                    <a class="button" href="<?php echo site_url().'compras';?>">Comprar</a> 
+                                    <a class="button" href="<?php echo site_url().'compras';?>" target="_blank">Comprar</a> 
                                 </p>
                         <?php } ?>
                     </div>

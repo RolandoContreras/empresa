@@ -41,7 +41,7 @@ class Backoffice extends CI_Controller {
         $this->tmp_backoffice->set("obj_profile",$obj_profile);
         $this->tmp_backoffice->render("backoffice/backoffice");
         } else{
-            redirect('micuenta');
+            redirect('micuenta_backoffice');
         }  
             
    }
