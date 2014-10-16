@@ -31,9 +31,13 @@
     <?php if(count($obj_products)>0){ ?>
     <ul class="products">
         <?php foreach ($obj_products as $obj_products) { ?>
-                    <li class="post-1954 product type-product status-publish has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple product-cat-product-category-5 product-tag-sed-blandit-massa product-tag-vel-mauris instock">
+                    <li class="product">
+                        <p class="number_price"><?php echo format_number($obj_products->pay_sale);?></p>
+                            <span>
+                                <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>
+                            </span>
                         <a href="<?php echo site_url().convert_slug($obj_products->category."/".$obj_products->name);?>">
-                            <img width="300" height="300" src="<?php echo SERVER2.$obj_products->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
+                            <img class="image_products" width="300" height="300" src="<?php echo SERVER2.$obj_products->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
                             <h3><?php echo corta_texto($obj_products->name,22);?> </h3>
                          </a>
                         <div class="short_desc"><?php echo corta_texto($obj_products->description,90);?></div>
