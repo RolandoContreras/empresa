@@ -65,10 +65,22 @@ $this->load->view("header");
 <p class="stock "><?php echo $obj_products->stock;?> en stock</p>
 
 <form class="cart" method="post" action="<?php echo site_url()."home/add_car"?>">
-    <div class="quantity">
-        <input type="number" step="1" min="1" max="150" name="quantity" value="1" class="input-text qty text" size="4"/>
+       
+     <div class="">
+        <div>
+            Talla
+        <p><input type="text" name="size" value="" class="input-text text" size="2"/></p>
+        </div>
+      Cantidad
+      <br/>
+      
+       <div class="quantity">
+           
+        <p><input type="number" step="1" min="1" max="150" name="quantity" value="1" class="input-text qty text" size="4"/></p>
         <input type="hidden" name="product_id" value="<?php echo $obj_products->product_id;?>" class="input-text text" size="4"/>
+        </div>
     </div>
+     
     <button type="submit" class="button">Agregar al Carro</button>
 </form>
 

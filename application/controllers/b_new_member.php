@@ -32,9 +32,8 @@ class B_new_member extends CI_Controller {
             foreach ($this->cart->contents() as $item){
                 $product_id = $item['id']; 
                 $qty = $item['qty']; 
-
+                
                 //SELECT PRODUCT
-
                 $param_product = array(
                             "select" =>"product_id,
                                         pay_sale,
@@ -126,11 +125,19 @@ class B_new_member extends CI_Controller {
             $this->obj_order_commissions->insert($data_order_commissions);
             
             foreach ($this->cart->contents() as $item){
-                //INSERT DETAIL_ORDER
+                
+            if ($this->cart->has_options($item['rowid']) == TRUE){
+                 foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
+                        $size = $option_value;
+                 } 
+            }
+
+            //INSERT DETAIL_ORDER
             $data_order_details = array( 
                  'order_id   '      => $order_id,
                  'product_id'       => $item['id'],
                  'price'            => $item['price'],
+                 'size'            =>  $size,
                  'quantity'         => $item['qty'],
                  'subtotal'         => $item['subtotal'],
                  'status_value'     => 1,

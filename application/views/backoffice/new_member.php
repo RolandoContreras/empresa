@@ -29,6 +29,7 @@
                                                     <td><b>NOMBRE</b></td>
                                                     <td><b>PRECIO</b></td>
                                                     <td><b>CANTIDAD</b></td>
+                                                    <td><b>TALLA</b></td>
                                                     <td><b>SUB TOTAL</b></td>
                                                     <td><b>ACCIONES</b></td>
                                                 </tr>
@@ -47,6 +48,13 @@
                                                                     <input name="qty" type="number" value="<?php echo $item['qty']; ?>" class="input-text qty text" size="4">
                                                                 </div>
                                                             </td>
+                                                            <td>
+                                                                <?php if ($this->cart->has_options($item['rowid']) == TRUE){
+                                                                         foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
+                                                                                echo $option_value;
+                                                                         } 
+                                                                     }?>
+                                                             </td>
                                                             <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
                                                             <td>
                                                                 <p>
@@ -59,31 +67,34 @@
                                                 endforeach; ?>
                                                     <tr>
                                                         <td></td>
-                                                        <td><div class="post_title">Gastos de envío</div></td>
+                                                        <td>
+                                                            <div class="post_title">Gastos de envío</div>
+                                                        </td>
+                                                        <td></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td><?php echo format_number(10);?></td>
-                                                        <td>
-                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
                                                     </tr>
-                                                     <tr>
-                                                        <td><p class="return-to-shop">
+                                                    <tr>
+                                                        <td>
+                                                            <p class="return-to-shop">
                                                                 <a class="button" href="<?php echo site_url().'compras';?>">Volver a Comprar</a> |
                                                                 <a onclick="empty_car();" href="" class="button"> Vaciar</a>
                                                             </p>
                                                         </td>
                                                         <td></td>
                                                         <td></td>
+                                                        <td></td>
                                                         <?php 
                                                         $subtotal = $this->cart->total();
                                                         $total = $subtotal + 10;
-                                                        
                                                         ?>
                                                         <td class="right"><strong>Total</strong></td>
                                                         <td class="right"><?php echo format_number($total); ?></td>
                                                         <td></td>
-                                                      </tr>   
-
+                                                    </tr>   
                                             </tbody>
                                         </table>
                                     </form>

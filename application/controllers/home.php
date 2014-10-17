@@ -148,6 +148,8 @@ class Home extends CI_Controller {
             }else{
                 $product_id = $this->input->post('product_id');
                 $qty        = $this->input->post('quantity');
+                $size        = $this->input->post('size');
+                
                 $params = array(
                                     "select" =>"products.product_id,
                                                 products.id_category,
@@ -171,7 +173,8 @@ class Home extends CI_Controller {
                                     'price'      =>     $obj_products->price,
                                     'name'       =>     $obj_products->name,
                                     'big_image'  =>     $obj_products->big_image,
-//                                    'options' => array('Size' => 'L', 'Color' => 'Red')
+                                    'options'    => array('Size' => "$size")
+//                                   'options' => array('Size' => '$size', 'Color' => 'Red')
                                  );
                         $this->cart->insert($data);
                         redirect('checkout');
