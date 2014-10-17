@@ -9,8 +9,8 @@
 	
         <div class="pull-right">    
 
-            <div style="padding-right: 25px; padding-bottom: 1px; font-weight: bold; color: #428bca; font-size: 25px;">BALANCE: $266.00</div>
-            <div style="text-align: right; padding-right: 25px;">Total Ganado: $1,116.00</div>
+            <div style="padding-right: 25px; padding-bottom: 1px; font-weight: bold; color: #428bca; font-size: 25px;">BALANCE: <?php echo format_number($balance);?></div>
+            <div style="text-align: right; padding-right: 25px;">Total Ganado: <?php echo format_number($total);?></div>
         </div>
         <div class="clearfix"></div>
 	

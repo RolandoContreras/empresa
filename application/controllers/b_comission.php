@@ -21,8 +21,24 @@ class B_comission extends CI_Controller {
                          "where" => "parent_id = $customer_id",
                         );
         
+                       
+        
         $obj_commissions = $this->obj_commissions->search($params);
         
+        $total = 0;
+        foreach ($obj_commissions as $value){
+                 $total = $total + $value->amount;      
+        }
+        
+        $balance = 0;
+        foreach ($obj_commissions as $value){
+            if($value->status_value == 0){
+                $balance = $balance + $value->amount;      
+            }
+        }
+        
+        $this->tmp_backoffice->set("total",$total);
+        $this->tmp_backoffice->set("balance",$balance);
         $this->tmp_backoffice->set("obj_commissions",$obj_commissions);
         $this->tmp_backoffice->render("backoffice/comission");
     }
