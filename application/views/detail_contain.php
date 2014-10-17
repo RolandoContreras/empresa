@@ -82,25 +82,6 @@ $this->load->view("header");
 </span>
 </div>
 
-    <!--<ul class="share-buttons unstyled clearfix">-->
-<!--        <li class="twitter">
-        <a href="//twitter.com/share" class="twitter-share-button">Tweet this article</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </li>
-        
-        <li class="facebook">
-        <div id="fb-root"></div>
-        <div class="fb-like" data-href="<?php echo site_url().convert_slug($obj_products->category."/".$obj_products->name);?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
-        </li>
-        
-        <li class="google">
-        <div class="g-plusone" data-size="medium" data-href=""></div>
-        </li>
-        
-        <li class="pinterest">
-        <a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src='//assets.pinterest.com/images/PinExt.png' alt=""/></a>
-        </li>-->
-    <!--</ul>--> 
 </div> 
     <div class="woocommerce-tabs">
     <ul class="tabs">
@@ -118,7 +99,7 @@ $this->load->view("header");
         </div>
         
     <div class="panel entry-content" id="tab-reviews">
-        <div id="reviews" itemscope itemtype="http://schema.org/Review" class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30">
+        <div id="reviews" class="comments">
             <div id="comments" class="comment_container">
                 <ol class="commentlist">
                     <?php foreach ($comments as $value) { ?>
@@ -139,25 +120,6 @@ $this->load->view("header");
                  <?php } ?>
                 </ol>
             </div>
-            
-<!--            <li itemprop="reviews" itemscope itemtype="http://schema.org/Review" class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30">
-<div id="comment-30" class="comment_container">
-<img alt='admin' src='http://1.gravatar.com/avatar/5cdc09662dd539303e316621ec21b6be?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60'/>
-<div class="comment-text">
-<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="Rated 5 out of 5">
-<span style="width:100%"><strong itemprop="ratingValue">5</strong> out of 5</span>
-</div>
-<p class="meta">
-<strong itemprop="author">admin</strong> &ndash; <time itemprop="datePublished" datetime="2014-01-27T16:22:39+00:00">January 27, 2014</time>:
-</p>
-<div itemprop="description" class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget</p>
-</div>
-</div>
-</div>
-</li> -->
-            
-            
-            
             <div id="review_form_wrapper">
                 <div id="review_form">
                     <div id="respond" class="comment-respond">
@@ -187,7 +149,7 @@ $this->load->view("header");
             </div>
         <div class="clear"></div>
       </div> 
-    </div>
+     </div>
     </div>
     <!---------------PRODUCTOS RELACIONADOS----------------->
     <div class="related products">
@@ -209,7 +171,7 @@ $this->load->view("header");
                          <form method="post" action="<?php echo site_url()."home/add_car"?>">
                                 <input type="hidden" name="quantity" value="1"/>
                                 <input type="hidden" name="product_id" value="<?php echo $value->product_id;?>"/>   
-                            <button type="submit" class="button add_to_cart_button product_type_simple">Agregar al Carro</button>
+                            <button type="submit" class="button">Agregar al Carro</button>
                         </form>
                     </li>
                     
@@ -237,57 +199,22 @@ $this->load->view("header");
 $this->load->view("footer");
 ?>
 </div>
-    
  
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/prettyPhoto.css';?>"/>
 <script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>  
 <script type='text/javascript' src='<?php echo site_url().'static/js/comments.js';?>'></script>  
-   
+<script type='text/javascript' src='<?php echo site_url().'static/backoffice/js/jquery.prettyPhoto.min.js';?>'></script>  
+<script type='text/javascript' src='<?php echo site_url().'static/backoffice/js/jquery.prettyPhoto.init.min.js';?>'></script>  
 
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/comment-reply.min.js?ver=3.9.1'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var _wpcf7 = {"loaderUrl":"http:\/\/livedemo00.template-help.com\/woocommerce_51107\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
-/* ]]> */
-</script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.8'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_add_to_cart_params = {"ajax_url":"\/woocommerce_51107\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/livedemo00.template-help.com\/woocommerce_51107\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"http:\/\/livedemo00.template-help.com\/woocommerce_51107\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=2.1.12'></script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.5'></script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.init.min.js?ver=2.1.12'></script>
+<!--plugin comments-->
 <script type='text/javascript'>
 /* <![CDATA[ */
 var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js?ver=2.1.12'></script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.60'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var woocommerce_params = {"ajax_url":"\/woocommerce_51107\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/livedemo00.template-help.com\/woocommerce_51107\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=2.1.12'></script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min.js?ver=1.3.1'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_cart_fragments_params = {"ajax_url":"\/woocommerce_51107\/wp-admin\/admin-ajax.php","fragment_name":"wc_fragments"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=2.1.12'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/superfish.js?ver=1.5.3'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery.mobilemenu.js?ver=1.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery.magnific-popup.min.js?ver=0.9.3'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/cherry-plugin/lib/js/FlexSlider/jquery.flexslider-min.js?ver=2.2.2'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jplayer.playlist.min.js?ver=2.3.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery.jplayer.min.js?ver=2.6.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/tmstickup.js?ver=1.0.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/device.min.js?ver=1.0.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery.zaccordion.min.js?ver=2.1.0'></script>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/cherry-plugin/includes/js/cherry-plugin.js?ver=1.2.3'></script>
+
+<script type='text/javascript' src='<?php echo site_url().'static/backoffice/js/single-product.min.js';?>'></script>  
+<script type='text/javascript' src='<?php echo site_url().'static/backoffice/js/superfish.js';?>'></script>  
+<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 </body>
 </html>

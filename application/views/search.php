@@ -21,10 +21,10 @@
 				<div class="row">
                                     <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
                                         <section class="title-section">
-                                            <h1 class="title-header">Blog</h1>
+                                            <h1 class="title-header"><?php echo $name;?></h1>
                                                 <ul class="breadcrumb breadcrumb__t">
                                                     <li><a href="<?php echo site_url().'home';?>">Home</a></li>
-                                                    <li class="divider"></li><li class="active">Blog</li></ul>
+                                                    <li class="divider"></li><li class="active"><?php echo $search;?></li></ul>
                                         </section>					
                                     </div>
 				</div>
