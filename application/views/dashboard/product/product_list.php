@@ -31,6 +31,7 @@
                 <thead>
                     <tr>
                         <td style="width:20px;"><input type="checkbox" id="chkbck" /></td>
+                        <td>Código</td>
                         <td>Nombre</td>
                         <td>Descripcion</td>
                         <td>Categoria</td>
@@ -52,7 +53,7 @@
                                 
                                 <?php echo $value->product_id == 0 ? "<img src='static/cms/images/warning.gif'>" : "<img src='static/cms/images/ok.gif'>"; ?>
                             </td>
-                            
+                            <td><?php echo $value->code;?></td>
                             <td>
                                 <div class="post_title"><?php echo $value->tittle;?>
                                     <div class="operation">

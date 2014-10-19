@@ -81,7 +81,8 @@
                         </select>
                     </div>
                 </div>
-              
+              <br><br>
+              <input type="text" id="code" name="code" value="<?php echo isset($obj_product->code)?$obj_product->code:"";?>" class="input-xlarge-fluid" placeholder="Código">
               <br><br>
               <input type="text" id="tittle" name="tittle" value="<?php echo isset($obj_product->name)?$obj_product->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
               <br><br>

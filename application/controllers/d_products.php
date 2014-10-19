@@ -19,6 +19,7 @@ class D_products extends CI_Controller{
            $params = array(
                         "select" =>"products.product_id,
                                     products.name as tittle,
+                                    products.code,
                                     categories.name,
                                     products.description,
                                     products.custom_image,
@@ -89,6 +90,7 @@ class D_products extends CI_Controller{
                         "select" =>"products.product_id,
                                     products.name,
                                     products.id_category,
+                                    products.code,
                                     products.description,
                                     products.custom_image, 
                                     categories_kind.categories_kind_id,  
@@ -191,6 +193,7 @@ class D_products extends CI_Controller{
         
         $data = array(
                'name' => $this->input->post('tittle'),
+               'code' => $this->input->post('code'),
                'description' => $this->input->post('description'),
                'id_category' => $this->input->post('id_category'),
                'price' => $this->input->post('price'),  
