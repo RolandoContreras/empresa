@@ -44,7 +44,8 @@
                        <input type="submit" class="button" name="login" value="Login"/>
                     </p>
                 <p class="lost_password">
-                <a href="">¿Olvidaste tu contraseña?</a>
+                <a href="">¿Olvidaste tu contraseña?</a> |
+                <a href="<?php echo site_url().'registro'?>">Regístrate</a>
                 </p>
                 </form>
             </div>
@@ -77,8 +78,5 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
 <script src="static/cms/js/core/bootstrap-alert.js"></script>
-<!----Script perzonalizado de Mensaje del precio ------>
-<script type='text/javascript' src='<?php echo site_url().'static/js/custom-script.js';?>'></script>
-<!----------------------------------------------------->
 </body>
 </html>
