@@ -33,6 +33,7 @@
     <ul class="products">
         <?php foreach ($obj_products as $obj_products) { ?>
                     <li class="product">
+                        <p class="number_text">Comisión</p>
                         <p class="number_price"><?php echo format_number($obj_products->pay_sale);?></p>
                             <span>
                                 <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>

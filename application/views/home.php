@@ -95,6 +95,7 @@
 
                         <?php foreach ($data as $product) {?>
                                     <li class="product">
+                                        <p class="number_text">Comisión</p>
                                         <p class="number_price"><?php echo format_number($product->pay_sale);?></p>
                                          <span>
                                             <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>

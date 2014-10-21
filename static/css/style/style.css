@@ -47,5 +47,11 @@ margin-left: 18px;
     color: white;
     font-size: 20px;
     font-weight: bold;
-    margin: 10px auto auto -13px;
+    margin: 4px auto auto -13px;
+}
+.number_text{
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    margin: -12px auto auto -13px;
 }
