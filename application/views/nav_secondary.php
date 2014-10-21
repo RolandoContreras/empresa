@@ -16,9 +16,9 @@
         </a>
          <div class="shop-nav">
              <ul id="shopnav" class="shop-menu">
-                    <li id="menu-item-2021" title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Login</a></li>
-                    <!--<li><a href="" class='register-link' title="Registro">Registro</a></li>-->
-                    <li id="menu-item-2020" title=""><a href="<?php echo site_url().'backoffice';?>">Back Office</a></li>
+                    <li title="Mi Cuenta"><a href="<?php echo site_url().'micuenta';?>">Login</a></li>
+                    <li><a href="<?php echo site_url().'registro';?>" class='register-link' title="Registro">Registro</a></li>
+                    <li title="Back Office"><a href="<?php echo site_url().'backoffice';?>">Back Office</a></li>
             </ul>
          </div> 
         

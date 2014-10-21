@@ -55,7 +55,7 @@ class Home extends CI_Controller {
                                     products.position,
                                     products.status_value ",
                          "where" => "products.status_value = 1 and position = 1",
-                         "order" => "products.product_id DESC LIMIT 6",
+                         "order" => "products.product_id DESC LIMIT 12",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',

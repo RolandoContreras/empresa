@@ -29,94 +29,8 @@
     <div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
         <div id="post-1917" class="post-1917 page type-page status-publish hentry page">
             <div class="woocommerce">
-            <form method="post" class="login" action="<?php echo site_url().'registro/crear_cliente';?>">
-                    <h2>Información Personal</h2><hr>
-                    <p class="form-row form-row-wide">
-                    <label for="username">Nombre<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="first_name" required="required"/>
-                    </p>
-                    <p class="form-row form-row-wide">
-                    <label for="password">Apellidos<span class="required">*</span></label>
-                    <input name="last_name" class="input-text" required="required"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="username">DNI<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="dni" required="required"/>
-                    </p>
-                    
-                     <label for="fecha de nacimiento">Fecha de Nacimiento<span class="required">*</span></label>
-                            <div class="false">
-                                <div class="controls">
-                                    <select name="date" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
-                                       <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                        <option value="<?php echo $i;?>"><?php echo $i?></option>
-                                       <?php } ?>
-                                    </select>
-                                    
-                                    <select name="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
-                                        <option value="01">Enero</option>
-                                        <option value="02">Febrero</option>
-                                        <option value="03">Marzo</option>
-                                        <option value="04">Abril</option>
-                                        <option value="05">Mayo</option>
-                                        <option value="06">Junio</option>
-                                        <option value="07">Julio</option>
-                                        <option value="08">Agosto</option>
-                                        <option value="09">Setiembre</option>
-                                        <option value="10">Octubre</option>
-                                        <option value="11">Noviembre</option>
-                                        <option value="12">Diciembre</option>
-                                    </select>
-                                    
-                                    <select name="year" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
-                                            <?php  $year = date("Y");?>
-                                            <?php for ($i = 1924; $i <= $year; $i++) { ?>
-                                                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
-                                            <?php } ?>
-                                    </select>
-                                </div>
-                            </div> 
-                    
-                    
-                    
-                     <p class="form-row form-row-wide">
-                    <label for="Teléfono">Teléfono<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="phone" required="required"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="Celular">Celular<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="mobile"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="Dirección">Dirección<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="address" required="required"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="Referencia">Referencia<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="reference"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="Ciudad">Ciudad<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="city" required="required"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="Departamento">Departamento<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="deparment" id="username" value="Lima" required="required"/>
-                    </p>
-                     <p class="form-row form-row-wide">
-                    <label for="País">País<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="country" value="Perú" id="username" required="required"/>
-                    </p>
-                    <hr><h2 class="blue">Login</h2><hr>
-                    <p class="form-row form-row-wide">
-                    <label for="E-mail">E-mail<span class="required">*</span></label>
-                    <input class="input-text" type="email" name="email" id="email" required="required"/>
-                    </p>
-                    <p class="form-row form-row-wide">
-                    <label for="Contraseña">Contraseña<span class="required">*</span></label>
-                    <input class="input-text" type="password" class="input-text" name="password" id="password" required="required"/>
-                    </p>
-                    <hr><h2 class="blue">Producto</h2><hr>
+            <form class="login">   
+            <h2 class="blue">Producto</h2><hr>
                         <?php if(count($this->cart->contents())!=0){ ?>
                                 <table class="table smallfont">
                                     <thead>
@@ -189,19 +103,108 @@
                                             </tr>   
                                     </tbody>
                                 </table>
-                            </form>
+                            
                             
                         <?php }else{ ?>
                                 <p class="cart-empty">Debe seleccionar un producto.</p>
-                        <?php } ?>
+                        <?php } ?>    
+            </form>
+            <form method="post" class="login" action="<?php echo site_url().'registro/crear_cliente';?>">
+                    <h2>Información Personal</h2><hr>
+                    <p class="form-row form-row-wide">
+                    <label for="username">Nombre<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="first_name" required="required"/>
+                    </p>
+                    <p class="form-row form-row-wide">
+                    <label for="password">Apellidos<span class="required">*</span></label>
+                    <input name="last_name" class="input-text" required="required"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="username">DNI<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="dni" required="required"/>
+                    </p>
+                    
+                     <label for="fecha de nacimiento">Fecha de Nacimiento<span class="required">*</span></label>
+                            <div class="false">
+                                <div class="controls">
+                                    <select name="date" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
+                                       <?php for ($i = 1; $i <= 31; $i++) { ?>
+                                        <option value="<?php echo $i;?>"><?php echo $i?></option>
+                                       <?php } ?>
+                                    </select>
+                                    
+                                    <select name="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
+                                        <option value="01">Enero</option>
+                                        <option value="02">Febrero</option>
+                                        <option value="03">Marzo</option>
+                                        <option value="04">Abril</option>
+                                        <option value="05">Mayo</option>
+                                        <option value="06">Junio</option>
+                                        <option value="07">Julio</option>
+                                        <option value="08">Agosto</option>
+                                        <option value="09">Setiembre</option>
+                                        <option value="10">Octubre</option>
+                                        <option value="11">Noviembre</option>
+                                        <option value="12">Diciembre</option>
+                                    </select>
+                                    
+                                    <select name="year" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
+                                            <?php  $year = date("Y");?>
+                                            <?php for ($i = 1924; $i <= $year; $i++) { ?>
+                                                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                                            <?php } ?>
+                                    </select>
+                                </div>
+                            </div> 
+                    
+                    
+                    
+                     <p class="form-row form-row-wide">
+                    <label for="Teléfono">Teléfono<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="phone" required="required"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="Celular">Celular<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="mobile"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="Dirección">Dirección<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="address" required="required"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="Referencia">Referencia<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="references"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="Ciudad">Ciudad<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="city" required="required"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="Departamento">Departamento<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="department" id="username" value="Lima" required="required"/>
+                    </p>
+                     <p class="form-row form-row-wide">
+                    <label for="País">País<span class="required">*</span></label>
+                    <input type="text" class="input-text" name="country" value="Perú" id="username" required="required"/>
+                    </p>
+                    <hr><h2 class="blue">Login</h2><hr>
+                    <p class="form-row form-row-wide">
+                    <label for="E-mail">E-mail<span class="required">*</span></label>
+                    <input class="input-text" type="email" name="email" id="email" required="required"/>
+                    </p>
+                    <p class="form-row form-row-wide">
+                    <label for="Contraseña">Contraseña<span class="required">*</span></label>
+                    <input class="input-text" type="password" class="input-text" name="password" id="password" required="required"/>
+                    </p>
+                    
                    
                     <?php if(count($this->cart->contents())!=0){ ?>
                     <p class="form-row">
                        <input type="submit" class="button" value="Registrar"/>
                     </p>
+                    </form>
                     <?php } ?>
-                <p class="lost_password">
-                </p>
+                
                 </form>
             </div>
         <div class="clear"></div>
