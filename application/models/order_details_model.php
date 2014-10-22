@@ -21,6 +21,7 @@ class order_details_model_atributos{
     var $price='';
     var $quantity='';
     var $tax='';
+    var $size='';
     var $subtotal='';
     var $status_value='';
     var $created_at='';
@@ -40,6 +41,7 @@ class Order_Details_Model extends CI_Model{
         $this->price='';
         $this->quantity='';
         $this->tax='';
+        $this->size='';
         $this->subtotal='';
         $this->status_value='';
 	$this->created_at='';

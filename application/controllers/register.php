@@ -5,10 +5,15 @@ class Register extends CI_Controller {
 	
     function __construct() {
         parent::__construct();
+        $this->load->model("product_model","obj_product");
+        $this->load->model("customer_model","obj_customer");
+        $this->load->model("orders_model","obj_order");
+        $this->load->model("order_details_model","obj_detail");
+        $this->load->model("commissions_model","obj_commissions");
+        $this->load->model("order_commissions_model","obj_order_commissions");
         $this->load->model("categories_model","obj_category");
         $this->load->model("categories_kind_model","obj_category_kind");
         $this->load->model("brand_categories_model","obj_brand_categories");
-        $this->load->library('email');
     }
     
     public function index()
@@ -30,9 +35,38 @@ class Register extends CI_Controller {
     
     public function create_customer()
     {
-        $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));
         
-        $amount = 0;
+    if(count($this->cart->contents()) > 0){
+        $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));    
+        
+        foreach ($this->cart->contents() as $item){
+            $product_id = $item['id']; 
+            $qty = $item['qty']; 
+            
+            //SELECT PRODUCT
+            $param_product = array(
+                        "select" =>"product_id,
+                                    name,
+                                    pay_sale,
+                                    stock",
+                        "where" => "product_id = '$product_id'");
+
+            $obj_products = $this->obj_product->get_search_row($param_product);
+            $quantity     = $obj_products->stock;   
+            
+            $product_name = strtoupper($obj_products->name);
+            
+            //VALIDATE QTY 
+            $validate = $quantity - $qty; 
+            if($validate < 0){
+                $data['message'] = "no_stock";
+                $data['print'] = "No hay stock para el Producto $product_name";
+                echo json_encode($data);  
+                exit();
+            }
+        }
+            
+            $amount = 0;
             foreach ($this->cart->contents() as $item){
                 $product_id = $item['id']; 
                 $qty = $item['qty']; 
@@ -46,19 +80,26 @@ class Register extends CI_Controller {
 
                 $obj_products = $this->obj_product->get_search_row($param_product);
                 $quantity     = $obj_products->stock;   
-
-                //INSERT ORDER
+            
+            
+                //UPDATE STOCK
                 $update_stock = array( 
                  'stock'     => $quantity - $qty,
                  );
-                
                 $this->obj_product->update($obj_products->product_id,$update_stock);
                 $amount =  $amount + $obj_products->pay_sale;
             }
-        
+            
+        if(isset($_SESSION['customer'])){
+            $parent_id = $_SESSION['customer']['customer_id'];
+        }else{
+            $parent_id = 1;
+        }    
+            
+        //INSERT CUSTOMER    
         $data = array(
                'first_name' => $this->input->post('first_name'),
-               'parents_id' => 1,
+               'parents_id' => $parent_id,
                'last_name' => $this->input->post('last_name'),
                'email' => $this->input->post('email'),
                'dni' => $this->input->post('dni'),
@@ -74,8 +115,14 @@ class Register extends CI_Controller {
                'status_value' => 0,
                'created_at' => date("Y-m-d H:i:s"),
                 );
-        
             $customer_id = $this->obj_customer->insert($data);
+            
+            //UPDATE CUSTOMER CODE
+            $update_code_customer = array( 
+             'code'     => $customer_id,
+            );
+            $this->obj_customer->update($customer_id,$update_code_customer);
+            
             $total          =  $this->cart->total()+10;
             $date_order     =  date("Y-m-d H:i:s");
             $dia_enviar     =  date("d")+2;
@@ -101,7 +148,7 @@ class Register extends CI_Controller {
            
             //INSERT COMMISSIONS
             $data_commissions = array( 
-             'parent_id'        => 1,
+             'parent_id'        => $parent_id,
              'name'             => "Comisión por Referido",
              'amount'           => $amount,
              'date'             => date("Y-m-d H:i:s"),
@@ -127,28 +174,72 @@ class Register extends CI_Controller {
             
             foreach ($this->cart->contents() as $item){
             if ($this->cart->has_options($item['rowid']) == TRUE){
-                 foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
+                foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
                         $size = $option_value;
-                 } 
+                        
+                    //INSERT DETAIL_ORDER
+                    $data_order_details = array( 
+                         'order_id   '      => $order_id,
+                         'product_id'       => $item['id'],
+                         'price'            => $item['price'],
+                         'size'            =>  $size,
+                         'quantity'         => $item['qty'],
+                         'subtotal'         => $item['subtotal'],
+                         'status_value'     => 1,
+                         'created_at'       => date("Y-m-d H:i:s"),
+                         'created_by'       => $customer_id,
+                         'updated_at'       => date("Y-m-d H:i:s"),
+                         'updated_by'       => $customer_id,         
+                         );
+                    $this->obj_detail->insert($data_order_details);
+                    }
+                }else{
+                    //INSERT DETAIL_ORDER
+                    $data_order_details = array( 
+                         'order_id   '      => $order_id,
+                         'product_id'       => $item['id'],
+                         'price'            => $item['price'],
+                         'quantity'         => $item['qty'],
+                         'subtotal'         => $item['subtotal'],
+                         'status_value'     => 1,
+                         'created_at'       => date("Y-m-d H:i:s"),
+                         'created_by'       => $customer_id,
+                         'updated_at'       => date("Y-m-d H:i:s"),
+                         'updated_by'       => $customer_id,         
+                         );
+                    $this->obj_detail->insert($data_order_details);
+                } 
             }
 
-            //INSERT DETAIL_ORDER
-            $data_order_details = array( 
-                 'order_id   '      => $order_id,
-                 'product_id'       => $item['id'],
-                 'price'            => $item['price'],
-                 'size'            =>  $size,
-                 'quantity'         => $item['qty'],
-                 'subtotal'         => $item['subtotal'],
-                 'status_value'     => 1,
-                 'created_at'       => date("Y-m-d H:i:s"),
-                 'created_by'       => $customer_id,
-                 'updated_at'       => date("Y-m-d H:i:s"),
-                 'updated_by'       => $customer_id,         
-                 );
-            $this->obj_detail->insert($data_order_details);
+            $param_customer = array(
+                            "select" =>"customer_id,
+                                        code,
+                                        password",
+                            "where" => "customer_id = '$customer_id'");
+            $obj_customer = $this->obj_customer->get_search_row($param_customer);
+            
+            $img = site_url().'static/images/logobcp.gif';
+            
+            $data['message'] = "success";
+            $data['print'] = "El Cliente se registro con éxito, Le damos la más cordial bienvenida al equipo Waveline Network<br/><br/>
+                              <b>Usuario</b>: $obj_customer->code<br/>
+                              <b>Contraseña</b>: $obj_customer->password<br/><br/>
+                              El pedido sera entragado en 2 dias habiles a la dirección registrada.<br/>    
+                              Actualmente su cuenta esta inactiva hasta realizar el pago:<br/>
+                              Banco de Credito del Perú - BCP<br/><br/>
+                              194-2204558-0-61 Cuenta Corriente Soles<br/>
+                              194-2162460-1-39 Cuenta Corriente Dolares<br/><br/>
+                              <img width='106' src='$img'>";
+            echo json_encode($data);  
+            exit();
+                
+            }else{
+               
+            $data['message'] = "no_item";
+            $data['print'] = "Debe seleccionar un Producto";
+            echo json_encode($data);  
+            exit();
             }
-        
                     //SEO
             $obj_products['title'] = "Contacto | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";

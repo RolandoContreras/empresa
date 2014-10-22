@@ -58,6 +58,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['city'] = $obj_user->city;
                 $data_customer_session['department'] = $obj_user->department;
+                $data_customer_session['code'] = $obj_user->code;
                 $data_customer_session['logged_customer'] = "TRUE";
                 $data_customer_session['status'] = $obj_user->status_value;
                 $_SESSION['customer'] = $data_customer_session;      
@@ -82,6 +83,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['city'] = $obj_user->city;
                 $data_customer_session['department'] = $obj_user->department;
+                $data_customer_session['code'] = $obj_user->code;
                 $data_customer_session['logged_customer'] = "TRUE";
                 $data_customer_session['status'] = $obj_user->status_value;
                 $_SESSION['customer'] = $data_customer_session;      
