@@ -90,8 +90,7 @@
                     <nav class="pull-right controls">
                         
                         <div class="fast-access-blog">
- 	                            	<span>Rolando Contreras</span>
-
+ 	                <span><?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?></span>
                         </div>
                         <ul class="nav">
 				<li class="settings" style="border-left: 1px solid #336699; height: 47px;">

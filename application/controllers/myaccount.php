@@ -54,6 +54,7 @@ class Myaccount extends CI_Controller {
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
                 $data_customer_session['name'] = $obj_user->first_name;
+                $data_customer_session['last_name'] = $obj_user->last_name;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['city'] = $obj_user->city;
@@ -79,6 +80,7 @@ class Myaccount extends CI_Controller {
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
                 $data_customer_session['name'] = $obj_user->first_name;
+                $data_customer_session['last_name'] = $obj_user->last_name;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['city'] = $obj_user->city;
@@ -98,7 +100,7 @@ class Myaccount extends CI_Controller {
         //SELECT CATEGORIES
             $param = array(
                         "select" =>"",
-                        "where" => "email = '$username' and  password='$password'",
+                        "where" => "code = '$username' and  password='$password'",
                            );
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;

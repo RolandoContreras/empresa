@@ -22,7 +22,8 @@
 <section class="title-section">
 <h1 class="title-header">Login</h1>
  
-<ul class="breadcrumb breadcrumb__t"><li><a href="http://livedemo00.template-help.com/woocommerce_51107">Home</a></li><li class="divider"></li><li class="active">Login</li></ul>  
+<ul class="breadcrumb breadcrumb__t"><li><a href="<?php echo site_url().'home';?>">Home</a></li><li class="divider"></li>
+    <li class="active">Login</li></ul>  
 </section>  </div>
 </div>
 <div class="row">
@@ -32,7 +33,7 @@
             <h2>Login</h2>
             <form method="post" class="login" action="<?php echo site_url().'micuenta/validar_user_backoffice';?>">
                     <p class="form-row form-row-wide">
-                    <label for="username">Username<span class="required">*</span></label>
+                    <label for="username">Waveline ID<span class="required">*</span></label>
                     <input type="text" class="input-text" name="username" id="username"/>
                     </p>
                     
