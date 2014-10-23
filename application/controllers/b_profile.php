@@ -34,7 +34,7 @@ class B_profile extends CI_Controller {
         // VISTA
         $obj_profile = $this->obj_customer->get_search_row($params);
         $this->tmp_backoffice->set("obj_profile",$obj_profile);
-        $this->tmp_backoffice->render("backoffice/profile");;
+        $this->tmp_backoffice->render("backoffice/profile");
     }
     
     public function validate(){

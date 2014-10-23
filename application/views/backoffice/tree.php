@@ -64,18 +64,20 @@
         <section class="widget widget-binario">
             <header class="title-widget clearfix" style="margin-bottom:0px;">
                 <h1 class="pull-left" style="color:#428bca;">
-                    Rolando Contreras ( rolandocontreras ) <!-- <span style="color:red;">position</span> -->
+                    <?php echo $obj_profile->first_name." ".$obj_profile->last_name;?> (<?php echo $obj_profile->code;?>)
                 </h1>
                 <br>
-                <p >Patrocinador: Jenner Castro (jenner)</p>
-
-
+                <?php 
+                
+                if(count($obj_upline) > 0){ ?>
+                     <p>Patrocinador: <?php echo $obj_upline->first_name." ".$obj_upline->last_name;?>(<?php echo $obj_upline->code;?>)</p>
+                <?php } ?>
+                
             </header>
 
             <div class="wg-content">
                 <div style="float:left;margin:10px;width:190px;">
-                    REGISTRATION DATE: <span style="color:#428bca; font-weight:bold;">2014.04.16</span><br>
-                    PACK:<span style="color:#428bca; font-weight:bold;">Standar</span><br>
+                    FECHA DE REGISTRO: <span style="color:#428bca; font-weight:bold;"><?php echo formato_fecha_barras($obj_profile->created_at);?></span><br>
                 </div>
                 <div style="float:left;margin:10px;width:190px;">
                     LEFT: <span style="color:#428bca; font-weight:bold;">1.000</span><br>
@@ -101,60 +103,81 @@
                             Back to top                            <span class="angle-up"></span>
                         </a>
                     </div>
-                                        <div class="network-view">
-                        <a href="#modalLegenda" data-toggle="modal" class="button-information">
-                            <i class="icon-info-sign"></i>
-                        </a>
+                    <div class="network-view">
                         <div class="niveis">
                             <div class="nivel n1">
-                                <a href = "/users/binary/rolandocontreras" class = "posicao posicao-n5 consultant"><img src="/images/profile/82273_1398035183_9537.jpg" title = "<center>Rolando Contreras<br>rolandocontreras<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/profile/82273_1398035183_9537.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(jenner)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>CONSULTANT</center>" class = "tooltip_class consultant_tooltip"></a>
+                                <a href = "/users/binary/rolandocontreras" class = "posicao posicao-n5 consultant">
+                                    <img src="<?php echo site_url();?>static/images/empty.jpg" 
+                                         title = "<center><?php echo $obj_profile->first_name." ".$obj_profile->last_name?><br><?php echo $obj_profile->code;?>
+                                         <br><br><hr>(jenner)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
+                                         </center>" class = "tooltip_class consultant_tooltip">
+                                </a>
                                 <div class="nivel n2 esquerda">
-                                    <a href = "/users/binary/roxanacabana" class = "posicao posicao-n5 consultant"><img src="/images/female-avatar.jpg" title = "<center>Roxana Lopez<br>roxanacabana<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(rolandocontreras)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>CONSULTANT</center>" class = "tooltip_class consultant_tooltip"></a>
+                                    <a href = "" class = "posicao posicao-n5 consultant">
+                                        <img src="<?php echo site_url();?>static/images/empty.jpg" 
+                                            title = "<center>Roxana Lopez<br>roxanacabana<center>
+                                            <br><br><hr>(rolandocontreras)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
+                                            </center>" class = "tooltip_class consultant_tooltip">
+                                    </a>
                                     <div class="nivel n3 esquerda">
-                                        <a href = "/users/binary/roxanacabana2" class = "posicao posicao-n5 premier"><img src="/images/female-avatar.jpg" title = "<center>Sandra Cabana<br>roxanacabana2<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(roxanacabana)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>
+                                        <a href = "/users/binary/roxanacabana2" class = "posicao posicao-n5 premier">
+                                            <img src="<?php echo site_url();?>static/images/empty.jpg" 
+                                                 title = "<center>Sandra Cabana<br>roxanacabana2<center>
+                                                 <br><br><hr>(roxanacabana)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip">
+                                        </a>
 
                                         <div class="nivel n4 esquerda">
-                                            <a href = "/users/binary/henrryny1" class = "posicao posicao-n5 premier"><img src="/images/male-avatar.jpg" title = "<center>Henrry Delgado<br>henrryny1<center><img src='/images/bandeiras/us.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/male-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(roxanacabana2)<br>500 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>                                            <div class="nivel n5 esquerda">
-                                                <a href = "/users/binary/henrryny2" class = "posicao posicao-n5 premier"><img src="/images/female-avatar.jpg" title = "<center>Mariella Delgado<br>henrryny2<center><img src='/images/bandeiras/us.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(henrryny1)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>                                            </div>
+                                            <a href = "/users/binary/henrryny1" class = "posicao posicao-n5 premier"><img src="<?php echo site_url();?>static/images/empty.jpg" title = "<center>Henrry Delgado<br>henrryny1<center><img src='/images/bandeiras/us.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/male-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(roxanacabana2)<br>500 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>                                            
+                                            <div class="nivel n5 esquerda">
+                                                <a href = "/users/binary/henrryny2" class = "posicao posicao-n5 premier"><img src="<?php echo site_url();?>static/images/empty.jpg" title = "<center>Mariella Delgado<br>henrryny2<center><img src='/images/bandeiras/us.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(henrryny1)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>                                            </div>
                                             <div class="nivel n5 direita">
-                                               <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                           </div>
+                                               <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                           
+                                            </div>
 
                                        </div>
 
                                        <div class="nivel n4 direita">
-                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        <div class="nivel n5 esquerda">
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
                                         <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
 
                                     </div>
                                 </div>
 
                                 <div class="nivel n3 direita">
-                                    <a href = "/users/binary/roxanacabana3" class = "posicao posicao-n5 premier"><img src="/images/female-avatar.jpg" title = "<center>Veronica Javier<br>roxanacabana3<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(roxanacabana)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>
+                                    <a href = "/users/binary/roxanacabana3" class = "posicao posicao-n5 premier"><img src="<?php echo site_url();?>static/images/empty.jpg" title = "<center>Veronica Javier<br>roxanacabana3<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(roxanacabana)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>
                                     <div class="nivel n4 esquerda">
                                         <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>
                                         <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
                                         <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
 
                                     </div>
 
                                     <div class="nivel n4 direita">
-                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        <div class="nivel n5 esquerda">
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
                                         <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
 
                                     </div>
                                 </div>
                             </div>
 
                             <div class="nivel n2 direita">
-                                <a href = "/users/binary/pedroperezpalma" class = "posicao posicao-n5 consultant"><img src="/images/male-avatar.jpg" title = "<center>Pedro Perez<br>pedroperezpalma<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/male-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(rolandocontreras)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>CONSULTANT</center>" class = "tooltip_class consultant_tooltip"></a>
+                                <a href = "/users/binary/pedroperezpalma" class = "posicao posicao-n5 consultant"><img src="<?php echo site_url();?>static/images/empty.jpg" title = "<center>Pedro Perez<br>pedroperezpalma<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/male-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(rolandocontreras)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>CONSULTANT</center>" class = "tooltip_class consultant_tooltip"></a>
                                 <div class="nivel n3 esquerda">
-                                    <a href = "/users/binary/pedroperezpalma3" class = "posicao posicao-n5 premier"><img src="/images/female-avatar.jpg" title = "<center>Mayra Romero<br>pedroperezpalma3<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(pedroperezpalma)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>
+                                    <a href = "/users/binary/pedroperezpalma3" class = "posicao posicao-n5 premier"><img src="<?php echo site_url();?>static/images/empty.jpg" title = "<center>Mayra Romero<br>pedroperezpalma3<center><img src='/images/bandeiras/pe.png' style='position:absolute; z-index:1;top:55px; left:15%;'/></center><img src='/images/female-avatar.jpg' width='100' height='100' style='margin-top:10px; margin-bottom:10px;'/><br>(pedroperezpalma)<br>0 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0<br>ELITE</center>" class = "tooltip_class premier_tooltip"></a>
                                     <div class="nivel n4 esquerda">
                                         <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
                                         <div class="nivel n5 esquerda">
@@ -167,10 +190,13 @@
                                     </div>
 
                                     <div class="nivel n4 direita">
-                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        <div class="nivel n5 esquerda">
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
                                         <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
 
                                     </div>
                                 </div>
@@ -180,17 +206,22 @@
                                     <div class="nivel n4 esquerda">
                                         <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>
                                         <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
                                         <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
 
                                     </div>
 
                                     <div class="nivel n4 direita">
-                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                        <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        <div class="nivel n5 esquerda">
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
                                         <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        </div>
+                                            <a href = "" class = "posicao posicao-n5profile_cacaca"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
+                                        </div>
 
                                     </div>
                                 </div>
@@ -215,23 +246,20 @@
 <a name="perna"></a>
 <section class="widget widget-perna-preferencial" style="margin-top:10px;">
     <header class="title-widget" style="margin-bottom:10px;">
-        <h1>Default Leg</h1>
+        <h1>Pierna por Defecto</h1>
     </header>
     <div class="wg-content" style="height:80px;">
 
         <form action="/users/binary" id="UserBinaryForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>        <label for="esquerda">
             <input type="radio" id="esquerda" value="esquerda" name="perna_preferencial"  > 
-            <i class="icon-circle-arrow-left"></i>
             <span>Izquierda</span>
         </label>
         <label for="direita">
             <input type="radio" id="direita" value="direita" name="perna_preferencial"   checked='checked' >
-            <i class="icon-circle-arrow-right"></i>
             <span>Derecha</span>
         </label>
         <label for="menor">
             <input type="radio" id="menor" value="menor" name="perna_preferencial"    >
-            <i class="icon-minus-sign"></i>
             <span>Balanceado</span>
         </label> 
 <div class="submit"><input  class="btn btn-sm btn-primary" type="submit" value="Save"/></div>                    

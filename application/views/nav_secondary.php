@@ -4,7 +4,7 @@
        if(isset($_SESSION['customer'])){?>
            <div class="cart-holder">
                <h4 class="users">Bienvenido <?php echo $_SESSION['customer']['name'];?>&nbsp;&nbsp;
-                   <a href="<?php echo site_url().'logout';?>" title="Logout"><img class="image_icons"src="<?php echo site_url().'static/images/logout.png';?>"></a>
+                   <a href="<?php echo site_url().'logout';?>" title="Logout"><img class="image_icons"src="<?php echo site_url().'static/images/png/logout2.png';?>"></a>
             </h4>
             
         </div>

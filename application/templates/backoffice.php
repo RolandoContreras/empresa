@@ -95,8 +95,8 @@
                         <ul class="nav">
 				<li class="settings" style="border-left: 1px solid #336699; height: 47px;">
                                     <div style="margin: 10px;">
-                                        <a href="https://www.facebook.com/Azulsporturban?fref=ts" target="_blank"><img src="<?php echo site_url();?>static/images/social/fb.gif" style="max-width: 25px;"></a>
-                                        <a href="#" target="_blank"><img src="<?php echo site_url();?>static/images/social/twitter.gif" style="max-width: 25px;"></a>
+                                        <a href="https://www.facebook.com/Wavelinetwork" target="_blank"><img src="<?php echo site_url();?>static/images/social/fb.gif" style="max-width: 25px;"></a>
+                                        <a href="https://twitter.com/Wavelinetwork" target="_blank"><img src="<?php echo site_url();?>static/images/social/twitter.gif" style="max-width: 25px;"></a>
                                     </div>
                                 </li>
  			<li class="settings">
@@ -116,7 +116,6 @@
 
                 <div class="fixed-area">
                     <!-- Logo do MMN. Link volta pra homepage -->
-
                     <!-- Menu principal das páginas -->
                     
                     <nav class="main-menu">
@@ -135,16 +134,16 @@
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/data45.png';?>">&nbsp;&nbsp;Comisiones</span>
                                 </a>
                             </li>
-<!--                            <li>
+                            <li>
                                 <a href="<?php echo site_url().'backoffice/arbol';?>">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/cloud189.png';?>">&nbsp;&nbsp;Arbol</span>
                                 </a>
-                            </li>-->
-                            <li>
+                            </li>
+<!--                            <li>
                                 <a href="<?php echo site_url().'backoffice/nuevomiembro';?>">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/add133.png';?>">&nbsp;&nbsp;Nuevo Miembro</span>
                                 </a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a href="<?php echo site_url().'backoffice/faq';?>">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/male172.png';?>">&nbsp;&nbsp;FAQ</span>
