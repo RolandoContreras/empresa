@@ -221,10 +221,10 @@ class Register extends CI_Controller {
             $img = site_url().'static/images/logobcp.gif';
             
             $data['message'] = "success";
-            $data['print'] = "El Cliente se registro con éxito, Le damos la más cordial bienvenida al equipo Waveline Network<br/><br/>
+            $data['print'] = "El Cliente se registró con éxito, Le damos la más cordial bienvenida al equipo Waveline Network<br/><br/>
                               <b>Usuario</b>: $obj_customer->code<br/>
                               <b>Contraseña</b>: $obj_customer->password<br/><br/>
-                              El pedido sera entragado en 2 dias habiles a la dirección registrada.<br/>    
+                              El pedido será entragado en 2 días hábiles a la dirección registrada.<br/>    
                               Actualmente su cuenta esta inactiva hasta realizar el pago:<br/>
                               Banco de Credito del Perú - BCP<br/><br/>
                               194-2204558-0-61 Cuenta Corriente Soles<br/>
