@@ -36,14 +36,203 @@ class B_tree extends CI_Controller {
         
         /// TREE
         $param_tree = array(
-                        "select" =>"",
-                         "where" => "created_at > '$creacion' and status_value = 1",
+                        "select" =>"customer_id,
+                                    first_name,
+                                    last_name,
+                                    created_at,
+                                    parents_id,
+                                    country,
+                                    position,
+                                    code",
+                         "where" => "created_at >= '$creacion' and status_value = 1 LIMIT 31",
                         ); 
         $obj_tree = $this->obj_customer->search($param_tree);
         
-//        var_dump($obj_tree);
+//        $n1 = array();
+        
+//        echo count($n1);
 //        die();
         
+        $n2_iz = "";
+        $n3_iz = "";
+        $n3_2_iz = "";
+        $n4_iz = "";
+        $n4_4_iz = "";
+        $n2_de = "";
+        $n3_de = "";
+        $n3_2_de = "";
+        $n4_de = "";
+        $n4_4_de = "";
+        
+        foreach ($obj_tree as $key => $value) {
+            
+            if($key == 0){
+                $n1 = array($value->first_name,
+                            $value->last_name,
+                            $value->customer_id,
+                            $value->parents_id,
+                            $value->position,
+                            $value->country,
+                            $value->code);
+            }else{
+                 if($value->parents_id == $n1[2]){
+                        if($value->position ==1){
+                            if($n2_iz == ""){
+                                $n2_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }elseif($n3_iz == ""){
+                                $n3_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                            elseif($n4_iz == ""){
+                                $n4_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                        }else{
+                            if($n2_de == ""){
+                                $n2_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }elseif($n3_de == ""){
+                                $n3_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }elseif($n4_de == ""){
+                                $n4_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                        }
+                    }elseif($value->parents_id == $n2_iz[2]){
+                        if($value->position ==1){
+                            if($n3_iz == ""){
+                                $n3_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }else{
+                                $n4_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                        }else{
+                            if($n3_2_iz == ""){
+                                $n3_2_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }else{
+                                $n4_4_iz = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                        }
+                }elseif($value->parents_id == $n2_de[2]){
+                    if($value->position ==1){
+                            if($n3_2_de == ""){
+                                $n3_2_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }else{
+                                $n4_4_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                        }else{
+                            if($n3_de == ""){
+                                $n3_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }else{
+                                $n4_de = array($value->first_name,
+                                               $value->last_name,
+                                               $value->customer_id,
+                                               $value->parents_id,
+                                               $value->position,
+                                               $value->country,
+                                               $value->code);
+                            }
+                        }
+                    
+                }
+            }
+        }
+
+        
+   
+//        var_dump($n2_iz);
+//        var_dump($n3_iz);
+//        var_dump($n4_iz);
+//        
+//        die();
+        
+        
+        
+        
+        $this->tmp_backoffice->set("n1",$n1);
+        $this->tmp_backoffice->set("n2_iz",$n2_iz);
+        $this->tmp_backoffice->set("n3_iz",$n3_iz);
+        $this->tmp_backoffice->set("n3_2_iz",$n3_2_iz);
+        $this->tmp_backoffice->set("n4_iz",$n4_iz);
+        $this->tmp_backoffice->set("n4_4_iz",$n4_4_iz);
+        $this->tmp_backoffice->set("n2_de",$n2_de);
+        $this->tmp_backoffice->set("n3_de",$n3_de);
+        $this->tmp_backoffice->set("n3_2_de",$n3_2_de);
+        $this->tmp_backoffice->set("n4_de",$n4_de);
+        $this->tmp_backoffice->set("n4_4_de",$n4_4_de);
         $this->tmp_backoffice->set("obj_profile",$obj_profile);
         $this->tmp_backoffice->set("obj_tree",$obj_tree);
         $this->tmp_backoffice->set("obj_upline",$obj_upline);
