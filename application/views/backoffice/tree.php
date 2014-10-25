@@ -108,7 +108,7 @@
                     <div class="network-view">
                         <div class="niveis">
                             <div class="nivel n1">
-                                <a href = "" class = "posicao posicao-n5 consultant"> 
+                                <a class = "posicao posicao-n5 consultant"> 
                                      <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                             title = "<center><?php echo $n1[0];?><br><?php echo $n1[1];?><center>
                                             <br><br><hr>(<?php echo $n1[5];?>)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
@@ -117,7 +117,7 @@
                                 </a>
                                 <?php $class = count($n2_iz) > 1?"consultant":"";?>
                                 <div class="nivel n2 esquerda">
-                                    <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                    <a href = "<?php echo site_url()."backoffice/arbol/$n2_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                         <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                           <?php if(count($n2_iz) > 1){ ?>
                                                     title = "<center><?php echo $n2_iz[0];?><br><?php echo $n2_iz[1];?><center>
@@ -148,7 +148,7 @@
                                                     </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?>   
                                             </a>
-                                                <div class="nivel n5 esquerda">
+<!--                                                <div class="nivel n5 esquerda">
                                                     <a href = "" class ="posicao posicao-n5">
                                                         <img src="<?php echo site_url();?>static/images/empty.jpg"/>
                                                     </a>                                            
@@ -157,7 +157,7 @@
                                                    <a href = "" class = "posicao posicao-n5">
                                                        <img src="<?php echo site_url();?>static/images/empty.jpg" class = "">
                                                    </a>                                           
-                                                </div>
+                                                </div>-->
                                         </div>
 
                                        <div class="nivel n4 direita">
@@ -326,12 +326,12 @@
                                                   </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?> 
                                         </a>                                        
-                                        <div class="nivel n5 esquerda">
+<!--                                        <div class="nivel n5 esquerda">
                                             <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
                                         </div>
                                         <div class="nivel n5 direita">
                                             <a href = "" class = "posicao posicao-n5a"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
