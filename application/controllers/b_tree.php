@@ -17,7 +17,7 @@ class B_tree extends CI_Controller {
         if($id == ""){
             $customer_id = $_SESSION['customer']['customer_id'];
         }else{
-             $customer_id = $id;
+            $customer_id = $id;
         }
         
         // VISTA
@@ -27,6 +27,7 @@ class B_tree extends CI_Controller {
                         ); 
         $obj_profile = $this->obj_customer->get_search_row($params);
         $creacion = $obj_profile->created_at;
+        $side =  $obj_profile->position;
         
         //SELECT UPLINE CUSTOMER
         $param_uplinet = array(
@@ -38,79 +39,62 @@ class B_tree extends CI_Controller {
                          "where" => "customer_id = $obj_profile->parents_id",
                         ); 
         $obj_upline = $this->obj_customer->get_search_row($param_uplinet);
+        $parents_id_1 = $obj_upline->customer_id;
+        
+        $where_p_2 = "";
+        $where_p_3 = "";
+        $where_p_4 = "";
+        $where_p_5 = "";
         
         /// TREE
         if($id == ""){
             $where = "created_at >= '$creacion' and status_value = 1";
         }else{
-            
-            do {
-                $parents = array(
-                        "select" =>"parents_id",
-                        "where" => "customer_id = $customer_id",
-                        );
-                $obj_parent = $this->obj_customer->get_search_row($parents);
-                $customer_id = $obj_parent->parents_id;
-                $arr = array();
-                $arr =  $customer_id;   
-//                echo $customer_id;
-//                die();
+               if($parents_id_1!=""){
+                    $parents = array(
+                            "select" =>"parents_id",
+                            "where" => "customer_id = $parents_id_1",
+                            );
+                    $obj_parent = $this->obj_customer->get_search_row($parents);
+                    $parents_id_2 = $obj_parent->parents_id;
+                    if($parents_id_2!=""){
+                       $where_p_2 = ","." $parents_id_2";
+                       $parents = array(
+                            "select" =>"parents_id",
+                            "where" => "customer_id = $parents_id_2",
+                            );
+                    $obj_parent = $this->obj_customer->get_search_row($parents);
+                    $parents_id_3 = $obj_parent->parents_id;
+                        if($parents_id_3!=""){
+                           $where_p_3 = ","." $parents_id_3";
+                           $parents = array(
+                                "select" =>"parents_id",
+                                "where" => "customer_id = $parents_id_3",
+                                );
+                        $obj_parent = $this->obj_customer->get_search_row($parents);
+                        $parents_id_4 = $obj_parent->parents_id;
+                                    if($parents_id_4!=""){
+                                    $where_p_4 = ","." $parents_id_4";                                       
+                                        $parents = array(
+                                                "select" =>"parents_id",
+                                                "where" => "customer_id = $parents_id_4",
+                                                );
+                                        $obj_parent = $this->obj_customer->get_search_row($parents);
+                                        $parents_id_5 = $obj_parent->parents_id;
+                                        if($parents_id_5!=""){
+                                            $where_p_5 = ","." $parents_id_5";
+                                        }else{
+                                            $where_p_5 = "";
+                                        }
+                            }   
+                        }
+                    }
+                }
                 
-                   $x++;
-            } while ($x<=50);
-            
-            var_dump($arr);
-            die();
-            
-            
-//             $i = 1;
-//             while($i <= 50){
-//                $arr = array();
-//                $parents = array(
-//                        "select" =>"parents_id",
-//                        "where" => "customer_id = $customer_id",
-//                        );
-//                $obj_parent = $this->obj_customer->get_search_row($parents);
-//                $customer_id = $obj_parent->parents_id;
-//                
-//                if($customer_id == ""){
-//                    $i = 0;
-//                }else{
-//                    $arr =  $customer_id;
-//                    $i++;
-//                }
-//             }
-//             var_dump($arr);
-//             die();
-            
-//            for($i = 2; $i <= 10; $i += 2)
-//                {
-//                  echo "......................\n";
-//                  //contando números pares
-//                  echo "i vale: " . $i . "\n";
-//                  //sus cuadrados
-//                  echo "i^2: " . $i*$i . "\n";
-//                  //y sus inversos
-//                  echo "1/i: " . 1/$i . "\n";
-//                  }
-            
-//            foreach ($obj_parent as $key => $value) {
-//                $parents = array(
-//                        "select" =>"parents_id",
-//                         "where" => "customer_id = $customer_id",
-//                        );
-//                $obj_parent = $this->obj_customer->get_search_row($parents);
-//            }
-            
-            var_dump($obj_parent);
-            die();
-            
-            $where = "created_at >= '$creacion' and status_value = 1  and customer_id = $customer_id or parents_id = $customer_id ";
-//            IN ( 250, 220, 170 )
-            
-//             $where = "created_at >= '$creacion' and status_value = 1  and parents_id = $customer_id && ";
+        //$where = "created_at >= '$creacion' and status_value = 1 and customer_id <> $customer_id or parents_id IN ($parents_id_1$where_p_2$where_p_3$where_p_4$where_p_5) ";
+        $where = "created_at >= '$creacion' and status_value = 1 or parents_id IN ($parents_id_1$where_p_2$where_p_3$where_p_4$where_p_5)";
         }
-     
+        
         $param_tree = array(
                         "select" =>"customer_id,
                                     first_name,
@@ -121,14 +105,11 @@ class B_tree extends CI_Controller {
                                     position,
                                     code",
                          "where" => $where,
-                         "order" => "created_at ASC LIMIT 50",
+                         "order" => "created_at ASC LIMIT 50", 
                         ); 
+   
 //        LIMIT 31
         $obj_tree = $this->obj_customer->search($param_tree);
-        
-//        var_dump($obj_tree);
-//        die();
-        
         
         $n2_iz = "";
         $n2_de = "";
@@ -145,17 +126,19 @@ class B_tree extends CI_Controller {
         $n4_3_de = "";
         $n4_4_de = "";
         
+        $n1 = array($obj_profile->first_name,
+                            $obj_profile->last_name,
+                            $obj_profile->customer_id,
+                            $obj_profile->parents_id,
+                            $obj_profile->position,
+                            $obj_profile->country,
+                            $obj_profile->code);
+        
         foreach ($obj_tree as $key => $value) {
             
-            if($key == 0){
-                $n1 = array($value->first_name,
-                            $value->last_name,
-                            $value->customer_id,
-                            $value->parents_id,
-                            $value->position,
-                            $value->country,
-                            $value->code);
-            }else{
+//            if($key == 0){
+                
+//            }else{
                  if($value->parents_id == $n1[2]){
                         if($value->position ==1){
                             if($n2_iz == ""){
@@ -375,12 +358,13 @@ class B_tree extends CI_Controller {
                                                $value->code);
                             }
                         }
-                }
-            }
+                }else{
+                     //falta vereficar el paretn y la position y terminas
+                    
+                     }
+                    
+//            }
         }
-        
-//        var_dump($n4_3_de);
-//        die();
         
         $this->tmp_backoffice->set("n1",$n1);
         $this->tmp_backoffice->set("n2_iz",$n2_iz);
