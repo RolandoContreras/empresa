@@ -47,9 +47,6 @@ class B_tree extends CI_Controller {
         $where_p_5 = "";
         
         /// TREE
-        if($id == ""){
-            $where = "created_at >= '$creacion' and status_value = 1";
-        }else{
                if($parents_id_1!=""){
                     $parents = array(
                             "select" =>"parents_id",
@@ -91,10 +88,6 @@ class B_tree extends CI_Controller {
                     }
                 }
                 
-        //$where = "created_at >= '$creacion' and status_value = 1 and customer_id <> $customer_id or parents_id IN ($parents_id_1$where_p_2$where_p_3$where_p_4$where_p_5) ";
-        $where = "created_at >= '$creacion' and status_value = 1 or parents_id IN ($parents_id_1$where_p_2$where_p_3$where_p_4$where_p_5)";
-        }
-        
         $param_tree = array(
                         "select" =>"customer_id,
                                     first_name,
@@ -104,12 +97,17 @@ class B_tree extends CI_Controller {
                                     country,
                                     position,
                                     code",
-                         "where" => $where,
+                         "where" => "status_value = 1 and created_at > '$creacion' and customer_id <> $customer_id",
                          "order" => "created_at ASC LIMIT 50", 
                         ); 
-   
-//        LIMIT 31
+//   
+//        var_dump($param_tree);
+//        die();
+        
         $obj_tree = $this->obj_customer->search($param_tree);
+        
+//        var_dump($obj_tree);
+//        die();
         
         $n2_iz = "";
         $n2_de = "";
@@ -135,10 +133,6 @@ class B_tree extends CI_Controller {
                             $obj_profile->code);
         
         foreach ($obj_tree as $key => $value) {
-            
-//            if($key == 0){
-                
-//            }else{
                  if($value->parents_id == $n1[2]){
                         if($value->position ==1){
                             if($n2_iz == ""){
@@ -359,11 +353,68 @@ class B_tree extends CI_Controller {
                             }
                         }
                 }else{
-                     //falta vereficar el paretn y la position y terminas
-                    
-                     }
-                    
-//            }
+                     if($value->parents_id == $parents_id_1 || $value->parents_id == $parents_id_2 || $value->parents_id == $parents_id_3 || $value->parents_id == $parents_id_4 || $value->parents_id == $parents_id_5){
+                         
+                         
+                         
+                         if($value->position == $n1[4]){
+                            if($value->position ==1){
+                                if($n2_iz == ""){
+                                    $n2_iz = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }elseif($n3_iz == ""){
+                                    $n3_iz = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }
+                                elseif($n4_iz == ""){
+                                    $n4_iz = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }
+                            }else{
+                                if($n2_de == ""){
+                                    $n2_de = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }elseif($n3_de == ""){
+                                    $n3_de = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }elseif($n4_de == ""){
+                                    $n4_de = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }
+                            }
+                        }
+                    }
+            }
         }
         
         $this->tmp_backoffice->set("n1",$n1);

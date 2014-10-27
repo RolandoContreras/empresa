@@ -1,15 +1,7 @@
-<?php 
-//var_dump($n1);
-//
-//echo count($n2_de);
-//die();
-?>
-
 <link rel="stylesheet" type="text/css" href="<?php echo site_url().'static/css/tooltipster.css';?>" />
 <script type="text/javascript" src="<?php echo site_url().'static/js/jquery.tooltipster.min.js';?>"></script>
 <script>
     $(document).ready(function() {
-        //$('.tooltip_class').tooltipster();
         $('.member_tooltip').tooltipster({
             theme: '.tooltipster_member'
         });
@@ -45,15 +37,6 @@
         });
         $('.executive-director_tooltip').tooltipster({
             theme: '.tooltipster_executive_director'
-        });
-        $('.presidente_tooltip').tooltipster({
-            theme: '.tooltipster_presidente'
-        });
-        $('.chairman_tooltip').tooltipster({
-            theme: '.tooltipster_chairman'
-        });
-        $('.expirado_tooltip').tooltipster({
-            theme: '.tooltipster_expirado'
         });
     });
 </script>
@@ -101,8 +84,8 @@
                         <a href="/users/binary/zarela44" class="button button-icon-left button-up pull-left">
                             <span class="arrow-sign-up"></span>
                             Up One Level                        </a>
-                        <a href="/users/binary/rolandocontreras" class="button button-icon-right button-top pull-right">
-                            Back to top                            <span class="angle-up"></span>
+                        <a href="<?php echo site_url().'backoffice/arbol';?>" class="button button-icon-right button-top pull-right">
+                            Volver Arriba<span class="angle-up"></span>
                         </a>
                     </div>
                     <div class="network-view">
@@ -128,7 +111,7 @@
                                     </a>
                                     <?php $class = count($n3_iz) > 1?"consultant":"";?>
                                     <div class="nivel n3 esquerda">
-                                        <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n3_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                         <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                           <?php if(count($n3_iz) > 1){ ?>
                                                     title = "<center><?php echo $n3_iz[0];?><br><?php echo $n3_iz[1];?><center>
@@ -140,7 +123,7 @@
                                         
                                         <?php $class = count($n4_iz) > 1?"consultant":"";?>    
                                         <div class="nivel n4 esquerda">
-                                            <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                            <a href = "<?php echo site_url()."backoffice/arbol/$n4_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                                 <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                   <?php if(count($n4_iz) > 1){ ?>
                                                             title = "<center><?php echo $n4_iz[0];?><br><?php echo $n4_iz[1];?><center>
@@ -148,21 +131,11 @@
                                                     </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?>   
                                             </a>
-<!--                                                <div class="nivel n5 esquerda">
-                                                    <a href = "" class ="posicao posicao-n5">
-                                                        <img src="<?php echo site_url();?>static/images/empty.jpg"/>
-                                                    </a>                                            
-                                                </div>
-                                                <div class="nivel n5 direita">
-                                                   <a href = "" class = "posicao posicao-n5">
-                                                       <img src="<?php echo site_url();?>static/images/empty.jpg" class = "">
-                                                   </a>                                           
-                                                </div>-->
                                         </div>
 
                                        <div class="nivel n4 direita">
                                            <?php $class = count($n4_2_iz) > 1?"consultant":"";?>    
-                                            <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                            <a href = "<?php echo site_url()."backoffice/arbol/$n4_2_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                                 <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                   <?php if(count($n4_2_iz) > 1){ ?>
                                                             title = "<center><?php echo $n4_2_iz[0];?><br><?php echo $n4_2_iz[1];?><center>
@@ -170,18 +143,12 @@
                                                     </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?>  
                                             </a>                                        
-<!--                                            <div class="nivel n5 esquerda">
-                                                <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                            </div>
-                                            <div class="nivel n5 direita">
-                                                <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                            </div>-->
                                         </div>
                                     </div>
 
                                     <div class="nivel n3 direita">
                                         <?php $class = count($n3_2_iz) > 1?"consultant":"";?> 
-                                        <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n3_2_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                             <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                   <?php if(count($n3_2_iz) > 1){ ?>
                                                             title = "<center><?php echo $n3_2_iz[0];?><br><?php echo $n3_2_iz[1];?><center>
@@ -191,24 +158,19 @@
                                         </a>
                                         <div class="nivel n4 esquerda">
                                             <?php $class = count($n4_3_iz) > 1?"consultant":"";?> 
-                                            <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                            <a href = "<?php echo site_url()."backoffice/arbol/$n4_3_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                                <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                   <?php if(count($n4_3_iz) > 1){ ?>
                                                             title = "<center><?php echo $n4_3_iz[0];?><br><?php echo $n4_3_iz[1];?><center>
                                                     <br><br><hr>(<?php echo $n4_3_iz[5];?>)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
                                                     </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?>  
-<!--                                            <div class="nivel n5 esquerda">
-                                                <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                            </div>
-                                            <div class="nivel n5 direita">
-                                                <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                            </div>-->
+                                            </a>
                                         </div>
 
                                         <div class="nivel n4 direita">
                                             <?php $class = count($n4_4_iz) > 1?"consultant":"";?> 
-                                            <a href = "" class = "posicao posicao-n5 <?php echo $class;?>">
+                                            <a href = "<?php echo site_url()."backoffice/arbol/$n4_4_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                                 <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                   <?php if(count($n4_4_iz) > 1){ ?>
                                                             title = "<center><?php echo $n4_4_iz[0];?><br><?php echo $n4_4_iz[1];?><center>
@@ -216,20 +178,13 @@
                                                     </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?>   
                                             </a>                                        
-<!--                                            <div class="nivel n5 esquerda">
-                                                <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                            </div>
-                                            <div class="nivel n5 direita">
-                                                <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                            </div>-->
-
                                         </div>
                                     </div>
                             </div>
 
                             <div class="nivel n2 direita">
                                 <?php $class = count($n2_de) > 1?"consultant":"";?>
-                                <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                <a href = "<?php echo site_url()."backoffice/arbol/$n2_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                     <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                           <?php if(count($n2_de) > 1){ ?>
                                                     title = "<center><?php echo $n2_de[0];?><br><?php echo $n2_de[1];?><center>
@@ -239,7 +194,7 @@
                                 </a>
                                 <div class="nivel n3 esquerda">
                                     <?php $class = count($n3_2_de) > 1?"consultant":"";?>
-                                    <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                    <a href = "<?php echo site_url()."backoffice/arbol/$n3_2_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                         <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                           <?php if(count($n3_2_de) > 1){ ?>
                                                     title = "<center><?php echo $n3_2_de[0];?><br><?php echo $n3_2_de[1];?><center>
@@ -249,7 +204,7 @@
                                     </a>
                                     <div class="nivel n4 esquerda">
                                         <?php $class = count($n4_4_de) > 1?"consultant":"";?>
-                                        <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n4_4_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                             <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                 <?php if(count($n4_4_de) > 1){ ?>
                                                           title = "<center><?php echo $n4_4_de[0];?><br><?php echo $n4_4_de[1];?><center>
@@ -257,18 +212,11 @@
                                                   </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?> 
                                         </a>                                        
-<!--                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>
-                                        <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>-->
-
                                     </div>
 
                                     <div class="nivel n4 direita">
                                         <?php $class = count($n4_3_de) > 1?"consultant":"";?>
-                                        <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n4_3_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                              <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                 <?php if(count($n4_3_de) > 1){ ?>
                                                           title = "<center><?php echo $n4_3_de[0];?><br><?php echo $n4_3_de[1];?><center>
@@ -276,19 +224,12 @@
                                                   </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?> 
                                         </a>                                        
-<!--                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>
-                                        <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>-->
-
                                     </div>
                                 </div>
 
                                 <div class="nivel n3 direita">
                                     <?php $class = count($n3_de) > 1?"consultant":"";?>
-                                    <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                    <a href = "<?php echo site_url()."backoffice/arbol/$n3_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                         <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                           <?php if(count($n3_de) > 1){ ?>
                                                     title = "<center><?php echo $n3_de[0];?><br><?php echo $n3_de[1];?><center>
@@ -299,7 +240,7 @@
                                     </a>
                                     <div class="nivel n4 esquerda">
                                         <?php $class = count($n4_2_de) > 1?"consultant":"";?>
-                                        <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n4_2_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                             <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                 <?php if(count($n4_2_de) > 1){ ?>
                                                           title = "<center><?php echo $n4_2_de[0];?><br><?php echo $n4_2_de[1];?><center>
@@ -307,18 +248,11 @@
                                                   </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?> 
                                         </a>
-<!--                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>
-                                        <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>-->
-
                                     </div>
 
                                     <div class="nivel n4 direita">
                                         <?php $class = count($n4_de) > 1?"consultant":"";?>
-                                        <a href = "" class = "posicao posicao-n5 <?php echo $class?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n4_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
                                                 <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                 <?php if(count($n4_de) > 1){ ?>
                                                 title = "<center><?php echo $n4_de[0];?><br><?php echo $n4_de[1];?><center>
@@ -326,26 +260,35 @@
                                                   </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?> 
                                         </a>                                        
-<!--                                        <div class="nivel n5 esquerda">
-                                            <a href = "" class = "posicao posicao-n5"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>
-                                        <div class="nivel n5 direita">
-                                            <a href = "" class = "posicao posicao-n5a"><img src="<?php echo site_url();?>static/images/empty.jpg" class = ""></a>                                        
-                                        </div>-->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="buttons clearfix">
-                    <a href="" class="button button-icon-left button-left pull-left">
+                    <a href="<?php 
+                    if($n4_iz != ""){
+                        echo site_url()."backoffice/arbol/$n4_iz[2]";
+                    }elseif($n3_iz){
+                        echo site_url()."backoffice/arbol/$n3_iz[2]";
+                    }else{
+                        echo site_url()."backoffice/arbol/$n2_iz[2]";
+                    }
+                    ?>" class="button button-icon-left button-left pull-left">
                         <span class="arrow-sign-left-down"></span>
-                        Down and Left                    
+                        Bajar Izquierda                   
                     </a>
-                    <a href="#" class="button button-icon-right button-right pull-right">
-                        Down and Right                        <span class="arrow-sign-right-down"></span>
+                    <a href="<?php 
+                    if($n4_de != ""){
+                        echo site_url()."backoffice/arbol/$n4_de[2]";
+                    }elseif($n3_de){
+                        echo site_url()."backoffice/arbol/$n3_de[2]";
+                    }else{
+                        echo site_url()."backoffice/arbol/$n2_de[2]";
+                    }
+                    ?>" class="button button-icon-right button-right pull-right">
+                        Bajar Derecha<span class="arrow-sign-right-down"></span>
                     </a>
                 </div>
             </div>
