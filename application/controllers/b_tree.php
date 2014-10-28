@@ -100,10 +100,6 @@ class B_tree extends CI_Controller {
                          "where" => "status_value = 1 and created_at > '$creacion' and customer_id <> $customer_id",
                          "order" => "created_at ASC LIMIT 50", 
                         ); 
-//   
-//        var_dump($param_tree);
-//        die();
-        
         $obj_tree = $this->obj_customer->search($param_tree);
         
 //        var_dump($obj_tree);
@@ -216,7 +212,7 @@ class B_tree extends CI_Controller {
                                                $value->position,
                                                $value->country,
                                                $value->code);
-                            }else{
+                            }elseif($n4_4_iz == ""){
                                 $n4_4_iz = array($value->first_name,
                                                $value->last_name,
                                                $value->customer_id,
@@ -236,7 +232,7 @@ class B_tree extends CI_Controller {
                                                $value->position,
                                                $value->country,
                                                $value->code);
-                            }else{
+                            }elseif($n4_4_de == ""){
                                 $n4_4_de = array($value->first_name,
                                                $value->last_name,
                                                $value->customer_id,
@@ -254,7 +250,7 @@ class B_tree extends CI_Controller {
                                                $value->position,
                                                $value->country,
                                                $value->code);
-                            }else{
+                            }elseif($n4_de == ""){
                                 $n4_de = array($value->first_name,
                                                $value->last_name,
                                                $value->customer_id,
@@ -353,12 +349,9 @@ class B_tree extends CI_Controller {
                             }
                         }
                 }else{
-                     if($value->parents_id == $parents_id_1 || $value->parents_id == $parents_id_2 || $value->parents_id == $parents_id_3 || $value->parents_id == $parents_id_4 || $value->parents_id == $parents_id_5){
-                         
-                         
-                         
+                     if($value->parents_id == $parents_id_1){
                          if($value->position == $n1[4]){
-                            if($value->position ==1){
+                            if($value->position == 1){
                                 if($n2_iz == ""){
                                     $n2_iz = array($value->first_name,
                                                    $value->last_name,
@@ -378,6 +371,31 @@ class B_tree extends CI_Controller {
                                 }
                                 elseif($n4_iz == ""){
                                     $n4_iz = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }elseif($n3_2_de == ""){
+                                    $n3_2_de = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }elseif($n4_2_de == ""){
+                                    $n4_2_de = array($value->first_name,
+                                                   $value->last_name,
+                                                   $value->customer_id,
+                                                   $value->parents_id,
+                                                   $value->position,
+                                                   $value->country,
+                                                   $value->code);
+                                }elseif($n4_4_de == ""){
+                                    
+                                    $n4_2_de = array($value->first_name,
                                                    $value->last_name,
                                                    $value->customer_id,
                                                    $value->parents_id,
