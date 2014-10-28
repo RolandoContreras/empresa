@@ -49,7 +49,6 @@ class Myaccount extends CI_Controller {
         $password = $this->input->post('password');  
         
         $obj_user = $this->verificar_user($username, $password);
-        
         if (count($obj_user)>0){            
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
@@ -57,12 +56,13 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['last_name'] = $obj_user->last_name;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
+                $data_customer_session['position_temporal'] = $obj_user->position_temporal;
                 $data_customer_session['city'] = $obj_user->city;
                 $data_customer_session['department'] = $obj_user->department;
                 $data_customer_session['code'] = $obj_user->code;
                 $data_customer_session['logged_customer'] = "TRUE";
                 $data_customer_session['status'] = $obj_user->status_value;
-                $_SESSION['customer'] = $data_customer_session;      
+                $_SESSION['customer'] = $data_customer_session;    
                redirect("home");    
             }
         }else{
@@ -75,7 +75,6 @@ class Myaccount extends CI_Controller {
         $password = $this->input->post('password');  
         
         $obj_user = $this->verificar_user($username, $password);
-        
         if (count($obj_user)>0){            
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
@@ -83,6 +82,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['last_name'] = $obj_user->last_name;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
+                $data_customer_session['position_temporal'] = $obj_user->position_temporal;
                 $data_customer_session['city'] = $obj_user->city;
                 $data_customer_session['department'] = $obj_user->department;
                 $data_customer_session['code'] = $obj_user->code;

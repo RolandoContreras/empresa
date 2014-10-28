@@ -35,7 +35,7 @@ class Register extends CI_Controller {
     
     public function create_customer()
     {
-        
+    $position = $_SESSION['customer']['position_temporal'];
     if(count($this->cart->contents()) > 0){
         $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));    
         
@@ -96,12 +96,16 @@ class Register extends CI_Controller {
             $parent_id = 1;
         }    
             
+        $position = $_SESSION['customer']['position_temporal'];
+        
         //INSERT CUSTOMER    
         $data = array(
                'first_name' => $this->input->post('first_name'),
                'parents_id' => $parent_id,
                'last_name' => $this->input->post('last_name'),
                'email' => $this->input->post('email'),
+               'position' => $position,
+               'position_temporal' => 1,
                'dni' => $this->input->post('dni'),
                'birth_date' => $date_birth,  
                'phone' => $this->input->post('phone'),  

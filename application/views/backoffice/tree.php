@@ -66,14 +66,14 @@
                 <div style="float:left;margin:10px;width:190px;">
                     FECHA DE REGISTRO: <span style="color:#428bca; font-weight:bold;"><?php echo formato_fecha_barras($obj_profile->created_at);?></span><br>
                 </div>
-                <div style="float:left;margin:10px;width:190px;">
+<!--                <div style="float:left;margin:10px;width:190px;">
                     LEFT: <span style="color:#428bca; font-weight:bold;">1.000</span><br>
                     RIGHT:<span style="color:#428bca; font-weight:bold;">0</span><br>
-                </div>
+                </div>-->
                 
                 <div style="float:left;margin:10px;width:190px;">
-                   DIRECTOS IZQUIERDA: <span style="color:#428bca; font-weight:bold;">1</span><br>
-                   DIRECTOS DERECHA: <span style="color:#428bca; font-weight:bold;">1</span><br>
+                   DIRECTOS IZQUIERDA: <span style="color:#428bca; font-weight:bold;"><?php echo $count_left;?></span><br>
+                   DIRECTOS DERECHA: <span style="color:#428bca; font-weight:bold;"><?php echo $count_right;?></span><br>
                 </div>
                 <div style="clear:both;"></div>
             </div> 
@@ -81,11 +81,8 @@
             <div class="wg-content">
                 <div class="arvore">
                     <div class="buttons clearfix">
-                        <a href="/users/binary/zarela44" class="button button-icon-left button-up pull-left">
-                            <span class="arrow-sign-up"></span>
-                            Up One Level                        </a>
-                        <a href="<?php echo site_url().'backoffice/arbol';?>" class="button button-icon-right button-top pull-right">
-                            Volver Arriba<span class="angle-up"></span>
+                        <a href="<?php echo site_url().'backoffice/arbol';?>" class="button button-icon-left button-up pull-left">
+                             Volver Arriba<span class="angle-up"></span>                
                         </a>
                     </div>
                     <div class="network-view">
@@ -148,7 +145,7 @@
 
                                     <div class="nivel n3 direita">
                                         <?php $class = count($n3_2_iz) > 1?"consultant":"";?> 
-                                        <a href = "<?php echo site_url()."backoffice/arbol/$n3_2_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
+                                        <a href = "<?php echo site_url()."backoffice/arbol/$n3_2_iz[2]-$n2_iz[4]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
                                             <img src="<?php echo site_url();?>static/images/empty.jpg" 
                                                   <?php if(count($n3_2_iz) > 1){ ?>
                                                             title = "<center><?php echo $n3_2_iz[0];?><br><?php echo $n3_2_iz[1];?><center>
@@ -301,20 +298,30 @@
     </header>
     <div class="wg-content" style="height:80px;">
 
-        <form action="/users/binary" id="UserBinaryForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>        <label for="esquerda">
-            <input type="radio" id="esquerda" value="esquerda" name="perna_preferencial"  > 
-            <span>Izquierda</span>
-        </label>
-        <label for="direita">
-            <input type="radio" id="direita" value="direita" name="perna_preferencial"   checked='checked' >
-            <span>Derecha</span>
-        </label>
-        <label for="menor">
-            <input type="radio" id="menor" value="menor" name="perna_preferencial"    >
-            <span>Balanceado</span>
-        </label> 
-<div class="submit"><input  class="btn btn-sm btn-primary" type="submit" value="Save"/></div>                    
-                        </div>
+        <form action="<?php echo site_url().'backoffice/position';?>" id="UserBinaryForm" method="post" accept-charset="utf-8">
+            <div style="display:none;">
+                <input type="hidden" name="_method" value="POST"/>
+            </div>  
+            <input type="hidden" name="customer_id" value="<?php echo $_SESSION['customer']['customer_id']; ?>"/>
+            <input type="hidden" name="izq" value="<?php echo $count_left;?>"/>
+            <input type="hidden" name="der" value="<?php echo $count_right;?>"/>
+            <label for="esquerda">
+                <input type="radio" id="esquerda" value="left" name="left" checked='checked'> 
+                <span>Izquierda</span>
+            </label>
+            <label for="direita">
+                <input type="radio" id="direita" value="right" name="left">
+                <span>Derecha</span>
+            </label>
+            <label for="menor">
+                <input type="radio" id="menor" value="iqual" name="left">
+                <span>Balanceado</span>
+            </label> 
+            <div class="submit">
+                <input  class="btn btn-sm btn-primary" type="submit" value="Guardar"/>
+            </div>    
+        </form>
+    </div>
 </section>
 <div style="clear:both;"></div>
 </div>

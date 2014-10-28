@@ -119,6 +119,10 @@
                             <label for="username">Código</label>
                             <input type="text" class="input-text" value="<?php echo $_SESSION['customer']['code'];?>"/>
                         </p>
+                        <p class="form-row form-row-wide">
+                            <label for="username">Posición</label>
+                            <input type="text" class="input-text" value="<?php if($_SESSION['customer']['position_temporal']==1){echo "Izquierda";}else{echo "Derecha";}?>"/>
+                        </p>
                     </form>
                 <?php } ?>
             <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/crear_cliente';?>">
