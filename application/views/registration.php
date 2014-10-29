@@ -203,6 +203,21 @@
                     <label for="País">País<span class="required">*</span></label>
                     <input type="text" class="input-text" name="country" value="Perú" id="country" required="required"/>
                     </p>
+                    
+                    <hr><h2 class="blue">Información Adicional</h2><hr>
+                    <p class="form-row form-row-wide">
+                    <label for="E-mail">Razón Social</label>
+                    <input class="input-text" type="text" name="razon_social" id="razon_social"/>
+                    </p>
+                    <p class="form-row form-row-wide">
+                    <label for="Contraseña">RUC</label>
+                    <input class="input-text" type="text" class="input-text" name="ruc" id="ruc"/>
+                    </p>
+                    <p class="form-row form-row-wide">
+                    <label for="Contraseña">Dirección</label>
+                    <input class="input-text" type="text" class="input-text" name="address2" id="address2"/>
+                    </p>
+                    
                     <hr><h2 class="blue">Login</h2><hr>
                     <p class="form-row form-row-wide">
                     <label for="E-mail">E-mail<span class="required">*</span></label>

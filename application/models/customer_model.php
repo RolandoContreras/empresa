@@ -22,6 +22,9 @@ class customer_model_atributos{
     var $position='';
     var $position_temporal='';
     var $password='';
+    var $razon_social='';
+    var $ruc='';
+    var $address2='';
     var $first_name='';
     var $last_name='';
     var $dni='';
@@ -52,6 +55,9 @@ class Customer_Model extends CI_Model{
         $this->position='';
         $this->position_temporal='';
         $this->password='';
+        $this->razon_social='';
+        $this->ruc='';
+        $this->address2='';
 	$this->first_name='';
         $this->last_name='';
         $this->dni='';

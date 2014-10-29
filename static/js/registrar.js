@@ -16,7 +16,9 @@ function registrar(){
     year = $("#year").val();
     references = $("#references").val();
     
-    
+    razon_social = $("#razon_social").val();
+    ruc = $("#ruc").val();
+    address2 = $("#address2").val();
  
     if(first_name !="" && last_name!="" && dni !="" && phone !="" && address !="" && city !="" && department !="" && country !="" && email !="" && password !=""){
         
@@ -32,6 +34,9 @@ function registrar(){
                    dataType: "json",
                    data: {first_name : first_name,
                           last_name:last_name,
+                          razon_social:razon_social,
+                          ruc:ruc,
+                          address2:address2,
                           dni:dni,
                           phone:phone,
                           address:address,
