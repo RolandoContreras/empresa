@@ -62,7 +62,6 @@ class B_profile extends CI_Controller {
                'references' => $this->input->post('references'),
                'city' => $this->input->post('city'),
                'password' => $password,
-               'created_at' => date("Y-m-d H:i:s"),
                'created_by' => $_SESSION['customer']['customer_id'],
                'updated_at' => date("Y-m-d H:i:s"),
                'updated_by' => $_SESSION['customer']['customer_id']
