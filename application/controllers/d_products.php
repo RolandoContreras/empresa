@@ -185,8 +185,6 @@ class D_products extends CI_Controller{
                 $small = $this->input->post('small_image');
             }
         
-        
-        
         $product_id = $this->input->post("product_id");
         $category_kind_id = $this->input->post("categories_kind_id");
         $brand_categories_id = $this->input->post("brand_categories_id");

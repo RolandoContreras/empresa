@@ -52,10 +52,12 @@
                                 <option value="Hombres" <?php echo $obj_product->category_name=="Hombres"?'selected':'';?>>Hombres</option>
                                 <option value="Mujeres" <?php echo $obj_product->category_name=="Mujeres"?'selected':'';?>>Mujeres</option>
                                 <option value="Kids" <?php echo $obj_product->category_name=="Kids"?'selected':'';?>>Kids</option>
+                                <option value="Mixto" <?php echo $obj_product->category_name=="Mixto"?'selected':'';?>>Mixto</option>
                         <?php }else{ ?>
                                 <option value="Hombres">Hombres</option>
                                 <option value="Mujeres">Mujeres</option>
                                 <option value="Kids">Kids</option>
+                                <option value="Mixto">Mixto</option>
                         <?php } ?>
                         
                         </select>

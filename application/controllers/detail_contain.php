@@ -36,7 +36,7 @@ class Detail_contain extends CI_Controller {
                                     products.stock,
                                     products.position,
                                     products.status_value ",
-                         "where" => "products.name like '%$slug%'",
+                         "where" => "products.name = '$slug'",
                          "order" => "products.product_id DESC LIMIT 1",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',

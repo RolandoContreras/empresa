@@ -231,7 +231,8 @@ class Register extends CI_Controller {
             $data['message'] = "success";
             $data['print'] = "El Cliente se registró con éxito, Le damos la más cordial bienvenida al equipo Waveline Network<br/><br/>
                               <b>Usuario</b>: $obj_customer->code<br/>
-                              <b>Contraseña</b>: $obj_customer->password<br/><br/>
+                              <b>Contraseña</b>: $obj_customer->password<br/>
+                              <b>Número de Pedido</b>: $order_id<br/><br/>
                               El pedido será entragado en 2 días hábiles a la dirección registrada.<br/>    
                               Actualmente su cuenta esta inactiva hasta realizar el pago:<br/>
                               Banco de Credito del Perú - BCP<br/><br/>

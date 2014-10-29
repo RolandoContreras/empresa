@@ -91,6 +91,7 @@ $route['backoffice/logout'] = "backoffice/logout";
 
 $route['([a-z_-]+)'] = "shop/categories/$1"; 
 $route['([a-z_-]+)/([0-9_-]+)'] = "shop/categories/$1"; 
+
 $route['hombres/([a-z_-]+)'] = "shop/by_gender/$1"; 
 $route['hombres/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_gender/$1"; 
 
@@ -99,6 +100,9 @@ $route['mujeres/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_gender/$1";
 
 $route['kids/([a-z_-]+)'] = "shop/by_gender/$1"; 
 $route['kids/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_gender/$1"; 
+
+$route['mixto/([a-z_-]+)'] = "shop/by_gender/$1"; 
+$route['mixto/([a-z_-]+)/([0-9a-z_-]+)'] = "shop/by_gender/$1";
 
 $route['buscar/([a-z_-]+)'] = "search/index/$1";
 $route['tags/([a-z_-]+)'] = "search/tags/$1";

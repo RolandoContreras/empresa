@@ -107,7 +107,7 @@
                                 </div>                            
                             </div>
   
-                            <h2 class="blue">Direccion</h2>
+                            <h2 class="blue">Dirección</h2>
                             <hr> 
                             <div class="form-group">
                                 <label for="address">Dirección</label>
@@ -136,8 +136,28 @@
                                     <input name="country" disabled="disabled" class="form-control input-medium" maxlength="45" type="text" value="<?php echo isset($obj_profile->country)?$obj_profile->country:"";?>" id="UserCountry"/>
                                 </div>                            
                             </div>
+                            
+                            <h2 class="blue">Dirección de Facturación</h2>
+                            <hr> 
+                            <div class="form-group">
+                                <label for="razon_social">Razón Social</label>
+                                <div class="input text">
+                                    <input name="razon_social" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->razon_social)?$obj_profile->razon_social:"";?>" id="UserMoradaComplementar"/>
+                                </div>                            
+                            </div>
+                            <div class="form-group">
+                                <label for="ruc">RUC</label>
+                                <div class="input text">
+                                    <input name="ruc" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->ruc)?$obj_profile->ruc:"";?>" id="UserMoradaComplementar"/>
+                                </div>                            
+                            </div>
+                            <div class="form-group">
+                                <label for="address2">Dirección</label>
+                                <div class="input text">
+                                    <input name="address2" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->address2)?$obj_profile->address2:"";?>" id="UserMoradaComplementar"/>
+                                </div>                            
+                            </div>
                            </fieldset> 
-                        <!--</form>-->
                     </div>
                     <div class="tab-pane forms" id="aba3">
                         <fieldset>                       
