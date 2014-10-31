@@ -55,3 +55,9 @@ margin-left: 18px;
     font-weight: bold;
     margin: -12px auto auto -13px;
 }
+.title-section:before {
+    margin-top: 8px !important;
+}
+.title-section h1.title-header {
+    margin: 13px 0 0 !important;
+}
