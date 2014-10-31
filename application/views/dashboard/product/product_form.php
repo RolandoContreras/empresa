@@ -3,6 +3,7 @@
 <link href="<?php echo site_url();?>static/cms/plugins/tags/chosen.css" rel="stylesheet" />
 <script src="<?php echo site_url();?>static/cms/plugins/tags/chosen.jquery.js"></script>
 <script src="<?php echo site_url();?>static/cms/js/products.js"></script>
+<script src="<?php echo site_url();?>static/cms/plugins/ckeditor/ckeditor.js"></script>
 <!-- main content -->
 
 <form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/productos/validate";?>">
@@ -88,7 +89,11 @@
               <br><br>
               <input type="text" id="tittle" name="tittle" value="<?php echo isset($obj_product->name)?$obj_product->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
               <br><br>
+              <textarea name="sumilla" id="sumilla" placeholder="Sumilla ..." style="width: 90%; height: 100px;"><?php echo isset($obj_product->description)?$obj_product->description:"";?></textarea>
+              <script type="text/javascript">CKEDITOR.replace("sumilla")</script> 
+              <br><br>
               <textarea name="description" id="description" placeholder="Descripcion ..." style="width: 90%; height: 100px;"><?php echo isset($obj_product->description)?$obj_product->description:"";?></textarea>
+              <script type="text/javascript">CKEDITOR.replace("description")</script> 
               <br><br>
               <input type="text" id="price" name="price" value="<?php echo isset($obj_product->price)?$obj_product->price:"";;?>" class="input-small-fluid" placeholder="Precio">
               <br><br>

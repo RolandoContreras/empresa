@@ -149,7 +149,6 @@ class D_products extends CI_Controller{
         $small  = $this->upload_img("small_image","1500","1500");
         
         if ($custom != "false") {
-               // $this->ftp($custom);
                 if ($this->input->post('custom_image') != "") {
                     $this->delete_img($this->input->post('custom_image'));
                 }
@@ -159,7 +158,6 @@ class D_products extends CI_Controller{
         
         
         if ($big != "false") {
-                //$this->ftp($big);
                 if ($this->input->post('big_image') != "") {
                     $this->delete_img($this->input->post('big_image'));
                 }
@@ -168,7 +166,6 @@ class D_products extends CI_Controller{
             }
         
         if ($medium != "false") {
-              //  $this->ftp($medium);
                 if ($this->input->post('medium_image') != "") {
                     $this->delete_img($this->input->post('medium_image'));
                 }
@@ -177,7 +174,6 @@ class D_products extends CI_Controller{
             }
         
         if ($small != "false") {
-                //$this->ftp($small);
                 if ($this->input->post('small_image') != "") {
                     $this->delete_img($this->input->post('small_image'));
                 }
@@ -193,6 +189,7 @@ class D_products extends CI_Controller{
                'name' => $this->input->post('tittle'),
                'code' => $this->input->post('code'),
                'description' => $this->input->post('description'),
+               'sumilla' => $this->input->post('sumilla'),
                'id_category' => $this->input->post('id_category'),
                'price' => $this->input->post('price'),  
                'pay_sale' => $this->input->post('pay_sale'),  

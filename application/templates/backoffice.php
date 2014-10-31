@@ -8,6 +8,7 @@
         <title>WaveLine | Backoffice</title>
         <meta charset="utf-8">
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.min.css';?>"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/font-awesome.min.css';?>"/>

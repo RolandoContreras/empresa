@@ -5,9 +5,11 @@
         <meta charset="utf-8">
         <title>WaveLine CMS Admin</title>
         <base href="<?php echo site_url();?>">
+        <link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta name="robots" content="noindex, nofollow" />
         <!-- CSS -->
         <link href="<?php echo site_url()?>static/cms/css/core/bootstrap.css" rel="stylesheet">	
         <link href="<?php echo site_url()?>static/cms/css/core/combine_fonts.css" rel="stylesheet">	
