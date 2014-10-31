@@ -110,7 +110,7 @@
                                                 <h3><?php echo corta_texto($product->name,17);?></h3>
                                             </a>
                                             <div class="short_desc">
-                                                <?php echo corta_texto($product->sumilla,90);?>
+                                                <?php echo corta_texto($product->sumilla,60);?>
                                             </div>
                                             <span class="price">
                                                 <span class=""><?php echo format_number($product->price)?></span>
@@ -144,7 +144,7 @@
                                                 <h3><?php echo corta_texto($product->name,17);?></h3>
                                             </a>
                                             <div class="short_desc">
-                                                <?php echo corta_texto($product->sumilla,90);?>
+                                                <?php echo corta_texto($product->sumilla,60);?>
                                             </div>
                                             <span class="price">
                                                 <span class=""><?php echo format_number($product->price)?></span>
@@ -181,7 +181,7 @@
                                                 <h3><?php echo corta_texto($product->name,17);?></h3>
                                             </a>
                                             <div class="short_desc">
-                                                <?php echo corta_texto($product->sumilla,90);?>
+                                                <?php echo corta_texto($product->sumilla,60);?>
                                             </div>
                                             <span class="price">
                                                 <span class=""><?php echo format_number($product->price)?></span>

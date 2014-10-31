@@ -42,7 +42,7 @@
                             <img class="image_products" width="300" height="300" src="<?php echo SERVER2.$obj_products->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/>
                             <h3><?php echo corta_texto($obj_products->name,22);?> </h3>
                          </a>
-                        <div class="short_desc"><?php echo corta_texto($obj_products->sumilla,90);?></div>
+                        <div class="short_desc"><?php echo corta_texto($obj_products->sumilla,60);?></div>
                         <span class="price"><ins><span class="amount">S/.<?php echo $obj_products->price;?></span></ins></span>
                         <br/><br/>
                         <a onclick="add_car('<?php echo $obj_products->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>

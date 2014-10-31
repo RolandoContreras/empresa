@@ -61,3 +61,6 @@ margin-left: 18px;
 .title-section h1.title-header {
     margin: 13px 0 0 !important;
 }
+body #motopress-main.main-holder .content-holder .products ul li.product, body #motopress-main.main-holder .content-holder ul.products li.product {
+    height: 435px !important;
+}

@@ -46,7 +46,7 @@ class Shop extends CI_Controller {
             $config["base_url"] = site_url("compras"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
             $config["per_page"] = 9; 
-            $config["num_links"] = 3;
+            $config["num_links"] = 2;
             $config["uri_segment"] = 2;   
             
             $config['first_tag_open'] = '<li>';
@@ -115,7 +115,7 @@ class Shop extends CI_Controller {
             $config["base_url"] = site_url("$slug"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
             $config["per_page"] = 9; 
-            $config["num_links"] = 3;
+            $config["num_links"] = 2;
             $config["uri_segment"] = 2;   
             
             $config['first_tag_open'] = '<li>';
@@ -188,7 +188,7 @@ class Shop extends CI_Controller {
             $config["base_url"] = site_url("compras/porprecio"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
             $config["per_page"] = 21; 
-            $config["num_links"] = 3;
+            $config["num_links"] = 2;
             $config["uri_segment"] = 3;   
             
             $config['first_tag_open'] = '<li>';
@@ -261,7 +261,7 @@ class Shop extends CI_Controller {
             $config["base_url"] = site_url("$gender/$slug"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
             $config["per_page"] = 9; 
-            $config["num_links"] = 3;
+            $config["num_links"] = 2;
             $config["uri_segment"] = 3;   
             
             $config['first_tag_open'] = '<li>';
@@ -336,7 +336,7 @@ class Shop extends CI_Controller {
             $config["base_url"] = site_url("$gender/$slug"); 
             $config["total_rows"] = $this->obj_products->total_records($params) ;  
             $config["per_page"] = 9; 
-            $config["num_links"] = 3;
+            $config["num_links"] = 2;
             $config["uri_segment"] = 3;   
             
             $config['first_tag_open'] = '<li>';
