@@ -4,9 +4,6 @@ function corta_texto($texto, $longitud=400) {
         $pos_espacios = mb_strpos($texto, ' ', $longitud) - 1;
         if($pos_espacios > 0) {
             $caracteres = count_chars(mb_substr($texto, 0, ($pos_espacios + 1)), 1);
-            /*if ($caracteres[ord('<')] > $caracteres[ord('>')]) {
-                $pos_espacios = mb_strpos($texto, ">", $pos_espacios) - 1;
-            }*/
             $texto = mb_substr($texto, 0, ($pos_espacios + 1)).'...';
         }
         if(preg_match_all("|(<([\w]+)[^>]*>)|", $texto, $buffer)) {

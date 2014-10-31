@@ -1,4 +1,5 @@
 <?php $this->load->view("header");?>
+
 <body class="home page page-id-203 page-template page-template-page-home-php has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
     <header class="motopress-wrapper header">
@@ -89,11 +90,15 @@
     <div class="span9 ">
         <div class="featured_products">
             <div class="featured_products_wrap_inner">
-                <h2>Productos Destacados</h2>
+            <?php foreach ($obj_category as $key => $value) {
+                    if($key == 0){ ?>
+                        <h2><?php echo $value->name;?></h2>
+                    <?php } ?>
+            <?php } ?>
                     <div class="woocommerce columns-3">
                         <ul class="products">
 
-                        <?php foreach ($data as $product) {?>
+                        <?php foreach ($zapatillas as $product) {?>
                                     <li class="product">
                                         <p class="number_text">Comisión</p>
                                         <p class="number_price"><?php echo format_number($product->pay_sale);?></p>
@@ -115,6 +120,79 @@
                                        <br/><br/>
                                        <a onclick="add_car('<?php echo $product->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
                                       
+                                    </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="featured_products_wrap_inner">
+                <?php foreach ($obj_category as $key => $value) {
+                    if($key == 1){ ?>
+                        <h2><?php echo $value->name;?></h2>
+                    <?php } ?>
+                <?php } ?>
+                    <div class="woocommerce columns-3">
+                        <ul class="products">
+                        <?php foreach ($ropa as $product) {?>
+                                    <li class="product">
+                                        <p class="number_text">Comisión</p>
+                                        <p class="number_price"><?php echo format_number($product->pay_sale);?></p>
+                                         <span>
+                                            <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>
+
+                                        </span>
+                                            <a href="<?php echo site_url().convert_slug($product->category."/".$product->name);?>">
+
+                                                <img class="image_products" src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo $product->name;?>"/>
+                                                <h3><?php echo corta_texto($product->name,17);?></h3>
+                                            </a>
+                                            <div class="short_desc">
+                                                <?php echo corta_texto($product->description,90);?>
+                                            </div>
+                                            <span class="price">
+                                                <span class=""><?php echo format_number($product->price)?></span>
+                                            </span>
+                                       <br/><br/>
+                                       <a onclick="add_car('<?php echo $product->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
+                                      
+                                    </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="featured_products_wrap_inner">
+                <?php foreach ($obj_category as $key => $value) {
+                    if($key == 2){ ?>
+                        <h2><?php echo $value->name;?></h2>
+                    <?php } ?>
+                <?php } ?>
+                    <div class="woocommerce columns-3">
+                        <ul class="products">
+                        <?php foreach ($limpieza as $product) {?>
+                                    <li class="product">
+                                        <p class="number_text">Comisión</p>
+                                        <p class="number_price"><?php echo format_number($product->pay_sale);?></p>
+                                         <span>
+                                            <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>
+
+                                        </span>
+                                            <a href="<?php echo site_url().convert_slug($product->category."/".$product->name);?>">
+
+                                                <img class="image_products" src="<?php echo SERVER2.$product->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo $product->name;?>"/>
+                                                <h3><?php echo corta_texto($product->name,17);?></h3>
+                                            </a>
+                                            <div class="short_desc">
+                                                <?php echo corta_texto($product->description,90);?>
+                                            </div>
+                                            <span class="price">
+                                                <span class=""><?php echo format_number($product->price)?></span>
+                                            </span>
+                                       <br/><br/>
+                                       <a onclick="add_car('<?php echo $product->product_id;?>');" class="button add_to_cart_button product_type_simple">Agregar al Carro</a>
                                     </li>
                         <?php } ?>
                     </ul>

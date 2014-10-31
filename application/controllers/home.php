@@ -14,6 +14,10 @@ class Home extends CI_Controller {
 	{
             $obj_products = $this->get_menu();
             //SELECT PRODUCT CUSTOM
+            
+            $category_param = $this->category_param();
+            $obj_category = $this->obj_category->search($category_param);  
+            $obj_products['obj_category'] = $obj_category;
             $params = array(
                         "select" =>"products.product_id,
                                     products.name as name,
@@ -39,31 +43,46 @@ class Home extends CI_Controller {
             $obj_products['product_custom'] = $this->obj_products->search($params);
             
             //SELECT PRODUCT COMMUN
-            $params_product = array(
-                        "select" =>"products.product_id,
-                                    products.name as name,
-                                    categories.name as category,
-                                    products.description,
-                                    products.custom_image,
-                                    products.big_image,
-                                    products.pay_sale,
-                                    products.medium_image,
-                                    products.small_image,
-                                    products.price,
-                                    brand.name as brand,
-                                    products.stock,
-                                    products.position,
-                                    products.status_value ",
-                         "where" => "products.status_value = 1 and position = 1",
-                         "order" => "products.product_id DESC LIMIT 12",
-                         "join" => array('categories, products.id_category = categories.id_category',
-                                         'categories_kind, categories_kind.product_id = products.product_id',
-                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
-                                         'brand, brand.brand_id = brand_categories.brand_id')
-            );
-       
-           
-             $obj_products['data'] = $this->obj_products->search($params_product);
+            
+            foreach ($obj_category as $key => $value) {
+                if($key==0){
+                    $product_param = $this->product_param($value->name);
+                    $obj_products['zapatillas'] = $this->obj_products->search($product_param);
+                }elseif($key==1){
+                    $product_param = $this->product_param($value->name);
+                    $obj_products['ropa'] = $this->obj_products->search($product_param);
+                }elseif($key==2){
+                    
+                    $product_param = $this->product_param($value->name);
+                    $obj_products['limpieza'] = $this->obj_products->search($product_param);
+                   }
+            }
+//            
+//            $params_product = array(
+//                        "select" =>"products.product_id,
+//                                    products.name as name,
+//                                    categories.name as category,
+//                                    products.description,
+//                                    products.custom_image,
+//                                    products.big_image,
+//                                    products.pay_sale,
+//                                    products.medium_image,
+//                                    products.small_image,
+//                                    products.price,
+//                                    brand.name as brand,
+//                                    products.stock,
+//                                    products.position,
+//                                    products.status_value ",
+//                         "where" => "products.status_value = 1 and position = 1",
+//                         "order" => "products.product_id DESC LIMIT 12",
+//                         "join" => array('categories, products.id_category = categories.id_category',
+//                                         'categories_kind, categories_kind.product_id = products.product_id',
+//                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+//                                         'brand, brand.brand_id = brand_categories.brand_id')
+//            );
+//       
+//           
+//             $obj_products['data'] = $this->obj_products->search($params_product);
              
             //SELECT CATEGORIES MEN
 //            $param_category = array(
@@ -108,6 +127,42 @@ class Home extends CI_Controller {
             /// VISTA
             $this->load->view('home',$obj_products);
 	}
+        public function category_param(){
+            //SELECT CATEGORY
+            $params_product = array(
+                        "select" =>"",
+                         "where" => "status_value = 1",
+                         "order" => "categories.id_category ASC ",
+                        );
+        return $params_product;
+        }
+        
+        public function product_param($name){
+            //SELECT CATEGORY
+            $params_product = array(
+                        "select" =>"products.product_id,
+                                    products.name as name,
+                                    categories.name as category,
+                                    products.description,
+                                    products.custom_image,
+                                    products.big_image,
+                                    products.pay_sale,
+                                    products.medium_image,
+                                    products.small_image,
+                                    products.price,
+                                    brand.name as brand,
+                                    products.stock,
+                                    products.position,
+                                    products.status_value ",
+                         "where" => "products.status_value = 1 and categories.name = '$name'",
+                         "order" => "rand() LIMIT 6",
+                         "join" => array('categories, products.id_category = categories.id_category',
+                                         'categories_kind, categories_kind.product_id = products.product_id',
+                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
+                                         'brand, brand.brand_id = brand_categories.brand_id')
+            );
+        return $params_product;
+        }
         
         public function add_car(){
             if($this->input->is_ajax_request()){   
@@ -182,13 +237,13 @@ class Home extends CI_Controller {
         }
         
         public function empty_car(){
-            
         if($this->input->is_ajax_request()){ 
                 $this->cart->destroy();
                 $data['print'] = "Success"; 
                 echo json_encode($data); 
              }
         }
+        
         
         public function delete_car(){
             if($this->input->is_ajax_request()){ 
