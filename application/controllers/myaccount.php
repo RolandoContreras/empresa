@@ -92,7 +92,7 @@ class Myaccount extends CI_Controller {
                redirect("backoffice");    
             }
         }else{
-            redirect("micuenta");
+            redirect("backoffice");
         }
     }
     

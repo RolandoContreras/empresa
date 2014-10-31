@@ -34,12 +34,12 @@
             <form method="post" class="login" action="<?php echo site_url().'micuenta/validar_user';?>">
                     <p class="form-row form-row-wide">
                     <label for="username">Waveline ID<span class="required">*</span></label>
-                    <input type="text" class="input-text" name="username" id="username"/>
+                    <input type="text" class="input-text" name="username" id="username" required="required"/>
                     </p>
                     
                     <p class="form-row form-row-wide">
                     <label for="password">Password <span class="required">*</span></label>
-                    <input class="input-text" type="password" name="password" id="password"/>
+                    <input class="input-text" type="password" name="password" id="password" required="required"/>
                     </p>
                     <p class="form-row">
                        <input type="submit" class="button" name="login" value="Login"/>

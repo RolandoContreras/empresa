@@ -15,7 +15,7 @@
 <meta name="author" content="Waveline S.A.C." />
 <meta name="rating" content="General" />
 <meta name="robots" CONTENT="index,follow" />
-
+<link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
 
 
 <script type="text/javascript">
