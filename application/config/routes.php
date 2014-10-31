@@ -40,6 +40,9 @@
 
 $route['default_controller'] = "home";
 $route['home'] = "home";
+
+$route['sitemap'] = "sitemap";
+
 $route['home/add_car'] = "home/add_car";
 $route['home/delete_car'] = "home/delete_car";
 $route['home/update_car'] = "home/update_car";
