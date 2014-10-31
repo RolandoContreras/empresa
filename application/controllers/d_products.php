@@ -91,6 +91,7 @@ class D_products extends CI_Controller{
                                     products.name,
                                     products.id_category,
                                     products.code,
+                                    products.sumilla,
                                     products.description,
                                     products.custom_image, 
                                     categories_kind.categories_kind_id,  

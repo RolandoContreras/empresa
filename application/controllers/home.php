@@ -23,6 +23,7 @@ class Home extends CI_Controller {
                                     products.name as name,
                                     categories.name as category,
                                     products.description,
+                                    products.sumilla,
                                     products.custom_image,
                                     products.big_image,
                                     products.medium_image,
@@ -57,32 +58,6 @@ class Home extends CI_Controller {
                     $obj_products['limpieza'] = $this->obj_products->search($product_param);
                    }
             }
-//            
-//            $params_product = array(
-//                        "select" =>"products.product_id,
-//                                    products.name as name,
-//                                    categories.name as category,
-//                                    products.description,
-//                                    products.custom_image,
-//                                    products.big_image,
-//                                    products.pay_sale,
-//                                    products.medium_image,
-//                                    products.small_image,
-//                                    products.price,
-//                                    brand.name as brand,
-//                                    products.stock,
-//                                    products.position,
-//                                    products.status_value ",
-//                         "where" => "products.status_value = 1 and position = 1",
-//                         "order" => "products.product_id DESC LIMIT 12",
-//                         "join" => array('categories, products.id_category = categories.id_category',
-//                                         'categories_kind, categories_kind.product_id = products.product_id',
-//                                         'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
-//                                         'brand, brand.brand_id = brand_categories.brand_id')
-//            );
-//       
-//           
-//             $obj_products['data'] = $this->obj_products->search($params_product);
              
             //SELECT CATEGORIES MEN
 //            $param_category = array(
@@ -143,6 +118,7 @@ class Home extends CI_Controller {
                         "select" =>"products.product_id,
                                     products.name as name,
                                     categories.name as category,
+                                    products.sumilla,
                                     products.description,
                                     products.custom_image,
                                     products.big_image,

@@ -18,6 +18,7 @@ class Shop extends CI_Controller {
         $params = array(
                         "select" =>"products.product_id,
                                     products.name as name,
+                                    products.sumilla,
                                     categories.name as category,
                                     products.description,
                                     products.custom_image,
@@ -86,6 +87,7 @@ class Shop extends CI_Controller {
             $params = array(
                         "select" =>"products.product_id,
                                     products.name as name,
+                                    products.sumilla,
                                     categories.name as category,
                                     products.description,
                                     products.custom_image,
@@ -160,6 +162,7 @@ class Shop extends CI_Controller {
             $params = array(
                         "select" =>"products.product_id,
                                     products.name as name,
+                                    products.sumilla,
                                     categories.name as category,
                                     products.description,
                                     products.custom_image,
@@ -232,6 +235,7 @@ class Shop extends CI_Controller {
             $params = array(
                         "select" =>"products.product_id,
                                     products.name as name,
+                                    products.sumilla,
                                     categories.name as category,
                                     products.description,
                                     products.custom_image,
@@ -305,6 +309,7 @@ class Shop extends CI_Controller {
            $params = array(
                         "select" =>"products.product_id,
                                     products.name as name,
+                                    products.sumilla,
                                     categories.name as category,
                                     products.description,
                                     products.custom_image,

@@ -89,7 +89,7 @@
               <br><br>
               <input type="text" id="tittle" name="tittle" value="<?php echo isset($obj_product->name)?$obj_product->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
               <br><br>
-              <textarea name="sumilla" id="sumilla" placeholder="Sumilla ..." style="width: 90%; height: 100px;"><?php echo isset($obj_product->description)?$obj_product->description:"";?></textarea>
+              <textarea name="sumilla" id="sumilla" placeholder="Sumilla ..." style="width: 90%; height: 100px;"><?php echo isset($obj_product->sumilla)?$obj_product->sumilla:"";?></textarea>
               <script type="text/javascript">CKEDITOR.replace("sumilla")</script> 
               <br><br>
               <textarea name="description" id="description" placeholder="Descripcion ..." style="width: 90%; height: 100px;"><?php echo isset($obj_product->description)?$obj_product->description:"";?></textarea>
