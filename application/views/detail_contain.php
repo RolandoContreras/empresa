@@ -169,13 +169,17 @@ $this->load->view("header");
         <ul class="products">
            <?php foreach ($related as $value) { ?>
                     <li class="product">
-                                <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>">
-                                    <span class="onsale"><?php echo format_number($value->pay_sale);?>&nbsp;&nbsp;Ganado</span>
-                                <img src="<?php echo SERVER2.$value->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo convert_slug($value->name);?>"/>
-                                <h3><?php echo corta_texto($value->name,20);?></h3>
-                                </a>
+                         <p class="number_text">Comisión</p>
+                                    <p class="number_price"><?php echo format_number($value->pay_sale);?></p>
+                                    <span>
+                                        <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png';?>"/>
+                                    </span>
+                                        <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>">
+                                                <img class="image_products" src="<?php echo SERVER2.$value->big_image;?>" class="attachment-shop_catalog wp-post-image" alt="<?php echo $value->name;?>"/>
+                                                <h3><?php echo corta_texto($value->name,17);?></h3>
+                                        </a>
                                     <div class="short_desc">
-                                    <?php echo corta_texto($value->description,100);?> 
+                                    <?php echo corta_texto($value->description,60);?> 
                                     </div>
                             <span class="price"><ins><span class="amount">S/.<?php echo $value->price; ?></span></ins></span>
                             <br/><br/>

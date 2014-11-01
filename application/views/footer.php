@@ -1,4 +1,4 @@
-<footer class="motopress-wrapper footer">
+<footer class="motopress-wrapper footer_bottom">
         <div class="container">
         <div class="row">
             <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer">
@@ -20,31 +20,31 @@
 
                                     switch ($nav) {
                                        case "home":
-                                            $home = "current-menu-item";
+                                            $home = "current-menu-item-2";
                                             break;
                                         case "acerca":
-                                            $about = "current-menu-item";
+                                            $about = "current-menu-item-2";
                                             break;
                                         case "compras":
-                                            $shop = "current-menu-item";
+                                            $shop = "current-menu-item-2";
                                             break;
                                         case "contacto":
-                                            $contact = "current-menu-item";
+                                            $contact = "current-menu-item-2";
                                             break;
                                         case "checkout":
-                                             $shop = "current-menu-item";
+                                             $shop = "current-menu-item-2";
                                             break;  
                                         case "micuenta":
-                                             $home = "current-menu-item";
+                                             $home = "current-menu-item-2";
                                             break;
                                         case "registro":
-                                             $shop = "current-menu-item";
+                                             $shop = "current-menu-item-2";
                                             break;
                                         case "":
-                                             $home = "current-menu-item";
+                                             $home = "current-menu-item-2";
                                             break;
                                       default:
-                                            $shop = "current-menu-item";
+                                            $shop = "current-menu-item-2";
                                             break;
                                     }
                                     ?>
@@ -70,12 +70,16 @@
                         <ul class="social social__row clearfix unstyled">
                         <li class="social_li">
                         <a class="social_link social_link__facebook" href="https://www.facebook.com/Wavelinetwork" target="_blank">
-                        <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt="facebook"/></span>
+                        <span class="social_ico">
+                            <img style="display:none;" src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt="facebook"/>
+                        </span>
                         </a>
                         </li>
                         <li class="social_li">
                         <a class="social_link social_link__twitter" href="https://twitter.com/Wavelinetwork" target="_blank">
-                        <span class="social_ico"><img src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt="twitter"/></span>
+                        <span class="social_ico">
+                            <img style="display:none;" src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt="twitter"/>
+                        </span>
                         </a>
                         </li>
                         </ul>

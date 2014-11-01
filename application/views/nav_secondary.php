@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="span12 full-top-shop" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
+    <div class="span12 full-top-shop-header" data-motopress-type="static" data-motopress-static-file="static/static-shop-nav.php">
        <?php 
        if(isset($_SESSION['customer'])){?>
            <div class="cart-holder">

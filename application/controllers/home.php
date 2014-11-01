@@ -34,7 +34,7 @@ class Home extends CI_Controller {
                                     products.position,
                                     products.status_value ",
                          "where" => "products.position = 2 and products.status_value = 1",
-                         "order" => "products.product_id DESC LIMIT 3",
+                         "order" => "products.product_id DESC LIMIT 4",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
@@ -53,10 +53,13 @@ class Home extends CI_Controller {
                     $product_param = $this->product_param($value->name);
                     $obj_products['ropa'] = $this->obj_products->search($product_param);
                 }elseif($key==2){
-                    
                     $product_param = $this->product_param($value->name);
                     $obj_products['limpieza'] = $this->obj_products->search($product_param);
                    }
+               elseif($key==3){
+                $product_param = $this->product_param($value->name);
+                $obj_products['belleza'] = $this->obj_products->search($product_param);
+               }
             }
              
             //SELECT CATEGORIES MEN
@@ -131,7 +134,7 @@ class Home extends CI_Controller {
                                     products.position,
                                     products.status_value ",
                          "where" => "products.status_value = 1 and categories.name = '$name'",
-                         "order" => "rand() LIMIT 6",
+                         "order" => "rand() LIMIT 4",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',

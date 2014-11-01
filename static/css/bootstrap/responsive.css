@@ -158,8 +158,11 @@
     width: 470px;
   }
   .span4 {
-    width: 370px;
+    width: 270px;
   }
+/*  .span4_1 {
+    width: 270px !important;
+  }*/
   .span3 {
     width: 270px;
   }
