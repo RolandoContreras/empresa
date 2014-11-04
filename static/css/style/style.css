@@ -73,11 +73,10 @@ margin-left: 18px;
 }
 .header{
     background-image: url("../../../static/css/images/layout/bg-spectrum1.jpg") !important;
-    
-    
     width: 100%;
     position: fixed !important;
 }
+
 .parallax-slider {
     height: 613px !important;
     top: 0px !important;
@@ -195,5 +194,13 @@ body #motopress-main.main-holder .cart-holder h3 {
 body #motopress-main.main-holder .cart-holder h3:hover {
     color: #f43683 !important;
     font-weight: bold !important;
+}
+header.header {
+    height: 41px !important;
+}
+.full-top-nav:before {
+   -webkit-box-shadow: 0px 5px 11px 0px rgba(0, 0, 9, 0.79) !important;
+    -moz-box-shadow:    0px 5px 11px 0px rgba(0, 0, 9, 0.79) !important;
+    box-shadow:         0px 5px 11px 0px rgba(0, 0, 9, 0.79) !important;
 }
 

@@ -47,7 +47,7 @@
                     <a href="<?php echo site_url().'acerca';?>">Acerca</a>
                 </li>
                 <li class="<?php echo $shop;?>">
-                    <a href="<?php echo site_url().'compras';?>">Compras</a>
+                    <a href="<?php echo site_url().'compras';?>">Productos</a>
                     <ul class="sub-menu">
                        <?php foreach ($menu as $key => $value_menu) {?>
                                 <li id="menu-item-2018" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat">
