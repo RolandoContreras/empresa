@@ -1,7 +1,8 @@
 <?php $this->load->view("header");?>
 <body class="page page-id-1917 page-template-default woocommerce-account woocommerce-page has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
-<script src="<?php echo site_url();?>static/cms/js/core/jquery.js"></script>  
+<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script> 
+
 <header class="motopress-wrapper header">
     <div class="container">
         <div class="row">
@@ -257,7 +258,6 @@
 </div>
     
 <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js';?>'></script>    
-    
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>

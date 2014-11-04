@@ -79,3 +79,23 @@ function registrar(){
         ]);
     }
 }
+function delete_car(row_id){
+     bootbox.dialog("Confirma que desea Eliminar el Regístro?", [        
+        { "label" : "Cancelar"},
+        {
+            "label" : "Eliminar",
+            "class" : "btn-danger",
+            "callback": function() {
+               $.ajax({
+                   type: "post",
+                   url: site+"home/delete_car",
+                   dataType: "json",
+                   data: {row_id : row_id},
+                   success:function(data){                             
+                   location.reload();
+                   }         
+           });
+            }
+        }
+    ]);
+}

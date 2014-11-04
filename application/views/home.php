@@ -20,11 +20,11 @@
     <script type='text/javascript' src='<?php echo site_url().'static/js/banner.js';?>'></script>    
     <div id="parallax-slider-5406108c1acd1" class="parallax-slider">
       <ul class="baseList">
-          <li data-preview="<?php echo site_url().'static/images/banner/banner1.jpg';?>">
+          <li data-preview="<?php echo site_url().'static/images/banner/slide2.jpg';?>">
           </li>
-          <li data-preview="<?php echo site_url().'static/images/banner/slide02.jpg';?>">
+          <li data-preview="<?php echo site_url().'static/images/banner/slide3.jpg';?>">
           </li>
-          <li data-preview="<?php echo site_url().'static/images/banner/slide03.jpg';?>">
+          <li data-preview="<?php echo site_url().'static/images/banner/slide1.jpg';?>">
           </li>
       </ul>
     </div>
