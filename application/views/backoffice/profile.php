@@ -4,7 +4,7 @@
 <script src="<?php echo site_url();?>static/cms/js/core/bootstrap-modal.js"></script>
 <script src="<?php echo site_url();?>static/cms/js/core/bootbox.min.js"></script>
 
-<article class="main-content homepage" style="padding-bottom:20%;">
+<article class="main-content homepage" style="padding-bottom:5%;">
     <div class="breadcrumbs transition" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>

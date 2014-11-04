@@ -83,9 +83,9 @@
                 <header class="topo navbar bootstro">
                 <div class="navbar-inside">
                     <div class="logotipo">
-                        <h1>
+                        <h1 style="color: whitesmoke !important;">
                             <img src="<?php echo site_url();?>static/images/logo.png" width="80" height="40"> 
-                            Back Office
+                            WaveLine - Back Office
                         </h1>
                     </div>
                     <nav class="pull-right controls">
@@ -122,21 +122,21 @@
                     <nav class="main-menu">
                         <ul>
                             <li>
-                                <a href="<?php echo site_url().'backoffice';?>">
+                                <a href="<?php echo site_url().'backoffice';?>" style="color: whitesmoke !important;">
                                     <span> <img class="image_icons_b" src="<?php echo site_url().'static/images/png/menu48.png';?>">&nbsp;&nbsp;Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url().'backoffice/micuenta';?>">
+                                <a href="<?php echo site_url().'backoffice/micuenta';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/user91.png';?>">&nbsp;&nbsp;My Account</span></a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url().'backoffice/comisiones';?>">
+                                <a href="<?php echo site_url().'backoffice/comisiones';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/data45.png';?>">&nbsp;&nbsp;Comisiones</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url().'backoffice/arbol';?>">
+                                <a href="<?php echo site_url().'backoffice/arbol';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/cloud189.png';?>">&nbsp;&nbsp;Arbol</span>
                                 </a>
                             </li>
@@ -146,7 +146,7 @@
                                 </a>
                             </li>-->
                             <li>
-                                <a href="<?php echo site_url().'backoffice/faq';?>">
+                                <a href="<?php echo site_url().'backoffice/faq';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/male172.png';?>">&nbsp;&nbsp;FAQ</span>
                                 </a>
                             </li>

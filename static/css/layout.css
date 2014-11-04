@@ -1,13 +1,15 @@
 /*** COLORS ***/
 
 body {
-    background-color:#336699;
+    background-color:rgb(125,134,193);
     font-weight: 300;
     margin: 0;
     padding:0;
     font-family: 'Lato', sans-serif;
 }
-.navbar .navbar-inside {background-color:#428bca;}
+.navbar .navbar-inside {
+    background-image: url("../../static/css/images/layout/bg-spectrum.jpg");
+}
 
 /*** ESTRUTURA ***/
 
@@ -316,7 +318,8 @@ ul, ol {
 
 .main-menu ul li a {
     border-top: 1px solid #2c5386;
-    color: #FFF;
+    font-weight: bold;
+    color: #333333;
     display: block;
     line-height:22px;
     padding: 13px 0 12px;
