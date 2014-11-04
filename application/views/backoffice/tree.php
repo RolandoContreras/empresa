@@ -306,11 +306,11 @@
             <input type="hidden" name="izq" value="<?php echo $count_left;?>"/>
             <input type="hidden" name="der" value="<?php echo $count_right;?>"/>
             <label for="esquerda">
-                <input type="radio" id="esquerda" value="left" name="left" checked='checked'> 
+                <input type="radio" id="esquerda" value="left" name="left" <?php echo $_SESSION['customer']['position_temporal']==1?"checked":"";?>> 
                 <span>Izquierda</span>
             </label>
             <label for="direita">
-                <input type="radio" id="direita" value="right" name="left">
+                <input type="radio" id="direita" value="right" name="left" <?php echo $_SESSION['customer']['position_temporal']==2?"checked":"";?>>
                 <span>Derecha</span>
             </label>
             <label for="menor">

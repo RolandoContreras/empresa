@@ -10,7 +10,7 @@ class B_tree extends CI_Controller {
     
     public function index(){
         $this->get_session();
-      
+       
         $ruta = explode("/",uri_string()); 
         $id = explode("-", $ruta[2]);
         
