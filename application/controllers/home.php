@@ -164,11 +164,12 @@ class Home extends CI_Controller {
                                     );
 
                         $obj_products = $this->obj_products->get_search_row($params);
+                        $name = convert_slug($obj_products->name);
                         $data = array(
                                     'id'        => $product_id,
                                     'qty'       => 1,
                                     'price'     => $obj_products->price,
-                                    'name'      => $obj_products->name,
+                                    'name'      => convert_query($name),
                                     'big_image' => $obj_products->big_image,
 //                                    'options' => array('Size' => 'L', 'Color' => 'Red')
                                  );
@@ -200,12 +201,14 @@ class Home extends CI_Controller {
                                     );
 
                         $obj_products = $this->obj_products->get_search_row($params);
+                        $name = convert_slug($obj_products->name);
+                        
                         
                         $data = array(
                                     'id'         =>     $obj_products->product_id,
                                     'qty'        =>     $qty,
                                     'price'      =>     $obj_products->price,
-                                    'name'       =>     $obj_products->name,
+                                    'name'       =>     convert_query($name),
                                     'big_image'  =>     $obj_products->big_image,
                                     'options'    => array('Size' => "$size")
 //                                   'options' => array('Size' => '$size', 'Color' => 'Red')
@@ -222,7 +225,6 @@ class Home extends CI_Controller {
                 echo json_encode($data); 
              }
         }
-        
         
         public function delete_car(){
             if($this->input->is_ajax_request()){ 
