@@ -1,31 +1,31 @@
 <?php $this->load->view("header");?>
-<body class="page page-id-1915 page-template-default woocommerce-cart woocommerce-page has_woocommerce has_shop">
-<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script>  
-
+<body class="page page-id-1797 page-parent page-template page-template-page-fullwidth-php has_woocommerce has_shop">
 <div id="motopress-main" class="main-holder">
-    <header class="motopress-wrapper header">
-    <div class="container">
-        <div class="row">
-            <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="542343104e034">
-                <!--Menu Navigacion Secundary-->
-                     <?php $this->load->view("nav_secondary");?>
-                 <!--------------------------->
-            </div>
+ <script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script> 
+<header class="motopress-wrapper header">
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <!--Call Nav_secundary-->
+            <?php $this->load->view("nav_secondary");?>
         </div>
     </div>
-    </header>
+</div>
+</header>
+    
 <div class="motopress-wrapper content-holder clearfix">
 <div class="container">
 <div class="row">
 <div class="span12" data-motopress-wrapper-file="page.php" data-motopress-wrapper-type="content">
-<div class="row">
-<div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
-<section class="title-section">
-<h1 class="title-header">Carrito</h1>
- 
-    <ul class="breadcrumb breadcrumb__t"><li><a href="<?php echo site_url().'home';?>">Home</a></li><li class="divider"></li><li class="active">Carrito</li></ul>  
-</section>  </div>
-</div>
+    <div class="row">
+        <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
+            <section class="title-section">
+            <h1 class="title-header">Carrito</h1>
+                <ul class="breadcrumb breadcrumb__t"><li><a href="<?php echo site_url().'home';?>">Home</a></li>
+                    <li class="divider"></li><li class="active">Carrito</li></ul>  
+            </section>  
+        </div>
+    </div>
 <div class="row">
     <div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
         <div id="post-1915" class="post-1915 page type-page status-publish hentry page">
@@ -146,11 +146,13 @@
 <!------call footer----->
  
 </div>
+    
+    
 <script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>
-<!--<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>-->
+<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
 </body>

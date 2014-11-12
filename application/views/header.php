@@ -17,13 +17,6 @@
 <meta name="robots" CONTENT="index,follow" />
 <link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
 
-
-<script type="text/javascript">
-//<![CDATA[
-try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dokv=88e434a982/"},atok:"58b769987bcdd3a95fb0d54083365cca",petok:"2838c1c913ada58220b56e3ff2212a07362dbfd4-1409683596-86400",zone:"template-help.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"},"ga_key":{"ua":"UA-7078796-5","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dokv=97fb4d042e/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
-//]]>
-</script>
-
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/cms/css/core/bootstrap_1.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css';?>"/>

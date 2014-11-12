@@ -23,8 +23,8 @@ function corta_texto($texto, $longitud=400) {
 }
 
 function convert_slug($url){
-    $search  = array('á', 'é', 'í', 'ó', 'ú',' ','ñ');
-    $replace = array('a', 'e', 'i', 'o', 'u','-','n');    
+    $search  = array('á', 'é', 'í', 'ó', 'ú',' ','ñ','Á', 'É', 'Í', 'Ó', 'Ú');
+    $replace = array('a', 'e', 'i', 'o', 'u','-','n','a', 'e', 'i', 'o', 'u');    
     return strtolower(str_replace($search, $replace, $url));
 }
 
