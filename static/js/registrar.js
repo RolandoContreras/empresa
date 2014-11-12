@@ -99,3 +99,55 @@ function delete_car(row_id){
         }
     ]);
 }
+function empty_car(){
+    bootbox.dialog("¿Desea limpiar el carrito?", [        
+        { "label" : "Cancelar"},
+        {
+            "label" : "Limpiar",
+            "class" : "btn-danger",
+            "callback": function() {
+               $.ajax({
+                   type: "post",
+                   url: site+"home/empty_car",
+                   dataType: "json",
+                   success:function(){
+                        bootbox.dialog("Carrito Vacio", []);
+                   location.reload();
+                   }         
+           });
+          }
+        }
+    ]);
+}
+function make_order(){
+    bootbox.dialog("¿Desea hacer el pedido?", [        
+        { "label" : "Cancelar"},
+        {
+            "label" : "Enviar",
+            "class" : "btn-danger",
+            "callback": function() {
+               $.ajax({
+                   type: "post",
+                   url: site+"checkout/hacer_pedido",
+                   dataType: "json",
+                   success:function(data){
+                        if (data.message == "no_customer"){                         
+                                bootbox.dialog(data.print, [        
+                                { "label" : "Cerrar"}
+                                ]);
+                            
+                        }else if(data.message == "no_stock"){
+                                bootbox.dialog(data.print, [        
+                                { "label" : "Cerrar"}
+                                ]);
+                        }else{
+                            bootbox.dialog(data.print, [        
+                                { "label" : "Cerrar"}
+                                ]); 
+                        }
+                  }         
+           });
+          }
+        }
+    ]);
+}

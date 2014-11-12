@@ -52,8 +52,10 @@ class Myaccount extends CI_Controller {
         if (count($obj_user)>0){            
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
+                $data_customer_session['parents_id'] = $obj_user->parents_id;
                 $data_customer_session['name'] = $obj_user->first_name;
                 $data_customer_session['last_name'] = $obj_user->last_name;
+                $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['position_temporal'] = $obj_user->position_temporal;
@@ -78,8 +80,10 @@ class Myaccount extends CI_Controller {
         if (count($obj_user)>0){            
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
+                $data_customer_session['parents_id'] = $obj_user->parents_id;
                 $data_customer_session['name'] = $obj_user->first_name;
                 $data_customer_session['last_name'] = $obj_user->last_name;
+                $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['position_temporal'] = $obj_user->position_temporal;

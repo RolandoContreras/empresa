@@ -44,3 +44,15 @@ function empty_car(){
            });
          
 }
+
+function make_order(){
+        $.ajax({
+                   type: "post",
+                   url: site+"home/empty_car",
+                   dataType: "json",
+                   success:function(){
+                   location.reload();
+                   }         
+           });
+         
+}

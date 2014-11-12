@@ -16,9 +16,9 @@
 <div class="motopress-wrapper content-holder clearfix">
 <div class="container">
 <div class="row">
-<div class="span12" data-motopress-wrapper-file="page.php" data-motopress-wrapper-type="content">
+<div class="span12">
     <div class="row">
-        <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
+        <div class="span12">
             <section class="title-section">
             <h1 class="title-header">Carrito</h1>
                 <ul class="breadcrumb breadcrumb__t"><li><a href="<?php echo site_url().'home';?>">Home</a></li>
@@ -27,12 +27,12 @@
         </div>
     </div>
 <div class="row">
-    <div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
+    <div class="span9 right right" id="content">
         <div id="post-1915" class="post-1915 page type-page status-publish hentry page">
             <div class="woocommerce">
                 <?php
                 if(count($this->cart->contents())!=0){ ?>
-                <form class="cart" method="post" action="<?php echo base_url()."home/change_car"?>">
+                <form class="cart" method="post">
                     
                     <table class="table smallfont">
                         
@@ -109,7 +109,7 @@
                 </form>
                 <p class="return-to-shop">
                     <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> 
-                    <a class="button pay" href="<?php echo site_url().'checkout/pagar';?>">Hacer Pedido</a>
+                    <a class="button pay" onclick="make_order();">Hacer Pedido</a>
                 </p>
                 
                 <?php }else{ ?>
@@ -125,12 +125,12 @@
         </div> 
     </div>
     
-    <div class="span3 sidebar" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
+    <div class="span3 sidebar" id="sidebar">
         <div id="categories-3" class="visible-all-devices widget">
             <h3>Categorías</h3>
             <ul>
                 <?php foreach ($category as $value) { ?>
-                    <li class="cat-item cat-item-13"><a href="<?php echo site_url().convert_slug($value->name);?>" title="View all posts filed under Fusce feugiat"><?php echo $value->name;?></a></li>
+                    <li class="cat-item cat-item-13"><a href="<?php echo site_url().convert_slug($value->name);?>" title="<?php echo $value->name;?>"><?php echo $value->name;?></a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -140,20 +140,12 @@
 </div>
 </div>
 </div>
-
 <!------call footer----->    
     <?php $this->load->view("footer");?>
 <!------call footer----->
- 
 </div>
-    
-    
-<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
-<script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js';?>'></script>  
 <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
 </body>
 </html>

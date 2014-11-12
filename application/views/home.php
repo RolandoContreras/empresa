@@ -294,11 +294,9 @@
 <script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js';?>'></script>    
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
 <script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
 <script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<!--Script perzonalizado de Mensaje del precio -->
 <script type='text/javascript' src='<?php echo site_url().'static/js/parallaxSlider.js';?>'></script>
 </body>
 </html>

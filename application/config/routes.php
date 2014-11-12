@@ -69,7 +69,7 @@ $route['registro'] = "register";
 $route['registro/crear_cliente'] = "register/create_customer";
 
 $route['checkout'] = "checkout";
-$route['checkout/pagar'] = "checkout/pay";
+$route['checkout/hacer_pedido'] = "checkout/make_order";
 
 $route['backoffice'] = "backoffice";
 
