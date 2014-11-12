@@ -65,12 +65,13 @@ $this->load->view("header");
 <p class="stock "><?php echo $obj_products->stock;?> en stock</p>
 
 <form class="cart" method="post" action="<?php echo site_url()."home/add_car"?>">
-       
-     <div class="">
-        <div>
-            Talla
-        <p><input type="text" name="size" value="" class="input-text text" size="2"/></p>
-        </div>
+     <div>
+         <?php 
+         if($obj_products->active == 1 ){ ?>
+                <div>Talla
+                    <p><input type="text" name="size" value="" class="input-text text" size="2"/></p>
+                </div>
+         <?php } ?>
       Cantidad
       <br/>
       

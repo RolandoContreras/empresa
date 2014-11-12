@@ -24,6 +24,7 @@ class Detail_contain extends CI_Controller {
                         "select" =>"products.product_id,
                                     products.name as name,
                                     categories.name as category,
+                                    categories.size as active,
                                     products.description,
                                     products.pay_sale,
                                     products.tags,
