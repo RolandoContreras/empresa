@@ -18,7 +18,7 @@
                                     </thead><!-- table heading -->
                                     <tbody>
                                             <tr>
-                                                    <td><a href="#"><b>28</b> <i class="icon-large icon-list-alt"></i> Articles
+                                                    <td><a href="#"><b><?php echo $obj_products;?></b> <i class="icon-edit"></i> Productos
                                                     </a></td>
                                                     <td><a href="#"><b class="cmd">2,328</b> <i class="icon-large icon-chat"></i> Comments</a></td>
                                             </tr>
@@ -39,7 +39,7 @@
                                                     <td class="blank">&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                    <td><a href="#"><b>18</b> <i class="icon-large icon-tags"></i> Tags</a></td>
+                                                    <td><a href="#"><b><?php echo $obj_tags;?></b> <i class="icon-edit"></i> Tags</a></td>
                                                     <td class="blank">&nbsp;</td>
                                             </tr>
                                     </tbody>

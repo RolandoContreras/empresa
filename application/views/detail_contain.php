@@ -76,8 +76,7 @@ $this->load->view("header");
       <br/>
       
        <div class="quantity">
-           
-        <p><input type="number" step="1" min="1" max="150" name="quantity" value="1" class="input-text qty text" size="4"/></p>
+        <p><input type="number" step="1" min="1" max="150" name="quantity" value="1" class="input-text qty text" size="3"/></p>
         <input type="hidden" name="product_id" value="<?php echo $obj_products->product_id;?>" class="input-text text" size="4"/>
         </div>
     </div>
