@@ -13,34 +13,22 @@
                                     <thead>
                                             <tr>
                                                     <th>CMS</th>
-                                                    <th>Discussion</th>
+                                                    <th>Discuciones</th>
                                             </tr>
                                     </thead><!-- table heading -->
                                     <tbody>
                                             <tr>
-                                                    <td><a href="#"><b><?php echo $obj_products;?></b> <i class="icon-edit"></i> Productos
+                                                <td><a href="<?php echo site_url().'dashboard/productos';?>"><b><?php echo $obj_products;?></b> <i class="icon-edit"></i> Productos
                                                     </a></td>
-                                                    <td><a href="#"><b class="cmd">2,328</b> <i class="icon-large icon-chat"></i> Comments</a></td>
+                                                    <td><a href="<?php echo site_url().'dashboard/comentarios';?>"><b class="cmd"><?php echo $obj_comments;?></b> <i class="icon-edit"></i> Comentarios</a></td>
                                             </tr>
                                             <tr>
-                                                    <td><a href="#"><b>17</b> <i class="icon-large icon-list-alt"></i> Pages</a></td>
-                                                    <td><a href="#" class="approved"><b class="cmd">217</b> <i class="icon-large icon-chat"></i> Approved</a></td>
+                                                     <td><a href="<?php echo site_url().'dashboard/tags';?>"><b><?php echo $obj_tags;?></b> <i class="icon-edit"></i> Tags</a></td>
+                                                    <td><a class="approved"><b class="cmd"><?php echo $active;?></b> <i class="icon-edit"></i> Aprobados</a></td>
                                             </tr>
                                             <tr>
-                                                    <td><a href="#"><b>34</b> <i class="icon-large icon-list-alt"></i> Reports</a></td>
-                                                    <td><a href="#" class="pending"><b class="cmd">0</b> <i class="icon-large icon-chat"></i> Pending</a></td>
-                                            </tr>
-                                            <tr>
-                                                    <td><a href="#"><b>4</b> <i class="icon-large icon-calendar-1"></i> Events</a></td>
-                                                    <td><a href="#" class="spam"><b class="cmd">2,111</b> <i class="icon-large icon-chat"></i> Spam</a></td>
-                                            </tr>
-                                            <tr>
-                                                    <td><a href="#"><b>26</b> <i class="icon-large icon-camera-1"></i> Media Libraries</a></td>
-                                                    <td class="blank">&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                    <td><a href="#"><b><?php echo $obj_tags;?></b> <i class="icon-edit"></i> Tags</a></td>
-                                                    <td class="blank">&nbsp;</td>
+                                                    <td><a href="#"><b>0</b> <i class="icon-edit"></i> Reportes</a></td>
+                                                    <td><a class="pending"><b class="cmd"><?php echo $inactive;?></b> <i class="icon-edit"></i> Pendientes</a></td>
                                             </tr>
                                     </tbody>
                             </table>
@@ -88,9 +76,6 @@
                             </form>
                     </div>
             </div>
-
-            
-
     </div>
 
         <div class="span6">
@@ -99,27 +84,26 @@
                                 <div class="navbar navbar-static navbar_as_heading">
                                         <div class="navbar-inner">
                                                 <div class="container" style="width: auto;">
-                                                        <a class="brand">Latest Comment</a>
+                                                        <a class="brand">Ultimo Comentario</a>
                                                 </div>
                                         </div>
                                 </div>
-                                <!-- comments list -->
+                            <?php 
+                            if(count($obj_last_comment) > 0){ ?>
                                 <div class="row-fluid">
-
                                         <div class="comment_container span12" style="margin-left:auto;">
-                                                <div class="img_round"><img width="70" src="../examples/img-sample-01.jpg" /></div>
+                                            <div class="img_round"><img width="70" src="<?php echo SERVER2.$obj_last_comment->big_image;?>" /></div>
                                                 <div class="comment_content">
-                                                        <p class="meta"><span class="comment_date">Wednesday, May 30, 2012</span> on <a href="#">How To Be An Angel</a></p>
-                                                        <p><a href="#" class="comment_author">Dheeva</a> wrote: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                                                    <p class="meta"><span class="comment_date"><?php echo formato_fecha($obj_last_comment->date_comment);?></span> | <a href="#"><?php echo $obj_last_comment->tittle;?></a></p>
+                                                        <p><a href="#" class="comment_author"><?php echo $obj_last_comment->name;?></a> : <?php echo $obj_last_comment->comment;?></p>
                                                         <p>
                                                                 <a class="btn btn-mini btn-primary" href="#">Reply</a> <a class="btn btn-mini btn-danger" href="#">Delete</a> <a class="btn btn-mini btn-warning" href="#">Mark as Spam</a> 
                                                         </p>
                                                 </div>
                                         </div>
-
                                         <a href="#" class="btn btn-duadua">View More</a>
-
-                                </div><!-- comments list -->
+                                </div>
+                            <?php }  ?>
                         </div>
                 </div>
 
