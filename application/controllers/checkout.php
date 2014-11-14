@@ -170,7 +170,8 @@ class Checkout extends CI_Controller {
             $data['message'] = "success";
             $data['print'] = "El pedido se registró con éxito<br/><br/>
                               <b>Número de Pedido</b>: $order_id<br/><br/>
-                              El pedido será entragado en 2 días hábiles a la dirección registrada.<br/>    
+                              El pedido será entragado en 2 días hábiles a la dirección registrada.<br/>   
+                              Enviar el voucher de pago al correo: ventas@wavelinetwork.com<br/>
                               Realizar el pago en :<br/>
                               Banco de Credito del Perú - BCP<br/><br/>
                               194-2204558-0-61 Cuenta Corriente Soles<br/>
