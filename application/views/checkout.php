@@ -1,7 +1,7 @@
 <?php $this->load->view("header");?>
-<body class="page page-id-1797 page-parent page-template page-template-page-fullwidth-php has_woocommerce has_shop">
+<body class="page">
 <div id="motopress-main" class="main-holder">
- <script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script> 
+ <script src="<?php echo site_url().'static/cms/js/core/jquery.js?999';?>"></script> 
 <header class="motopress-wrapper header">
 <div class="container">
     <div class="row">
@@ -13,7 +13,7 @@
 </div>
 </header>
     
-<div class="motopress-wrapper content-holder clearfix">
+<div class="content-holder">
 <div class="container">
 <div class="row">
 <div class="span12">
@@ -28,14 +28,12 @@
     </div>
 <div class="row">
     <div class="span9 right right" id="content">
-        <div id="post-1915" class="post-1915 page type-page status-publish hentry page">
+        <div class="page">
             <div class="woocommerce">
                 <?php
                 if(count($this->cart->contents())!=0){ ?>
                 <form class="cart" method="post">
-                    
                     <table class="table smallfont">
-                        
                         <thead>
                             <tr>
                                 <td><b>IMAGEN</b></td>
@@ -72,7 +70,7 @@
                                         <td>
                                             <p>
                                                 <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;">
-                                                    <img src="<?php echo site_url().'static/images/png/delete26.png';?>" width="30" alt="Eliminar">
+                                                    <img src="<?php echo site_url().'static/images/png/delete26.png?999';?>" width="30" alt="Eliminar">
                                                 </a> 
                                             </p>
                                         </td>
@@ -130,7 +128,7 @@
             <h3>Categorías</h3>
             <ul>
                 <?php foreach ($category as $value) { ?>
-                    <li class="cat-item cat-item-13"><a href="<?php echo site_url().convert_slug($value->name);?>" title="<?php echo $value->name;?>"><?php echo $value->name;?></a></li>
+                    <li><a href="<?php echo site_url().convert_slug($value->name);?>" title="<?php echo $value->name;?>"><?php echo $value->name;?></a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -144,8 +142,8 @@
     <?php $this->load->view("footer");?>
 <!------call footer----->
 </div>
-<script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js';?>'></script>  
-<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>  
+<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
 </body>
 </html>

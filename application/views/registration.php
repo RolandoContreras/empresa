@@ -1,12 +1,12 @@
 <?php $this->load->view("header");?>
-<body class="page page-id-1917 page-template-default woocommerce-account woocommerce-page has_woocommerce has_shop">
+<body class="page">
 <div id="motopress-main" class="main-holder">
-<script src="<?php echo site_url().'static/cms/js/core/jquery.js';?>"></script> 
+<script src="<?php echo site_url().'static/cms/js/core/jquery.js?999';?>"></script> 
 
-<header class="motopress-wrapper header">
+<header class="header">
     <div class="container">
         <div class="row">
-            <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="5409de05d6f77">
+            <div class="span12">
                     <!--Menu Navigacion Secundary-->
                         <?php $this->load->view("nav_secondary");?>
                     <!--------------------------->
@@ -14,12 +14,12 @@
         </div>
     </div>
 </header>
-<div class="motopress-wrapper content-holder clearfix">
+<div class="content-holder">
 <div class="container">
 <div class="row">
-<div class="span12" data-motopress-wrapper-file="page.php" data-motopress-wrapper-type="content">
+<div class="span12">
 <div class="row">
-<div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
+<div class="span12">
 <section class="title-section">
 <h1 class="title-header">Registro</h1>
  
@@ -29,7 +29,7 @@
 </section>  </div>
 </div>
 <div class="row">
-    <div class="span9 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
+    <div class="span9 right right" id="content">
         <div id="post-1917" class="post-1917 page type-page status-publish hentry page">
             <div class="woocommerce">
             <form class="login">   
@@ -71,7 +71,7 @@
                                                     <td>S/.<?php echo $this->cart->format_number($item['subtotal']);?></td>
                                                     <td>
                                                         <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;">
-                                                          <img src="<?php echo site_url().'static/images/png/delete26.png';?>" width="30" alt="Eliminar">
+                                                          <img src="<?php echo site_url().'static/images/png/delete26.png?999';?>" width="30" alt="Eliminar">
                                                         </a> 
                                                     </td>
                                                 </tr>
@@ -174,8 +174,6 @@
                                 </div>
                             </div> 
                     
-                    
-                    
                      <p class="form-row form-row-wide">
                     <label for="Teléfono">Teléfono<span class="required">*</span></label>
                     <input type="text" class="input-text" name="phone" id="phone" required="required"/>
@@ -237,15 +235,13 @@
         <div class="clear"></div>
         </div> 
     </div>
-<div class="span3 sidebar" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
+<div class="span3 sidebar" id="sidebar">
     <div id="categories-3" class="visible-all-devices widget">
         <h3>Categorias</h3> 
     <ul>
         <?php foreach ($category as $value) { ?>
-            <li class="cat-item cat-item-13"><a href="<?php echo site_url().convert_slug($value->name);?>"><?php echo $value->name;?></a>
-        </li>
+            <li><a href="<?php echo site_url().convert_slug($value->name);?>"><?php echo $value->name;?></a></li>
         <?php } ?>
-        
    </ul>
     </div>
 </div>
@@ -256,14 +252,9 @@
 </div>
 <?php  $this->load->view("footer");?>   
 </div>
-    
-<script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js';?>'></script>    
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>    
-<script type="text/javascript" src='<?php echo site_url().'static/js/jquery.form.min.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery-cookie.min.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/device.min.js';?>'></script>
-<script src="static/cms/js/core/bootstrap-alert.js"></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>    
+<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>    
+<script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
 </body>
 </html>

@@ -19,12 +19,16 @@ $this->load->view("header");
 <div class="container">
 <div class="row">
 <div class="span12">
-    <section>
-        <h1 class="title-header"><?php echo $obj_products->name;?></h1>
-        <ul class="breadcrumb breadcrumb__t">
-            <a class="home" href="<?php echo site_url().'home';?>">Home</a> / 
-            <a href="<?php echo site_url().convert_slug($obj_products->category);?>"><?php echo $obj_products->category ?></a> / <?php echo $obj_products->name;?></ul>  
-    </section> 
+    <div class="row">
+        <div class="span12">
+            <section class="title-section">
+                <h1 class="title-header"><?php echo $obj_products->name;?></h1>
+                <ul class="breadcrumb breadcrumb__t">
+                    <a class="home" href="<?php echo site_url().'home';?>">Home</a> / 
+                    <a href="<?php echo site_url().convert_slug($obj_products->category);?>"><?php echo $obj_products->category ?></a> / <?php echo $obj_products->name;?></ul>  
+            </section> 
+        </div>
+    </div>
 </div>
 </div>
 <div class="row">
