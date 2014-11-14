@@ -1,15 +1,12 @@
-<footer class="motopress-wrapper footer_bottom">
+<footer class="footer_bottom">
         <div class="container">
         <div class="row">
-            <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer">
-                    <div class="row copyright">
-                        <div class="span8 pull-left" data-motopress-type="static" data-motopress-static-file="static/static-footer-nav.php">
+            <div class="span12">
+                        <div class="span8">
                             <nav class="nav footer-nav">
-                            <ul id="menu-footer-menu" class="menu">
-                                
+                            <ul class="menu">
                                 <!--current-menu-item-->
                                 <?php 
-
                                     $ruta = explode("/",uri_string()); 
                                     $nav = $ruta[0];
 
@@ -56,7 +53,7 @@
                             </ul> 
                             </nav>
                             
-                            <div id="footer-text" class="footer-text">
+                            <div class="footer-text">
                                 <b>WaveLine S.A.C.</b> Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru<br/>
                                 <b>Horario de Atención:</b> Lunes a Viernes: 9:00 am a 6:00pm.<br/>
                                 <b>Escríbenos:</b> servicioalcliente@wavelinetwork.com.<br/>
@@ -64,28 +61,27 @@
                             </div>
                         </div>
                         
-                        <div class="span4 pull-right" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-3">
-                        <div id="social_networks-2" class="visible-all-devices ">
+                        <div class="span4 pull-right">
+                            <div class="visible-all-devices">
+                                <ul class="social social__row">
+                                    <li class="social_li">
+                                        <a class="social_link social_link__facebook" href="https://www.facebook.com/Wavelinetwork" target="_blank">
+                                            <span class="social_ico">
+                                                <img style="display:none;" src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt="facebook"/>
+                                            </span>
+                                        </a>
+                                    </li>
 
-                        <ul class="social social__row clearfix unstyled">
-                        <li class="social_li">
-                        <a class="social_link social_link__facebook" href="https://www.facebook.com/Wavelinetwork" target="_blank">
-                        <span class="social_ico">
-                            <img style="display:none;" src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt="facebook"/>
-                        </span>
-                        </a>
-                        </li>
-                        <li class="social_li">
-                        <a class="social_link social_link__twitter" href="https://twitter.com/Wavelinetwork" target="_blank">
-                        <span class="social_ico">
-                            <img style="display:none;" src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt="twitter"/>
-                        </span>
-                        </a>
-                        </li>
-                        </ul>
-                        </div> 
+                                    <li class="social_li">
+                                        <a class="social_link social_link__twitter" href="https://twitter.com/Wavelinetwork" target="_blank">
+                                            <span class="social_ico">
+                                                <img style="display:none;" src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt="twitter"/>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> 
                         </div>
-                    </div> 
             </div>
         </div>
     </div>

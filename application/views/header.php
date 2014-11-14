@@ -6,10 +6,8 @@
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en-US"> <!--<![endif]-->
 <head>
 <title>Waveline | <?php echo $title?></title>
-<meta name="description" content=" | "/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="description" content="<?php echo $meta_description;?>" />
 <meta name="keywords" content="<?php echo $meta_keywords;?>" />
 <meta name="author" content="Waveline S.A.C." />
@@ -18,24 +16,16 @@
 <link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css';?>"/>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/cms/css/core/bootstrap_1.css';?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css';?>"/>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/camera/camera.css';?>"/>
 <link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
 <link rel='stylesheet' href='<?php echo site_url().'static/css/style/style.css'?>' type='text/css' media='all'/>
-<link rel='stylesheet' id='theme51107-css' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
-<link rel='stylesheet' id='woocommerce-general-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.1.12' type='text/css' media='all'/>
-
-
-<link rel='stylesheet' id='woocommerce_prettyPhoto_css-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=3.9.1' type='text/css' media='all'/>
-<link rel='stylesheet' id='woocommerce-layout-css' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.1.12' type='text/css' media='all'/>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-includes/js/jquery/jquery.js?ver=1.8'></script>
+<link rel='stylesheet' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.1.12' type='text/css' media='all'/>
+<link rel='stylesheet' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.1.12' type='text/css' media='all'/>
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
-
 
 <!--Banner Grande-->
 <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery-migrate-1.2.1.min.js';?>'></script>
 <!--Banner Grande-->
 <script src="<?php echo site_url().'static/cms/js/core/bootstrap-modal.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js';?>"></script>

@@ -116,9 +116,6 @@
             </header>
 
                 <div class="fixed-area">
-                    <!-- Logo do MMN. Link volta pra homepage -->
-                    <!-- Menu principal das páginas -->
-                    
                     <nav class="main-menu">
                         <ul>
                             <li>
@@ -148,6 +145,11 @@
                             <li>
                                 <a href="<?php echo site_url().'backoffice/faq';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/male172.png';?>">&nbsp;&nbsp;FAQ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url().'backoffice/faq';?>" style="color: whitesmoke !important;">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/add133.png';?>">&nbsp;&nbsp;Recursos</span>
                                 </a>
                             </li>
                         </ul>
