@@ -13,22 +13,22 @@
 <meta name="author" content="Waveline S.A.C." />
 <meta name="rating" content="General" />
 <meta name="robots" CONTENT="index,follow" />
-<link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
+<link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico?999';?>">
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css?1';?>"/>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css?1';?>"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css?999';?>"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css?999';?>"/>
 <link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
-<link rel='stylesheet' href='<?php echo site_url().'static/css/style/style.css'?>' type='text/css' media='all'/>
+<link rel='stylesheet' href='<?php echo site_url().'static/css/style/style.css?999'?>' type='text/css' media='all'/>
 <link rel='stylesheet' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
-<link rel='stylesheet' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.1.12' type='text/css' media='all'/>
-<link rel='stylesheet' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.1.12' type='text/css' media='all'/>
-<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
+<link rel='stylesheet' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='//livedemo00.template-help.com/woocommerce_51107/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' type='text/css' media='all'/>
+<script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery-migrate-1.2.1.min.js'></script>
 
 <!--Banner Grande-->
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?1';?>'></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>
 <!--Banner Grande-->
-<script src="<?php echo site_url().'static/cms/js/core/bootstrap-modal.js?1';?>"></script>
-<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js?1';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootstrap-modal.js?999';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js?999';?>"></script>
 
 <style type='text/css'>
     h1{font:normal 30px/35px Open Sans;color:#000000;}

@@ -69,10 +69,10 @@ margin-left: 18px;
     z-index: -1;
 }
 .full-top-shop-header{
-    background-image: url("../../../static/css/images/layout/bg-spectrum.jpg");
+    background-image: url("../../../static/css/images/layout/bg-spectrum.jpg?999");
 }
 .header{
-    background-image: url("../../../static/css/images/layout/bg-spectrum1.jpg") !important;
+    background-image: url("../../../static/css/images/layout/bg-spectrum1.jpg?999") !important;
     width: 100%;
     position: fixed !important;
 }
@@ -87,7 +87,7 @@ margin-left: 18px;
     padding: 0px;
     position: relative;
     z-index: 100;
-    background-image: url("../../../static/css/images/layout/woodgrain-light.jpg");
+    background-image: url("../../../static/css/images/layout/woodgrain-light.jpg?999");
 }
 
 .footer_bottom .social {

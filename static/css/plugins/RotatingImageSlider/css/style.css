@@ -16,7 +16,7 @@ h1{
 	text-transform:uppercase;
 	text-shadow:0px 0px 1px #fff;
 	color:#333;
-	background:transparent url(../images/line.png) repeat-x bottom left;
+	background:transparent url(../images/line.png?999) repeat-x bottom left;
 }
 .rm_wrapper{
 	width:1160px;
@@ -31,7 +31,7 @@ h1{
 	margin:0 auto;
 }
 .rm_container h2{
-	background:transparent url(../images/lines.png) repeat top left;
+	background:transparent url(../images/lines.png?999) repeat top left;
 	padding:10px 30px;
 	position:absolute;
 	bottom:170px;
@@ -108,11 +108,11 @@ h1{
 	opacity:1.0;
 }
 .rm_nav a.rm_next{
-	background:transparent url(../images/next.png) no-repeat top left;
+	background:transparent url(../images/next.png?999) no-repeat top left;
 	right:0px;
 }
 .rm_nav a.rm_prev{
-	background:transparent url(../images/prev.png) no-repeat top left;
+	background:transparent url(../images/prev.png?999) no-repeat top left;
 	left:0px;
 }
 .rm_controls{
@@ -136,10 +136,10 @@ h1{
 }
 .rm_controls a.rm_play{
 	display:none;
-	background:transparent url(../images/play.png) no-repeat center left;
+	background:transparent url(../images/play.png?999) no-repeat center left;
 }
 .rm_controls a.rm_pause{
-	background:transparent url(../images/pause.png) no-repeat center left;
+	background:transparent url(../images/pause.png?999) no-repeat center left;
 }
 /* Footer Style */
 .footer{
