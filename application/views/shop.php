@@ -71,7 +71,7 @@
         
         <!--END PAGINATE-->
 </div>
-<div class="sidebar span3">
+<div class="sidebar span3" id="sidebar">
     <div id="woocommerce_price_filter-2" class="widget">
         <h3>Filtrar por Precio</h3>
         <form method="post" action="<?php echo site_url().'compras/porprecio'; ?>">
