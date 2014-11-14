@@ -67,7 +67,7 @@
                                     <li class="social_li">
                                         <a class="social_link social_link__facebook" href="https://www.facebook.com/Wavelinetwork" target="_blank">
                                             <span class="social_ico">
-                                                <img style="display:none;" src="<?php echo site_url().'static/images/icons/facebook.png';?>" alt="facebook"/>
+                                                <img style="display:none;" src="<?php echo site_url().'static/images/icons/facebook.png?1';?>" alt="facebook"/>
                                             </span>
                                         </a>
                                     </li>
@@ -75,7 +75,7 @@
                                     <li class="social_li">
                                         <a class="social_link social_link__twitter" href="https://twitter.com/Wavelinetwork" target="_blank">
                                             <span class="social_ico">
-                                                <img style="display:none;" src="<?php echo site_url().'static/images/icons/twitter.png';?>" alt="twitter"/>
+                                                <img style="display:none;" src="<?php echo site_url().'static/images/icons/twitter.png?1';?>" alt="twitter"/>
                                             </span>
                                         </a>
                                     </li>

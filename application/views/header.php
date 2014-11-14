@@ -15,8 +15,8 @@
 <meta name="robots" CONTENT="index,follow" />
 <link rel="shortcut icon" href="<?php echo site_url().'static/images/icon.ico';?>">
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css';?>"/>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css';?>"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/bootstrap.css?1';?>"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo site_url().'static/css/bootstrap/responsive.css?1';?>"/>
 <link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
 <link rel='stylesheet' href='<?php echo site_url().'static/css/style/style.css'?>' type='text/css' media='all'/>
 <link rel='stylesheet' href='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/theme51107/main-style.css' type='text/css' media='all'/>
@@ -25,10 +25,10 @@
 <script type='text/javascript' src='http://livedemo00.template-help.com/woocommerce_51107/wp-content/themes/CherryFramework/js/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
 
 <!--Banner Grande-->
-<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js';?>'></script>
+<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?1';?>'></script>
 <!--Banner Grande-->
-<script src="<?php echo site_url().'static/cms/js/core/bootstrap-modal.js';?>"></script>
-<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootstrap-modal.js?1';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js?1';?>"></script>
 
 <style type='text/css'>
     h1{font:normal 30px/35px Open Sans;color:#000000;}
