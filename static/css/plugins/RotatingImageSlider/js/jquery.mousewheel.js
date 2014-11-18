@@ -1,4 +1,4 @@
-/*! Copyright (c) 2010 Brandon Aaron (http://brandonaaron.net)
+/* Copyright (c) 2010 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
  *
  * Thanks to: http://adomas.org/javascript-mouse-wheel/ for some pointers.
@@ -9,70 +9,4 @@
  * 
  * Requires: 1.2.2+
  */
-
-(function($) {
-
-var types = ['DOMMouseScroll', 'mousewheel'];
-
-$.event.special.mousewheel = {
-    setup: function() {
-        if ( this.addEventListener ) {
-            for ( var i=types.length; i; ) {
-                this.addEventListener( types[--i], handler, false );
-            }
-        } else {
-            this.onmousewheel = handler;
-        }
-    },
-    
-    teardown: function() {
-        if ( this.removeEventListener ) {
-            for ( var i=types.length; i; ) {
-                this.removeEventListener( types[--i], handler, false );
-            }
-        } else {
-            this.onmousewheel = null;
-        }
-    }
-};
-
-$.fn.extend({
-    mousewheel: function(fn) {
-        return fn ? this.bind("mousewheel", fn) : this.trigger("mousewheel");
-    },
-    
-    unmousewheel: function(fn) {
-        return this.unbind("mousewheel", fn);
-    }
-});
-
-
-function handler(event) {
-    var orgEvent = event || window.event, args = [].slice.call( arguments, 1 ), delta = 0, returnValue = true, deltaX = 0, deltaY = 0;
-    event = $.event.fix(orgEvent);
-    event.type = "mousewheel";
-    
-    // Old school scrollwheel delta
-    if ( event.wheelDelta ) { delta = event.wheelDelta/120; }
-    if ( event.detail     ) { delta = -event.detail/3; }
-    
-    // New school multidimensional scroll (touchpads) deltas
-    deltaY = delta;
-    
-    // Gecko
-    if ( orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
-        deltaY = 0;
-        deltaX = -1*delta;
-    }
-    
-    // Webkit
-    if ( orgEvent.wheelDeltaY !== undefined ) { deltaY = orgEvent.wheelDeltaY/120; }
-    if ( orgEvent.wheelDeltaX !== undefined ) { deltaX = -1*orgEvent.wheelDeltaX/120; }
-    
-    // Add event and delta to the front of the arguments
-    args.unshift(event, delta, deltaX, deltaY);
-    
-    return $.event.handle.apply(this, args);
-}
-
-})(jQuery);
+(function(b){var c=["DOMMouseScroll","mousewheel"];b.event.special.mousewheel={setup:function(){if(this.addEventListener){for(var d=c.length;d;){this.addEventListener(c[--d],a,false)}}else{this.onmousewheel=a}},teardown:function(){if(this.removeEventListener){for(var d=c.length;d;){this.removeEventListener(c[--d],a,false)}}else{this.onmousewheel=null}}};b.fn.extend({mousewheel:function(d){return d?this.bind("mousewheel",d):this.trigger("mousewheel")},unmousewheel:function(d){return this.unbind("mousewheel",d)}});function a(d){var h=d||window.event,i=[].slice.call(arguments,1),e=0,f=true,j=0,g=0;d=b.event.fix(h);d.type="mousewheel";if(d.wheelDelta){e=d.wheelDelta/120}if(d.detail){e=-d.detail/3}g=e;if(h.axis!==undefined&&h.axis===h.HORIZONTAL_AXIS){g=0;j=-1*e}if(h.wheelDeltaY!==undefined){g=h.wheelDeltaY/120}if(h.wheelDeltaX!==undefined){j=-1*h.wheelDeltaX/120}i.unshift(d,e,j,g);return b.event.handle.apply(this,i)}})(jQuery);
