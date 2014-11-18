@@ -30,6 +30,11 @@
                                                     <td><a href="#"><b>0</b> <i class="icon-edit"></i> Reportes</a></td>
                                                     <td><a class="pending"><b class="cmd"><?php echo $inactive;?></b> <i class="icon-edit"></i> Pendientes</a></td>
                                             </tr>
+                                            <tr>
+                                                    <td><a href="<?php echo site_url().'dashboard/clientes';?>"><b><?php echo $obj_customer?></b> <i class="icon-edit"></i> Clientes</a></td>
+                                                    <td></td>
+                                            </tr>
+                                           
                                     </tbody>
                             </table>
                     </div>

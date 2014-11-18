@@ -6,6 +6,7 @@ class Panel extends CI_Controller{
         $this->load->model("tags_model","obj_tags");
         $this->load->model("product_model","obj_products");
         $this->load->model("comments_model","obj_comments");
+        $this->load->model("customer_model","obj_customer");
     }
     
     public function index(){
@@ -44,9 +45,15 @@ class Panel extends CI_Controller{
             );
         $obj_last_comment = $this->obj_comments->get_search_row($params);
         
+        //GET ALL CUSTOMER
+        $params = array("select" =>"count(customer_id) as customer_id");
+        $obj_customer = $this->obj_customer->get_search_row($params);
+        $obj_customer = $obj_customer->customer_id;
+        
         $modulos ='Home'; 
         $link_modulo =  site_url().$modulos; 
         $seccion = 'Vista global';        
+        $this->tmp_mastercms->set('obj_customer',$obj_customer);
         $this->tmp_mastercms->set('obj_last_comment',$obj_last_comment);
         $this->tmp_mastercms->set('obj_comments',$obj_comments);
         $this->tmp_mastercms->set('active',$active);
