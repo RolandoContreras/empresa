@@ -1,1 +1,494 @@
-(function(a){a.fn.parallaxSlider=function(E){var s={prevButton:a(".prevButton"),nextButton:a(".nextButton"),duration:1000,autoSwitcher:true,autoSwitcherDelay:7000,parallaxEffect:true,slider_navs:true,slider_pagination:true,animateLayout:"zoom-fade-eff"};a.extend(s,E);var G=a(this),B=a(window),g=a(document),X=0,y=0,I=0,r=0,b=[],W=false,M=false,h,l,A=G.offset(),u=G.offset().top,R=G.height(),F=0,Q=0,t=0,V=0.5,O=0;var P,k,j,N,C,K,L,T,H,m,c,D;U();function U(){l=[];a("ul li",G).each(function(){l.push([a(this).attr("data-preview"),a(this).attr("data-img-width"),a(this).attr("data-img-height"),a(this).html()])});G.html("");G.addClass(s.animateLayout);G.append("<div id='mainImageHolder'><div class='primaryHolder'><img src='' alt=''></div><div class='secondaryHolder'><img src='' alt=''></div></div>");P=a("#mainImageHolder");k=a("#mainImageHolder > .primaryHolder");secondarImageHolder=a("#mainImageHolder > .secondaryHolder");G.append("<div id='mainCaptionHolder'><div class='container'><div class='primaryCaption'></div><div class='secondaryCaption'></div></div></div>");N=a("#mainCaptionHolder");C=a(".primaryCaption",N);K=a(".secondaryCaption",N);L=a(">.container",N);G.append("<div class='controlBtn parallaxPrevBtn'><div class='innerBtn icon-chevron-left'></div><div class='slidesCounter'></div></div><div class='controlBtn parallaxNextBtn'><div class='innerBtn icon-chevron-right'></div><div class='slidesCounter'></div></div>");H=a(".parallaxPrevBtn",G);m=a(".parallaxNextBtn",G);G.append("<div id='paralaxSliderPagination'><ul></ul></div>");D=a("#paralaxSliderPagination");c=a(".slidesCounter",G);G.append("<div id='previewSpinner'><span></span></div>");T=a("#previewSpinner");G.on("reBuild",function(o,Y){S(Y)});G.on("switchNext",function(o){i()});G.on("switchPrev",function(o){v()});S({urlArray:l});if(s.parallaxEffect){R=G.height();F=R*V}else{P.css({height:"100%"});N.css({height:"100%"})}if(!s.slider_navs){H.remove();m.remove()}if(!s.slider_pagination){D.remove()}J();p()}function S(Y){currIndex=0;I=0;b=[];b=Y.urlArray;O=b.length;a(">ul",D).empty();for(var o=0;o<O;o++){a(">ul",D).append("<li></li>")}if(O==1){console.log(D);D.remove();H.remove();m.remove()}x(0);e()}function p(){if(s.autoSwitcher){if(O>1){h=setInterval(function(){i()},s.autoSwitcherDelay)}}}function e(){a(">ul >li",D).on("click",function(){if((!W)&&(!M)&&(a(this).index()!==I)){I=a(this).index();x(I)}})}function J(){s.prevButton.on("click",function(){clearInterval(h);v()});s.nextButton.on("click",function(){clearInterval(h);i()});H.on("click",function(){clearInterval(h);v()});m.on("click",function(){clearInterval(h);i()});B.on("keydown",function(o){switch(o.keyCode){case 37:clearInterval(h);v();break;case 39:clearInterval(h);i();break}});a(window).on("scroll",function(){d()}).trigger("scroll");a(window).on("resize",function(){n()})}function v(){if(!W&&!M){if(I>0){I--}else{I=O-1}x(I)}}function i(){if(!W&&!M){if(I<O-1){I++}else{I=0}x(I)}}function x(o){c.text((o+1)+"/"+O);a(">ul >li",D).removeClass("active").eq(o).addClass("active");a("> img",k).attr("src","").attr("src",b[o][0]);a("> img",k).attr("data-image-width",b[o][1]);a("> img",k).attr("data-image-height",b[o][2]);w(k,0,"ease");k.addClass("animateState");C.html(b[o][3]);w(C,0,"ease");C.addClass("animateState");W=true;M=true;T.css({display:"block"}).stop().fadeTo(300,1);a("> img",k).on("load",function(){W=false;T.stop().fadeTo(300,0,function(){a(this).css({display:"none"})});a(this).off("load");q(a("> img",k),P,"fill");w(k,s.duration,"outCubic");k.removeClass("animateState");w(secondarImageHolder,s.duration,"outCubic");secondarImageHolder.addClass("animateState");w(C,s.duration,"outCubic");C.removeClass("animateState");w(K,s.duration,"outCubic");K.addClass("animateState");L.height(C.height());setTimeout(function(){w(secondarImageHolder,0,"ease");secondarImageHolder.removeClass("animateState");a("> img",secondarImageHolder).attr("src","").attr("src",b[o][0]);a("> img",secondarImageHolder).attr("data-image-width",b[o][1]);a("> img",secondarImageHolder).attr("data-image-height",b[o][2]);K.html(b[o][3]);w(K,0,"ease");K.removeClass("animateState");q(a("> img",secondarImageHolder),P,"fill");M=false},s.duration)})}function w(Z,Y,aa){var o;if(Y!==0){o=Y/1000}else{o=0}switch(aa){case"ease":Z.css({"-webkit-transition":"all "+o+"s ease","-moz-transition":"all "+o+"s ease","-o-transition":"all "+o+"s ease",transition:"all "+o+"s ease"});break;case"outSine":Z.css({"-webkit-transition":"all "+o+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)","-moz-transition":"all "+o+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)","-o-transition":"all "+o+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)",transition:"all "+o+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)"});break;case"outCubic":Z.css({"-webkit-transition":"all "+o+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)","-moz-transition":"all "+o+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)","-o-transition":"all "+o+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)",transition:"all "+o+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)"});break;case"outExpo":Z.css({"-webkit-transition":"all "+o+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)","-moz-transition":"all "+o+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)","-o-transition":"all "+o+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)",transition:"all "+o+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)"});break;case"outBack":Z.css({"-webkit-transition":"all "+o+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)","-moz-transition":"all "+o+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)","-o-transition":"all "+o+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)",transition:"all "+o+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)"});break}}function q(ah,ai,ae){var Z=0,Y=0,aa,o,ac,ag,af,ab,ad="top";Z=parseInt(ah.attr("data-image-width"));Y=parseInt(ah.attr("data-image-height"));aa=Y/Z;containerRatio=ai.height()/ai.width();switch(ae){case"fill":if(containerRatio>aa){ag=ai.height();ac=Math.round((ag*Z)/Y)}else{ac=ai.width();ag=Math.round((ac*Y)/Z)}ah.css({width:ac,height:ag});screenWidth=ai.width();screenHeight=ai.height();imgWidth=ah.width();imgHeight=ah.height();switch(ad){case"top":ab=-(imgWidth-screenWidth)*0.5;af=0;break;case"bottom":ab=-(imgWidth-screenWidth)*0.5;af=-(imgHeight-screenHeight);break;case"right":ab=-(imgWidth-screenWidth);af=-(imgHeight-screenHeight)*0.5;break;case"left":ab=0;af=-(imgHeight-screenHeight)*0.5;break;case"top_left":ab=0;af=0;break;case"top_right":ab=-(imgWidth-screenWidth);af=0;break;case"bottom_right":ab=-(imgWidth-screenWidth);af=-(imgHeight-screenHeight);break;case"bottom_left":ab=0;af=-(imgHeight-screenHeight);break;default:ab=-(imgWidth-screenWidth)*0.5;af=-(imgHeight-screenHeight)*0.5}break;case"fit":if(containerRatio>aa){ac=ai.width();ag=(Y*ai.width())/Z;af=ai.height()/2-ag/2;ab=0}else{ac=(Z*ai.height())/Y;ag=ai.height();af=0;ab=ai.width()/2-ac/2}ah.css({width:ac,height:ag});break}ah.css({top:af,left:ab})}function d(){var o,Z,Y,aa;Q=B.width();t=B.height();u=A.top;o=g.scrollTop();Z=o+t;Y=o-R;aa=Z-Y;if((Z>u)&&(Y<u)&&(s.parallaxEffect)){pixelScrolled=o-(u-t);percentScrolled=pixelScrolled/aa;percentSinScrolled=Math.sin(z(180*percentScrolled));thisHidenScrollVal=u-o;deltaTopScrollVal=F*percentScrolled;P.css({top:-F+(deltaTopScrollVal)});N.css({top:-F+(deltaTopScrollVal*1.3)});N.fadeTo(0,percentSinScrolled);H.css({top:Math.ceil(percentScrolled*100)+"%"});m.css({top:Math.ceil(percentScrolled*100)+"%"});H.fadeTo(0,percentSinScrolled);m.fadeTo(0,percentSinScrolled);D.fadeTo(0,percentSinScrolled)}}function n(){Q=B.width();t=B.height();R=G.height();F=R*V;q(a("> img",k),P,"fill");q(a("> img",secondarImageHolder),P,"fill")}function f(o){return o*(180/Math.PI)}function z(o){return o*(Math.PI/180)}}})(jQuery);
+(function($){
+ $.fn.parallaxSlider=function(o){ 
+        
+    var options = {
+        prevButton: $('.prevButton')
+    ,   nextButton: $('.nextButton')
+    ,   duration: 1000
+    ,   autoSwitcher: true
+    ,   autoSwitcherDelay: 7000
+    ,   parallaxEffect: true
+    ,   slider_navs: true
+    ,   slider_pagination: true
+    ,   animateLayout: 'zoom-fade-eff' //simple-fade-eff, zoom-fade-eff, slide-top-eff
+    }
+    $.extend(options, o); 
+    
+    var 
+        _this = $(this)
+    ,   _window = $(window)
+    ,   _document = $(document)
+    ,   currSet = 0
+    ,   currImgId = 0
+    ,   ImgIdCounter = 0
+    ,   itemsLength = 0
+    ,   previewArray = []
+    ,   isPreviewLoading = false
+    ,   isPreviewAnimate = false
+    ,   intervalSwitcher
+    ,   parsedArray
+    ,   _thisOffset =_this.offset()
+    ,   _thisOffsetTop = _this.offset().top
+    ,   _thisHeight = _this.height()
+    ,   _thisHeightBuffer = 0
+    ,   _windowWidth = 0
+    ,   _windowHeight = 0
+    ,   bufferRatio = 0.5
+    ,   itemLength = 0
+    ;
+
+    var
+        mainImageHolder
+    ,   primaryImageHolder
+    ,   secondaryHolder
+    ,   mainCaptionHolder
+    ,   primaryCaption
+    ,   secondaryCaption
+    ,   mainCaptionHolderContainer
+    ,   previewSpinner
+    ,   parallaxPrevBtn
+    ,   parallaxNextBtn
+    ,   slidesCounterList
+    ,   paralaxSliderPagination
+    ;
+
+///////////////////////////// INIT /////////////////////////////////////////////////////////
+    init();
+    function init(){
+        parsedArray = [];
+            $('ul li', _this).each(
+                function(){
+                    parsedArray.push([$(this).attr('data-preview'), $(this).attr('data-img-width'), $(this).attr('data-img-height'), $(this).html()]);
+                }
+            )
+        //  holder erase
+        _this.html('');
+
+        _this.addClass(options.animateLayout);
+
+        //  preview holder build
+        _this.append("<div id='mainImageHolder'><div class='primaryHolder'><img src='' alt=''></div><div class='secondaryHolder'><img src='' alt=''></div></div>");
+        mainImageHolder = $('#mainImageHolder');
+        primaryImageHolder = $('#mainImageHolder > .primaryHolder');
+        secondarImageHolder = $('#mainImageHolder > .secondaryHolder');
+
+         //  caption holder build
+        _this.append("<div id='mainCaptionHolder'><div class='container'><div class='primaryCaption'></div><div class='secondaryCaption'></div></div></div>");
+        mainCaptionHolder = $('#mainCaptionHolder');
+        primaryCaption = $('.primaryCaption', mainCaptionHolder);
+        secondaryCaption = $('.secondaryCaption', mainCaptionHolder);
+        mainCaptionHolderContainer = $('>.container', mainCaptionHolder);
+
+        //  controls build
+        _this.append("<div class='controlBtn parallaxPrevBtn'><div class='innerBtn icon-chevron-left'></div><div class='slidesCounter'></div></div><div class='controlBtn parallaxNextBtn'><div class='innerBtn icon-chevron-right'></div><div class='slidesCounter'></div></div>");
+        parallaxPrevBtn = $('.parallaxPrevBtn', _this);
+        parallaxNextBtn = $('.parallaxNextBtn', _this);
+
+        //  fullpreview pagination build
+        _this.append("<div id='paralaxSliderPagination'><ul></ul></div>");
+        paralaxSliderPagination = $('#paralaxSliderPagination');
+
+        slidesCounterList = $('.slidesCounter', _this);
+        
+        //  preview loader build
+        _this.append("<div id='previewSpinner'><span></span></div>");
+        previewSpinner = $('#previewSpinner');
+
+        _this.on("reBuild",
+            function(e,d){
+                setBuilder(d);
+            }
+        )
+
+        _this.on("switchNext",
+            function(e){
+                nextSwither();
+            }
+        )
+
+        _this.on("switchPrev",
+            function(e){
+                prevSwither();
+            }
+        )
+
+        setBuilder({'urlArray':parsedArray});
+
+        if(options.parallaxEffect){
+            _thisHeight = _this.height();
+            _thisHeightBuffer = _thisHeight*bufferRatio;
+        }else{
+            mainImageHolder.css({"height":"100%"});
+            mainCaptionHolder.css({"height":"100%"});
+        }
+
+        if(!options.slider_navs){
+            parallaxPrevBtn.remove();
+            parallaxNextBtn.remove();
+        }
+        if(!options.slider_pagination){
+            paralaxSliderPagination.remove();
+        }
+
+
+        addEventsFunction();
+        autoSwitcher();
+    }
+    //------------------------- set Builder -----------------------------//
+    function setBuilder(dataObj){ 
+        currIndex = 0;
+        ImgIdCounter = 0;
+        previewArray = [];
+        previewArray = dataObj.urlArray;
+        itemLength = previewArray.length;
+
+        $(">ul", paralaxSliderPagination).empty();
+        for (var i = 0; i < itemLength; i++) {
+            $(">ul", paralaxSliderPagination).append("<li></li>");
+        };
+
+        if(itemLength==1){
+            console.log(paralaxSliderPagination);
+            paralaxSliderPagination.remove();
+            parallaxPrevBtn.remove();
+            parallaxNextBtn.remove();
+           
+        }
+
+        imageSwitcher(0);
+        addEventsPagination();
+    }
+
+    function autoSwitcher(){
+        if(options.autoSwitcher){
+            if(itemLength>1){
+                intervalSwitcher = setInterval(function(){
+                    nextSwither();
+                }, options.autoSwitcherDelay);
+            }
+        }
+    }
+    //////////////////////////    addEvents    /////////////////////////////////////////////
+    function addEventsPagination(){
+        $(">ul >li", paralaxSliderPagination).on("click",
+            function(){
+                if((!isPreviewLoading) && (!isPreviewAnimate) && ($(this).index() !== ImgIdCounter)){
+                    ImgIdCounter = $(this).index();
+                    imageSwitcher(ImgIdCounter);
+                }
+            }
+        )
+    }
+    function addEventsFunction(){
+        //--------------- controls events ----------------------//
+        options.prevButton.on("click",
+            function(){
+                clearInterval(intervalSwitcher);
+                prevSwither();
+            }
+        )
+        options.nextButton.on("click",
+            function(){
+                clearInterval(intervalSwitcher);
+                nextSwither(); 
+            }
+        )
+        parallaxPrevBtn.on("click",
+            function(){
+                clearInterval(intervalSwitcher);
+                prevSwither();
+            }
+        )
+        parallaxNextBtn.on("click",
+            function(){
+                clearInterval(intervalSwitcher);
+                nextSwither();
+            }
+        )
+        //--------------- keyboard events ----------------------//
+        _window.on("keydown",
+            function(eventObject){
+                switch (eventObject.keyCode){
+                    case 37:
+                        clearInterval(intervalSwitcher);
+                        prevSwither();
+                    break
+                    case 39:
+                         clearInterval(intervalSwitcher);
+                        nextSwither();
+                    break
+                }
+            }
+        )
+        //------------------ window scroll event -------------//
+        $(window).on('scroll',
+            function(){
+                mainScrollFunction();
+            }
+        ).trigger('scroll');
+        //------------------ window resize event -------------//
+        $(window).on("resize",
+            function(){
+                mainResizeFunction();
+            }
+        )
+    }
+    //-----------------------------------------------------------------
+    function prevSwither(){
+        if(!isPreviewLoading && !isPreviewAnimate){
+            if(ImgIdCounter > 0){
+                ImgIdCounter--;
+            }else{
+                ImgIdCounter = itemLength-1;
+            }
+                imageSwitcher(ImgIdCounter);
+        }
+    }
+    function nextSwither(){
+        if(!isPreviewLoading && !isPreviewAnimate){
+            if(ImgIdCounter < itemLength-1){
+                ImgIdCounter++;
+            }else{
+                ImgIdCounter = 0;
+            }
+            imageSwitcher(ImgIdCounter);
+        }
+    }
+    //------------------------- main Swither ----------------------------//
+    function imageSwitcher(currIndex){ 
+        slidesCounterList.text((currIndex+1) + '/'+itemLength);
+        $(">ul >li", paralaxSliderPagination).removeClass('active').eq(currIndex).addClass('active');
+
+        $('> img', primaryImageHolder).attr('src','').attr('src', previewArray[currIndex][0]);
+        $('> img', primaryImageHolder).attr('data-image-width', previewArray[currIndex][1]);
+        $('> img', primaryImageHolder).attr('data-image-height', previewArray[currIndex][2]);
+        objectCssTransition(primaryImageHolder, 0, 'ease');
+        primaryImageHolder.addClass('animateState');
+
+        primaryCaption.html(previewArray[currIndex][3]);
+        objectCssTransition(primaryCaption, 0, 'ease');
+        primaryCaption.addClass('animateState');
+
+        isPreviewLoading = true;
+        isPreviewAnimate = true;
+        previewSpinner.css({display:'block'}).stop().fadeTo(300, 1);
+        $('> img', primaryImageHolder).on('load', function(){ 
+            isPreviewLoading = false;
+            previewSpinner.stop().fadeTo(300, 0, function(){ $(this).css({display:'none'}); })
+            $(this).off('load');
+            objectResize($('> img', primaryImageHolder), mainImageHolder, "fill");
+
+            objectCssTransition(primaryImageHolder, options.duration, 'outCubic');
+            primaryImageHolder.removeClass('animateState');
+            objectCssTransition(secondarImageHolder, options.duration, 'outCubic');
+            secondarImageHolder.addClass('animateState');
+
+            objectCssTransition(primaryCaption, options.duration, 'outCubic');
+            primaryCaption.removeClass('animateState');
+            objectCssTransition(secondaryCaption, options.duration, 'outCubic');
+            secondaryCaption.addClass('animateState');
+
+
+            mainCaptionHolderContainer.height(primaryCaption.height());
+
+            setTimeout(
+                function(){
+                    objectCssTransition(secondarImageHolder, 0, 'ease');
+                    secondarImageHolder.removeClass('animateState');
+
+                    $('> img', secondarImageHolder).attr('src', "").attr('src', previewArray[currIndex][0]);
+                    $('> img', secondarImageHolder).attr('data-image-width', previewArray[currIndex][1]);
+                    $('> img', secondarImageHolder).attr('data-image-height', previewArray[currIndex][2]);
+                    
+                    secondaryCaption.html(previewArray[currIndex][3]);
+                    objectCssTransition(secondaryCaption, 0, 'ease');
+                    secondaryCaption.removeClass('animateState');
+
+                    objectResize($('> img', secondarImageHolder), mainImageHolder, "fill");
+                    isPreviewAnimate = false;
+                }, options.duration
+            )
+        });
+    }
+
+    //----------------------------------------------------//
+    function objectCssTransition(obj, duration, ease){
+        var durationValue;
+
+        if(duration !== 0){
+            durationValue = duration/1000;
+        }else{
+            durationValue = 0
+        }
+
+        switch(ease){
+            case 'ease':
+                    obj.css({"-webkit-transition":"all "+durationValue+"s ease", "-moz-transition":"all "+durationValue+"s ease", "-o-transition":"all "+durationValue+"s ease", "transition":"all "+durationValue+"s ease"});
+            break;
+            case 'outSine':
+                obj.css({"-webkit-transition":"all "+durationValue+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)", "-moz-transition":"all "+durationValue+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)", "-o-transition":"all "+durationValue+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)", "transition":"all "+durationValue+"s cubic-bezier(0.470, 0.000, 0.745, 0.715)"});
+            break;
+            case 'outCubic':
+                obj.css({"-webkit-transition":"all "+durationValue+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)", "-moz-transition":"all "+durationValue+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)", "-o-transition":"all "+durationValue+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)", "transition":"all "+durationValue+"s cubic-bezier(0.215, 0.610, 0.355, 1.000)"});
+            break;
+            case 'outExpo':
+                obj.css({"-webkit-transition":"all "+durationValue+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)", "-moz-transition":"all "+durationValue+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)", "-o-transition":"all "+durationValue+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)", "transition":"all "+durationValue+"s cubic-bezier(0.190, 1.000, 0.220, 1.000)"});
+            break;
+            case 'outBack':
+                obj.css({"-webkit-transition":"all "+durationValue+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)", "-moz-transition":"all "+durationValue+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)", "-o-transition":"all "+durationValue+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)", "transition":"all "+durationValue+"s cubic-bezier(0.175, 0.885, 0.320, 1.275)"});
+            break;
+        }
+    }
+    //----------------------------------------------------//
+    function objectResize(obj, container, type){
+        var 
+            prevImgWidth = 0
+        ,   prevImgHeight = 0
+        ,   imageRatio
+        ,   windowRatio
+        ,   newImgWidth
+        ,   newImgHeight
+        ,   newImgTop
+        ,   newImgLeft
+        ,   alignIMG = 'top'
+        ;
+        
+        prevImgWidth = parseInt(obj.attr('data-image-width'));
+        prevImgHeight = parseInt(obj.attr('data-image-height'));
+
+
+        imageRatio = prevImgHeight/prevImgWidth;
+        containerRatio = container.height()/container.width();
+        
+        switch(type){
+            case 'fill':
+                if(containerRatio > imageRatio){
+                    newImgHeight = container.height();
+                    newImgWidth = Math.round( (newImgHeight*prevImgWidth) / prevImgHeight );
+                }else{
+                    newImgWidth = container.width();
+                    newImgHeight = Math.round( (newImgWidth*prevImgHeight) / prevImgWidth );
+                }
+
+                obj.css({width: newImgWidth, height: newImgHeight});
+
+                screenWidth = container.width();
+                screenHeight = container.height();
+                imgWidth = obj.width();
+                imgHeight = obj.height();
+
+                switch(alignIMG){
+                    case "top":
+                        newImgLeft=-(imgWidth-screenWidth)*.5;
+                        newImgTop=0;
+                    break;
+                    case "bottom":
+                        newImgLeft=-(imgWidth-screenWidth)*.5;
+                        newImgTop=-(imgHeight-screenHeight);
+                    break;
+                    case "right":
+                        newImgLeft=-(imgWidth-screenWidth);
+                        newImgTop=-(imgHeight-screenHeight)*.5;
+                    break;
+                    case "left":
+                        newImgLeft=0;
+                        newImgTop=-(imgHeight-screenHeight)*.5;
+                    break;
+                    case "top_left":
+                        newImgLeft=0;
+                        newImgTop=0;
+                    break;
+                    case "top_right":
+                        newImgLeft=-(imgWidth-screenWidth);
+                        newImgTop=0;
+                    break;
+                    case "bottom_right":
+                        newImgLeft=-(imgWidth-screenWidth);
+                        newImgTop=-(imgHeight-screenHeight);
+                    break;
+                    case "bottom_left":
+                        newImgLeft=0;
+                        newImgTop=-(imgHeight-screenHeight);
+                    break;
+                    default:
+                        newImgLeft=-(imgWidth-screenWidth)*.5;
+                        newImgTop= -(imgHeight-screenHeight)*.5;
+                    }
+            break
+            case 'fit':
+                if(containerRatio > imageRatio){
+                    newImgWidth = container.width();
+                    newImgHeight = (prevImgHeight*container.width())/prevImgWidth;
+                    newImgTop = container.height()/2 - newImgHeight/2;
+                    newImgLeft = 0; 
+                }else{
+                    newImgWidth = (prevImgWidth*container.height())/prevImgHeight;
+                    newImgHeight = container.height();
+                    newImgTop = 0;
+                    newImgLeft = container.width()/2 - newImgWidth/2;  
+                }
+                obj.css({width: newImgWidth, height: newImgHeight});
+            break
+        }
+
+        obj.css({top: newImgTop, left: newImgLeft});
+    }
+    //------------------- main window scroll function -------------------//
+    function mainScrollFunction(){
+            var 
+                _documentScrollTop
+            ,   startScrollTop
+            ,   endScrollTop
+            ,   visibleScrollValue
+            ;
+
+            _windowWidth = _window.width();
+            _windowHeight = _window.height();
+            _thisOffsetTop = _thisOffset.top;
+            _documentScrollTop = _document.scrollTop();
+
+            startScrollTop = _documentScrollTop + _windowHeight;
+            endScrollTop = _documentScrollTop - _thisHeight;
+
+            visibleScrollValue = startScrollTop - endScrollTop;
+
+            if( (startScrollTop > _thisOffsetTop) && (endScrollTop < _thisOffsetTop) && (options.parallaxEffect)){
+                pixelScrolled = _documentScrollTop - (_thisOffsetTop-_windowHeight);
+                percentScrolled = pixelScrolled/visibleScrollValue;
+                percentSinScrolled = Math.sin(toRadians(180*percentScrolled));
+                thisHidenScrollVal = _thisOffsetTop-_documentScrollTop;
+                deltaTopScrollVal = _thisHeightBuffer*percentScrolled;
+
+                mainImageHolder.css({top:-_thisHeightBuffer+(deltaTopScrollVal)});
+
+                mainCaptionHolder.css({top: -_thisHeightBuffer+(deltaTopScrollVal*1.3)});
+                mainCaptionHolder.fadeTo(0, percentSinScrolled);
+                parallaxPrevBtn.css({top: Math.ceil(percentScrolled*100) +"%"});
+                parallaxNextBtn.css({top: Math.ceil(percentScrolled*100) +"%"});
+                parallaxPrevBtn.fadeTo(0, percentSinScrolled);
+                parallaxNextBtn.fadeTo(0, percentSinScrolled);
+                paralaxSliderPagination.fadeTo(0, percentSinScrolled);
+            }
+    }
+    
+    //------------------- main window resize function -------------------//
+    function mainResizeFunction(){
+        _windowWidth = _window.width();
+        _windowHeight = _window.height();
+        _thisHeight = _this.height();
+        _thisHeightBuffer = _thisHeight*bufferRatio;
+
+        objectResize($('> img', primaryImageHolder), mainImageHolder, "fill");
+        objectResize($('> img', secondarImageHolder), mainImageHolder, "fill");
+    }
+    //end window resizefunction
+    //--------------------------------------------------------------------//
+    function toDegrees (angle) {
+      return angle * (180 / Math.PI);
+    }
+    function toRadians (angle) {
+      return angle * (Math.PI / 180);
+    }
+////////////////////////////////////////////////////////////////////////////////////////////              
+    }
+})(jQuery)

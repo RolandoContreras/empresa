@@ -1,1 +1,66 @@
-(function(a){a.fn.mobileMenu=function(d){var c={defaultText:"Navigate to...",className:"select-menu",subMenuClass:"sub-menu",subMenuDash:"–"},b=a.extend(c,d),e=a(this);a("head").append('<style type="text/css">@media(max-width: 767px){.sf-menu{display:none;} .select-menu{display: block;}}</style>');this.each(function(){e.find("ul").addClass(b.subMenuClass);a("<select />",{"class":b.className}).insertAfter(e);a("<option />",{value:"#",text:b.defaultText}).appendTo("."+b.className);e.find("a,.separator").each(function(){var f=a(this),h=f.context.firstChild.textContent,j=f.parents("."+b.subMenuClass),g=j.length,i;if(f.parents("ul").hasClass(b.subMenuClass)){i=Array(g+1).join(b.subMenuDash);h=i+h}if(f.is("span")){a("<optgroup />",{label:h,}).appendTo("."+b.className)}else{a("<option />",{value:this.href,html:h,selected:(this.href==window.location.href)}).appendTo("."+b.className)}});a("."+b.className).change(function(){var f=a(this).val();if(f!=="#"){window.location.href=a(this).val()}})});return this}})(jQuery);
+/**
+ * jQuery Mobile Menu 
+ * Turn unordered list menu into dropdown select menu
+ * version 1.0(31-OCT-2011)
+ * 
+ * Built on top of the jQuery library
+ *   http://jquery.com
+ * 
+ * Documentation
+ *   http://github.com/mambows/mobilemenu
+ */
+(function($){
+	$.fn.mobileMenu = function(options) {
+		var defaults = {
+				defaultText: 'Navigate to...',
+				className: 'select-menu',
+				subMenuClass: 'sub-menu',
+				subMenuDash: '&ndash;'
+				},
+			settings = $.extend( defaults, options ),
+			el = $(this);
+			
+		$("head").append('<style type="text/css">@media(max-width: 767px){.sf-menu{display:none;} .select-menu{display: block;}}</style>')
+		
+		this.each(function(){
+			// ad class to submenu list
+			el.find('ul').addClass(settings.subMenuClass);
+			
+			// Create base menu
+			$('<select />',{'class':settings.className}).insertAfter(el);
+			
+			// Create default option
+			$('<option />', {"value":'#', "text":settings.defaultText}).appendTo( '.' + settings.className );
+			
+			// Create select option from menu
+			el.find('a,.separator').each(function(){
+				var $this  = $(this),
+					optText = $this.context.firstChild.textContent,
+					optSub = $this.parents( '.' + settings.subMenuClass ),
+					len   = optSub.length,
+					dash;
+				// if menu has sub menu
+				if( $this.parents('ul').hasClass( settings.subMenuClass ) ) {
+					dash = Array( len+1 ).join( settings.subMenuDash );
+					optText = dash + optText;
+				}
+				if($this.is('span')){
+					// Now build menu and append it
+					$('<optgroup />', {"label":optText,}).appendTo('.' + settings.className);
+				}else{
+					// Now build menu and append it
+					$('<option />', {"value":this.href, "html":optText, "selected":(this.href == window.location.href)}).appendTo( '.' + settings.className );
+				}
+			}); // End el.find('a').each
+			
+			// Change event on select element
+			$('.' + settings.className).change(function(){
+				var locations = $(this).val();
+				if( locations !== '#' ) {
+					window.location.href = $(this).val();
+				}
+			});
+		}); // End this.each
+		return this;
+	};
+})(jQuery);

@@ -1,1 +1,210 @@
-footer.footer .footer-widgets{display:none;padding-bottom:0!important;}@media(max-width:767px){footer.footer .footer-widgets{text-align:center;}}.nav_custom1{padding-left:10%!important;}.users{color:white!important;font-weight:bold;text-transform:uppercase;font-size:13px;line-height:16px;margin-left:18px;}.pay{background:none repeat scroll 0 0 greenyellow!important;color:#2b353d!important;}.image_icons{width:21px;height:19px;}.image_icons_b{width:25px;height:25px;}.main-menu ul li a span{margin-left:0!important;}.image_oferta{width:100px!important;margin-left:-20px;margin-top:-48px;position:relative;z-index:-1;}.image_products{margin-top:-80px!important;position:relative;z-index:-2;}.number_price{color:white;font-size:20px;font-weight:bold;margin:4px auto auto -13px;}.number_text{color:white;font-size:17px;font-weight:bold;margin:-12px auto auto -13px;}.title-section:before{background:none repeat scroll 0 0 #2a343c;bottom:0;content:"";display:block;left:-100%;margin-top:3px;padding-top:91px;position:absolute;right:-100%;top:0;z-index:-1;}.full-top-shop-header{background-image:url("../../../static/css/images/layout/bg-spectrum.jpg?999");}.header{background-image:url("../../../static/css/images/layout/bg-spectrum1.jpg?999")!important;width:100%;position:fixed!important;}.parallax-slider{height:613px!important;top:0!important;}.footer_bottom{background:none repeat scroll 0 0 #eee;border-top:1px solid #d9d9d9;padding:0;position:relative;z-index:100;background-image:url("../../../static/css/images/layout/woodgrain-light.jpg?999");}.footer_bottom .social{background:none repeat scroll 0 0 #ffe51e;float:right;padding:40px 30px;}.footer_bottom .social li{margin:0 7px;}.copyright{padding:0!important;}.footer_bottom .social{margin-top:-1px!important;height:78px;}.footer_bottom .social li .social_link__facebook:before{color:#29333a;content:"";cursor:pointer;display:block;font-family:FontAwesome;font-size:36px;left:0;line-height:40px;position:absolute;right:0;text-align:center;top:0;}.footer_bottom .social li .social_link__facebook{display:block;height:20px;position:relative;width:20px;}.footer_bottom .social li .social_link__twitter{display:block;height:20px;position:relative;width:20px;}.footer_bottom .social li .social_link__twitter:before{color:#29333a;content:"";cursor:pointer;display:block;font-family:FontAwesome;font-size:36px;left:0;line-height:40px;position:absolute;right:0;text-align:center;top:0;}#mainCaptionHolder{top:0!important;}#mainImageHolder{margin-top:220px!important;}.footer-text{color:#777!important;text-shadow:1px 2px 3px #fff;font-size:13px;line-height:16px;margin-top:20px;}.nav.footer-nav .current-menu-item-2 a{color:#f43683!important;}.nav.footer-nav a{color:#005580!important;font-weight:bold!important;font:13px/18px Open Sans;}.nav.footer-nav a:hover{color:#f43683!important;font-weight:bold!important;font:13px/18px Open Sans;}body #motopress-main.main-holder .shop-nav ul li a{color:#fff!important;font-weight:bold!important;}body #motopress-main.main-holder .shop-nav ul li a:hover{color:#f43683!important;font-weight:bold!important;}body #motopress-main.main-holder .cart-holder h3{color:#fff!important;font-weight:bold!important;}body #motopress-main.main-holder .cart-holder h3:hover{color:#f43683!important;font-weight:bold!important;}header.header{height:41px!important;}.full-top-nav:before{-webkit-box-shadow:0 5px 11px 0 rgba(0,0,9,0.79)!important;-moz-box-shadow:0 5px 11px 0 rgba(0,0,9,0.79)!important;box-shadow:0 5px 11px 0 rgba(0,0,9,0.79)!important;}body #motopress-main.main-holder .content-holder .products ul li.product,body #motopress-main.main-holder .content-holder ul.products li.product{height:442px!important;margin-left:30px;width:270px;}
+footer.footer .footer-widgets {
+	display:none;
+	padding-bottom:0px !important;
+}
+@media (max-width: 767px) {
+	footer.footer .footer-widgets { text-align:center; }
+}
+.nav_custom1{ padding-left: 10% !important;}
+.users
+{
+color: white !important; 
+font-weight: bold;
+text-transform: uppercase;
+font-size: 13px;
+line-height: 16px;
+margin-left: 18px; 
+}
+.pay{
+    background: none repeat scroll 0 0 greenyellow !important;
+    color:#2b353d !important; 
+}
+.image_icons{
+    width: 21px;
+    height: 19px;
+}
+.image_icons_b{
+    width: 25px;
+    height: 25px;
+}
+.main-menu ul li a span{
+    margin-left: 0 !important;
+}
+.image_oferta{
+   width:100px !important;
+   margin-left: -20px;
+   margin-top: -48px;
+   position: relative;
+   z-index: -1;
+  
+}
+.image_products{
+   margin-top: -80px !important;
+   position: relative;
+   z-index: -2;
+}
+.number_price{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px auto auto -13px;
+}
+.number_text{
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    margin: -12px auto auto -13px;
+}
+.title-section:before {
+    background: none repeat scroll 0 0 #2a343c;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: -100%;
+    margin-top: 3px;
+    padding-top: 91px;
+    position: absolute;
+    right: -100%;
+    top: 0;
+    z-index: -1;
+}
+.full-top-shop-header{
+    background-image: url("../../../static/css/images/layout/bg-spectrum.jpg?999");
+}
+.header{
+    background-image: url("../../../static/css/images/layout/bg-spectrum1.jpg?999") !important;
+    width: 100%;
+    position: fixed !important;
+}
+
+.parallax-slider {
+    height: 613px !important;
+    top: 0px !important;
+}
+.footer_bottom{
+    background: none repeat scroll 0 0 #eee;
+    border-top: 1px solid #d9d9d9;
+    padding: 0px;
+    position: relative;
+    z-index: 100;
+    background-image: url("../../../static/css/images/layout/woodgrain-light.jpg?999");
+}
+
+.footer_bottom .social {
+    background: none repeat scroll 0 0 #ffe51e;
+    float: right;
+    padding: 40px 30px;
+}
+.footer_bottom .social li {
+    margin: 0 7px;
+}
+.copyright {
+    padding: 0px !important;
+}
+
+
+.footer_bottom .social{
+    margin-top: -1px !important;
+    height: 78px;
+}
+
+.footer_bottom .social li .social_link__facebook:before {
+    color: #29333a;
+    content: "";
+    cursor: pointer;
+    display: block;
+    font-family: FontAwesome;
+    font-size: 36px;
+    left: 0;
+    line-height: 40px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+.footer_bottom .social li .social_link__facebook {
+    display: block;
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.footer_bottom .social li .social_link__twitter{
+    display: block;
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.footer_bottom  .social li .social_link__twitter:before {
+    color: #29333a;
+    content: "";
+    cursor: pointer;
+    display: block;
+    font-family: FontAwesome;
+    font-size: 36px;
+    left: 0;
+    line-height: 40px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+#mainCaptionHolder {
+    top: 0px !important;
+}
+#mainImageHolder {
+    margin-top: 220px !important;
+}
+.footer-text {
+    color: #777 !important;
+    text-shadow: 1px 2px 3px #fff;
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 20px;
+}
+.nav.footer-nav .current-menu-item-2 a{
+    color: #f43683 !important;
+}
+.nav.footer-nav a {
+    color: #005580 !important;
+    font-weight: bold !important;
+    font: 13px/18px Open Sans;
+}
+.nav.footer-nav a:hover {
+    color: #f43683 !important;
+    font-weight: bold !important;
+    font: 13px/18px Open Sans;
+}
+
+body #motopress-main.main-holder .shop-nav ul li a {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+body #motopress-main.main-holder .shop-nav ul li a:hover {
+    color: #f43683 !important;
+    font-weight: bold !important;
+}
+
+body #motopress-main.main-holder .cart-holder h3 {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+body #motopress-main.main-holder .cart-holder h3:hover {
+    color: #f43683 !important;
+    font-weight: bold !important;
+}
+header.header {
+    height: 41px !important;
+}
+.full-top-nav:before {
+   -webkit-box-shadow: 0px 5px 11px 0px rgba(0, 0, 9, 0.79) !important;
+    -moz-box-shadow:    0px 5px 11px 0px rgba(0, 0, 9, 0.79) !important;
+    box-shadow:         0px 5px 11px 0px rgba(0, 0, 9, 0.79) !important;
+}
+body #motopress-main.main-holder .content-holder .products ul li.product, body #motopress-main.main-holder .content-holder ul.products li.product {
+    height: 442px !important;
+    margin-left: 30px;
+    width: 270px;
+}
+
