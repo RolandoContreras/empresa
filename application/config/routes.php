@@ -155,6 +155,8 @@ $route['dashboard/productos/delete/([0-9]+)'] = "d_products/delete/$1";
 $route['dashboard/productos/validate'] = "d_products/validate";
 
 $route['dashboard/pedidos'] = "d_orders";
+$route['dashboard/pedidos/([0-9]+)'] = "d_orders/index/$1";
+
 $route['dashboard/pedidos/ver_detalle/([0-9]+)'] = "d_orders/view_detail/$1";
 $route['dashboard/pedidos/cambiar_status'] = "d_orders/change_status";
 

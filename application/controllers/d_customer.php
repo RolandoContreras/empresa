@@ -20,6 +20,7 @@ class D_customer extends CI_Controller{
                                     customer.last_name,
                                     customer.status_value",
                          "where" => "customer.first_name like '%$search_text%'",
+                         "group" => "customer.customer_id", 
                          "order" => "orders.order_id DESC",
                          "join" => array('customer, orders.customer_id = customer.customer_id')
             );

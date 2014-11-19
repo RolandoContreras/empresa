@@ -29,11 +29,11 @@ class D_orders extends CI_Controller{
       
             /// PAGINADO
             $config=array();
-            $config["base_url"] = site_url("dashboard/d_orders/index"); 
+            $config["base_url"] = site_url("dashboard/pedidos/"); 
             $config["total_rows"] = $this->obj_order->total_records($params) ;  
             $config["per_page"] = 15; 
             $config["num_links"] = 2;
-            $config["uri_segment"] = 4;   
+            $config["uri_segment"] = 3;   
             
             $config['first_tag_open'] = '<li>';
             $config['first_tag_close'] = '</li>';
@@ -55,7 +55,7 @@ class D_orders extends CI_Controller{
             $link_modulo =  site_url().'dashboard/pedidos'; 
 
             /// DATA
-            $obj_order= $this->obj_order->search_data($params, $config["per_page"],$this->uri->segment(4));
+            $obj_order= $this->obj_order->search_data($params, $config["per_page"],$this->uri->segment(3));
                 
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
