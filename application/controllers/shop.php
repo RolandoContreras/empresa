@@ -20,26 +20,18 @@ class Shop extends CI_Controller {
                                     products.name as name,
                                     products.sumilla,
                                     categories.name as category,
-                                    products.description,
-                                    products.custom_image,
                                     products.big_image,
                                     products.pay_sale,
-                                    products.medium_image,
-                                    products.small_image,
                                     products.price,
                                     brand.name as brand,
-                                    products.stock,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "products.status_value = 1",
+                         "where" => "products.status_value = 1 and products.stock > 0",
                          "order" => "products.product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
                                          'brand, brand.brand_id = brand_categories.brand_id')
             );
-        
-        
         
          /// PAGINADO
             $config=array();
@@ -69,7 +61,7 @@ class Shop extends CI_Controller {
             
             $obj_products['title'] = "Compras | Productos | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "Productos,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú.";
            
             //SELECT CATEGORIES
             $param_category = array(
@@ -90,17 +82,12 @@ class Shop extends CI_Controller {
                                     products.sumilla,
                                     categories.name as category,
                                     products.description,
-                                    products.custom_image,
                                     products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
                                     products.price,
                                     products.pay_sale,
                                     brand.name as brand,
-                                    products.stock,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "categories.name = '$slug' and products.status_value = 1",
+                         "where" => "categories.name = '$slug' and products.status_value = 1 and products.stock > 0",
                          "order" => "products.product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
@@ -164,18 +151,12 @@ class Shop extends CI_Controller {
                                     products.name as name,
                                     products.sumilla,
                                     categories.name as category,
-                                    products.description,
-                                    products.custom_image,
                                     products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
                                     products.price,
                                     products.pay_sale,
                                     brand.name as brand,
-                                    products.stock,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "products.status_value = 1 and products.price between $min_price and $max_price ",
+                         "where" => "products.status_value = 1 and products.price between $min_price and $max_price and products.stock > 0",
                          "order" => "products.product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
@@ -213,7 +194,7 @@ class Shop extends CI_Controller {
            // $slug = ucfirst($slug);
             $obj_products['title'] = "Compras | Por Precio | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "Precio,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú.";
             
             //SELECT CATEGORIES
             $param_category = array(
@@ -238,17 +219,12 @@ class Shop extends CI_Controller {
                                     products.sumilla,
                                     categories.name as category,
                                     products.description,
-                                    products.custom_image,
                                     products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
                                     products.price,
                                     products.pay_sale,
                                     brand.name as brand,
-                                    products.stock,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender'",
+                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and products.stock > 0",
                          "order" => "products.product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
@@ -292,7 +268,7 @@ class Shop extends CI_Controller {
             $gender = ucfirst($gender);
             $obj_products['title'] = "Compras | $gender | $slug | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "$slug,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú.";
             
             $obj_products['category'] = $this->obj_category->search($param_category);
             $this->load->view('shop',$obj_products);
@@ -312,17 +288,12 @@ class Shop extends CI_Controller {
                                     products.sumilla,
                                     categories.name as category,
                                     products.description,
-                                    products.custom_image,
                                     products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
                                     products.price,
                                     brand.name as brand,
-                                    products.stock,
                                     products.pay_sale,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and brand.name = '$brand'",
+                         "where" => "categories.name = '$slug' and products.status_value = 1 and categories_kind.category_name = '$gender' and brand.name = '$brand' and products.stock > 0",
                          "order" => "products.product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
