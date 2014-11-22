@@ -27,16 +27,10 @@ class Search extends CI_Controller {
                                     products.id_category,
                                     products.name,
                                     products.description,
-                                    products.custom_image,
                                     products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
-                                    products.stock,
-                                    products.tags,
                                     products.price,
-                                    categories.name as category,
-                                    products.position",
-                        "where" => "MATCH(products.name) AGAINST ('$search' IN BOOLEAN MODE)",
+                                    categories.name as category",
+                        "where" => "MATCH(products.name) AGAINST ('$search' IN BOOLEAN MODE) and products.status_value = 1 and products.stock > 0",
                         "order" => "products.product_id DESC",
                         "join" => array('categories, products.id_category = categories.id_category')
                         );
@@ -79,7 +73,7 @@ class Search extends CI_Controller {
             $obj_products['search'] =  $search;
             $obj_products['title'] = "Buscar | $search | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "$search, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú.";
             
             
             $this->load->view('search',$obj_products);
@@ -94,16 +88,12 @@ class Search extends CI_Controller {
                                     products.id_category,
                                     products.name,
                                     products.description,
-                                    products.custom_image,
                                     products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
                                     products.stock,
-                                    products.tags,
                                     products.price,
                                     categories.name as category,
                                     products.position",
-                        "where" => "MATCH(products.tags) AGAINST ('$tags' IN BOOLEAN MODE)",
+                        "where" => "MATCH(products.tags) AGAINST ('$tags' IN BOOLEAN MODE)  and products.status_value = 1 and products.stock > 0",
                         "order" => "products.product_id DESC",
                         "join" => array('categories, products.id_category = categories.id_category')
                         );
@@ -150,7 +140,7 @@ class Search extends CI_Controller {
             $obj_products['search'] =  $tags;
             $obj_products['title'] = "Tags | $tags | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "$tags,Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú. Waveline, un líder global en la moda, la belleza y la oportunidad de negocio excepcional para los Empresarios Independientes. Más información sobre Waveline hoy.";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Selecciona tus productos nuevos por Internet y solicita su despacho a todo Perú.";
             
             //VIEW
             $this->load->view('search',$obj_products);
