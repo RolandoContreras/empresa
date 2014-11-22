@@ -29,7 +29,7 @@ class Register extends CI_Controller {
                     //SEO
                     $obj_products['title'] = "Registro | Bienvenido a Nuestra Tienda Virtual";
                     $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-                    $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Escríbenos: servicioalcliente@wavelinetwork.com";
+                    $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Escríbenos a: servicioalcliente@wavelinetwork.com";
                     $this->load->view('registration',$obj_products);
     }
     
@@ -38,32 +38,24 @@ class Register extends CI_Controller {
     if(count($this->cart->contents()) > 0){
         $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));    
         
-//        foreach ($this->cart->contents() as $item){
-//            $product_id = $item['id']; 
-//            $qty = $item['qty']; 
-//            
-//            //SELECT PRODUCT
-//            $param_product = array(
-//                        "select" =>"product_id,
-//                                    name,
-//                                    pay_sale,
-//                                    stock",
-//                        "where" => "product_id = '$product_id'");
-//
-//            $obj_products = $this->obj_product->get_search_row($param_product);
-//            $quantity     = $obj_products->stock;   
-//            
-//            $product_name = strtoupper($obj_products->name);
-//            
-//            //VALIDATE QTY 
-//            $validate = $quantity - $qty; 
-//            if($validate < 0){
-//                $data['message'] = "no_stock";
-//                $data['print'] = "No hay stock para el Producto $product_name";
-//                echo json_encode($data);  
-//                exit();
-//            }
-//        }
+        $dni = $this->input->post('dni');
+        $customer = $this->verify_customer($dni);
+        
+        if($customer > 0){
+                $data['message'] = "no_stock";
+                $data['print'] = "El Cliente ya se encuentra registrado";
+                echo json_encode($data);  
+                exit();
+        }else{
+            if(isset($_SESSION['customer'])){
+                $parent_id = $_SESSION['customer']['customer_id'];
+                $position =  $_SESSION['customer']['position_temporal'];
+
+            }else{
+                $parent_id = 1;
+                $position = 1;
+            } 
+            
             $amount = 0;
             foreach ($this->cart->contents() as $item){
                 $product_id = $item['id']; 
@@ -77,24 +69,17 @@ class Register extends CI_Controller {
                             "where" => "product_id = '$product_id'");
 
                 $obj_products = $this->obj_product->get_search_row($param_product);
+                
+                $real_price  = $obj_products->pay_sale * $qty;
                 $quantity     = $obj_products->stock;   
-            
             
                 //UPDATE STOCK
                 $update_stock = array( 
                  'stock'     => $quantity - $qty,
                  );
                 $this->obj_product->update($obj_products->product_id,$update_stock);
-                $amount =  $amount + $obj_products->pay_sale;
+                $amount =  $amount + $real_price;
             }
-            
-        if(isset($_SESSION['customer'])){
-            $parent_id = $_SESSION['customer']['customer_id'];
-            $position = $_SESSION['customer']['position_temporal'];
-        }else{
-            $parent_id = 1;
-            $position = 1;
-        }    
             
         //INSERT CUSTOMER    
         $data = array(
@@ -145,36 +130,48 @@ class Register extends CI_Controller {
              'date_send'        => $date_send, 
              'status_value'     => 1,
              'created_at'       => date("Y-m-d H:i:s"),
-             'created_by'       => $customer_id,
-             'updated_at'       => date("Y-m-d H:i:s"),
-             'updated_by'       => $customer_id,         
+             'created_by'       => $customer_id
              );
             $order_id = $this->obj_order->insert($data_order);
            
-            //INSERT COMMISSIONS
-            $data_commissions = array( 
-             'parent_id'        => $parent_id,
-             'name'             => "Comisión por Referido",
-             'amount'           => $amount,
-             'date'             => date("Y-m-d H:i:s"),
-             'status_value'     => 0,
-             'created_at'       => date("Y-m-d H:i:s"),
-             'created_by'       => $customer_id,
-             'updated_at'       => date("Y-m-d H:i:s"),
-             'updated_by'       => $customer_id,         
-             );
-            $commissions_id = $this->obj_commissions->insert($data_commissions);
-  
-         if(isset($_SESSION['customer'])){
+            if($parent_id != 1){
+                
+                //INSERT COMMISSIONS
+                $data_commissions = array( 
+                 'parent_id'        => $parent_id,
+                 'name'             => "Comisión por Referido",
+                 'amount'           => $amount,
+                 'date'             => date("Y-m-d H:i:s"),
+                 'status_value'     => 0,
+                 'created_at'       => date("Y-m-d H:i:s"),
+                 'created_by'       => $customer_id
+                 );
+                $commissions_id = $this->obj_commissions->insert($data_commissions);
+
+                //INSERT ORDER_COMMISSIONS
+                $data_order_commissions = array( 
+                 'order_id'         => $order_id,
+                 'commissions_id'   => $commissions_id,
+                 'status_value'     => 1,
+                 'created_at'       => date("Y-m-d H:i:s"),
+                 'created_by'       => $customer_id
+                 );
+                $this->obj_order_commissions->insert($data_order_commissions);
+                
+            }
+            
+            
+            if(isset($_SESSION['customer'])){
             $name = "Comisión por Residuales";
             $parents_1 = $_SESSION['customer']['parents_id'];
             $amount = $amount * 0.015;
             
-            //INSERT COMMISSIONS
-           $this->residual_commision($parents_1, $name, $amount, $customer_id, $order_id);
-            
             //SELECT FIRST PARENT TO PAY
                 if($parents_1!=""){
+                    if($parents_1!=1 && $parents_1!=0){
+                    //INSERT COMMISSIONS
+                    $this->residual_commision($parents_1, $name, $amount, $customer_id, $order_id);
+                    
                     $parents = array(
                             "select" =>"parents_id",
                             "where" => "customer_id = $parents_1",
@@ -183,49 +180,53 @@ class Register extends CI_Controller {
                     $parents_2 = $this->obj_customer->get_search_row($parents);
                     $parents_2 = $parents_2->parents_id;
                     
-                    //INSERT COMMISSIONS
-                    $this->residual_commision($parents_2, $name, $amount, $customer_id, $order_id);
+                    if($parents_2!=""){
+                        if($parents_2!=1 && $parents_2!=0){
+                        
+                            //INSERT COMMISSIONS
+                            $this->residual_commision($parents_2, $name, $amount, $customer_id, $order_id);
                             
-                            if($parents_2!=""){
-                               $parents = array(
-                                    "select" =>"parents_id",
-                                    "where" => "customer_id = $parents_2",
-                                    );
+                            
+                            $parents = array(
+                                "select" =>"parents_id",
+                                "where" => "customer_id = $parents_2",
+                            );
                             //SELECT THIRD PARENT TO PAY
                             $parents_3 = $this->obj_customer->get_search_row($parents);
                             $parents_3 = $parents_3->parents_id;
                             
                             //INSERT COMMISSIONS
-                            $this->residual_commision($parents_3, $name, $amount, $customer_id, $order_id);
-                               
-                                if($parents_3!=""){
-                                   $parents = array(
-                                        "select" =>"parents_id",
-                                        "where" => "customer_id = $parents_3",
-                                        );
-                                //SELECT FOURTH PARENT TO PAY
-                                $parents_4 = $this->obj_customer->get_search_row($parents);
-                                $parents_4 = $parents_4->parents_id;
-                                
-                                //INSERT COMMISSIONS
-                                $this->residual_commision($parents_4, $name, $amount, $customer_id, $order_id);
+                            if($parents_3!=""){
+                                if($parents_3!=1 && $parents_3!=0){
+                                        $this->residual_commision($parents_3, $name, $amount, $customer_id, $order_id);
+
+
+                                           $parents = array(
+                                                "select" =>"parents_id",
+                                                "where" => "customer_id = $parents_3",
+                                                );
+                                        //SELECT FOURTH PARENT TO PAY
+                                        $parents_4 = $this->obj_customer->get_search_row($parents);
+                                        $parents_4 = $parents_4->parents_id;
+                                        
+                                        if($parents_4!=""){
+                                            if($parents_4!=1 && $parents_4!=0){
+                                                //INSERT COMMISSIONS
+                                                $this->residual_commision($parents_4, $name, $amount, $customer_id, $order_id);
+                                            }
+                                        }
                                 }
                             }
+                        }  
+                                
+                    }
+                  }    
+                            
                 }
         }
             
             
-            //INSERT ORDER_COMMISSIONS
-            $data_order_commissions = array( 
-             'order_id'         => $order_id,
-             'commissions_id'   => $commissions_id,
-             'status_value'     => 1,
-             'created_at'       => date("Y-m-d H:i:s"),
-             'created_by'       => $customer_id,
-             'updated_at'       => date("Y-m-d H:i:s"),
-             'updated_by'       => $customer_id,         
-             );
-            $this->obj_order_commissions->insert($data_order_commissions);
+            
             
             foreach ($this->cart->contents() as $item){
             if ($this->cart->has_options($item['rowid']) == TRUE){
@@ -289,17 +290,17 @@ class Register extends CI_Controller {
                               <img width='106' src='$img'>";
             echo json_encode($data);  
             exit();
-                
-            }else{
-                $data['message'] = "no_item";
-                $data['print'] = "Debe seleccionar un Producto";
-                echo json_encode($data);  
-                exit();
-            }
+            }    
+        }else{
+            $data['message'] = "no_item";
+            $data['print'] = "Debe seleccionar un Producto";
+            echo json_encode($data);  
+            exit();
+        }
             //SEO
             $obj_products['title'] = "Contacto | Bienvenido a Nuestra Tienda Virtual";
             $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. WaveLine S.A.C. Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru. Horario de Atención: Lunes a Viernes: 9:00 am a 6:00pm. Escríbenos: servicioalcliente@wavelinetwork.com";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. WaveLine S.A.C. Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru.";
             $this->load->view('registration',$obj_products);
     }
     
@@ -329,6 +330,18 @@ class Register extends CI_Controller {
          );
         $this->obj_order_commissions->insert($data_order_commissions);
         
+    }
+    
+    public function verify_customer($dni){    
+        
+        //SELECT PRODUCT
+        $param_customer = array(
+                    "select" =>"customer_id",
+                    "where" => "dni = $dni");
+
+        $customer = $this->obj_customer->get_search_row($param_customer);
+        $customer = count($customer);
+        return $customer;
     }
     
     public function get_menu(){    

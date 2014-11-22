@@ -55,6 +55,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['parents_id'] = $obj_user->parents_id;
                 $data_customer_session['name'] = $obj_user->first_name;
                 $data_customer_session['last_name'] = $obj_user->last_name;
+                $data_customer_session['dni'] = $obj_user->dni;
                 $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
@@ -83,6 +84,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['parents_id'] = $obj_user->parents_id;
                 $data_customer_session['name'] = $obj_user->first_name;
                 $data_customer_session['last_name'] = $obj_user->last_name;
+                $data_customer_session['dni'] = $obj_user->dni;
                 $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
