@@ -22,18 +22,10 @@ class Home extends CI_Controller {
                         "select" =>"products.product_id,
                                     products.name as name,
                                     categories.name as category,
-                                    products.description,
-                                    products.sumilla,
                                     products.custom_image,
-                                    products.big_image,
-                                    products.medium_image,
-                                    products.small_image,
-                                    products.price,
                                     brand.name as brand,
-                                    products.stock,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "products.position = 2 and products.status_value = 1",
+                         "where" => "products.position = 2 and products.status_value = 1 and products.stock > 0",
                          "order" => "products.product_id DESC LIMIT 4",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
@@ -44,7 +36,6 @@ class Home extends CI_Controller {
             $obj_products['product_custom'] = $this->obj_products->search($params);
             
             //SELECT PRODUCT COMMUN
-            
             foreach ($obj_category as $key => $value) {
                 if($key==0){
                     $product_param = $this->product_param($value->name);
@@ -120,20 +111,9 @@ class Home extends CI_Controller {
             $params_product = array(
                         "select" =>"products.product_id,
                                     products.name as name,
-                                    categories.name as category,
-                                    products.sumilla,
-                                    products.description,
                                     products.custom_image,
-                                    products.big_image,
-                                    products.pay_sale,
-                                    products.medium_image,
-                                    products.small_image,
-                                    products.price,
-                                    brand.name as brand,
-                                    products.stock,
-                                    products.position,
                                     products.status_value ",
-                         "where" => "products.status_value = 1 and categories.name = '$name'",
+                         "where" => "products.status_value = 1 and categories.name = '$name' and products.stock > 0",
                          "order" => "rand() LIMIT 4",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
