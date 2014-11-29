@@ -29,6 +29,7 @@ class Detail_contain extends CI_Controller {
                                     products.pay_sale,
                                     products.tags,
                                     products.custom_image,
+                                    products.sumilla,
                                     products.big_image,
                                     products.medium_image,
                                     products.small_image,
@@ -65,7 +66,7 @@ class Detail_contain extends CI_Controller {
                                                 comments.name,
                                                 comments.comment,
                                                 comments.date_comment",
-                                    "where" => "comments.product_id = '$product_id'  and comments.status_value = 1",
+                                    "where" => "comments.product_id = '$product_id' and comments.status_value = 1",
                                     "join" => array('products, comments.product_id = products.product_id')
                                        );
             $obj_products['comments'] = $this->obj_comments->search($param_comment);
@@ -85,8 +86,8 @@ class Detail_contain extends CI_Controller {
                                     brand.name as brand,
                                     products.stock,
                                     products.position,
-                                    products.status_value ",
-                         "where" => "categories.name like '%$category%'and products.product_id <> $product_id",
+                                    products.status_value",
+                         "where" => "categories.name like '%$category%'and products.product_id <> $product_id and products.status_value > 0",
                          "order" => "rand() LIMIT 3",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
