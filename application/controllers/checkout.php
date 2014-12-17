@@ -114,15 +114,23 @@ class Checkout extends CI_Controller {
             $name = "Comisión por Residuales";
             $amount = $amount * 0.015;
             
-            //SELECT FIRST PARENT TO PAY
-                if($parents_id!=""){
-                    if($parents_id!=1 && $parents_id!=0){
+            //SELECT FIRST RESIDUAL
+            $parents = array(
+                            "select" =>"parents_id",
+                            "where" => "customer_id = $parents_id",
+                            );
+                    $parents_1 = $this->obj_customer->get_search_row($parents);
+                    $parents_1 = $parents_1->parents_id;
+            
+                //SELECT FIRST PARENT TO PAY
+                if($parents_1!=""){
+                    if($parents_1!=1 && $parents_1!=0){
                     //INSERT COMMISSIONS
-                    $this->residual_commision($parents_id, $name, $amount, $customer_id, $order_id);
+                    $this->residual_commision($parents_1, $name, $amount, $customer_id, $order_id);
                     
                     $parents = array(
                             "select" =>"parents_id",
-                            "where" => "customer_id = $parents_id",
+                            "where" => "customer_id = $parents_1",
                             );
                     //SELECT SECOND PARENT TO PAY
                     $parents_2 = $this->obj_customer->get_search_row($parents);
@@ -133,7 +141,6 @@ class Checkout extends CI_Controller {
                         
                             //INSERT COMMISSIONS
                             $this->residual_commision($parents_2, $name, $amount, $customer_id, $order_id);
-                            
                             
                             $parents = array(
                                 "select" =>"parents_id",
@@ -147,7 +154,6 @@ class Checkout extends CI_Controller {
                             if($parents_3!=""){
                                 if($parents_3!=1 && $parents_3!=0){
                                         $this->residual_commision($parents_3, $name, $amount, $customer_id, $order_id);
-
 
                                            $parents = array(
                                                 "select" =>"parents_id",
@@ -171,33 +177,40 @@ class Checkout extends CI_Controller {
                   }    
                             
                 }
-            
-            
-            
-            
-            foreach ($this->cart->contents() as $item){
-                
+             
+           foreach ($this->cart->contents() as $item){
             if ($this->cart->has_options($item['rowid']) == TRUE){
-                 foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
+                foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
                         $size = $option_value;
-                 } 
-            }
-
-            //INSERT DETAIL_ORDER
-            $data_order_details = array( 
-                 'order_id   '      => $order_id,
-                 'product_id'       => $item['id'],
-                 'price'            => $item['price'],
-                 'size'            =>  $size,
-                 'quantity'         => $item['qty'],
-                 'subtotal'         => $item['subtotal'],
-                 'status_value'     => 1,
-                 'created_at'       => date("Y-m-d H:i:s"),
-                 'created_by'       => $_SESSION['customer']['customer_id'],
-                 'updated_at'       => date("Y-m-d H:i:s"),
-                 'updated_by'       => $_SESSION['customer']['customer_id'],         
-                 );
-            $this->obj_detail->insert($data_order_details);
+                        
+                    //INSERT DETAIL_ORDER
+                    $data_order_details = array( 
+                         'order_id   '      => $order_id,
+                         'product_id'       => $item['id'],
+                         'price'            => $item['price'],
+                         'size'            =>  $size,
+                         'quantity'         => $item['qty'],
+                         'subtotal'         => $item['subtotal'],
+                         'status_value'     => 1,
+                         'created_at'       => date("Y-m-d H:i:s"),
+                         'created_by'       => $customer_id,
+                         );
+                    $this->obj_detail->insert($data_order_details);
+                    }
+                }else{
+                    //INSERT DETAIL_ORDER
+                    $data_order_details = array( 
+                         'order_id   '      => $order_id,
+                         'product_id'       => $item['id'],
+                         'price'            => $item['price'],
+                         'quantity'         => $item['qty'],
+                         'subtotal'         => $item['subtotal'],
+                         'status_value'     => 1,
+                         'created_at'       => date("Y-m-d H:i:s"),
+                         'created_by'       => $customer_id,
+                         );
+                    $this->obj_detail->insert($data_order_details);
+                } 
             }
             
             $img = site_url().'static/images/logobcp.gif';
@@ -243,8 +256,6 @@ class Checkout extends CI_Controller {
          'status_value'     => 1,
          'created_at'       => date("Y-m-d H:i:s"),
          'created_by'       => $customer_id,
-         'updated_at'       => date("Y-m-d H:i:s"),
-         'updated_by'       => $customer_id,         
          );
         $this->obj_order_commissions->insert($data_order_commissions);
         
