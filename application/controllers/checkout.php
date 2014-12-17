@@ -36,39 +36,8 @@ class Checkout extends CI_Controller {
     public function make_order(){
       if($this->input->is_ajax_request()){ 
         if(isset($_SESSION['customer'])){
-            $customer_id    =  $_SESSION['customer']['customer_id'];
-            $parents_id     =  $_SESSION['customer']['parents_id'];
-            $total          =  $this->cart->total();
-            $date_order     =  date("Y-m-d H:i:s");
-            $dia_enviar     =  date("d")+2;
-            $date_send      =  date("Y-m-$dia_enviar H:i:s");
             
             //UPDATE STOCK PRODUCTS
-            foreach ($this->cart->contents() as $item){
-            $product_id = $item['id']; 
-            $qty = $item['qty']; 
-            
-            //SELECT CATEGORIES
-            $param_product = array(
-                        "select" =>"product_id,
-                                    name,
-                                    stock",
-                        "where" => "product_id = '$product_id'");
-            
-            $obj_products = $this->obj_product->get_search_row($param_product);
-            $quantity     = $obj_products->stock;   
-            $product_name = strtoupper($obj_products->name);
-            
-            //VALIDATE QTY 
-            $validate = $quantity - $qty; 
-            if($validate < 0){
-                $data['message'] = "no_stock";
-                $data['print'] = "No hay stock para el Producto $product_name";
-                echo json_encode($data);  
-                exit();
-            }
-           }
-       
             $amount = 0;
             foreach ($this->cart->contents() as $item){
                 $product_id = $item['id']; 
@@ -82,17 +51,25 @@ class Checkout extends CI_Controller {
                             "where" => "product_id = '$product_id'");
 
                 $obj_products = $this->obj_product->get_search_row($param_product);
+                
+                $real_price  = $obj_products->pay_sale * $qty;
                 $quantity     = $obj_products->stock;   
-            
             
                 //UPDATE STOCK
                 $update_stock = array( 
                  'stock'     => $quantity - $qty,
                  );
                 $this->obj_product->update($obj_products->product_id,$update_stock);
-                $amount =  $amount + $obj_products->pay_sale;
+                $amount =  $amount + $real_price;
             }
-            
+          
+            $total          =  $this->cart->total()+10;
+            $date_order     =  date("Y-m-d H:i:s");
+            $dia_enviar     =  date("d")+2;
+            $date_send      =  date("Y-m-$dia_enviar H:i:s"); 
+            $customer_id    =  $_SESSION['customer']['customer_id'];
+            $parents_id     =  $_SESSION['customer']['parents_id'];
+
             //INSERT ORDER
             $data_order = array( 
              'customer_id'      => $customer_id,
@@ -109,61 +86,118 @@ class Checkout extends CI_Controller {
              );
             $order_id = $this->obj_order->insert($data_order);
             
-            //INSERT COMMISSIONS
-            $data_commissions = array( 
-             'parent_id'        => $parents_id,
-             'name'             => "Comisión por Compra",
-             'amount'           => $amount,
-             'date'             => date("Y-m-d H:i:s"),
-             'status_value'     => 0,
-             'created_at'       => date("Y-m-d H:i:s"),
-             'created_by'       => $customer_id,
-             );
-            $commissions_id = $this->obj_commissions->insert($data_commissions);
+            if($parents_id != 1){
+                //INSERT COMMISSIONS
+                $data_commissions = array( 
+                 'parent_id'        => $parents_id,
+                 'name'             => "Comisión por Compra",
+                 'amount'           => $amount,
+                 'date'             => date("Y-m-d H:i:s"),
+                 'status_value'     => 0,
+                 'created_at'       => date("Y-m-d H:i:s"),
+                 'created_by'       => $customer_id,
+                 );
+                $commissions_id = $this->obj_commissions->insert($data_commissions);
+
+                //INSERT ORDER_COMMISSIONS
+                $data_order_commissions = array( 
+                 'order_id'         => $order_id,
+                 'commissions_id'   => $commissions_id,
+                 'status_value'     => 1,
+                 'created_at'       => date("Y-m-d H:i:s"),
+                 'created_by'       => $customer_id
+                 );
+                $this->obj_order_commissions->insert($data_order_commissions);
+            }
             
-            //INSERT ORDER_COMMISSIONS
-            $data_order_commissions = array( 
-             'order_id'         => $order_id,
-             'commissions_id'   => $commissions_id,
-             'status_value'     => 1,
-             'created_at'       => date("Y-m-d H:i:s"),
-             'created_by'       => $customer_id,
-             );
-            $this->obj_order_commissions->insert($data_order_commissions);
+            //BEGIN COMISSION BY RESIDUAL
+            $name = "Comisión por Residuales";
+            $amount = $amount * 0.015;
+            
+            //SELECT FIRST PARENT TO PAY
+                if($parents_id!=""){
+                    if($parents_id!=1 && $parents_id!=0){
+                    //INSERT COMMISSIONS
+                    $this->residual_commision($parents_id, $name, $amount, $customer_id, $order_id);
+                    
+                    $parents = array(
+                            "select" =>"parents_id",
+                            "where" => "customer_id = $parents_id",
+                            );
+                    //SELECT SECOND PARENT TO PAY
+                    $parents_2 = $this->obj_customer->get_search_row($parents);
+                    $parents_2 = $parents_2->parents_id;
+                    
+                    if($parents_2!=""){
+                        if($parents_2!=1 && $parents_2!=0){
+                        
+                            //INSERT COMMISSIONS
+                            $this->residual_commision($parents_2, $name, $amount, $customer_id, $order_id);
+                            
+                            
+                            $parents = array(
+                                "select" =>"parents_id",
+                                "where" => "customer_id = $parents_2",
+                            );
+                            //SELECT THIRD PARENT TO PAY
+                            $parents_3 = $this->obj_customer->get_search_row($parents);
+                            $parents_3 = $parents_3->parents_id;
+                            
+                            //INSERT COMMISSIONS
+                            if($parents_3!=""){
+                                if($parents_3!=1 && $parents_3!=0){
+                                        $this->residual_commision($parents_3, $name, $amount, $customer_id, $order_id);
+
+
+                                           $parents = array(
+                                                "select" =>"parents_id",
+                                                "where" => "customer_id = $parents_3",
+                                                );
+                                        //SELECT FOURTH PARENT TO PAY
+                                        $parents_4 = $this->obj_customer->get_search_row($parents);
+                                        $parents_4 = $parents_4->parents_id;
+                                        
+                                        if($parents_4!=""){
+                                            if($parents_4!=1 && $parents_4!=0){
+                                                //INSERT COMMISSIONS
+                                                $this->residual_commision($parents_4, $name, $amount, $customer_id, $order_id);
+                                            }
+                                        }
+                                }
+                            }
+                        }  
+                                
+                    }
+                  }    
+                            
+                }
+            
+            
+            
             
             foreach ($this->cart->contents() as $item){
+                
             if ($this->cart->has_options($item['rowid']) == TRUE){
-                foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
+                 foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
                         $size = $option_value;
-                        
-                    //INSERT DETAIL_ORDER
-                    $data_order_details = array( 
-                         'order_id   '      => $order_id,
-                         'product_id'       => $item['id'],
-                         'price'            => $item['price'],
-                         'size'            =>  $size,
-                         'quantity'         => $item['qty'],
-                         'subtotal'         => $item['subtotal'],
-                         'status_value'     => 1,
-                         'created_at'       => date("Y-m-d H:i:s"),
-                         'created_by'       => $customer_id,
-                         );
-                    $this->obj_detail->insert($data_order_details);
-                    }
-                }else{
-                    //INSERT DETAIL_ORDER
-                    $data_order_details = array( 
-                         'order_id   '      => $order_id,
-                         'product_id'       => $item['id'],
-                         'price'            => $item['price'],
-                         'quantity'         => $item['qty'],
-                         'subtotal'         => $item['subtotal'],
-                         'status_value'     => 1,
-                         'created_at'       => date("Y-m-d H:i:s"),
-                         'created_by'       => $customer_id,
-                         );
-                    $this->obj_detail->insert($data_order_details);
-                } 
+                 } 
+            }
+
+            //INSERT DETAIL_ORDER
+            $data_order_details = array( 
+                 'order_id   '      => $order_id,
+                 'product_id'       => $item['id'],
+                 'price'            => $item['price'],
+                 'size'            =>  $size,
+                 'quantity'         => $item['qty'],
+                 'subtotal'         => $item['subtotal'],
+                 'status_value'     => 1,
+                 'created_at'       => date("Y-m-d H:i:s"),
+                 'created_by'       => $_SESSION['customer']['customer_id'],
+                 'updated_at'       => date("Y-m-d H:i:s"),
+                 'updated_by'       => $_SESSION['customer']['customer_id'],         
+                 );
+            $this->obj_detail->insert($data_order_details);
             }
             
             $img = site_url().'static/images/logobcp.gif';
@@ -187,6 +221,33 @@ class Checkout extends CI_Controller {
             
         }
       }
+    }
+    
+    public function residual_commision($parents,$name,$amount,$customer_id, $order_id){    
+        //INSERT COMMISSIONS
+        $data_commissions = array( 
+         'parent_id'        => $parents,
+         'name'             => $name,
+         'amount'           => $amount,
+         'date'             => date("Y-m-d H:i:s"),
+         'status_value'     => 0,
+         'created_at'       => date("Y-m-d H:i:s"),
+         'created_by'       => $customer_id                                    
+         );
+        $commissions_id = $this->obj_commissions->insert($data_commissions);
+        
+        //INSERT ORDER_COMMISSIONS
+        $data_order_commissions = array( 
+         'order_id'         => $order_id,
+         'commissions_id'   => $commissions_id,
+         'status_value'     => 1,
+         'created_at'       => date("Y-m-d H:i:s"),
+         'created_by'       => $customer_id,
+         'updated_at'       => date("Y-m-d H:i:s"),
+         'updated_by'       => $customer_id,         
+         );
+        $this->obj_order_commissions->insert($data_order_commissions);
+        
     }
     
     public function get_menu(){    

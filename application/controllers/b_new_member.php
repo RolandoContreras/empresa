@@ -164,7 +164,6 @@ class B_new_member extends CI_Controller {
         $this->tmp_backoffice->render("backoffice/success");
     }
     
-    
     public function get_session(){          
         if (isset($_SESSION['customer'])){
             if($_SESSION['customer']['logged_customer']=="TRUE" && $_SESSION['customer']['status']==1){               
