@@ -141,6 +141,9 @@ $route['dashboard/clientes/no_active_customer'] = "d_customer/no_active_customer
 $route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
 $route['dashboard/comentarios/cambiar_status_no'] = "d_comments/change_status_no";
 
+$route['dashboard/verificaciones'] = "d_verify";
+$route['dashboard/verificaciones/verificacion'] = "d_verify/verify_status_count";
+
 $route['dashboard/marcas'] = "d_brand";
 $route['dashboard/marcas/([0-9]+)'] = "d_brand/index/$1";
 $route['dashboard/marcas/load'] = "d_brand/load";
