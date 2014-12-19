@@ -77,10 +77,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-						<div class="alert alert-info" style="margin-bottom:0;">
+
+                                            <div class="alert alert-info" style="margin-bottom:0;">
 							<strong>Nota:</strong><br />
-							Eliminar un tag no elimina las publicaciones que contienen ese tag.                                                        
 						</div>
 					</div>
 				</div>

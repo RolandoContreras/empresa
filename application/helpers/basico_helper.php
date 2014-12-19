@@ -154,6 +154,14 @@ function convert_formato_fecha_db($day,$month,$year){
     return $year."/".$month."/".$day;
 }
 
+function formato_fecha_db_time($fecha){   
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4); 
+    return $anio."/".$mes."/".$dia;
+}
+
+
 function get_day_number($fecha){    
     $dia=substr($fecha, 8, 2);
     return  $dia;
