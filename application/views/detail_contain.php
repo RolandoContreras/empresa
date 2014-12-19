@@ -35,6 +35,18 @@
                                 <div class="thumbnails"> <a href="<?php echo SERVER2.$obj_products->big_image;?>" class="zoom first" data-rel="prettyPhoto[product-gallery]"> <img width="90" height="90" src="<?php echo SERVER2.$obj_products->big_image."?999";?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/> </a> <a href="<?php echo SERVER2.$obj_products->medium_image;?>" class="zoom" data-rel="prettyPhoto[product-gallery]"> <img width="90" height="90" src="<?php echo SERVER2.$obj_products->medium_image."?999";?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/> </a> <a href="<?php echo SERVER2.$obj_products->small_image;?>" class="zoom last" data-rel="prettyPhoto[product-gallery]"> <img width="90" height="90" src="<?php echo SERVER2.$obj_products->small_image."?999";?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/> </a> </div>
                             </div>
                             <div class="summary">
+                                <!--SHOW PRICE DELETE-->
+                                <?php 
+                                if($obj_products->price_del > 0){ ?>
+                                    <span class="price">
+                                        <del>
+                                            <span class="amount"><?php echo $obj_products->price_del;?></span>
+                                        </del>
+                                    </span>
+                                    <div class="clearfix"></div>  
+                                <?php } ?>
+                                
+                                
                                 <div>
                                     <p class="price"><span class="amount"><?php echo format_number($obj_products->price);?></span> </p>
                                 </div>
@@ -145,9 +157,22 @@
                                     <li class="product">
                                         <p class="number_text">Comisión</p>
                                         <p class="number_price">
-                                            <?php echo format_number($value->pay_sale);?></p> <span> <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png?999';?>"/> </span> <a href="<?php echo site_url().convert_slug($value->category." / ".$value->name);?>"> <img class="image_products" src="<?php echo SERVER2.$value->big_image."?999";?>" class="attachment-shop_catalog" alt="<?php echo $value->name;?>"/> <h3><?php echo corta_texto($value->name,17);?></h3> </a>
+                                            <?php echo format_number($value->pay_sale);?>
+                                        </p> 
+                                        <span> <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png?999';?>"/> </span> 
+                                        <a href="<?php echo site_url().convert_slug($value->category." / ".$value->name);?>"> <img class="image_products" src="<?php echo SERVER2.$value->big_image."?999";?>" class="attachment-shop_catalog" alt="<?php echo $value->name;?>"/> <h3><?php echo corta_texto($value->name,17);?></h3> </a>
                                         <div class="short_desc">
-                                            <?php echo corta_texto($value->description,60);?> </div> <span class="price"><ins><span class="amount">S/.<?php echo $value->price; ?></span> </ins>
+                                            <?php echo corta_texto($value->description,60);?> 
+                                        </div> 
+                                        <span class="price">
+                                             <!--SHOW PRICE DELETE-->
+                                                <?php 
+                                                if($value->price_del > 0){ ?>
+                                                        <del>
+                                                            <span class="amount"><?php echo $value->price_del;?></span>
+                                                        </del>
+                                                <?php } ?>
+                                            <ins><span class="amount">S/.<?php echo $value->price; ?></span> </ins>
                                         </span>
                                         <br/>
                                         <br/>
