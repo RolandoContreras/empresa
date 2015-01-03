@@ -7,6 +7,8 @@
             <file>file:/C:/wamp/www/empresa/static/cms/js/verify.js</file>
             <file>file:/C:/wamp/www/empresa/application/controllers/d_verify.php</file>
             <file>file:/C:/wamp/www/empresa/application/templates/admin_tmp.php</file>
+            <file>file:/C:/wamp/www/empresa/application/helpers/basico_helper.php</file>
+            <file>file:/C:/wamp/www/empresa/application/models/customer_model.php</file>
             <file>file:/C:/wamp/www/empresa/application/config/routes.php</file>
         </group>
     </open-files>

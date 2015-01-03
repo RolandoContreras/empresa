@@ -128,6 +128,24 @@
                                     </div>
                                 </div>
                             </div>
+                        
+                        
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#report">
+                                    Reportes
+                                    </a>
+                                </div>
+                                <div id="report" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <ul class="nav nav-list">
+                                            <li>
+                                                <a href="<?php echo site_url()."dashboard/reportes_comision";?>"><i class="icon-large icon-th"></i>Comisiones</a>
+                                            </li>
+                                        </ul>                                     
+                                    </div>
+                                </div>
+                            </div>
                     </div>
             </div>
             <!-- sidebar 
