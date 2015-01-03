@@ -27,8 +27,7 @@ class D_report_comission extends CI_Controller {
         
             $date_ini = $this->input->post("date_ini");
             $date_end = $this->input->post("date_end");
-          
-      
+            
             $params = array(
                         "select" =>"SUM(amount) as total",
                          "where" => "date >= '$date_ini' and date <= '$date_end'",
@@ -37,6 +36,9 @@ class D_report_comission extends CI_Controller {
             $obj_comission = $this->obj_commissions->get_search_row($params);
             $total = $obj_comission->total;
             
+            $date_ini = formato_fecha($date_ini);
+            $date_end = formato_fecha($date_end);
+            
            // configuramos las propiedades del documento
           $this->phpexcel->getProperties()->setCreator("Waveline S.A.C")
                                      ->setTitle("Reporte de Comisiones")
@@ -44,7 +46,7 @@ class D_report_comission extends CI_Controller {
                                      ->setKeywords("office 2007 openxml php")
                                      ->setCategory("Test result file");
          
-         
+        
         // agregamos información a las celdas
         $this->phpexcel->setActiveSheetIndex(0)
                     ->setCellValue('A1', "REPORTE DE COMISION DEL $date_ini HASTA $date_end");
@@ -62,12 +64,10 @@ class D_report_comission extends CI_Controller {
         // Renombramos la hoja de trabajo
         $this->phpexcel->getActiveSheet()->setTitle("Reporte de Comisiones");
          
-         
         // configuramos el documento para que la hoja
         // de trabajo número 0 sera la primera en mostrarse
         // al abrir el documento
         $this->phpexcel->setActiveSheetIndex(0);
-         
          
         // redireccionamos la salida al navegador del cliente (Excel2007)
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

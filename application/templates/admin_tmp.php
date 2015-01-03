@@ -140,7 +140,7 @@
                                     <div class="accordion-inner">
                                         <ul class="nav nav-list">
                                             <li>
-                                                <a href="<?php echo site_url()."dashboard/reportes_comision";?>"><i class="icon-large icon-th"></i>Comisiones</a>
+                                                <a href="<?php echo site_url()."dashboard/reportes_comision";?>"><i class="icon-large icon-th"></i>Total Comisiones</a>
                                             </li>
                                         </ul>                                     
                                     </div>
