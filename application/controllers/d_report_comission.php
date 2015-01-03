@@ -41,24 +41,26 @@ class D_report_comission extends CI_Controller {
           $this->phpexcel->getProperties()->setCreator("Waveline S.A.C")
                                      ->setTitle("Reporte de Comisiones")
                                      ->setSubject("Office 2007 XLSX Test Document")
-                                     ->setDescription("Reporte de las comisiones de $date_ini hasta el $date_end")
                                      ->setKeywords("office 2007 openxml php")
                                      ->setCategory("Test result file");
          
          
         // agregamos información a las celdas
         $this->phpexcel->setActiveSheetIndex(0)
-                    ->setCellValue('A1', 'N°')
-                    ->setCellValue('B1', 'Monto!');
+                    ->setCellValue('A1', "REPORTE DE COMISION DEL $date_ini HASTA $date_end");
         
-         
         // La librería puede manejar la codificación de caracteres UTF-8
         $this->phpexcel->setActiveSheetIndex(0)
-                    ->setCellValue('A2', 'TOTAL')
-                    ->setCellValue('B2', "$total");
+                    ->setCellValue('A3', 'N°')
+                    ->setCellValue('B3', 'Monto');
+        
+        // La librería puede manejar la codificación de caracteres UTF-8
+        $this->phpexcel->setActiveSheetIndex(0)
+                    ->setCellValue('A4', 'TOTAL')
+                    ->setCellValue('B4', "$total");
          
         // Renombramos la hoja de trabajo
-        $this->phpexcel->getActiveSheet()->setTitle('Simple');
+        $this->phpexcel->getActiveSheet()->setTitle("Reporte de Comisiones");
          
          
         // configuramos el documento para que la hoja
