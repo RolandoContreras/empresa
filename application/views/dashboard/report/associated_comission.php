@@ -1,40 +1,68 @@
-<link href="static/cms/plugins/wysiwyg/bootstrap-wysihtml5.css" rel="stylesheet" />
-<link href="static/cms/plugins/datepicker/css/datepicker.css" rel="stylesheet" />
-<script src="static/cms/plugins/datepicker/js/bootstrap-datepicker.js"></script>
-<!-- main content -->
-<form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/reportes_asociados/export";?>">
-<div id="main_content" class="span7">
-    <div class="row-fluid">
-        <div class="widget_container">
-            <div class="well">
-                <div class="navbar navbar-static navbar_as_heading">
-                        <div class="navbar-inner">
-                                <div class="container" style="width: auto;">
-                                        <a class="brand"></i> Formulario de Asociados</a>
-                                        <a class="brand"></i> Excel</a>
-                                        <a class="brand"></i> PDF</a>
-                                </div>
-                        </div>
+<div class="row-fluid">
+    <div class="widget_container">
+        <div class="well nomargin">
+            <div class="navbar navbar-static navbar_as_heading">
+                <div class="navbar-inner">
+                    <div class="container" style="width: auto;">
+                        <a class="brand">Lista de Asociados</a>
+                        <!--<a class="pull-right" onclick="export_pdf();" ><img src="static/cms/images/pdf.jpg" style="width:40px; cursor: pointer;" alt="pdf" title="pdf"/></a>-->
+                        <a href="<?php echo site_url();?>dashboard/reportes_asociados/export_excel" class="pull-right" ><img src="static/cms/images/excel.png" style="width:40px; cursor: pointer;" alt="excel" title="excel"/></a>
+                    </div>
                 </div>
-                <div class="well nomargin" style="width: 800px;">
-                    <div class="span1"><strong>Activos</strong></div>
-                    <div class="span3">
-                            <input type="checkbox" value="" name="date_ini" id="date_ini" size="5" style="width: 100px;">
+            </div>
+            <div class="subnav nobg">
+                <form method="post" action="<?php echo site_url();?>dashboard/reportes_asociados/export_excel">
+                 <div class="span2">
+                 </div>
+                <div class="span2"></div>
+                <div class="span8">
+                    <div class="pagination">
+                        <?php echo $pagination; ?>
                     </div>
-                    
-                    <div class="span1"><strong>Inactivos</strong></div>
-                    <div class="span2">
-                            <input type="checkbox" value="" name="date_ini" id="date_ini" size="5" style="width: 100px;">
+                </div>
+                </form>
+            </div>
+
+            <!--- INCIO DE TABLA DE RE4GISTRO -->
+            <div id="status"></div>
+            <table class="table smallfont">
+                <thead>
+                    <tr>
+                        <td>CODIGO</td>
+                        <td>APELLIDOS</td>
+                        <td>NOMBRES</td>
+                        <td>DNI</td>
+                        <td>TELEFONO</td>
+                        <td>CELULAR</td>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <?php foreach ($obj_customer as $value): ?>
+                        <tr>
+                            <td><?php echo $value->code;?></td>
+                            <td><?php echo $value->last_name; ?></td>
+                            <td><?php echo $value->first_name;?></td>
+                            <td><div class="post_title"><?php echo $value->dni;?></div></td>
+                            <td><?php echo $value->phone;?></td>
+                            <td><?php echo $value->mobile;?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+            <!--- FIN DE TABLA DE RE4GISTRO -->
+            <div class="subnav nobg">
+                <div class="span2"></div>
+                <div class="span1"></div>
+                <div class="span2"></div>
+                <div class="span2"></div>
+                <div class="span1"></div>
+                <div class="span4">
+                    <div class="pagination">
+                        <?php echo $pagination; ?>
                     </div>
-                    <br/><br/><br/>
-              
-                <div class="subnav nobg">
-                    <button class="btn btn-danger btn-small pull-left" type="reset" onclick="cancelar_comission();">Cancelar</button>                    
-                    <button class="btn btn-primary btn-small pull-right"  type="submit">Generar</button>
                 </div>
             </div>
         </div>
     </div>
-</div><!-- main content -->
 </div>
-</form>

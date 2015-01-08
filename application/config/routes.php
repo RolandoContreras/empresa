@@ -133,7 +133,8 @@ $route['dashboard/reportes_comision'] = "d_report_comission/index";
 $route['dashboard/reportes_comision/export'] = "d_report_comission/comission_excel";
 
 $route['dashboard/reportes_asociados'] = "d_report_comission/report_associated";  
-$route['dashboard/reportes_asociados/export'] = "d_report_comission/associated_excel";
+$route['dashboard/reportes_asociados/([0-9]+)'] = "d_report_comission/report_associated/$1";
+$route['dashboard/reportes_asociados/export_excel'] = "d_report_comission/associated_excel";
 
 $route['dashboard/comentarios'] = "d_comments";
 $route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
