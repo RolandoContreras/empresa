@@ -132,6 +132,9 @@ $route['dashboard/tags/delete'] = "d_tags/delete";
 $route['dashboard/reportes_comision'] = "d_report_comission/index";
 $route['dashboard/reportes_comision/export'] = "d_report_comission/comission_excel";
 
+$route['dashboard/reportes_asociados'] = "d_report_comission/report_associated";  
+$route['dashboard/reportes_asociados/export'] = "d_report_comission/associated_excel";
+
 $route['dashboard/comentarios'] = "d_comments";
 $route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
 $route['dashboard/comentarios/cambiar_status_no'] = "d_comments/change_status_no";

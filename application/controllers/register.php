@@ -157,9 +157,7 @@ class Register extends CI_Controller {
                  'created_by'       => $customer_id
                  );
                 $this->obj_order_commissions->insert($data_order_commissions);
-                
             }
-            
             
             if(isset($_SESSION['customer'])){
             $name = "Comisión por Residuales";
@@ -225,9 +223,6 @@ class Register extends CI_Controller {
                 }
         }
             
-            
-            
-            
             foreach ($this->cart->contents() as $item){
             if ($this->cart->has_options($item['rowid']) == TRUE){
                 foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
@@ -285,8 +280,7 @@ class Register extends CI_Controller {
                               Actualmente su cuenta esta inactiva hasta realizar el pago:<br/>
                               Enviar el voucher de pago al correo: ventas@wavelinetwork.com<br/>
                               Banco de Credito del Perú - BCP<br/><br/>
-                              194-2204558-0-61 Cuenta Corriente Soles<br/>
-                              194-2162460-1-39 Cuenta Corriente Dolares<br/><br/>
+                              194-2204558-0-61 Cuenta Corriente Soles<br/><br/>
                               <img width='106' src='$img'>";
             echo json_encode($data);  
             exit();

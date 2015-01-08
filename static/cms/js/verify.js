@@ -1,4 +1,5 @@
-function verify_status_count(){  
+function verify_status_count(){
+    
 	 $.ajax({
             type: "post",
             url: site+"dashboard/verificaciones/verificacion/",

@@ -221,8 +221,7 @@ class Checkout extends CI_Controller {
                               Enviar el voucher de pago al correo: ventas@wavelinetwork.com<br/>
                               Realizar el pago en :<br/>
                               Banco de Credito del Perú - BCP<br/><br/>
-                              194-2204558-0-61 Cuenta Corriente Soles<br/>
-                              194-2162460-1-39 Cuenta Corriente Dolares<br/><br/>
+                              194-2204558-0-61 Cuenta Corriente Soles<br/><br/>
                               <img width='106' src='$img'>";
             echo json_encode($data);  
             exit();

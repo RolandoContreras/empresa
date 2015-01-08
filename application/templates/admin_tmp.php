@@ -142,6 +142,9 @@
                                             <li>
                                                 <a href="<?php echo site_url()."dashboard/reportes_comision";?>"><i class="icon-large icon-th"></i>Total Comisiones</a>
                                             </li>
+                                            <li>
+                                                <a href="<?php echo site_url()."dashboard/reportes_asociados";?>"><i class="icon-large icon-th"></i>Asociados</a>
+                                            </li>
                                         </ul>                                     
                                     </div>
                                 </div>
