@@ -125,52 +125,33 @@ class D_report_comission extends CI_Controller {
         
         $this->get_session();
         
-        $params = array("select" =>"first_name,
-                                    last_name,
-                                    dni,
-                                    code,
-                                    password,
-                                    phone,
-                                    mobile",
-                    "order" => "code DESC");
-        
-        /// PAGINADO
-            $config=array();
-            $config["base_url"] = site_url("dashboard/reportes_asociados"); 
-            $config["total_rows"] = $this->obj_customer->total_records($params) ;  
-            $config["per_page"] = 20; 
-            $config["num_links"] = 3;
-            $config["uri_segment"] = 3;   
+        $params = array(
+                        "select" =>"commissions.amount,
+                                    commissions.name,
+                                    commissions.date,
+                                    commissions.status_value,
+                                    customer.code,
+                                    customer.last_name,
+                                    customer.first_name,
+                                    customer.dni,
+                                    customer.country,",
+                         "where" => "commissions.parent_id <> 1",
+                          "join" => array('customer, commissions.parent_id = customer.customer_id'),
+                          "order" => "commissions.date DESC"
+                        );
+            $obj_comission = $this->obj_commissions->search($params);
             
-            $config['first_tag_open'] = '<li>';
-            $config['first_tag_close'] = '</li>';
-            $config['prev_tag_open'] = '<li>';
-            $config['prev_tag_close'] = '</li>';            
-            $config['num_tag_open']='<li>';
-            $config['num_tag_close'] = '</li>';            
-            $config['cur_tag_open']= '<li class="active"><a>';
-            $config['cur_tag_close']= '</li></a>';            
-            $config['next_tag_open'] = '<li>';
-            $config['next_tag_close'] = '</li>';            
-            $config['last_tag_open'] = '<li>';
-            $config['last_tag_close'] = '</li>';
-            
-            $this->pagination->initialize($config);        
-            $obj_pagination = $this->pagination->create_links();
-            $modulos ='productos'; 
+            //INFO
+            $modulos ='reporte_comision_x_asociado'; 
             $seccion = 'Lista';        
             $link_modulo =  site_url().'dashboard/'.$modulos; 
 
-            /// DATA
-            $obj_customer= $this->obj_customer->search_data($params, $config["per_page"],$this->uri->segment(3));
-
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('pagination',$obj_pagination);
             $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('obj_customer',$obj_customer);
+            $this->tmp_mastercms->set('obj_comission',$obj_comission);
             $this->tmp_mastercms->set('seccion',$seccion);
-            $this->tmp_mastercms->render("dashboard/report/associated_comission");
+            $this->tmp_mastercms->render("dashboard/report/comission_x_associated");
     }
     
     public function associated_excel(){
