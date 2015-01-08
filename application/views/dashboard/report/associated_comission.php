@@ -24,7 +24,6 @@
             </div>
 
             <!--- INCIO DE TABLA DE RE4GISTRO -->
-            <div id="status"></div>
             <table class="table smallfont">
                 <thead>
                     <tr>

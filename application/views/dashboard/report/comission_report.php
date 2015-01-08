@@ -2,7 +2,7 @@
 <link href="static/cms/plugins/datepicker/css/datepicker.css" rel="stylesheet" />
 <script src="static/cms/plugins/datepicker/js/bootstrap-datepicker.js"></script>
 <!-- main content -->
-<form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/reportes_comision/export";?>">
+<form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/reportes_comision";?>">
 <div id="main_content" class="span7">
     <div class="row-fluid">
         <div class="widget_container">
@@ -11,10 +11,12 @@
                         <div class="navbar-inner">
                                 <div class="container" style="width: auto;">
                                         <a class="brand"></i> Formulario Reportes por Comisión</a>
+                                         <a href="<?php echo site_url();?>dashboard/reportes_asociados/export_excel" class="pull-right" ><img src="static/cms/images/excel.png" style="width:40px; cursor: pointer;" alt="excel" title="excel"/></a>
                                 </div>
                         </div>
                 </div>
                 <div class="well nomargin" style="width: 800px;">
+                    
                     
                     <div class="span2"><strong>Fecha de Inicio</strong></div>
                     <div class="span4">
@@ -24,7 +26,6 @@
                         </div>
                     </div>
                     
-                    
                     <div class="span2"><strong>Fecha de Fin</strong></div>
                     <div class="span4">
                         <div data-date-format="yyyy-mm-dd" data-date="<?php echo date("Y-m-d");?>" id="dp4" class="input-append date">
@@ -33,20 +34,41 @@
                         </div>
                     </div>
                     
-                    <br/><br/><br/>
-<!--                    <div class="inner">
-                    <strong>De:</strong>
-                        <input type="text" name="date_ini" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        
-                        <strong>Hasta:</strong>
-                        <input type="text" name="date_end" />
-                    </div>-->
-                    
-              
+                    <br/>
+                    <!--- INCIO DE TABLA DE RE4GISTRO -->
+                            <table class="table smallfont">
+                                <thead>
+                                    <tr>
+                                        <td>NOMBRES</td>
+                                        <td>TIPO DE COMISION</td>
+                                        <td>FECHA</td>
+                                        <td>MONTO</td>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    <?php $total = 0;?>
+                                    <?php foreach ($obj_comission as $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->first_name." ".$value->last_name;?></td>
+                                            <td><?php echo $value->name; ?></td>
+                                            <td><?php echo formato_fecha($value->date);?></td>
+                                            <td><div class="post_title"><?php echo $value->amount;?></div></td>
+                                        </tr>
+                                        <?php $total = $total + $value->amount;?>
+                                    <?php endforeach; ?>
+                                        <?php 
+                                        if(count($obj_comission) > 0){ ?>
+                                            <tr>
+                                                <td colspan="3" style="text-align:right;padding-right: 80px;">TOTAL</td>
+                                                <td><div class="post_title"><?php echo $total; ?></div></td>
+                                            </tr>
+                                        <?php } ?>
+                                </tbody>
+                            </table>
+            <!--FIN DE TABLA DE RE4GISTRO -->
                 <div class="subnav nobg">
                     <button class="btn btn-danger btn-small pull-left" type="reset" onclick="cancelar_comission();">Cancelar</button>                    
-                    <button class="btn btn-primary btn-small pull-right"  type="submit">Exportar</button>
+                    <button class="btn btn-primary btn-small pull-right"  type="submit">Enviar</button>
                 </div>
             </div>
         </div>
@@ -59,5 +81,10 @@
         $('#dp3').datepicker();
         $('#dp4').datepicker();
     });
+    function cancelar_comission(){
+	var url= 'dashboard/reportes_comision';
+	location.href = site+url;
+}
   </script>
+  
 
