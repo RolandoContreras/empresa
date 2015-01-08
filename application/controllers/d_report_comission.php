@@ -29,14 +29,10 @@ class D_report_comission extends CI_Controller {
                                     customer.last_name,
                                     customer.first_name",
                          "where" => "commissions.date >= '$date_ini' and commissions.date <= '$date_end' and commissions.parent_id <> 1",
-                          "join" => array('customer, commissions.parent_id = customer.customer_id')
+                          "join" => array('customer, commissions.parent_id = customer.customer_id'),
+                          "order" => "commissions.date ASC"
                         );
             $obj_comission = $this->obj_commissions->search($params);
-            
-//            var_dump($obj_comission);
-//            die();
-            
-//            $total = $obj_comission->total;
         
         /// VISTA
         $this->tmp_mastercms->set('link_modulo',$link_modulo);
