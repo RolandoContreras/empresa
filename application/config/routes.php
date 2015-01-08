@@ -130,10 +130,10 @@ $route['dashboard/tags/add_tag'] = "d_tags/add_tag";
 $route['dashboard/tags/delete'] = "d_tags/delete";
 
 $route['dashboard/reportes_comision'] = "d_report_comission/index";
-$route['dashboard/reportes_comision/export'] = "d_report_comission/comission_excel";
+$route['dashboard/reportes_comision/export_excel'] = "d_report_comission/comission_excel";
 
-$route['dashboard/reporte_comision_x_asociado'] = "d_report_comission/report_comission_by_associated";
-$route['dashboard/reportes_comision/export'] = "d_report_comission/comission_excel";
+//$route['dashboard/reporte_comision_x_asociado'] = "d_report_comission/report_comission_by_associated";
+//$route['dashboard/reportes_comision/export'] = "d_report_comission/comission_excel";
 
 $route['dashboard/reportes_asociados'] = "d_report_comission/report_associated";  
 $route['dashboard/reportes_asociados/([0-9]+)'] = "d_report_comission/report_associated/$1";
