@@ -83,6 +83,5 @@
         } ]
     } );
 } );
-
 </script>
 <script src="static/cms/js/customer.js"></script>

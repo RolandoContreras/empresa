@@ -1,40 +1,30 @@
 <script src="static/cms/js/core/bootstrap-modal.js"></script>
 <script src="static/cms/js/core/bootbox.min.js"></script>
+<script src="static/cms/js/core/jquery-1.11.1.min.js"></script>
+<script src="static/cms/js/core/jquery.dataTables.min.js"></script>
+<link href="static/cms/css/core/jquery.dataTables.css" rel="stylesheet"/>
+
 <div class="row-fluid">
     <div class="widget_container">
-        <div class="well nomargin">
-            <div class="navbar navbar-static navbar_as_heading">
-                <div class="navbar-inner">
-                    <div class="container" style="width: auto;">
-                        <a class="brand">Listado de Comentarios</a>
+        <div class="well ">
+             <div class="navbar navbar-static navbar_as_heading">
+                            <div class="navbar-inner">
+                                    <div class="container" style="width: auto;">
+                                            <a class="brand">COMENTARIOS</a>
+                                    </div>
+                            </div>
                     </div>
-                </div>
-            </div>
-            <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/productos">
-                 <div class="span2">
-                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Producto">
-                 </div>
-                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
-                <div class="span8">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-                </form>
-            </div>
 
             <!--- INCIO DE TABLA DE RE4GISTRO -->
-
-            <table class="table smallfont">
+            <table id="table" class="display" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <td>Producto</td>
-                        <td>Cliente</td>
-                        <td>Comentario</td>
-                        <td>Fecha de Comentario</td>
-                        <td>Estado</td>
-                        <td>Acción</td>
+                        <th>Producto</th>
+                        <th>Cliente</th>
+                        <th>Comentario</th>
+                        <th>Fecha de Comentario</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -75,22 +65,24 @@
                 </tbody>
             </table>
 
-            <!--- FIN DE TABLA DE RE4GISTRO -->
-
-            <div class="subnav nobg">
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span2"></div>
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
+<script type="text/javascript">
+   $(document).ready(function() {
+    $('#table').dataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 4 ],
+            orderData: [ 4, 0 ]
+        } ]
+    } );
+} );
+</script>
 <script src="<?php echo site_url();?>static/cms/js/comments.js"></script>
