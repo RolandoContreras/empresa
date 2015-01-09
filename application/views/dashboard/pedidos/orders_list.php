@@ -1,44 +1,37 @@
 <script src="static/cms/js/core/bootstrap-modal.js"></script>
 <script src="static/cms/js/core/bootbox.min.js"></script>
+<script src="static/cms/js/core/jquery-1.11.1.min.js"></script>
+<script src="static/cms/js/core/jquery.dataTables.min.js"></script>
+<link href="static/cms/css/core/jquery.dataTables.css" rel="stylesheet"/>
+
 <div class="row-fluid">
     <div class="widget_container">
-        <div class="well nomargin">
+        <div class="well">
             <div class="navbar navbar-static navbar_as_heading">
-                <div class="navbar-inner">
-                    <div class="container" style="width: auto;">
-                        <a class="brand">Listado de Pedidos</a>
+                <div class="navbar navbar-static navbar_as_heading">
+                            <div class="navbar-inner">
+                                    <div class="container" style="width: auto;">
+                                            <a class="brand"> LISTA DE PEDIDO</a>
+                                    </div>
+                            </div>
                     </div>
-                </div>
-            </div>
-            <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/productos">
-                 <div class="span2">
-                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Producto">
-                 </div>
-                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
-                <div class="span8">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-                </form>
             </div>
 
             <!--- INCIO DE TABLA DE RE4GISTRO -->
-
-            <table class="table smallfont">
+            <div class="well" style="width: 97%;"> 
+            <table id="table" class="display" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <td>Numero de Order</td>
-                        <td>Cliente</td>
-                        <td>Total</td>
-                        <td>Fecha de Pedido</td>
-                        <td>Fecha de Envio</td>
-                        <td>Direccion</td>
-                        <td>Ciudad</td>
-                        <td>Referencias</td>
-                        <td>Estado</td>
-                        <td>Detalle</td>
+                        <th>N° DE PEDIDO</th>
+                        <th>CLIENTE</th>
+                        <th>TOTAL</th>
+                        <th>FECHA PEDIDO</th>
+                        <th>FECHA FECHA ENVÍO</th>
+                        <th>DIRECCIÓN</th>
+                        <th>CIUDAD</th>
+                        <th>REFERENCIA</th>
+                        <th>ESTADO</th>
+                        <th>DETALLE</th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -76,24 +69,24 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
-            <!--- FIN DE TABLA DE RE4GISTRO -->
-
-
-            <div class="subnav nobg">
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span2"></div>
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+   $(document).ready(function() {
+    $('#table').dataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 4 ],
+            orderData: [ 4, 0 ]
+        } ]
+    } );
+} );
+</script>
 <script src="static/cms/js/orders.js"></script>

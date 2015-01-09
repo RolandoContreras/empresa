@@ -1,58 +1,41 @@
 <script src="static/cms/js/core/bootstrap-modal.js"></script>
 <script src="static/cms/js/core/bootbox.min.js"></script>
+<script src="static/cms/js/core/jquery-1.11.1.min.js"></script>
+<script src="static/cms/js/core/jquery.dataTables.min.js"></script>
+<link href="static/cms/css/core/jquery.dataTables.css" rel="stylesheet"/>
 <div class="row-fluid">
     <div class="widget_container">
         <div class="well nomargin">
             <div class="navbar navbar-static navbar_as_heading">
                 <div class="navbar-inner">
                     <div class="container" style="width: auto;">
-                        <a class="brand">Listado de Productos</a>
-                        <a class="btn pull-right" onclick="new_products();" >Agregar</a>
+                            <a class="brand"> LISTADO DE PRODUCTOS</a>
                     </div>
                 </div>
             </div>
-            <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/productos">
-                 <div class="span2">
-                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Producto">
-                 </div>
-                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/menu"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
-                <div class="span8">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-                </form>
-            </div>
-
             <!--- INCIO DE TABLA DE RE4GISTRO -->
-
-            <table class="table smallfont">
+            <div class="well" style="width: 97%;"> 
+            <table id="table" class="display" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <td style="width:20px;"><input type="checkbox" id="chkbck" /></td>
-                        <td>Código</td>
-                        <td>Nombre</td>
-                        <td>Descripcion</td>
-                        <td>Categoria</td>
-                        <td>Marca</td>
-                        <td>Precio</td>
-                        <td>Stock</td>
-                        <td>Posicion</td>
-                        <td>Imagen Principal</td>
-                        <td>Imagen 1 </td>
-                        <td>Imagen 2</td>
-                        <td>Imagen 3</td>
-                        <td>Estado</td>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Categoria</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Posicion</th>
+                        <th>Imagen Principal</th>
+                        <th>Imagen1 </th>
+                        <th>Imagen2</th>
+                        <th>Imagen3</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody> 
                     <?php foreach ($obj_products as $value): ?>
                         <tr>
-                            <td>
-                                
-                                <?php echo $value->product_id == 0 ? "<img src='static/cms/images/warning.gif'>" : "<img src='static/cms/images/ok.gif'>"; ?>
-                            </td>
                             <td><?php echo $value->code;?></td>
                             <td>
                                 <div class="post_title"><?php echo $value->tittle;?>
@@ -89,23 +72,25 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
+            </div>        
             <!--- FIN DE TABLA DE RE4GISTRO -->
-
-
-            <div class="subnav nobg">
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span2"></div>
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+   $(document).ready(function() {
+    $('#table').dataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 4 ],
+            orderData: [ 4, 0 ]
+        } ]
+    } );
+} );
+</script>
 <script src="static/cms/js/products.js"></script>

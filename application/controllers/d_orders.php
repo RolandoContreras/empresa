@@ -10,7 +10,6 @@ class D_orders extends CI_Controller{
                 
     public function index(){  
            $this->get_session();
-           $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
            $params = array(
                         "select" =>"orders.order_id,
                                     orders.address,
@@ -22,47 +21,21 @@ class D_orders extends CI_Controller{
                                     customer.first_name,
                                     customer.last_name,
                                     customer.references",
-                         "where" => "customer.first_name like '%$search_text%'",
                          "order" => "orders.order_id DESC",
                          "join" => array('customer, orders.customer_id = customer.customer_id')
             );
-      
-            /// PAGINADO
-            $config=array();
-            $config["base_url"] = site_url("dashboard/pedidos/"); 
-            $config["total_rows"] = $this->obj_order->total_records($params) ;  
-            $config["per_page"] = 15; 
-            $config["num_links"] = 2;
-            $config["uri_segment"] = 3;   
-            
-            $config['first_tag_open'] = '<li>';
-            $config['first_tag_close'] = '</li>';
-            $config['prev_tag_open'] = '<li>';
-            $config['prev_tag_close'] = '</li>';            
-            $config['num_tag_open']='<li>';
-            $config['num_tag_close'] = '</li>';            
-            $config['cur_tag_open']= '<li class="active"><a>';
-            $config['cur_tag_close']= '</li></a>';            
-            $config['next_tag_open'] = '<li>';
-            $config['next_tag_close'] = '</li>';            
-            $config['last_tag_open'] = '<li>';
-            $config['last_tag_close'] = '</li>';
-            
-            $this->pagination->initialize($config);        
-            $obj_pagination = $this->pagination->create_links();
             $modulos ='pedidos'; 
             $seccion = 'Lista';        
             $link_modulo =  site_url().'dashboard/pedidos'; 
 
             /// DATA
-            $obj_order= $this->obj_order->search_data($params, $config["per_page"],$this->uri->segment(3));
+            $obj_order= $this->obj_order->search($params);
                 
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->set("obj_order",$obj_order);
-            $this->tmp_mastercms->set("pagination",$obj_pagination);
             $this->tmp_mastercms->render("dashboard/pedidos/orders_list");
     }
     

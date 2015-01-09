@@ -35,10 +35,11 @@
                                 <th>MONTO</th>
                                 <th>FECHA</th>
                                 <th>ESTADO</th>
+                                <th>TOTAL</th>
                             </tr>
                         </thead>
-
                         <tbody>
+                            
                             <?php foreach ($obj_comission as $value) { ?>
                                 <tr>
                                     <td><?php echo $value->code;?></td>
@@ -60,21 +61,11 @@
                                         } ?>
                                         <span class="<?php echo $stilo ?>"><?php echo $valor; ?></span>
                                     </td>
+                                    <td></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
-                    
-<!--                            <table class="table smallfont">
-                                        <?php 
-                                        if(count($obj_comission) > 0){ ?>
-                                            <tr>
-                                                <td colspan="3" style="text-align:right;padding-right: 80px;">TOTAL</td>
-                                                <td><div class="post_title"><?php echo $total; ?></div></td>
-                                            </tr>
-                                        <?php } ?>
-                                </tbody>
-                            </table>-->
             <!--FIN DE TABLA DE RE4GISTRO -->
                 <div class="subnav nobg">
                     <button class="btn btn-danger btn-small pull-left" type="reset" onclick="cancelar_comission();">Cancelar</button>                    

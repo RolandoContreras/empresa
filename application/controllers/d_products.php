@@ -15,7 +15,6 @@ class D_products extends CI_Controller{
     public function index(){
         
            $this->get_session();
-           $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
            $params = array(
                         "select" =>"products.product_id,
                                     products.name as tittle,
@@ -31,49 +30,23 @@ class D_products extends CI_Controller{
                                     products.stock,
                                     products.position,
                                     products.status_value ",
-                         "where" => "products.name like '%$search_text%'",
                          "order" => "position DESC, product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',
                                          'brand, brand.brand_id = brand_categories.brand_id')
             ); 
-            /// PAGINADO
-            $config=array();
-            $config["base_url"] = site_url("dashboard/productos"); 
-            $config["total_rows"] = $this->obj_products->total_records($params) ;  
-            $config["per_page"] = 10; 
-            $config["num_links"] = 3;
-            $config["uri_segment"] = 3;   
             
-            $config['first_tag_open'] = '<li>';
-            $config['first_tag_close'] = '</li>';
-            $config['prev_tag_open'] = '<li>';
-            $config['prev_tag_close'] = '</li>';            
-            $config['num_tag_open']='<li>';
-            $config['num_tag_close'] = '</li>';            
-            $config['cur_tag_open']= '<li class="active"><a>';
-            $config['cur_tag_close']= '</li></a>';            
-            $config['next_tag_open'] = '<li>';
-            $config['next_tag_close'] = '</li>';            
-            $config['last_tag_open'] = '<li>';
-            $config['last_tag_close'] = '</li>';
-            
-            $this->pagination->initialize($config);        
-            $obj_pagination = $this->pagination->create_links();
             $modulos ='productos'; 
             $seccion = 'Lista';        
             $link_modulo =  site_url().'dashboard/'.$modulos; 
-
             /// DATA
-            $obj_products= $this->obj_products->search_data($params, $config["per_page"],$this->uri->segment(3));
-           
+            $obj_products= $this->obj_products->search($params);
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->set("obj_products",$obj_products);
-            $this->tmp_mastercms->set("pagination",$obj_pagination);
             $this->tmp_mastercms->render("dashboard/product/product_list");
 
     }
@@ -127,7 +100,7 @@ class D_products extends CI_Controller{
             $obj_brand  = $this->obj_brand->search($params);   
             $this->tmp_mastercms->set("obj_brand",$obj_brand);
             
-            //Select brand
+            //Select tag
             $params = array("select" => "");
             $obj_tags  = $this->obj_tags->search($params);   
             $this->tmp_mastercms->set("obj_tags",$obj_tags);  
