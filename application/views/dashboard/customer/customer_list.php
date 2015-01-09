@@ -17,7 +17,7 @@
                             </div>
                     </div>
                 
-             <form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/reportes_comision";?>">
+             <form>
                 <div class="well nomargin" style="width: 1050px;">
                     <!--- INCIO DE TABLA DE RE4GISTRO -->
                    <table id="table" class="display" cellspacing="0" width="100%">

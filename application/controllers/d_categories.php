@@ -11,52 +11,28 @@ class D_categories extends CI_Controller{
         
            $this->get_session();
         
-           $search_text     =  $this->input->post("search_text") != "" ? $this->input->post("search_text") : "";
            $params = array(
                         "select" =>"id_category,
                                     name,
                                     observation,
                                     status_value",
-                         "where" => "name like '%$search_text%'",
                          "order" => "id_category DESC",
             );
       
             /// PAGINADO
-            $config=array();
-            $config["base_url"] = site_url("dashboard/categories/index"); 
-            $config["total_rows"] = $this->obj_categories->total_records($params) ;  
-            $config["per_page"] = 20; 
-            $config["num_links"] = 2;
-            $config["uri_segment"] = 4;   
-            
-            $config['first_tag_open'] = '<li>';
-            $config['first_tag_close'] = '</li>';
-            $config['prev_tag_open'] = '<li>';
-            $config['prev_tag_close'] = '</li>';            
-            $config['num_tag_open']='<li>';
-            $config['num_tag_close'] = '</li>';            
-            $config['cur_tag_open']= '<li class="active"><a>';
-            $config['cur_tag_close']= '</li></a>';            
-            $config['next_tag_open'] = '<li>';
-            $config['next_tag_close'] = '</li>';            
-            $config['last_tag_open'] = '<li>';
-            $config['last_tag_close'] = '</li>';
-            
-            $this->pagination->initialize($config);        
-            $obj_pagination = $this->pagination->create_links();
+           
             $modulos ='categorias'; 
             $seccion = 'Lista';        
             $link_modulo =  site_url().'dashboard/'.$modulos; 
 
             /// DATA
-            $obj_categories= $this->obj_categories->search_data($params, $config["per_page"],$this->uri->segment(4));
+            $obj_categories= $this->obj_categories->search($params);
                 
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->set("obj_categories",$obj_categories);
-            $this->tmp_mastercms->set("pagination",$obj_pagination);
             $this->tmp_mastercms->render("dashboard/categories/categories_list");
 
     }

@@ -1,5 +1,9 @@
 <script src="static/cms/js/core/bootstrap-modal.js"></script>
 <script src="static/cms/js/core/bootbox.min.js"></script>
+<script src="static/cms/js/core/jquery-1.11.1.min.js"></script>
+<script src="static/cms/js/core/jquery.dataTables.min.js"></script>
+<link href="static/cms/css/core/jquery.dataTables.css" rel="stylesheet"/>
+
 <div class="row-fluid">
     <div class="widget_container">
         <div class="well nomargin">
@@ -11,83 +15,64 @@
                     </div>
                 </div>
             </div>
-            <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/menu">
-                 <div class="span2">
-                         <input type="text" id="search_text" name="search_text" value="" class="input-xlarge-fluid" placeholder="Categoria">
-                 </div>
-                <div class="span2"> <button type ="submit" class="btn btn-small btn-duadua">Buscar</button> <a href="<?php echo site_url();?>dashboard/categorias"><input  type ="button" value="Todos" class="btn btn-small btn-duadua"></button></a></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-                </form>
-            </div>
-
-            <!--- INCIO DE TABLA DE RE4GISTRO -->
-
-            <table class="table smallfont">
-                <thead>
-                    <tr>
-                        <td style="width:20px;"><input type="checkbox" id="chkbck" /></td>
-                        <td>Nombre</td>
-                        <td>Observacion</td>
-                        <td>Estado</td>
-                    </tr>
-                </thead>
-                <tbody> 
-                    <?php foreach ($obj_categories as $value): ?>
-                        <tr>
-                            <td>
-                                
-                                <?php echo $value->id_category == 0 ? "<img src='static/cms/images/warning.gif'>" : "<img src='static/cms/images/ok.gif'>"; ?>
-                            </td>
-                            
-                            <td>
-                                <div class="post_title"><?php echo $value->name;?>
+            <!---INICIO DE TABLA-->
+            <table id="table" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>NOMBRE</th>
+                                <th>OBSERVACION</th>
+                                <th>ESTADO</th>
+                                <th>OPERACION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($obj_categories as $value): ?>
+                                <td>
+                                    <div class="post_title"><?php echo $value->name;?></div>
+                                </td>
+                                <td><?php echo $value->observation; ?></td>
+                                <td>
+                                    <?php if ($value->status_value == 0) {
+                                        $valor = "Inactivo";
+                                        $stilo = "label label-important";
+                                    }else{
+                                        $valor = "Activo";
+                                        $stilo = "label label-success";
+                                    } ?>
+                                    <span class="<?php echo $stilo ?>"><?php echo $valor; ?></span>
+                                </td>
+                                <td>
                                     <div class="operation">
                                         <div class="btn-group">
                                             <button class="btn btn-small" onclick="edit_categories('<?php echo $value->id_category;?>');"><i class="icon-pencil"></i> Editar</button>
                                             <button class="btn btn-small" onclick="delete_categories('<?php echo $value->id_category;?>');"><i class="icon-trash-1"></i>Eliminar</button>
                                         </div>
                                     </div>
-                                </div>
-
-                            </td>
-                            <td><?php echo $value->observation; ?></td>
-                            <td>
-                                <?php if ($value->status_value == 1) {
-                                    $valor = "Activo";
-                                    $stilo = "label label-success";
-                                }else{
-                                    $valor = "Inactivo";
-                                    $stilo = "label label-important";
-                                } ?>
-                                <span class="<?php echo $stilo ?>"><?php echo $valor; ?></span>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+            
+     
             <!--- FIN DE TABLA DE RE4GISTRO -->
-
-
-            <div class="subnav nobg">
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span2"></div>
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+   $(document).ready(function() {
+    $('#table').dataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 3 ],
+            orderData: [ 3, 0 ]
+        } ]
+    } );
+} );
+</script>
 <script src="static/cms/js/categories.js"></script>
