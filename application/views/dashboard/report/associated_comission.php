@@ -1,6 +1,11 @@
+<script src="static/cms/js/core/jquery-1.11.1.min.js"></script>
+<script src="static/cms/js/core/jquery.dataTables.min.js"></script>
+<link href="static/cms/css/core/jquery.dataTables.css" rel="stylesheet"/>
+
+<div id="main_content" class="span10">
 <div class="row-fluid">
     <div class="widget_container">
-        <div class="well nomargin">
+        <div class="well">
             <div class="navbar navbar-static navbar_as_heading">
                 <div class="navbar-inner">
                     <div class="container" style="width: auto;">
@@ -10,58 +15,50 @@
                     </div>
                 </div>
             </div>
-            <div class="subnav nobg">
-                <form method="post" action="<?php echo site_url();?>dashboard/reportes_asociados/export_excel">
-                 <div class="span2">
-                 </div>
-                <div class="span2"></div>
-                <div class="span8">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-                </form>
-            </div>
-
-            <!--- INCIO DE TABLA DE RE4GISTRO -->
-            <table class="table smallfont">
-                <thead>
-                    <tr>
-                        <td>CODIGO</td>
-                        <td>APELLIDOS</td>
-                        <td>NOMBRES</td>
-                        <td>DNI</td>
-                        <td>TELEFONO</td>
-                        <td>CELULAR</td>
-                    </tr>
-                </thead>
-                <tbody> 
-                    <?php foreach ($obj_customer as $value): ?>
+                <!--- INCIO DE TABLA DE RE4GISTRO -->
+                <table id="table" class="display" cellspacing="0" width="100%">
+                    <thead>
                         <tr>
-                            <td><?php echo $value->code;?></td>
-                            <td><?php echo $value->last_name; ?></td>
-                            <td><?php echo $value->first_name;?></td>
-                            <td><div class="post_title"><?php echo $value->dni;?></div></td>
-                            <td><?php echo $value->phone;?></td>
-                            <td><?php echo $value->mobile;?></td>
+                            <th>CODIGO</th>
+                            <th>NOMBRES</th>
+                            <th>APELLIDOS</th>
+                            <th>DNI</th>
+                            <th>CONTRASEÑA</th>
+                            <th>TELEFONO</th>
+                            <th>CELULAR</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
-            <!--- FIN DE TABLA DE RE4GISTRO -->
-            <div class="subnav nobg">
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span2"></div>
-                <div class="span2"></div>
-                <div class="span1"></div>
-                <div class="span4">
-                    <div class="pagination">
-                        <?php echo $pagination; ?>
-                    </div>
-                </div>
-            </div>
+                    </thead>
+                    <tbody> 
+                        <?php foreach ($obj_customer as $value): ?>
+                            <tr>
+                                <td><?php echo $value->code;?></td>
+                                <td><?php echo $value->first_name;?></td>
+                                <td><?php echo $value->last_name; ?></td>
+                                <td><div class="post_title"><?php echo $value->dni;?></div></td>
+                                <td><?php echo $value->password;?></td>
+                                <td><?php echo $value->phone;?></td>
+                                <td><?php echo $value->mobile;?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function() {
+    $('#table').dataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 4 ],
+            orderData: [ 4, 0 ]
+        } ]
+    } );
+} );
+</script>
