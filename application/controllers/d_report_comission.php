@@ -100,22 +100,32 @@ class D_report_comission extends CI_Controller {
         
         $this->get_session();
         
-        $params = array(
-                        "select" =>"commissions.amount,
-                                    commissions.name,
-                                    commissions.date,
-                                    commissions.status_value,
-                                    customer.code,
-                                    customer.last_name,
-                                    customer.first_name,
-                                    customer.dni,
-                                    customer.country,",
-                         "where" => "commissions.parent_id <> 1",
-                          "join" => array('customer, commissions.parent_id = customer.customer_id'),
-                          "order" => "commissions.date DESC"
-                        );
-            $obj_comission = $this->obj_commissions->search($params);
-            
+        $params = array("select" =>"first_name,
+                                    last_name,
+                                    dni,
+                                    code",
+                        "where" => "customer_id <> 1");
+        
+        
+//        $params = array(
+//                        "select" =>"commissions.amount,
+//                                    commissions.name,
+//                                    commissions.date,
+//                                    commissions.status_value,
+//                                    customer.code,
+//                                    customer.last_name,
+//                                    customer.first_name,
+//                                    customer.dni,
+//                                    customer.country,",
+//                         "where" => "commissions.parent_id <> 1",
+//                          "join" => array('customer, commissions.parent_id = customer.customer_id'),
+//                          "order" => "commissions.date DESC"
+//                        );
+//            $obj_comission = $this->obj_commissions->search($params);
+        
+        
+            $obj_customer = $this->obj_customer->search($params);
+          
             //INFO
             $modulos ='reporte_comision_x_asociado'; 
             $seccion = 'Lista';        
@@ -124,7 +134,7 @@ class D_report_comission extends CI_Controller {
             /// VISTA
             $this->tmp_mastercms->set('link_modulo',$link_modulo);
             $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('obj_comission',$obj_comission);
+            $this->tmp_mastercms->set('obj_customer',$obj_customer);
             $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->render("dashboard/report/comission_x_associated");
     }

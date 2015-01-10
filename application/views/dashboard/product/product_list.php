@@ -9,7 +9,8 @@
             <div class="navbar navbar-static navbar_as_heading">
                 <div class="navbar-inner">
                     <div class="container" style="width: auto;">
-                            <a class="brand"> LISTADO DE PRODUCTOS</a>
+                        <a class="brand"> LISTADO DE PRODUCTOS</a>
+                        <a class="btn pull-right" onclick="new_products();" >Agregar</a>
                     </div>
                 </div>
             </div>

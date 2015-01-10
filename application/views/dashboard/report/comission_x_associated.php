@@ -20,8 +20,8 @@
                     </div>
                 </form> 
                 
-             <form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/reportes_comision";?>">
-                <div class="well nomargin" style="width: 1050px;">
+             <!--<form id="product-form" name="product-form" enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/reportes_comision";?>">-->
+                <div class="well nomargin" style="width: 100%;">
                     <!--- INCIO DE TABLA DE RE4GISTRO -->
                    <table id="table" class="display" cellspacing="0" width="100%">
                         <thead>
@@ -30,27 +30,25 @@
                                 <th>NOMBRES</th>
                                 <th>APELLIDOS</th>
                                 <th>DNI</th>
-                                <th>PAÍS</th>
-                                <th>TIPO</th>
-                                <th>MONTO</th>
-                                <th>FECHA</th>
-                                <th>ESTADO</th>
-                                <th>TOTAL</th>
+                                <th>ACCIONES</th>
                             </tr>
                         </thead>
                         <tbody>
                             
-                            <?php foreach ($obj_comission as $value) { ?>
+                            <?php foreach ($obj_customer as $value) { ?>
                                 <tr>
                                     <td><?php echo $value->code;?></td>
                                     <td><?php echo $value->first_name;?></td>
                                     <td><?php echo $value->last_name;?></td>
                                     <td><?php echo $value->dni;?></td>
-                                    <td><?php echo $value->country;?></td>
-                                    <td><?php echo $value->name;?></td>
-                                    <td><?php echo $value->amount;?></td>
-                                    <td><?php echo $value->date;?></td>
                                     <td>
+                                        <div class="operation">
+                                            <div class="btn-group">
+                                                <button class="btn btn-small" onclick="ver_commision('<?php echo $value->code;?>');"><i class="icon-pencil"></i>Ver</button>
+                                            </div>
+                                        </div>
+                                    </td>
+<!--                                    <td>
                                         <?php
                                         if ($value->status_value == 0) {
                                             $valor = "Pendiente";
@@ -60,7 +58,7 @@
                                             $stilo = "label label-success";
                                         } ?>
                                         <span class="<?php echo $stilo ?>"><?php echo $valor; ?></span>
-                                    </td>
+                                    </td>-->
                                     <td></td>
                                 </tr>
                             <?php } ?>
@@ -72,7 +70,7 @@
                     <button class="btn btn-primary btn-small pull-right"  type="submit">Enviar</button>
                 </div>
             </div>
-           </form>         
+           <!--</form>-->         
         </div>
     </div>
 </div><!-- main content -->
@@ -94,8 +92,8 @@
     } );
 } );
 
-    function cancelar_comission(){
-	var url= 'dashboard/reportes_comision';
-	location.href = site+url;
+function cancelar_comission(){
+   var url= 'dashboard/reportes_comision';
+location.href = site+url;
 }
   </script>

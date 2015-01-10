@@ -20,6 +20,7 @@ class orders_model_atributos{
     var $customer_id='';
     var $address='';
     var $references='';
+    var $ticket='';
     var $city='';
     var $department='';
     var $total='';
@@ -42,6 +43,7 @@ class Orders_Model extends CI_Model{
 	$this->customer_id='';
         $this->address='';
         $this->references='';
+        $this->ticket='';
         $this->city='';
         $this->department='';
         $this->total='';

@@ -23,6 +23,7 @@
                 <thead>
                     <tr>
                         <th>N° DE PEDIDO</th>
+                        <th>TICKET</th>
                         <th>CLIENTE</th>
                         <th>TOTAL</th>
                         <th>FECHA PEDIDO</th>
@@ -40,6 +41,7 @@
                             <td>
                                 <div class="post_title"><?php echo $value->order_id;?></div>
                             </td>
+                            <td><?php echo $value->ticket; ?></td>
                             <td><?php echo $value->first_name." ".$value->last_name; ?></td>
                             <td><span class="label label-success"><?php echo format_number($value->total);?></span></td>
                             <td><?php echo $value->date_order;?></td>

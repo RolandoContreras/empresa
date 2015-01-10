@@ -14,6 +14,7 @@ class D_orders extends CI_Controller{
                         "select" =>"orders.order_id,
                                     orders.address,
                                     orders.city,
+                                    orders.ticket,
                                     orders.total,
                                     orders.date_order,
                                     orders.date_send,
