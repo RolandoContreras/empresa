@@ -104,15 +104,10 @@
               <input name="pay_sale" type="text" class="input-small-fluid" id="comision" placeholder="Comision" value="<?php echo isset($obj_product->pay_sale)?$obj_product->pay_sale:"";?>">
               <br><br>
                                                 
-            <!------------------------------------>
-                           <!-- TAB -->
-               
                 <ul class="nav nav-tabs myTab smallfont" style="width: 99%;">
                     <li class="active"><a href="#WEA1" data-toggle="tab"><i class="icon-large icon-th"></i>IMAGENES</a></li>                    
                     <li><a href="#WEA5" data-toggle="tab"><i class="icon-large icon-th"></i> TAGS</a></li>
                 </ul>    
-            
-            
                 <div class="tab-content myTabContent" style="width: 99%;">
                     <div class="tab-pane fade in active" id="WEA1">
                         <div class="tabbable tabs-left xdefault">
@@ -143,8 +138,6 @@
                                     </div>                                    
                                 </div>
                             </div>
-                        
-                            <!-------------------------------------------------------------> 
                             
                               <div class="tab-content" style="width: 32%; float: left; margin-right: 1%; ">
                                 <div class="inner">
@@ -202,7 +195,6 @@
                                 </div>
                             </div>
                             <br/>
-                            <!-------------------------------------------------------->
                             <div class="tab-content" style="width: 32%; float: left; margin-right: 1%;">
                                 <div class="inner">
                                     <div data-provides="fileupload" class="fileupload fileupload-new">
@@ -229,7 +221,6 @@
                                     </div>                                    
                                 </div>
                             </div>
-                           <!--------------------------------------------------------> 
                         </div>
                     </div>
                     
@@ -238,27 +229,21 @@
                             <div class="tab-content fix_tags" style="width: 737px;">
                                 <div class="inner">
                                     <div class="side-by-side clearfix">       
-                                        
-                                        
-                        <select  data-placeholder="Tags" style="width:350px;" multiple class="chzn-select " tabindex="8" name ="tags" id="tags">
-                            <option value = ""></option>
-                            <?php foreach ($obj_tags as $obj_tags):
-                                    $selected = get_tag($obj_product->tags,$obj_tags->name);
-                                ?>
-                                <option <?php echo $selected;?>><?php echo $obj_tags->name;?></option>
-                            <?php endforeach;?>
-                         </select> 
+                                        <select  data-placeholder="Tags" style="width:350px;" multiple class="chzn-select " tabindex="8" name ="tags" id="tags">
+                                            <option value = ""></option>
+                                            <?php foreach ($obj_tags as $obj_tags):
+                                                    $selected = get_tag($obj_product->tags,$obj_tags->name);
+                                                ?>
+                                                <option <?php echo $selected;?>><?php echo $obj_tags->name;?></option>
+                                            <?php endforeach;?>
+                                         </select> 
                                     </div>
-                                    
                                     <input type="hidden" name="tag" id="tag" value="<?php echo isset($obj_product->tags)?$obj_product->tags:"";?>">
                                 </div>
                             </div>
                         </div>                        
                     </div>
-                    
                 </div>
-                
-                
             
               <br><br>
               <div class="well nomargin" style="width: 200px;">
@@ -301,6 +286,4 @@
     $('#timepicker1').on('change', function() {                
         $("#time").val($(this).val());        
     });
-    
-
 </script>

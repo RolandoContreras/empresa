@@ -75,4 +75,34 @@
     } );
 } );
 </script>
-<script src="static/cms/js/categories.js"></script>
+<script type="text/javascript">
+function new_categories(){
+     var url = 'dashboard/categorias/load';
+     location.href = site+url;
+}
+function edit_categories(id_category){    
+     var url = 'dashboard/categorias/load/'+id_category;
+     location.href = site+url;   
+}
+function delete_categories(id_category){
+        bootbox.dialog("Confirma que desea Eliminar el Regístro?", [        
+        { "label" : "Cancelar"},
+        {
+            "label" : "Eliminar",
+            "class" : "btn-danger",
+            "callback": function() {
+               $.ajax({
+                   type: "post",
+                   url: site+"dashboard/categorias/delete/"+id_category,
+                   dataType: "json",
+                   data: {id_category : id_category},
+                   success:function(data){                             
+                   location.reload();
+                   }         
+           });
+            }
+        }
+    ]);
+}
+</script>
+

@@ -34,7 +34,7 @@
 
         <script src="static/cms/js/core/jquery.validate.min.js"></script>
         <script src="static/cms/js/core/bootstrap-alert.js"></script>
-        <script src="static/cms/js/core/functions.js"></script>
+        <!--<script src="static/cms/js/core/functions.js"></script>-->
         
         <script src="static/cms/js/core/jquery.validate.min.js"></script>
         <script type="text/javascript">
