@@ -46,7 +46,6 @@ class D_orders extends CI_Controller{
             $params = array(
                         "select" =>"order_details.order_id,
                                     order_details.product_id,
-                                    order_details.product_id,
                                     order_details.price,
                                     products.name,
                                     products.big_image,
