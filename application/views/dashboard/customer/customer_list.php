@@ -71,16 +71,7 @@
 <script type="text/javascript">
    $(document).ready(function() {
     $('#table').dataTable( {
-        columnDefs: [ {
-            targets: [ 0 ],
-            orderData: [ 0, 1 ]
-        }, {
-            targets: [ 1 ],
-            orderData: [ 1, 0 ]
-        }, {
-            targets: [ 4 ],
-            orderData: [ 4, 0 ]
-        } ]
+         "order": [[ 0, "desc" ]]
     } );
 } );
 </script>

@@ -30,7 +30,7 @@ class D_products extends CI_Controller{
                                     products.stock,
                                     products.position,
                                     products.status_value ",
-                         "order" => "position DESC, product_id DESC",
+                         "order" => "product_id DESC",
                          "join" => array('categories, products.id_category = categories.id_category',
                                          'categories_kind, categories_kind.product_id = products.product_id',
                                          'brand_categories, brand_categories.categories_kind_id = categories_kind.categories_kind_id',

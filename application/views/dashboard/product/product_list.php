@@ -19,6 +19,7 @@
             <table id="table" class="display" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Código</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
@@ -37,6 +38,7 @@
                 <tbody> 
                     <?php foreach ($obj_products as $value): ?>
                         <tr>
+                            <td><?php echo $value->product_id;?></td>
                             <td><?php echo $value->code;?></td>
                             <td>
                                 <div class="post_title"><?php echo $value->tittle;?>
@@ -78,18 +80,9 @@
     </div>
 </div>
 <script type="text/javascript">
-   $(document).ready(function() {
+  $(document).ready(function() {
     $('#table').dataTable( {
-        columnDefs: [ {
-            targets: [ 0 ],
-            orderData: [ 0, 1 ]
-        }, {
-            targets: [ 1 ],
-            orderData: [ 1, 0 ]
-        }, {
-            targets: [ 4 ],
-            orderData: [ 4, 0 ]
-        } ]
+        "order": [[ 0, "desc" ]]
     } );
 } );
 </script>
