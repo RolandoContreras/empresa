@@ -35,7 +35,7 @@
                                                                     <td></td>
                                                                     <td>
                                                                         <div class="operation">
-                                                                            <div class="btn-group" style="display:none;">      
+                                                                            <div class="btn-group" id="id_1">      
                                                                                 <button class="btn btn-small" onclick="verify_status_count('<?php echo $value->tag_id; ?>');"><i>Verificar</i></button>
                                                                             </div>
                                                                         </div> 
@@ -47,7 +47,7 @@
                                                                     <td></td>
                                                                     <td>
                                                                         <div class="operation">
-                                                                            <div class="btn-group" style="display:none;">      
+                                                                            <div class="btn-group" id="id_2">      
                                                                                 <button class="btn btn-small" onclick="edit_tag('<?php echo $value->tag_id; ?>');"><i>Enviar E-mail</i></button>
                                                                             </div>
                                                                         </div> 
@@ -59,7 +59,7 @@
                                                                     <td></td>
                                                                     <td>
                                                                         <div class="operation">
-                                                                            <div class="btn-group" style="display:none;">      
+                                                                            <div class="btn-group"  id="id_3">      
                                                                                 <button class="btn btn-small" onclick="edit_tag('<?php echo $value->tag_id; ?>');"><i>Ir</i></button>
                                                                             </div>
                                                                         </div> 
@@ -77,10 +77,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="alert alert-info" style="margin-bottom:0;">
-							<strong>Nota:</strong><br />
-						</div>
 					</div>
 				</div>
 			</div>

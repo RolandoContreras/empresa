@@ -16,11 +16,17 @@
                                 <h3>Balance</h3>
                                 <p><?php echo format_number($total->total);?></p>
                             </div>
+                            
+                            <div class="wg-content">
+                                <h3>Estado</h3>
+                                <p><?php echo "Inactivo";?></p>
+                            </div>
+                            <div class="alert alert-info" style="margin-bottom:0;">
+                                <strong>Nota:</strong> Su cuenta esta inactiva para las comisiones
+                            </div>
                         </div>
                     </div>
                 </section>
-
-                  
                 <section class="widget" style="margin-top:15px;">
                     <header class="title-widget" style="margin-bottom:10px;">
                         <h1>Equipo Unilevel</h1>
