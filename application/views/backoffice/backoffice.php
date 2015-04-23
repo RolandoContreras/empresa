@@ -25,6 +25,19 @@
                                 <strong>Nota:</strong> Su cuenta esta inactiva para las comisiones
                             </div>
                         </div>
+                        
+                        
+                        <div class="col-xs-4 .col-sm-4">
+                            <div class="wg-content">
+                                <h3>Cuenta</h3>
+                                <p>
+                                    <?php //echo format_number($total->total);?> GOLDEN
+                                    <img src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
+                                         <b style="margin-left: 43%;color: red;"> Upgrade</b>
+                                </p>
+                            </div>
+                        </div>
+                        
                     </div>
                 </section>
                 <section class="widget" style="margin-top:15px;">

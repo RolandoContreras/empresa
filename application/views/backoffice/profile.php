@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="nome">DNI</label>
                                     <div class="input text">
-                                        <input name="dni" class="form-control input-small" maxlength="45" type="text" value="<?php echo isset($obj_profile->dni)?$obj_profile->dni:"";?>" id="UserNationalIdentification"/>
+                                        <input name="dni" class="form-control input-small" maxlength="45" type="text" value="<?php echo isset($obj_profile->dni)?$obj_profile->dni:"";?>" id="UserNationalIdentification" disabled="disabled"/>
                                     </div>                            
                                 </div>
 
@@ -61,13 +61,13 @@
                             ?>
                             <div class="false">
                                 <div class="controls">
-                                    <select name="date" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoDay">
+                                    <select name="date" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoDay" disabled="disabled">
                                        <?php for ($i = 1; $i <= 31; $i++) { ?>
                                         <option value="<?php echo $i;?>" <?php echo $day==$i?'selected':'';?>><?php echo $i?></option>
                                        <?php } ?>
                                     </select>
                                     
-                                    <select name="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoMonth">
+                                    <select name="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoMonth" disabled="disabled">
                                         <option value="01" <?php echo $month=="01"?'selected':'';?>>Enero</option>
                                         <option value="02" <?php echo $month=="02"?'selected':'';?>>Febrero</option>
                                         <option value="03" <?php echo $month=="03"?'selected':'';?>>Marzo</option>
@@ -82,7 +82,7 @@
                                         <option value="12" <?php echo $month=="12"?'selected':'';?>>Diciembre</option>
                                     </select>
                                     
-                                    <select name="year" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoYear">
+                                    <select name="year" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoYear" disabled="disabled">
                                             <?php  $year = date("Y");?>
                                             <?php for ($i = 1924; $i <= $year; $i++) { ?>
                                                  <option value="<?php echo $i;?>" <?php echo $i==$year_b?'selected':'';?>><?php echo $i;?></option>
