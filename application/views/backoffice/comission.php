@@ -1,3 +1,5 @@
+<script src="<?php echo site_url();?>static/cms/js/core/jquery.dataTables.min.js"></script>
+<link href="<?php echo site_url();?>static/cms/css/core/jquery.dataTables.css" rel="stylesheet"/>
 <article class="main-content homepage" style="padding-bottom:10%;">
 	<div class="breadcrumbs transition" id="breadcrumbs">
             <ul class="breadcrumb">
@@ -19,7 +21,10 @@
             <nav class="abas">
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active">
-                        <a href="#1" data-toggle="tab"></i>Ultimos Movimientos</a>
+                        <a href="#1" data-toggle="tab">Últimos Pagos</a>
+                    </li>
+                    <li>
+                        <a href="#2" data-toggle="tab">Totales</a>
                     </li>
                 </ul>
             </nav>
@@ -27,8 +32,8 @@
             <div class="wg-content_nav" style="min-height:700px;">
                 <div class="tab-content">
                     <div class="tab-pane active" id="1">
-                         <div class='pagination pull-right'></div>                    
-                         <table class="table table-hover table-striped table-bordered tabela">
+                         <div class='pagination pull-right'></div>   
+                         <table id="table" class="display" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th>Fecha</th>
@@ -53,8 +58,39 @@
                                         <td colspan="4">No tiene Comisiones</td>
                                     </tr>
                                 <?php } ?>
-                                								
-                                																		 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="2">
+                         <div class='pagination pull-right'></div>   
+                         <table id="table" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Bono</th>
+                                    <th>Monto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td>Referido Directo</td>
+                                        <td>S/.100</td>                                
+                                    </tr>
+                                    <tr>
+                                        <td>Referido Directo</td>
+                                        <td>S/.100</td>                                
+                                    </tr>
+                                    <tr>
+                                        <td>Referido Directo</td>
+                                        <td>S/.100</td>                                
+                                    </tr>
+                                    <tr>
+                                        <td>Referido Directo</td>
+                                        <td>S/.100</td>                                
+                                    </tr>
+                                    <tr>
+                                        <td>Referido Directo</td>
+                                        <td>S/.100</td>                                
+                                    </tr>
                             </tbody>
                         </table>
                     </div>
@@ -63,3 +99,10 @@
         </section>
     </div>
 </article>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#table').dataTable( {
+        "order": [[ 0, "desc" ]]
+    } );
+} );
+</script>

@@ -42,14 +42,14 @@
                 </section>
                 <section class="widget" style="margin-top:15px;">
                     <header class="title-widget" style="margin-bottom:10px;">
-                        <h1>Equipo Unilevel</h1>
+                        <h1>Equipo - Directos</h1>
                     </header>
                     <div class="wg-content">
                         <table class="table table-hover table-striped table-bordered tabela my-unilevel" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th><center>Name</center></th>
-                                    <th><center>Sponsor</center></th>
+                                    <th><center>Nombre</center></th>
+                                    <th><center>E-mail</center></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,20 +57,16 @@
                                 if(count($obj_profile)>0){
                                     foreach ($obj_profile as $value) { ?>
                                      <tr>
-                                        <td><?php echo $value->first_name;?> ( <?php echo $value->email;?> )</td>
-                                        <td><?php echo $_SESSION['customer']['name'];?> ( <?php echo $_SESSION['customer']['email'];?> )</td>
+                                        <td><?php echo $value->first_name." ".$value->last_name;?></td>
+                                        <td><?php echo $value->email;?></td>
                                      </tr> 
                                      
                                 <?php  }
-                                
                                 }else{ ?>
                                     <tr>
                                         <td colspan="2">Usted No tiene referidos</td>
                                      </tr>   
                                <?php } ?>
-                                
-                                
-                                
                             </tbody>
                         </table>
                     </div>

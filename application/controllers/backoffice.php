@@ -30,6 +30,7 @@ class Backoffice extends CI_Controller {
                                     email,
                                     password,
                                     first_name,
+                                    last_name,
                                     status_value",
                          "where" => "parents_id = $customer_id",
                         ); 
