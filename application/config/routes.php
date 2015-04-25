@@ -50,6 +50,7 @@ $route['home/empty_car'] = "home/empty_car";
 
 $route['logout'] = "myaccount/destroy_user";
 $route['acerca'] = "about";
+$route['prueba'] = "prueba";
 
 $route['compras'] = "shop";
 $route['compras/([0-9_-]+)'] = "shop/index";

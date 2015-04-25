@@ -151,6 +151,8 @@
                                                 <input type="radio" name="kit" id="password" required="required" /> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
                                             </p>
                                             <hr>
+                                            <input type="checkbox" name="partnet" id="password" required="required" /> &nbsp;&nbsp; S/. 49.00 Gastos de Partner 
+                                            <hr>
                                             <h2>Información Personal</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
