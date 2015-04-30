@@ -146,9 +146,9 @@
                                             <h2>Selección de Paquetes</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
-                                                <input type="radio" name="kit" id="password" required="required" /> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
-                                                <input type="radio" name="kit" id="password" required="required" /> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
-                                                <input type="radio" name="kit" id="password" required="required" /> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="1"/> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="2"/> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
+                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
                                             </p>
                                             <hr>
                                             <input type="checkbox" name="partnet" id="password" required="required" /> &nbsp;&nbsp; S/. 49.00 Gastos de Partner 
@@ -239,7 +239,7 @@
                                             </p>
                                             <hr>
                                             <p class="form-row">
-                                                <input type="checkbox" name="password" id="password" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
+                                                <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
                                             </p>
                                             <hr>
                                             <p class="form-row">
@@ -268,10 +268,10 @@
             </div>
         </div>
         <?php $this->load->view("footer");?> </div>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/registrar.js?999';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/jquery.js?999';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/superfish.js?999';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/jquery.mobilemenu.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
 </body>
 
 </html>
