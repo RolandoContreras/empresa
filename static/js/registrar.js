@@ -1,6 +1,5 @@
 function registrar() {
     kit = $('input:radio[name=kit]:checked').val();
-    contract = $("#contract");
     first_name = $("#first_name").val();
     last_name = $("#last_name").val();
     dni = $("#dni").val();
@@ -20,71 +19,79 @@ function registrar() {
     ruc = $("#ruc").val();
     address2 = $("#address2").val();
     
-    if($('#contract').is(':checked')){
-        if (first_name != "" && last_name != "" && dni != "" && phone != "" && address != "" && city != "" && department != "" && country != "" && email != "" && password != "") {
-            n = $("#spinner").get(0);
-            bootbox.dialog("¿Desea enviar el Registro?", [{
-                label: "Cancelar"
-            }, {
-                label: "Enviar",
-                "class": "btn-success",
-                callback: function() {
-                    t = (new Spinner(opts)).spin(n);
-                    $.ajax({
-                        type: "post",
-                        url: site + "registro/crear_cliente",
-                        dataType: "json",
-                        data: {
-                            first_name: first_name,
-                            last_name: last_name,
-                            razon_social: razon_social,
-                            ruc: ruc,
-                            address2: address2,
-                            dni: dni,
-                            phone: phone,
-                            address: address,
-                            city: city,
-                            department: department,
-                            country: country,
-                            email: email,
-                            password: password,
-                            mobile: mobile,
-                            date: date,
-                            month: month,
-                            year: year,
-                            references: references
-                        },
-                        success: function(e) {
-                            if (e.message == "no_item") {
-                                bootbox.dialog(e.print, [{
-                                    label: "Cerrar"
-                                }])
-                            } else if (e.message == "no_stock") {
-                                bootbox.dialog(e.print, [{
-                                    label: "Cerrar"
-                                }])
-                            } else {
-                                bootbox.dialog(e.print, [{
-                                    label: "Cerrar"
-                                }])
+    if($('#contract').is(':checked') && $('#partnet').is(':checked')){
+       
+            if (first_name != "" && last_name != "" && dni != "" && phone != "" && address != "" && city != "" && department != "" && country != "" && email != "" && password != "") {
+                n = $("#spinner").get(0);
+                bootbox.dialog("¿Desea enviar el Registro?", [{
+                    label: "Cancelar"
+                }, {
+                    label: "Enviar",
+                    "class": "btn-success",
+                    callback: function() {
+                        t = (new Spinner(opts)).spin(n);
+                        $.ajax({
+                            type: "post",
+                            url: site + "registro/crear_cliente",
+                            dataType: "json",
+                            data: {
+                                kit: kit,
+                                first_name: first_name,
+                                last_name: last_name,
+                                razon_social: razon_social,
+                                ruc: ruc,
+                                address2: address2,
+                                dni: dni,
+                                phone: phone,
+                                address: address,
+                                city: city,
+                                department: department,
+                                country: country,
+                                email: email,
+                                password: password,
+                                mobile: mobile,
+                                date: date,
+                                month: month,
+                                year: year,
+                                references: references
+                            },
+                            success: function(e) {
+                                if (e.message == "no_item") {
+                                    bootbox.dialog(e.print, [{
+                                        label: "Cerrar"
+                                    }]);
+                                } else if (e.message == "no_stock") {
+                                    bootbox.dialog(e.print, [{
+                                        label: "Cerrar"
+                                    }]);
+                                } else {
+                                    bootbox.dialog(e.print, [{
+                                        label: "Cerrar"
+                                    }]);
+                                }
+                                t.stop()
                             }
-                            t.stop()
-                        }
-                    })
-                }
-            }])
-        }else{
-            bootbox.dialog("Debe llenar todos los datos", [{
-                label: "Cancelar"
-            }])
-        }
+                        })
+                    }
+                }])
+            }else{
+                bootbox.dialog("Debe llenar todos los datos", [{
+                    label: "Cancelar"
+                }])
+            }
   
    }else{
-       bootbox.dialog("Debe aceptar los Terminos y Condiciones", [{
+       if($('#contract').is(':checked')){
+           bootbox.dialog("Debe aceptar el monto por Partnet", [{
                 label: "Cancelar"
-       }])
+             }]);
+       }else{
+           bootbox.dialog("Debe aceptar los Terminos y Condiciones", [{
+                label: "Cancelar"
+            }]);
+       }
+       
    }
-    
 }
 
 function delete_car(e) {

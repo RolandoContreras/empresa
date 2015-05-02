@@ -33,258 +33,313 @@ class Register extends CI_Controller {
                     $this->load->view('registration',$obj_products);
     }
     
+     public function create_customer_two()
+    {   
+        $dni = $this->input->post('dni');
+        //verify isn't exist dni
+        $customer = $this->verify_customer($dni);
+        //if exist customer come back
+        if($customer > 0){
+            echo "<script type='text/javascript'>";
+            echo "window.history.back(-1)";
+            echo "</script>";
+        }else{
+            $first_name = $this->input->post('first_name');
+            $kit = $this->input->post('kit');
+            $last_name = $this->input->post('last_name');
+            $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));
+            $phone = $this->input->post('phone');
+            $mobile = $this->input->post('mobile');
+            $address = $this->input->post('address');
+            $references = $this->input->post('references');
+            $city = $this->input->post('city');
+            $department = $this->input->post('department');
+            $country = $this->input->post('country');
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $ruc = $this->input->post('ruc');
+            $razon_social = $this->input->post('razon_social');
+            $address2 = $this->input->post('address2');
+            
+            $obj_products['data'] = array(
+                       'first_name'     => $first_name,
+                       'last_name'      => $last_name,
+                       'birth_date'     => $date_birth,  
+                       'phone'          => $phone,  
+                       'mobile'         => $mobile,
+                       'address'        => $address,
+                       'references'     => $references,
+                       'city'           => $city,
+                       'department'     => $department,
+                       'country'        =>$country,
+                       'email'          => $email,
+                       'password'       => $password,
+                       'ruc'            => $ruc,
+                       'razon_social'   => $razon_social,
+                       'address2'       => $address2);
+            }
+           
+            $obj_products['category'] = $this->obj_category->search($param_category);
+            
+            //SEO
+            $obj_products['title'] = "Contacto | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. WaveLine S.A.C. Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru.";
+            $this->load->view('registration_two',$obj_products);
+    }
+    
     public function create_customer()
     {
     if(count($this->cart->contents()) > 0){
-        $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));    
+            
+                $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));    
+                $dni = $this->input->post('dni');
+                $customer = $this->verify_customer($dni);
         
-        $dni = $this->input->post('dni');
-        $customer = $this->verify_customer($dni);
-        
-        if($customer > 0){
-                $data['message'] = "no_stock";
-                $data['print'] = "El Cliente ya se encuentra registrado";
-                echo json_encode($data);  
-                exit();
-        }else{
-            if(isset($_SESSION['customer'])){
-                $parent_id = $_SESSION['customer']['customer_id'];
-                $position =  $_SESSION['customer']['position_temporal'];
-
-            }else{
-                $parent_id = 1;
-                $position = 1;
-            } 
-            
-            $amount = 0;
-            foreach ($this->cart->contents() as $item){
-                $product_id = $item['id']; 
-                $qty = $item['qty']; 
-                
-                //SELECT PRODUCT
-                $param_product = array(
-                            "select" =>"product_id,
-                                        pay_sale,
-                                        stock",
-                            "where" => "product_id = '$product_id'");
-
-                $obj_products = $this->obj_product->get_search_row($param_product);
-                
-                $real_price  = $obj_products->pay_sale * $qty;
-                $quantity     = $obj_products->stock;   
-            
-                //UPDATE STOCK
-                $update_stock = array( 
-                 'stock'     => $quantity - $qty,
-                 );
-                $this->obj_product->update($obj_products->product_id,$update_stock);
-                $amount =  $amount + $real_price;
-            }
-            
-        //INSERT CUSTOMER    
-        $data = array(
-               'razon_social' => $this->input->post('razon_social'),
-               'ruc' => $this->input->post('ruc'),
-               'address2' => $this->input->post('address2'),
-               'first_name' => $this->input->post('first_name'),
-               'parents_id' => $parent_id,
-               'last_name' => $this->input->post('last_name'),
-               'email' => $this->input->post('email'),
-               'position' => $position,
-               'position_temporal' => 1,
-               'dni' => $this->input->post('dni'),
-               'birth_date' => $date_birth,  
-               'phone' => $this->input->post('phone'),  
-               'mobile' => $this->input->post('mobile'),
-               'address' => $this->input->post('address'),
-               'references' => $this->input->post('references'),
-               'city' => $this->input->post('city'),
-               'department' => $this->input->post('department'),
-               'country' => $this->input->post('country'),
-               'password' => $this->input->post('password'),
-               'status_value' => 0,
-               'created_at' => date("Y-m-d H:i:s"),
-                );
-            $customer_id = $this->obj_customer->insert($data);
-            
-            //UPDATE CUSTOMER CODE
-            $update_code_customer = array( 
-             'code'     => $customer_id,
-            );
-            $this->obj_customer->update($customer_id,$update_code_customer);
-            
-            $total          =  $this->cart->total()+10;
-            $date_order     =  date("Y-m-d H:i:s");
-            $dia_enviar     =  date("d")+2;
-            $date_send      =  date("Y-m-$dia_enviar H:i:s");  
-               
-            //INSERT ORDER
-            $data_order = array( 
-             'customer_id'      => $customer_id,
-             'address'          => $this->input->post('address'),
-             'references'       => $this->input->post('references'),
-             'city'             => $this->input->post('city'),
-             'department'       => $this->input->post('department'),
-             'total'            => $total,  
-             'date_order'       => $date_order,
-             'date_send'        => $date_send, 
-             'status_value'     => 1,
-             'created_at'       => date("Y-m-d H:i:s"),
-             'created_by'       => $customer_id
-             );
-            $order_id = $this->obj_order->insert($data_order);
-           
-            if($parent_id != 1){
-                
-                //INSERT COMMISSIONS
-                $data_commissions = array( 
-                 'parent_id'        => $parent_id,
-                 'name'             => "Comisión por Referido",
-                 'amount'           => $amount,
-                 'date'             => date("Y-m-d H:i:s"),
-                 'status_value'     => 0,
-                 'created_at'       => date("Y-m-d H:i:s"),
-                 'created_by'       => $customer_id
-                 );
-                $commissions_id = $this->obj_commissions->insert($data_commissions);
-
-                //INSERT ORDER_COMMISSIONS
-                $data_order_commissions = array( 
-                 'order_id'         => $order_id,
-                 'commissions_id'   => $commissions_id,
-                 'status_value'     => 1,
-                 'created_at'       => date("Y-m-d H:i:s"),
-                 'created_by'       => $customer_id
-                 );
-                $this->obj_order_commissions->insert($data_order_commissions);
-            }
-            
-            if(isset($_SESSION['customer'])){
-            $name = "Comisión por Residuales";
-            $parents_1 = $_SESSION['customer']['parents_id'];
-            $amount = $amount * 0.015;
-            
-            //SELECT FIRST PARENT TO PAY
-                if($parents_1!=""){
-                    if($parents_1!=1 && $parents_1!=0){
-                    //INSERT COMMISSIONS
-                    $this->residual_commision($parents_1, $name, $amount, $customer_id, $order_id);
-                    
-                    $parents = array(
-                            "select" =>"parents_id",
-                            "where" => "customer_id = $parents_1",
-                            );
-                    //SELECT SECOND PARENT TO PAY
-                    $parents_2 = $this->obj_customer->get_search_row($parents);
-                    $parents_2 = $parents_2->parents_id;
-                    
-                    if($parents_2!=""){
-                        if($parents_2!=1 && $parents_2!=0){
-                        
-                            //INSERT COMMISSIONS
-                            $this->residual_commision($parents_2, $name, $amount, $customer_id, $order_id);
-                            
-                            
-                            $parents = array(
-                                "select" =>"parents_id",
-                                "where" => "customer_id = $parents_2",
-                            );
-                            //SELECT THIRD PARENT TO PAY
-                            $parents_3 = $this->obj_customer->get_search_row($parents);
-                            $parents_3 = $parents_3->parents_id;
-                            
-                            //INSERT COMMISSIONS
-                            if($parents_3!=""){
-                                if($parents_3!=1 && $parents_3!=0){
-                                        $this->residual_commision($parents_3, $name, $amount, $customer_id, $order_id);
-
-
-                                           $parents = array(
-                                                "select" =>"parents_id",
-                                                "where" => "customer_id = $parents_3",
-                                                );
-                                        //SELECT FOURTH PARENT TO PAY
-                                        $parents_4 = $this->obj_customer->get_search_row($parents);
-                                        $parents_4 = $parents_4->parents_id;
-                                        
-                                        if($parents_4!=""){
-                                            if($parents_4!=1 && $parents_4!=0){
-                                                //INSERT COMMISSIONS
-                                                $this->residual_commision($parents_4, $name, $amount, $customer_id, $order_id);
-                                            }
-                                        }
-                                }
-                            }
-                        }  
-                                
-                    }
-                  }    
-                            
-                }
-        }
-            
-            foreach ($this->cart->contents() as $item){
-            if ($this->cart->has_options($item['rowid']) == TRUE){
-                foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
-                        $size = $option_value;
-                        
-                    //INSERT DETAIL_ORDER
-                    $data_order_details = array( 
-                         'order_id   '      => $order_id,
-                         'product_id'       => $item['id'],
-                         'price'            => $item['price'],
-                         'size'            =>  $size,
-                         'quantity'         => $item['qty'],
-                         'subtotal'         => $item['subtotal'],
-                         'status_value'     => 1,
-                         'created_at'       => date("Y-m-d H:i:s"),
-                         'created_by'       => $customer_id,
-                         'updated_at'       => date("Y-m-d H:i:s"),
-                         'updated_by'       => $customer_id,         
-                         );
-                    $this->obj_detail->insert($data_order_details);
-                    }
+                if($customer > 0){
+                        $data['message'] = "no_stock";
+                        $data['print'] = "El Cliente ya se encuentra registrado";
+                        echo json_encode($data);  
+                        exit();
                 }else{
-                    //INSERT DETAIL_ORDER
-                    $data_order_details = array( 
-                         'order_id   '      => $order_id,
-                         'product_id'       => $item['id'],
-                         'price'            => $item['price'],
-                         'quantity'         => $item['qty'],
-                         'subtotal'         => $item['subtotal'],
+                    if(isset($_SESSION['customer'])){
+                        $parent_id = $_SESSION['customer']['customer_id'];
+                        $position =  $_SESSION['customer']['position_temporal'];
+
+                    }else{
+                        $parent_id = 1;
+                        $position = 1;
+                    } 
+
+                    $amount = 0;
+                    foreach ($this->cart->contents() as $item){
+                        $product_id = $item['id']; 
+                        $qty = $item['qty']; 
+
+                        //SELECT PRODUCT
+                        $param_product = array(
+                                    "select" =>"product_id,
+                                                pay_sale,
+                                                stock",
+                                    "where" => "product_id = '$product_id'");
+
+                        $obj_products = $this->obj_product->get_search_row($param_product);
+
+                        $real_price  = $obj_products->pay_sale * $qty;
+                        $quantity     = $obj_products->stock;   
+
+                        //UPDATE STOCK
+                        $update_stock = array( 
+                         'stock'     => $quantity - $qty,
+                         );
+                        $this->obj_product->update($obj_products->product_id,$update_stock);
+                        $amount =  $amount + $real_price;
+                    }
+
+                //INSERT CUSTOMER    
+                $data = array(
+                       'razon_social' => $this->input->post('razon_social'),
+                       'ruc' => $this->input->post('ruc'),
+                       'address2' => $this->input->post('address2'),
+                       'first_name' => $this->input->post('first_name'),
+                       'parents_id' => $parent_id,
+                       'last_name' => $this->input->post('last_name'),
+                       'email' => $this->input->post('email'),
+                       'position' => $position,
+                       'position_temporal' => 1,
+                       'dni' => $this->input->post('dni'),
+                       'birth_date' => $date_birth,  
+                       'phone' => $this->input->post('phone'),  
+                       'mobile' => $this->input->post('mobile'),
+                       'address' => $this->input->post('address'),
+                       'references' => $this->input->post('references'),
+                       'city' => $this->input->post('city'),
+                       'department' => $this->input->post('department'),
+                       'country' => $this->input->post('country'),
+                       'password' => $this->input->post('password'),
+                       'status_value' => 0,
+                       'created_at' => date("Y-m-d H:i:s"),
+                        );
+                    $customer_id = $this->obj_customer->insert($data);
+
+                    //UPDATE CUSTOMER CODE
+                    $update_code_customer = array( 
+                     'code'     => $customer_id,
+                    );
+                    $this->obj_customer->update($customer_id,$update_code_customer);
+
+                    $total          =  $this->cart->total()+10;
+                    $date_order     =  date("Y-m-d H:i:s");
+                    $dia_enviar     =  date("d")+2;
+                    $date_send      =  date("Y-m-$dia_enviar H:i:s");  
+
+                    //INSERT ORDER
+                    $data_order = array( 
+                     'customer_id'      => $customer_id,
+                     'address'          => $this->input->post('address'),
+                     'references'       => $this->input->post('references'),
+                     'city'             => $this->input->post('city'),
+                     'department'       => $this->input->post('department'),
+                     'total'            => $total,  
+                     'date_order'       => $date_order,
+                     'date_send'        => $date_send, 
+                     'status_value'     => 1,
+                     'created_at'       => date("Y-m-d H:i:s"),
+                     'created_by'       => $customer_id
+                     );
+                    $order_id = $this->obj_order->insert($data_order);
+
+                    if($parent_id != 1){
+
+                        //INSERT COMMISSIONS
+                        $data_commissions = array( 
+                         'parent_id'        => $parent_id,
+                         'name'             => "Comisión por Referido",
+                         'amount'           => $amount,
+                         'date'             => date("Y-m-d H:i:s"),
+                         'status_value'     => 0,
+                         'created_at'       => date("Y-m-d H:i:s"),
+                         'created_by'       => $customer_id
+                         );
+                        $commissions_id = $this->obj_commissions->insert($data_commissions);
+
+                        //INSERT ORDER_COMMISSIONS
+                        $data_order_commissions = array( 
+                         'order_id'         => $order_id,
+                         'commissions_id'   => $commissions_id,
                          'status_value'     => 1,
                          'created_at'       => date("Y-m-d H:i:s"),
-                         'created_by'       => $customer_id,
-                         'updated_at'       => date("Y-m-d H:i:s"),
-                         'updated_by'       => $customer_id,         
+                         'created_by'       => $customer_id
                          );
-                    $this->obj_detail->insert($data_order_details);
-                } 
-            }
+                        $this->obj_order_commissions->insert($data_order_commissions);
+                    }
 
-            $param_customer = array(
-                            "select" =>"customer_id,
-                                        code,
-                                        password",
-                            "where" => "customer_id = '$customer_id'");
-            $obj_customer = $this->obj_customer->get_search_row($param_customer);
-            
-            $img = site_url().'static/images/logobcp.gif';
-            
-            $data['message'] = "success";
-            $data['print'] = "El Cliente se registró con éxito, Le damos la más cordial bienvenida al equipo Waveline Network<br/><br/>
-                              <b>Usuario</b>: $obj_customer->code<br/>
-                              <b>Contraseña</b>: $obj_customer->password<br/>
-                              <b>Número de Pedido</b>: $order_id<br/><br/>
-                              El pedido será entragado en 2 días hábiles a la dirección registrada.<br/>    
-                              Actualmente su cuenta esta inactiva hasta realizar el pago:<br/>
-                              Enviar el voucher de pago al correo: ventas@wavelinetwork.com<br/>
-                              Banco de Credito del Perú - BCP<br/><br/>
-                              194-2204558-0-61 Cuenta Corriente Soles<br/><br/>
-                              <img width='106' src='$img'>";
-            echo json_encode($data);  
-            exit();
-            }    
+                    if(isset($_SESSION['customer'])){
+                    $name = "Comisión por Residuales";
+                    $parents_1 = $_SESSION['customer']['parents_id'];
+                    $amount = $amount * 0.015;
+
+                    //SELECT FIRST PARENT TO PAY
+                        if($parents_1!=""){
+                            if($parents_1!=1 && $parents_1!=0){
+                            //INSERT COMMISSIONS
+                            $this->residual_commision($parents_1, $name, $amount, $customer_id, $order_id);
+
+                            $parents = array(
+                                    "select" =>"parents_id",
+                                    "where" => "customer_id = $parents_1",
+                                    );
+                            //SELECT SECOND PARENT TO PAY
+                            $parents_2 = $this->obj_customer->get_search_row($parents);
+                            $parents_2 = $parents_2->parents_id;
+
+                            if($parents_2!=""){
+                                if($parents_2!=1 && $parents_2!=0){
+
+                                    //INSERT COMMISSIONS
+                                    $this->residual_commision($parents_2, $name, $amount, $customer_id, $order_id);
+
+
+                                    $parents = array(
+                                        "select" =>"parents_id",
+                                        "where" => "customer_id = $parents_2",
+                                    );
+                                    //SELECT THIRD PARENT TO PAY
+                                    $parents_3 = $this->obj_customer->get_search_row($parents);
+                                    $parents_3 = $parents_3->parents_id;
+
+                                    //INSERT COMMISSIONS
+                                    if($parents_3!=""){
+                                        if($parents_3!=1 && $parents_3!=0){
+                                                $this->residual_commision($parents_3, $name, $amount, $customer_id, $order_id);
+
+
+                                                   $parents = array(
+                                                        "select" =>"parents_id",
+                                                        "where" => "customer_id = $parents_3",
+                                                        );
+                                                //SELECT FOURTH PARENT TO PAY
+                                                $parents_4 = $this->obj_customer->get_search_row($parents);
+                                                $parents_4 = $parents_4->parents_id;
+
+                                                if($parents_4!=""){
+                                                    if($parents_4!=1 && $parents_4!=0){
+                                                        //INSERT COMMISSIONS
+                                                        $this->residual_commision($parents_4, $name, $amount, $customer_id, $order_id);
+                                                    }
+                                                }
+                                        }
+                                    }
+                                }  
+
+                            }
+                          }    
+
+                        }
+                    }
+
+                    foreach ($this->cart->contents() as $item){
+                    if ($this->cart->has_options($item['rowid']) == TRUE){
+                        foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){
+                                $size = $option_value;
+
+                            //INSERT DETAIL_ORDER
+                            $data_order_details = array( 
+                                 'order_id   '      => $order_id,
+                                 'product_id'       => $item['id'],
+                                 'price'            => $item['price'],
+                                 'size'            =>  $size,
+                                 'quantity'         => $item['qty'],
+                                 'subtotal'         => $item['subtotal'],
+                                 'status_value'     => 1,
+                                 'created_at'       => date("Y-m-d H:i:s"),
+                                 'created_by'       => $customer_id,
+                                 'updated_at'       => date("Y-m-d H:i:s"),
+                                 'updated_by'       => $customer_id,         
+                                 );
+                            $this->obj_detail->insert($data_order_details);
+                            }
+                        }else{
+                            //INSERT DETAIL_ORDER
+                            $data_order_details = array( 
+                                 'order_id   '      => $order_id,
+                                 'product_id'       => $item['id'],
+                                 'price'            => $item['price'],
+                                 'quantity'         => $item['qty'],
+                                 'subtotal'         => $item['subtotal'],
+                                 'status_value'     => 1,
+                                 'created_at'       => date("Y-m-d H:i:s"),
+                                 'created_by'       => $customer_id,
+                                 'updated_at'       => date("Y-m-d H:i:s"),
+                                 'updated_by'       => $customer_id,         
+                                 );
+                            $this->obj_detail->insert($data_order_details);
+                        } 
+                    }
+
+                    $param_customer = array(
+                                    "select" =>"customer_id,
+                                                code,
+                                                password",
+                                    "where" => "customer_id = '$customer_id'");
+                    $obj_customer = $this->obj_customer->get_search_row($param_customer);
+
+                    $img = site_url().'static/images/logobcp.gif';
+
+                    $data['message'] = "success";
+                    $data['print'] = "El Cliente se registró con éxito, Le damos la más cordial bienvenida al equipo Waveline Network<br/><br/>
+                                      <b>Usuario</b>: $obj_customer->code<br/>
+                                      <b>Contraseña</b>: $obj_customer->password<br/>
+                                      <b>Número de Pedido</b>: $order_id<br/><br/>
+                                      El pedido será entragado en 2 días hábiles a la dirección registrada.<br/>    
+                                      Actualmente su cuenta esta inactiva hasta realizar el pago:<br/>
+                                      Enviar el voucher de pago al correo: ventas@wavelinetwork.com<br/>
+                                      Banco de Credito del Perú - BCP<br/><br/>
+                                      194-2204558-0-61 Cuenta Corriente Soles<br/><br/>
+                                      <img width='106' src='$img'>";
+                    echo json_encode($data);  
+                    exit();
+                    }    
         }else{
             $data['message'] = "no_item";
             $data['print'] = "Debe seleccionar un Producto";

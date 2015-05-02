@@ -67,6 +67,7 @@ $route['micuenta_backoffice'] = "myaccount/backoffice";
 $route['micuenta/validar_user_backoffice'] = "myaccount/validar_user_backoffice";
 
 $route['registro'] = "register";
+$route['registro/paso_2'] = "register/create_customer_two";
 $route['registro/crear_cliente'] = "register/create_customer";
 
 $route['checkout'] = "checkout";

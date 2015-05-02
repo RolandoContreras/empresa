@@ -58,101 +58,21 @@
                         </div>
                         <div class="row">
                             <div class="span9 right right" id="content">
-                                <div id="post-1917" class="post-1917 page type-page status-publish hentry page">
+                                <div id="post-1917" class="post-1917 page">
                                     <div class="woocommerce">
-                                        <form class="login">
-                                            <h2 class="blue">Producto</h2>
-                                            <!--SPINNER-->
-                                            <div id='spinner' class='spinner'></div>
-                                            <!--END SPINNER-->
-                                            <hr>
-                                            <?php if(count($this->cart->contents())!=0){ ?>
-                                            <table class="table smallfont">
-                                                <thead>
-                                                    <tr>
-                                                        <td><b>IMAGEN</b> </td>
-                                                        <td><b>NOMBRE</b> </td>
-                                                        <td><b>PRECIO</b> </td>
-                                                        <td><b>CANTIDAD</b> </td>
-                                                        <td><b>TALLA</b> </td>
-                                                        <td><b>SUB TOTAL</b> </td>
-                                                        <td><b>ACCIONES</b> </td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $i=1 ; foreach ($this->cart->contents() as $item): ?>
-                                                    <input type="hidden" name="<?php echo $i;?>['rowid']" value="<?php echo $item['rowid'];?>">
-                                                    <tr>
-                                                        <td><img src="<?php echo SERVER2.$item['big_image'];?>" height="42" width="42"> </td>
-                                                        <td>
-                                                            <div class="post_title">
-                                                                <?php echo $item[ 'name'];?> </div>
-                                                        </td>
-                                                        <td>S/.
-                                                            <?php echo $this->cart->format_number($item['price']);?></td>
-                                                        <td>
-                                                            <div class="quantity">
-                                                                <input name="qty" type="number" value="<?php echo $item['qty']; ?>" class="input-text qty text" size="4"> </div>
-                                                        </td>
-                                                        <td>
-                                                            <?php if ($this->cart->has_options($item['rowid']) == TRUE){ foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){ echo $option_value; } }?> </td>
-                                                        <td>S/.
-                                                            <?php echo $this->cart->format_number($item['subtotal']);?></td>
-                                                        <td> <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;"> <img src="<?php echo site_url().'static/images/png/delete26.png?999';?>" width="30" alt="Eliminar"> </a> </td>
-                                                    </tr>
-                                                    <?php $i++; endforeach; ?>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="post_title">Gastos de envío</div>
-                                                        </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <?php echo format_number(10);?> </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> </td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <?php $subtotal=$this->cart->total(); $total = $subtotal + 10; ?>
-                                                        <td class="right"><strong>Total</strong> </td>
-                                                        <td class="right">
-                                                            <?php echo format_number($total); ?> </td>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <?php }else{ ?>
-                                            <p class="cart-empty">Debe seleccionar un producto.</p>
-                                            <?php } ?> </form>
                                         <?php if(isset($_SESSION[ 'customer'])){ ?>
                                         <form class="login">
                                             <h2>Upline</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Código</label>
-                                                <input type="text" class="input-text" value="<?php echo $_SESSION['customer']['code'];?>" /> </p>
+                                                <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Posición</label>
-                                                <input type="text" class="input-text" value="<?php if($_SESSION['customer']['position_temporal']==1){echo " Izquierda ";}else{echo "Derecha ";}?>"/> </p>
+                                                <input type="text" disabled="disabled" class="input-text" value="<?php if($_SESSION['customer']['position_temporal']==1){echo " Izquierda ";}else{echo "Derecha ";}?>"/> </p>
                                         </form>
                                         <?php } ?>
-                                        <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/crear_cliente';?>">
-                                            <h2>Selección de Paquetes</h2>
-                                            <hr>
-                                            <p class="form-row form-row-wide">
-                                                <input type="radio" name="kit" required="required" value="1"/> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
-                                                <input type="radio" name="kit" required="required" value="2"/> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
-                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
-                                            </p>
-                                            <hr>
-                                            <input type="checkbox" name="partnet" id="password" required="required" /> &nbsp;&nbsp; S/. 49.00 Gastos de Partner 
-                                            <hr>
+                                        <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
                                             <h2>Información Personal</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
@@ -163,7 +83,7 @@
                                                 <input name="last_name" id="last_name" class="input-text" required="required" /> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">DNI<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="dni" id="dni" required="required" /> </p>
+                                                <input type="number" class="input-text" name="dni" id="dni" required="required" /></p>
                                             <label for="fecha de nacimiento">Fecha de Nacimiento<span class="required">*</span> </label>
                                             <div class="false">
                                                 <div class="controls">
@@ -195,17 +115,17 @@
                                                 </div>
                                             </div>
                                             <p class="form-row form-row-wide">
-                                                <label for="Teléfono">Teléfono<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="phone" id="phone" required="required" /> </p>
+                                                <label for="Teléfono">Teléfono</label>
+                                                <input type="text" class="input-text" name="phone" id="phone"/> </p>
                                             <p class="form-row form-row-wide">
-                                                <label for="Celular">Celular<span class="required">*</span> </label>
+                                                <label for="Celular">Celular</label>
                                                 <input type="text" class="input-text" name="mobile" id="mobile" /> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="Dirección">Dirección<span class="required">*</span> </label>
                                                 <input type="text" class="input-text" name="address" id="address" required="required" /> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="Referencia">Referencia<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="references" id="references" /> </p>
+                                                <input type="text" class="input-text" name="references" id="references" required="required"/> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="Ciudad">Ciudad<span class="required">*</span> </label>
                                                 <input type="text" class="input-text" name="city" id="city" required="required" /> </p>
@@ -215,7 +135,25 @@
                                             <p class="form-row form-row-wide">
                                                 <label for="País">País<span class="required">*</span> </label>
                                                 <input type="text" class="input-text" name="country" value="Perú" id="country" required="required" /> </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="E-mail">E-mail<span class="required">*</span> </label>
+                                                <input class="input-text" type="email" name="email" id="email" required="required" /> 
+                                            </p>
                                             <hr>
+                                            <p class="form-row form-row-wide">
+                                                <label for="Contraseña">Contraseña<span class="required">*</span> </label>
+                                                <input class="input-text" type="password" class="input-text" name="password" id="password" required="required" />
+                                            </p>
+                                            <hr>
+                                            <h2>Selección de Paquetes</h2>
+                                            <hr>
+                                            <p class="form-row form-row-wide">
+                                                <input type="radio" name="kit" required="required" value="1"/> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="2"/> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
+                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
+                                            </p>
+                                            <hr>
+                                            
                                             <h2 class="blue">Información Adicional</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
@@ -227,23 +165,18 @@
                                             <p class="form-row form-row-wide">
                                                 <label for="Contraseña">Dirección</label>
                                                 <input class="input-text" type="text" class="input-text" name="address2" id="address2" /> </p>
+                                            
                                             <hr>
-                                            <h2 class="blue">Login</h2>
-                                            <hr>
-                                            <p class="form-row form-row-wide">
-                                                <label for="E-mail">E-mail<span class="required">*</span> </label>
-                                                <input class="input-text" type="email" name="email" id="email" required="required" /> </p>
-                                            <p class="form-row form-row-wide">
-                                                <label for="Contraseña">Contraseña<span class="required">*</span> </label>
-                                                <input class="input-text" type="password" class="input-text" name="password" id="password" required="required" />
+                                            <p class="form-row">
+                                            <input type="checkbox" name="partnet" id="partnet" required="required"/> &nbsp;&nbsp;&nbsp;S/. 49.00 Gastos de Partner 
+                                            </p>
+                                            <p class="form-row">
+                                            <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
                                             </p>
                                             <hr>
                                             <p class="form-row">
-                                                <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
-                                            </p>
-                                            <hr>
-                                            <p class="form-row">
-                                                <input type="button" onclick="registrar();" class="button" value="Registrar" /> </p>
+                                                <!--<input type="button" onclick="registrar();" class="button" value="Registrar" /> </p>-->
+                                                <input type="submit" class="button" value="Siguiente" />
                                             <hr>
                                         </form>
                                     </div>

@@ -1,4 +1,20 @@
 <?php $this->load->view("header");?>
+<input type="hidden" name="first_name" value="<?php echo $data['first_name'];?>"/> 
+<input type="hidden" name="last_name" value="<?php echo $data['last_name'];?>"/> 
+<input type="hidden" name="birth_date" value="<?php echo $data['birth_date'];?>"/> 
+<input type="hidden" name="phone" value="<?php echo $data['phone'];?>"/> 
+<input type="hidden" name="mobile" value="<?php echo $data['mobile'];?>"/> 
+<input type="hidden" name="address" value="<?php echo $data['address'];?>"/> 
+<input type="hidden" name="references" value="<?php echo $data['references'];?>"/>
+<input type="hidden" name="city" value="<?php echo $data['city'];?>"/> 
+<input type="hidden" name="department" value="<?php echo $data['department'];?>"/> 
+<input type="hidden" name="country" value="<?php echo $data['country'];?>"/> 
+<input type="hidden" name="email" value="<?php echo $data['email'];?>"/> 
+<input type="hidden" name="password " value="<?php echo $data['password'];?>"/> 
+<input type="hidden" name="ruc" value="<?php echo $data['ruc'];?>"/> 
+<input type="hidden" name="razon_social" value="<?php echo $data['razon_social'];?>"/> 
+<input type="hidden" name="address2" value="<?php echo $data['address2'];?>"/> 
+
 <style>
     .spinner {
         position: fixed;
@@ -31,11 +47,11 @@
 <body class="page">
     <div id="motopress-main" class="main-holder">
         <script src="<?php echo site_url().'static/cms/js/core/jquery.js?999';?>"></script>
-        <header class="motopress-wrapper header">
+        <header class="header">
             <div class="container">
                 <div class="row">
                     <div class="span12">
-                        <!--Call Nav_secundary-->
+                        <!--Menu Navigacion Secundary-->
                         <?php $this->load->view("nav_secondary");?> </div>
                 </div>
             </div>
@@ -47,24 +63,26 @@
                         <div class="row">
                             <div class="span12">
                                 <section class="title-section">
-                                    <h1 class="title-header">Carrito</h1>
+                                    <h1 class="title-header">Registro</h1>
                                     <ul class="breadcrumb breadcrumb__t">
                                         <li><a href="<?php echo site_url().'home';?>">Home</a> </li>
                                         <li class="divider"></li>
-                                        <li class="active">Carrito</li>
+                                        <li class="active">Registro</li>
                                     </ul>
                                 </section>
                             </div>
                         </div>
-                        <!--SPINNER-->
-                        <div id='spinner' class='spinner'></div>
-                        <!--END SPINNER-->
                         <div class="row">
                             <div class="span9 right right" id="content">
-                                <div class="page">
+                                <div id="post-1917" class="post-1917 page">
                                     <div class="woocommerce">
-                                        <?php if(count($this->cart->contents())!=0){ ?>
-                                        <form class="cart" method="post">
+                                        <form class="login">
+                                            <h2 class="blue">Producto</h2>
+                                            <!--SPINNER-->
+                                            <div id='spinner' class='spinner'></div>
+                                            <!--END SPINNER-->
+                                            <hr>
+                                            <?php if(count($this->cart->contents())!=0){ ?>
                                             <table class="table smallfont">
                                                 <thead>
                                                     <tr>
@@ -96,51 +114,62 @@
                                                             <?php if ($this->cart->has_options($item['rowid']) == TRUE){ foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){ echo $option_value; } }?> </td>
                                                         <td>S/.
                                                             <?php echo $this->cart->format_number($item['subtotal']);?></td>
-                                                        <td>
-                                                            <p> <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;"> <img src="<?php echo site_url().'static/images/png/delete26.png?999';?>" width="30" alt="Eliminar"> </a> </p>
-                                                        </td>
+                                                        <td> <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;"> <img src="<?php echo site_url().'static/images/png/delete26.png?999';?>" width="30" alt="Eliminar"> </a> </td>
                                                     </tr>
                                                     <?php $i++; endforeach; ?>
                                                     <tr>
                                                         <td></td>
                                                         <td>
-                                                            <div class="post_title">Gastos de envío</div>
+                                                            <div class="post_title">Gastos de Partnet</div>
                                                         </td>
-                                                        <td colspan="3"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td>
-                                                            <?php echo format_number(10);?> </td>
-                                                        <td colspan="2"></td>
+                                                            <?php echo format_number(49);?> </td>
+                                                        <td></td>
                                                     </tr>
                                                     <tr>
-                                                        <?php $subtotal=$this->cart->total(); $total = $subtotal + 10; ?>
-                                                        <td>
-                                                            <p class="return-to-shop"><a onclick="empty_car();" class="button"> Vaciar</a> </p>
-                                                        </td>
-                                                        <td colspan="2"></td>
-                                                        <td class="right"><strong>Total</strong> </td>
                                                         <td></td>
+                                                        <td>
+                                                            <div class="post_title">Gastos de Envío</div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <?php echo format_number(10);?> </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <?php $subtotal=$this->cart->total(); $total = $subtotal + 10 + 49; ?>
+                                                        <td class="right"><strong>Total</strong> </td>
                                                         <td class="right">
                                                             <?php echo format_number($total); ?> </td>
                                                         <td></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            <p class="return-to-shop"><a class="button pay" onclick="make_order();">Registrar</a> </p>
+                                            <?php }else{ ?>
+                                            <p class="cart-empty">Debe seleccionar un producto.</p>
+                                            <?php } ?> 
                                         </form>
-                                        <p class="return-to-shop"> <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> <a class="button pay" onclick="make_order();">Hacer Pedido</a> </p>
-                                        <?php }else{ ?>
-                                        <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
-                                        <p class="return-to-shop"> <a class="button" href="<?php echo site_url().'compras';?>"> Volver a Comprar</a> </p>
-                                        <?php } ?> </div>
+                                        </div>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                             <div class="span3 sidebar" id="sidebar">
                                 <div id="categories-3" class="visible-all-devices widget">
-                                    <h3>Categorías</h3>
+                                    <h3>Categorias</h3>
                                     <ul>
                                         <?php foreach ($category as $value) { ?>
                                         <li>
-                                            <a href="<?php echo site_url().convert_slug($value->name);?>" title="<?php echo $value->name;?>">
+                                            <a href="<?php echo site_url().convert_slug($value->name);?>">
                                                 <?php echo $value->name;?></a>
                                         </li>
                                         <?php } ?> </ul>
@@ -151,11 +180,11 @@
                 </div>
             </div>
         </div>
-        <!--call footer-->
-        <?php $this->load->view("footer");?></div>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/registrar.js?999 ';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/superfish.js?999 ';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/jquery.mobilemenu.js?999 ';?>'></script>
+        <?php $this->load->view("footer");?> </div>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
 </body>
 
 </html>
