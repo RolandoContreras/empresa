@@ -1,97 +1,79 @@
 function registrar() {
-    kit = $('input:radio[name=kit]:checked').val();
+    kit = $("#kit").val();
     first_name = $("#first_name").val();
     last_name = $("#last_name").val();
+    birth_date = $("#birth_date").val();
     dni = $("#dni").val();
     phone = $("#phone").val();
+    mobile = $("#mobile").val();
     address = $("#address").val();
     city = $("#city").val();
     department = $("#department").val();
     country = $("#country").val();
     email = $("#email").val();
     password = $("#password").val();
-    mobile = $("#mobile").val();
-    date = $("#date").val();
-    month = $("#month").val();
-    year = $("#year").val();
     references = $("#references").val();
     razon_social = $("#razon_social").val();
     ruc = $("#ruc").val();
     address2 = $("#address2").val();
+    sub_total = $("#sub_total").val();
     
-    if($('#contract').is(':checked') && $('#partnet').is(':checked')){
-       
-            if (first_name != "" && last_name != "" && dni != "" && phone != "" && address != "" && city != "" && department != "" && country != "" && email != "" && password != "") {
-                n = $("#spinner").get(0);
-                bootbox.dialog("¿Desea enviar el Registro?", [{
-                    label: "Cancelar"
-                }, {
-                    label: "Enviar",
-                    "class": "btn-success",
-                    callback: function() {
-                        t = (new Spinner(opts)).spin(n);
-                        $.ajax({
-                            type: "post",
-                            url: site + "registro/crear_cliente",
-                            dataType: "json",
-                            data: {
-                                kit: kit,
-                                first_name: first_name,
-                                last_name: last_name,
-                                razon_social: razon_social,
-                                ruc: ruc,
-                                address2: address2,
-                                dni: dni,
-                                phone: phone,
-                                address: address,
-                                city: city,
-                                department: department,
-                                country: country,
-                                email: email,
-                                password: password,
-                                mobile: mobile,
-                                date: date,
-                                month: month,
-                                year: year,
-                                references: references
-                            },
-                            success: function(e) {
-                                if (e.message == "no_item") {
-                                    bootbox.dialog(e.print, [{
-                                        label: "Cerrar"
-                                    }]);
-                                } else if (e.message == "no_stock") {
-                                    bootbox.dialog(e.print, [{
-                                        label: "Cerrar"
-                                    }]);
-                                } else {
-                                    bootbox.dialog(e.print, [{
-                                        label: "Cerrar"
-                                    }]);
-                                }
-                                t.stop()
-                            }
-                        })
+    n = $("#spinner").get(0);
+        bootbox.dialog("¿Desea enviar el Registro?", [{
+            label: "Cancelar"
+        }, {
+            label: "Enviar",
+            "class": "btn-success",
+            callback: function() {
+                t = (new Spinner(opts)).spin(n);
+                $.ajax({
+                    type: "post",
+                    url: site + "registro/crear_cliente",
+                    dataType: "json",
+                    data: {
+                        kit: kit,
+                        first_name: first_name,
+                        last_name: last_name,
+                        dni: dni,
+                        birth_date: birth_date,
+                        phone: phone,
+                        mobile: mobile,
+                        address: address,
+                        city: city,
+                        department: department,
+                        country: country,
+                        email: email,
+                        password: password,
+                        razon_social: razon_social,
+                        ruc: ruc,
+                        address2: address2,
+                        references: references,
+                        sub_total: sub_total
+                    },
+                    success: function(e) {
+                        if (e.message == "no_item") {
+                            bootbox.dialog(e.print, [{
+                                label: "Cerrar"
+                            }]);
+                        } else if (e.message == "no_stock") {
+                            bootbox.dialog(e.print, [{
+                                label: "Cerrar"
+                            }]);
+                        }  else if (e.message == "enoge_money") {
+                            bootbox.dialog(e.print, [{
+                                label: "Cerrar"
+                            }]);
+                        
+                        } else {
+                            bootbox.dialog(e.print, [{
+                                label: "Cerrar"
+                            }]);
+                        }
+                        t.stop();
                     }
-                }])
-            }else{
-                bootbox.dialog("Debe llenar todos los datos", [{
-                    label: "Cancelar"
-                }])
+                });
             }
-  
-   }else{
-       if($('#contract').is(':checked')){
-           bootbox.dialog("Debe aceptar el monto por Partnet", [{
-                label: "Cancelar"
-             }]);
-       }else{
-           bootbox.dialog("Debe aceptar los Terminos y Condiciones", [{
-                label: "Cancelar"
-            }]);
-       }
-       
-   }
+        }]);
 }
 
 function delete_car(e) {

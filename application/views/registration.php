@@ -174,11 +174,7 @@
                                             <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
                                             </p>
                                             <hr>
-                                            <p class="form-row">
-                                                <!--<input type="button" onclick="registrar();" class="button" value="Registrar" /> </p>-->
-                                                <input type="submit" class="button" value="Siguiente" />
-                                            <hr>
-                                        </form>
+                                            <p class="form-row"><input type="submit" class="button" value="Siguiente" /><hr></form>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
@@ -201,7 +197,6 @@
             </div>
         </div>
         <?php $this->load->view("footer");?> </div>
-    <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>

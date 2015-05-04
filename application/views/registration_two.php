@@ -1,19 +1,22 @@
 <?php $this->load->view("header");?>
-<input type="hidden" name="first_name" value="<?php echo $data['first_name'];?>"/> 
-<input type="hidden" name="last_name" value="<?php echo $data['last_name'];?>"/> 
-<input type="hidden" name="birth_date" value="<?php echo $data['birth_date'];?>"/> 
-<input type="hidden" name="phone" value="<?php echo $data['phone'];?>"/> 
-<input type="hidden" name="mobile" value="<?php echo $data['mobile'];?>"/> 
-<input type="hidden" name="address" value="<?php echo $data['address'];?>"/> 
-<input type="hidden" name="references" value="<?php echo $data['references'];?>"/>
-<input type="hidden" name="city" value="<?php echo $data['city'];?>"/> 
-<input type="hidden" name="department" value="<?php echo $data['department'];?>"/> 
-<input type="hidden" name="country" value="<?php echo $data['country'];?>"/> 
-<input type="hidden" name="email" value="<?php echo $data['email'];?>"/> 
-<input type="hidden" name="password " value="<?php echo $data['password'];?>"/> 
-<input type="hidden" name="ruc" value="<?php echo $data['ruc'];?>"/> 
-<input type="hidden" name="razon_social" value="<?php echo $data['razon_social'];?>"/> 
-<input type="hidden" name="address2" value="<?php echo $data['address2'];?>"/> 
+<input type="hidden" id="kit" value="<?php echo $data['kit'];?>"/> 
+<input type="hidden" id="first_name" value="<?php echo $data['first_name'];?>"/> 
+<input type="hidden" id="last_name" value="<?php echo $data['last_name'];?>"/> 
+<input type="hidden" id="dni" value="<?php echo $data['dni'];?>"/> 
+<input type="hidden" id="birth_date" value="<?php echo $data['birth_date'];?>"/> 
+<input type="hidden" id="phone" value="<?php echo $data['phone'];?>"/> 
+<input type="hidden" id="mobile" value="<?php echo $data['mobile'];?>"/> 
+<input type="hidden" id="address" value="<?php echo $data['address'];?>"/> 
+<input type="hidden" id="references" value="<?php echo $data['references'];?>"/>
+<input type="hidden" id="city" value="<?php echo $data['city'];?>"/> 
+<input type="hidden" id="department" value="<?php echo $data['department'];?>"/> 
+<input type="hidden" id="country" value="<?php echo $data['country'];?>"/> 
+<input type="hidden" id="email" value="<?php echo $data['email'];?>"/> 
+<input type="hidden" id="password" value="<?php echo $data['password'];?>"/> 
+<input type="hidden" id="ruc" value="<?php echo $data['ruc'];?>"/> 
+<input type="hidden" id="razon_social" value="<?php echo $data['razon_social'];?>"/> 
+<input type="hidden" id="address2" value="<?php echo $data['address2'];?>"/> 
+
 
 <style>
     .spinner {
@@ -114,6 +117,8 @@
                                                             <?php if ($this->cart->has_options($item['rowid']) == TRUE){ foreach ($this->cart->product_options($item['rowid']) as $option_name => $option_value){ echo $option_value; } }?> </td>
                                                         <td>S/.
                                                             <?php echo $this->cart->format_number($item['subtotal']);?></td>
+                                                            <!--SAVE THE PRICE UN A TEXT HIDDEN-->
+                                                            <input type="hidden" id="sub_total" value="<?php echo $this->cart->total();?>"/> 
                                                         <td> <a onclick="delete_car('<?php echo $item['rowid'];?>');" class="" style="cursor: pointer;"> <img src="<?php echo site_url().'static/images/png/delete26.png?999';?>" width="30" alt="Eliminar"> </a> </td>
                                                     </tr>
                                                     <?php $i++; endforeach; ?>
@@ -154,7 +159,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <p class="return-to-shop"><a class="button pay" onclick="make_order();">Registrar</a> </p>
+                                            <p class="return-to-shop"><a class="button pay" onclick="registrar();">Registrar</a> </p>
                                             <?php }else{ ?>
                                             <p class="cart-empty">Debe seleccionar un producto.</p>
                                             <?php } ?> 
