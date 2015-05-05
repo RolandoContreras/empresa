@@ -22,7 +22,7 @@
                                 <p><?php echo "Inactivo";?></p>
                             </div>
                             <div class="alert alert-info" style="margin-bottom:0;">
-                                <strong>Nota:</strong> Su cuenta esta inactiva para las comisiones
+                                <strong>Nota:</strong> Su cuenta esta activa para las comisiones
                             </div>
                         </div>
                         
@@ -31,8 +31,17 @@
                             <div class="wg-content">
                                 <h3>Cuenta</h3>
                                 <p>
-                                    <?php //echo format_number($total->total);?> GOLDEN
-                                    <img src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
+                                    <?php ?> <?php echo strtoupper($_SESSION['customer']['kit_name'])?>
+                                    <img src="<?php 
+                                    if($_SESSION['customer']['kit'] == 1){
+                                        echo site_url().'static/backoffice/images/golden.png';
+                                    }elseif($_SESSION['customer']['kit'] == 2){
+                                        echo site_url().'static/backoffice/images/platinium.png';
+                                    }else{
+                                        echo site_url().'static/backoffice/images/diamante.png';
+                                    }
+                                    
+                                    ?>" />
                                          <b style="margin-left: 43%;color: red;"> Upgrade</b>
                                 </p>
                             </div>

@@ -58,6 +58,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['dni'] = $obj_user->dni;
                 $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
+                $data_customer_session['kit'] = $obj_user->kit;
                 $data_customer_session['email'] = $obj_user->email;
                 $data_customer_session['position_temporal'] = $obj_user->position_temporal;
                 $data_customer_session['city'] = $obj_user->city;
@@ -76,8 +77,8 @@ class Myaccount extends CI_Controller {
         public function validar_user_backoffice(){        
         $username = $this->input->post('username');  
         $password = $this->input->post('password');  
-        
         $obj_user = $this->verificar_user($username, $password);
+        
         if (count($obj_user)>0){            
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
@@ -88,6 +89,8 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
+                $data_customer_session['kit'] = $obj_user->kit_id;
+                $data_customer_session['kit_name'] = $obj_user->name;
                 $data_customer_session['position_temporal'] = $obj_user->position_temporal;
                 $data_customer_session['city'] = $obj_user->city;
                 $data_customer_session['department'] = $obj_user->department;
@@ -106,7 +109,8 @@ class Myaccount extends CI_Controller {
         //SELECT CATEGORIES
             $param = array(
                         "select" =>"",
-                        "where" => "code = '$username' and  password='$password'",
+                        "where" => "customer.code ='$username' and  customer.password='$password'",
+                        "join" => array('kit, customer.kit_id = kit.kit_id')
                            );
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;

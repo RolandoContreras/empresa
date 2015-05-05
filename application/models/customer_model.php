@@ -17,6 +17,8 @@
 
 class customer_model_atributos{	
     var $customer_id='';
+    var $parents_id='';
+    var $kit_id='';
     var $email='';
     var $code='';
     var $position='';
@@ -51,6 +53,8 @@ class Customer_Model extends CI_Model{
         $this->table = 'customer';
 	$this->table_id = 'customer_id';
         $this->customer_id='';
+        $this->parents_id='';
+        $this->kit_id='';
 	$this->email='';
         $this->code='';
         $this->position='';

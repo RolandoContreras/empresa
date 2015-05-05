@@ -13,7 +13,6 @@ class Backoffice extends CI_Controller {
     {
         if(isset($_SESSION['customer'])){
              /// VISTA
-            
         $customer_id = $_SESSION['customer']['customer_id'];
         $params = array(
                         "select" =>"SUM(amount) as total",
