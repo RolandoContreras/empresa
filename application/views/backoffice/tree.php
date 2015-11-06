@@ -93,25 +93,38 @@
                                             title = "<center><?php echo $n1[0];?><br><?php echo $n1[1];?><center>
                                             <br><br><hr>(<?php echo $n1[5];?>)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
                                             </center>" class = "tooltip_class consultant_tooltip">
-                                    
                                 </a>
-                                
-                                <canvas id="myCanvas1" width="300" height="60" style="margin-top:-19%; margin-left: 40%;"></canvas>
-                                
-                                <!--<canvas id="myCanvas2" width="300" height="60" style="margin-top:-19%; margin-left: 40%;"></canvas>-->
-                                        <script type="text/javascript">     
-                                           var c=document.getElementById("myCanvas1");
-                                           var cxt=c.getContext("2d");
-
-                                           cxt.lineWidth = 10;
-                                           cxt.strokeStyle = "black"; 
-                                           cxt.moveTo(10, 60);
-
-                                           cxt.bezierCurveTo(150, 10, 300, 10, 300, 200);
-                                           cxt.stroke();
-                                        </script>
-                                        
-                                
+                               <!--Estructura de lineas--> 
+                                <div>    
+                                    <canvas id="mc1t" width="450" height="20" style="margin-bottom:-20px;"></canvas>
+                                    <canvas id="mc1" width="450" height="1" style="margin-top:-2px;"></canvas>
+                                    <canvas id="mc1l" width="440" height="23" style="margin-top:-4px;"></canvas>
+                                </div>
+                                <script>
+                                    var c = document.getElementById("mc1");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(440,0);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc1t");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(215,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc1l");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc1l");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(440,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                </script>
                                 
                                 <?php $class = count($n2_iz) > 1?"consultant":"";?>
                                 <div class="nivel n2 esquerda">
@@ -122,8 +135,41 @@
                                             <br><br><hr>(<?php echo $n2_iz[5];?>)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
                                             </center>" class = "tooltip_class consultant_tooltip">
                                           <?php }else{echo "/>";} ?>   
-                                            
                                     </a>
+                                   
+                                    <!--Estructura de lineas--> 
+                                    <div style="margin-left:5px;">    
+                                    <canvas id="mc2zt" width="250" height="20" style="margin-bottom:-20px;"></canvas>
+                                    <canvas id="mc2z" width="250" height="1" style="margin-top:-2px;"></canvas>
+                                    <canvas id="mc2zl" width="240" height="23" style="margin-top:-4px;"></canvas>
+                                </div>
+                                <script>
+                                    var c = document.getElementById("mc2z");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(240,0);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc2zt");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(115,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc2zl");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc2zl");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(240,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                </script>
+                                    
+                                    
                                     <?php $class = count($n3_iz) > 1?"consultant":"";?>
                                     <div class="nivel n3 esquerda">
                                         <a href = "<?php echo site_url()."backoffice/arbol/$n3_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
@@ -133,8 +179,41 @@
                                             <br><br><hr>(<?php echo $n3_iz[5];?>)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
                                             </center>" class = "tooltip_class consultant_tooltip">
                                           <?php }else{echo "/>";} ?>   
-                                            
                                         </a>
+                                                                                
+                                <!--Estructura de lineas--> 
+                                    <div style="margin-left:5px;">    
+                                    <canvas id="mc3_1dt" width="125" height="20" style="margin-bottom:-20px;"></canvas>
+                                    <canvas id="mc3_1d" width="125" height="1" style="margin-top:-2px;"></canvas>
+                                    <canvas id="mc3_1dl" width="120" height="23" style="margin-top:-4px;"></canvas>
+                                </div>
+                                <script>
+                                    var c = document.getElementById("mc3_1d");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(120,0);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc3_1dt");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(58,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc3_1dl");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc3_1dl");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(120,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                </script>
+                                        
+                                        
                                         
                                         <?php $class = count($n4_iz) > 1?"consultant":"";?>    
                                         <div class="nivel n4 esquerda">
@@ -171,6 +250,39 @@
                                                     </center>" class = "tooltip_class consultant_tooltip">
                                                 <?php }else{echo "/>";} ?>   
                                         </a>
+                                        
+                                        <!--Estructura de lineas--> 
+                                            <div style="margin-left:5px;">    
+                                            <canvas id="mc3_2dt" width="125" height="20" style="margin-bottom:-20px;"></canvas>
+                                            <canvas id="mc3_2d" width="125" height="1" style="margin-top:-2px;"></canvas>
+                                            <canvas id="mc3_2dl" width="120" height="23" style="margin-top:-4px;"></canvas>
+                                        </div>
+                                        <script>
+                                            var c = document.getElementById("mc3_2d");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(0,0);
+                                            ctx.lineTo(120,0);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_2dt");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(58,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_2dl");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(0,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_2dl");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(120,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+                                        </script>
+                                        
                                         <div class="nivel n4 esquerda">
                                             <?php $class = count($n4_3_iz) > 1?"consultant":"";?> 
                                             <a href = "<?php echo site_url()."backoffice/arbol/$n4_3_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
@@ -207,6 +319,39 @@
                                             </center>" class = "tooltip_class consultant_tooltip">
                                           <?php }else{echo "/>";} ?> 
                                 </a>
+                                
+                                <!--Estructura de lineas--> 
+                                    <div style="margin-left:5px;">    
+                                    <canvas id="mc2dt" width="250" height="20" style="margin-bottom:-20px;"></canvas>
+                                    <canvas id="mc2d" width="250" height="1" style="margin-top:-2px;"></canvas>
+                                    <canvas id="mc2dl" width="240" height="23" style="margin-top:-4px;"></canvas>
+                                </div>
+                                <script>
+                                    var c = document.getElementById("mc2d");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(240,0);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc2dt");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(115,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc2dl");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(0,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                    
+                                    var c = document.getElementById("mc2dl");
+                                    var ctx = c.getContext("2d");
+                                    ctx.moveTo(240,0);
+                                    ctx.lineTo(0,20000);
+                                    ctx.stroke();
+                                </script>
+                                
                                 <div class="nivel n3 esquerda">
                                     <?php $class = count($n3_2_de) > 1?"consultant":"";?>
                                     <a href = "<?php echo site_url()."backoffice/arbol/$n3_2_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
@@ -217,6 +362,39 @@
                                             </center>" class = "tooltip_class consultant_tooltip">
                                           <?php }else{echo "/>";} ?> 
                                     </a>
+                                    
+                                        <!--Estructura de lineas--> 
+                                            <div style="margin-left:5px;">    
+                                            <canvas id="mc3_1zt" width="125" height="20" style="margin-bottom:-20px;"></canvas>
+                                            <canvas id="mc3_1z" width="125" height="1" style="margin-top:-2px;"></canvas>
+                                            <canvas id="mc3_1zl" width="120" height="23" style="margin-top:-4px;"></canvas>
+                                        </div>
+                                        <script>
+                                            var c = document.getElementById("mc3_1z");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(0,0);
+                                            ctx.lineTo(120,0);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_1zt");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(58,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_1zl");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(0,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_1zl");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(120,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+                                        </script>
+                                        
                                     <div class="nivel n4 esquerda">
                                         <?php $class = count($n4_4_de) > 1?"consultant":"";?>
                                         <a href = "<?php echo site_url()."backoffice/arbol/$n4_4_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
@@ -251,8 +429,40 @@
                                             <br><br><hr>(<?php echo $n3_de[5];?>)<br>1000 <i class=icon-circle-arrow-left></i> <i class=icon-circle-arrow-right></i> 0
                                             </center>" class = "tooltip_class consultant_tooltip">
                                           <?php }else{echo "/>";} ?> 
-                                        
                                     </a>
+                                    
+                                        <!--Estructura de lineas--> 
+                                        <div style="margin-left:5px;">    
+                                            <canvas id="mc3_2zt" width="125" height="20" style="margin-bottom:-20px;"></canvas>
+                                            <canvas id="mc3_2z" width="125" height="1" style="margin-top:-2px;"></canvas>
+                                            <canvas id="mc3_2zl" width="120" height="23" style="margin-top:-4px;"></canvas>
+                                        </div>
+                                        <script>
+                                            var c = document.getElementById("mc3_2z");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(0,0);
+                                            ctx.lineTo(120,0);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_2zt");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(58,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_2zl");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(0,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+
+                                            var c = document.getElementById("mc3_2zl");
+                                            var ctx = c.getContext("2d");
+                                            ctx.moveTo(120,0);
+                                            ctx.lineTo(0,20000);
+                                            ctx.stroke();
+                                        </script>                                       
+                                    
                                     <div class="nivel n4 esquerda">
                                         <?php $class = count($n4_2_de) > 1?"consultant":"";?>
                                         <a href = "<?php echo site_url()."backoffice/arbol/$n4_2_de[2]";?>" class = "posicao posicao-n5 <?php echo $class?>">
