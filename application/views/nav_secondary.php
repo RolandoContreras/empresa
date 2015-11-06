@@ -31,7 +31,7 @@
     <div class="span3">
         <div class="logo">
             <a href="<?php echo site_url().'home';?>" class="logo_h logo_h__img">
-                <img src="<?php echo site_url().'static/images/logo1.png?999';?>" alt="Waveline SAC" width="271" height="105">
+                <img src="<?php echo site_url().'static/images/logo.png?999';?>" alt="Waveline SAC" width="271" height="105">
             </a>
         </div>
     </div>

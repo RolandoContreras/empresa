@@ -107,11 +107,17 @@ class Myaccount extends CI_Controller {
     
         public function verificar_user($username,$password){
         //SELECT CATEGORIES
-            $param = array(
+//            $param = array(
+//                        "select" =>"",
+//                        "where" => "customer.code ='$username' and  customer.password='$password'",
+//                        "join" => array('kit, customer.kit_id = kit.kit_id')
+//                           );
+//             $obj_user = $this->obj_customer->get_search_row($param);
+//             return $obj_user;
+            
+             $param = array(
                         "select" =>"",
-                        "where" => "customer.code ='$username' and  customer.password='$password'",
-                        "join" => array('kit, customer.kit_id = kit.kit_id')
-                           );
+                        "where" => "customer.code ='$username' and  customer.password='$password'");
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;
     }

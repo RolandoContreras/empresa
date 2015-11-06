@@ -5,6 +5,8 @@
         <group>
             <file>file:/C:/wamp/www/empresa/application/models/kit_model.php</file>
             <file>file:/C:/wamp/www/empresa/static/js/registrar.js</file>
+            <file>file:/C:/wamp/www/empresa/application/config/autoload.php</file>
+            <file>file:/C:/wamp/www/empresa/application/config/database.php</file>
             <file>file:/C:/wamp/www/empresa/application/config/routes.php</file>
             <file>file:/C:/wamp/www/empresa/application/controllers/register.php</file>
         </group>

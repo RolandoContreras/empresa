@@ -98,19 +98,7 @@
                                 
                                 <canvas id="myCanvas1" width="300" height="60" style="margin-top:-19%; margin-left: 40%;"></canvas>
                                 
-                                <canvas id="myCanvas2" width="300" height="60" style="margin-top:-19%; margin-left: 40%;"></canvas>
-                                        <script type="text/javascript">     
-                                           var c=document.getElementById("myCanvas2");
-                                           var cxt=c.getContext("2d");
-
-                                           cxt.lineWidth = 10;
-                                           cxt.strokeStyle = "black"; 
-                                           cxt.moveTo(60, 10);
-
-                                           cxt.bezierCurveTo(150, 10, 300, 10, 300, 200);
-                                           cxt.stroke();
-                                        </script>
-                                        
+                                <!--<canvas id="myCanvas2" width="300" height="60" style="margin-top:-19%; margin-left: 40%;"></canvas>-->
                                         <script type="text/javascript">     
                                            var c=document.getElementById("myCanvas1");
                                            var cxt=c.getContext("2d");
