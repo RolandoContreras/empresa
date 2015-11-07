@@ -74,7 +74,8 @@ class Myaccount extends CI_Controller {
         }
     }
     
-        public function validar_user_backoffice(){        
+        public function validar_user_backoffice(){  
+            
         $username = $this->input->post('username');  
         $password = $this->input->post('password');  
         $obj_user = $this->verificar_user($username, $password);
@@ -106,18 +107,9 @@ class Myaccount extends CI_Controller {
     }
     
         public function verificar_user($username,$password){
-        //SELECT CATEGORIES
-//            $param = array(
-//                        "select" =>"",
-//                        "where" => "customer.code ='$username' and  customer.password='$password'",
-//                        "join" => array('kit, customer.kit_id = kit.kit_id')
-//                           );
-//             $obj_user = $this->obj_customer->get_search_row($param);
-//             return $obj_user;
-            
              $param = array(
                         "select" =>"",
-                        "where" => "customer.code ='$username' and  customer.password='$password'");
+                        "where" => "customer.username ='$username' and customer.password='$password'");
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;
     }
