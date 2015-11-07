@@ -422,6 +422,21 @@ class Register extends CI_Controller {
         return $customer;
     }
     
+    public function consulta_upline(){    
+        //SELECT NAME
+        
+        
+        $param_customer = array(
+                    "select" =>"first_name");
+
+        $customer = $this->obj_customer->get_search_row($param_customer);
+        
+        var_dump($customer);
+        die();
+        
+        return $customer;
+    }
+    
     public function get_menu(){    
         
         //SELECT CATEGORIES

@@ -57,6 +57,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            
                             <div class="span9 right right" id="content">
                                 <div id="post-1917" class="post-1917 page">
                                     <div class="woocommerce">
@@ -65,12 +66,32 @@
                                             <h2>Upline</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
-                                                <label for="username">Upline</label>
-                                                <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>
-                                            <p class="form-row form-row-wide">
-                                                <label for="username">Posición</label>
-                                                <input type="text" disabled="disabled" class="input-text" value="<?php if($_SESSION['customer']['position_temporal']==1){echo " Izquierda ";}else{echo "Derecha ";}?>"/> </p>
+                                                <label for="username">Username</label>
+                                                <input type="text" class="input-text" id="upline" name="upline"/> </p>
+<!--                                                <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>-->
                                         </form>
+                                        
+                                        
+                                        
+                                        <form action="" method="get" id="login">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label" for="prependedInput">Usuario</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on"><img class="image_icons" src="<?php echo site_url().'static/images/png/user91.png';?>"></span>
+                                        <input class="input-xlarge-fluid" id="username" size="16" type="text" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button onclick="consul_upline();" class="btn btn-large btn-primary">Enviar</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                                        
+                                        <div id="mensaje"></div>
+                                        
                                         <?php } ?>
                                         <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
                                             <h2>Información Personal</h2>
@@ -172,9 +193,9 @@
                                                 <input class="input-text" type="text" class="input-text" name="address2" id="address2" /> </p>
                                             
                                             <hr>
-                                            <p class="form-row">
+<!--                                            <p class="form-row">
                                             <input type="checkbox" name="partnet" id="partnet" required="required"/> &nbsp;&nbsp;&nbsp;S/. 49.00 Gastos de Partner 
-                                            </p>
+                                            </p>-->
                                             <p class="form-row">
                                             <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
                                             </p>
@@ -205,6 +226,7 @@
     <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
+    <script src="static/cms/js/login2.js"></script>
 </body>
 
 </html>
