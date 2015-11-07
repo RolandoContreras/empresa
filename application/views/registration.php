@@ -71,8 +71,6 @@
 <!--                                                <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>-->
                                         </form>
                                         
-                                        
-                                        
                                         <form action="" method="get" id="login">
                         <fieldset>
                             <div class="control-group">
@@ -89,7 +87,6 @@
                             </div>
                         </fieldset>
                     </form>
-                                        
                                         <div id="mensaje"></div>
                                         
                                         <?php } ?>
