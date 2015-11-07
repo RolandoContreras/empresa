@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo site_url().'static/css/tooltipster.css';?>" />
 <script type="text/javascript" src="<?php echo site_url().'static/js/jquery.tooltipster.min.js';?>"></script>
+<script type="text/javascript" src="<?php echo site_url().'static/backoffice/js/tree.js';?>"></script>
 <script>
     $(document).ready(function() {
         $('.member_tooltip').tooltipster({
@@ -66,11 +67,6 @@
                 <div style="float:left;margin:10px;width:190px;">
                     FECHA DE REGISTRO: <span style="color:#428bca; font-weight:bold;"><?php echo formato_fecha_barras($obj_profile->created_at);?></span><br>
                 </div>
-<!--                <div style="float:left;margin:10px;width:190px;">
-                    LEFT: <span style="color:#428bca; font-weight:bold;">1.000</span><br>
-                    RIGHT:<span style="color:#428bca; font-weight:bold;">0</span><br>
-                </div>-->
-                
                 <div style="float:left;margin:10px;width:190px;">
                    DIRECTOS IZQUIERDA: <span style="color:#428bca; font-weight:bold;"><?php echo $count_left;?></span><br>
                    DIRECTOS DERECHA: <span style="color:#428bca; font-weight:bold;"><?php echo $count_right;?></span><br>
@@ -100,32 +96,7 @@
                                     <canvas id="mc1" width="450" height="1" style="margin-top:-2px;"></canvas>
                                     <canvas id="mc1l" width="440" height="23" style="margin-top:-4px;"></canvas>
                                 </div>
-                                <script>
-                                    var c = document.getElementById("mc1");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(440,0);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc1t");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(215,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc1l");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc1l");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(440,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                </script>
-                                
+                                                                
                                 <?php $class = count($n2_iz) > 1?"consultant":"";?>
                                 <div class="nivel n2 esquerda">
                                     <a href = "<?php echo site_url()."backoffice/arbol/$n2_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
@@ -143,32 +114,6 @@
                                     <canvas id="mc2z" width="250" height="1" style="margin-top:-2px;"></canvas>
                                     <canvas id="mc2zl" width="240" height="23" style="margin-top:-4px;"></canvas>
                                 </div>
-                                <script>
-                                    var c = document.getElementById("mc2z");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(240,0);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc2zt");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(115,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc2zl");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc2zl");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(240,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                </script>
-                                    
                                     
                                     <?php $class = count($n3_iz) > 1?"consultant":"";?>
                                     <div class="nivel n3 esquerda">
@@ -187,34 +132,6 @@
                                     <canvas id="mc3_1d" width="125" height="1" style="margin-top:-2px;"></canvas>
                                     <canvas id="mc3_1dl" width="120" height="23" style="margin-top:-4px;"></canvas>
                                 </div>
-                                <script>
-                                    var c = document.getElementById("mc3_1d");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(120,0);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc3_1dt");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(58,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc3_1dl");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc3_1dl");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(120,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                </script>
-                                        
-                                        
-                                        
                                         <?php $class = count($n4_iz) > 1?"consultant":"";?>    
                                         <div class="nivel n4 esquerda">
                                             <a href = "<?php echo site_url()."backoffice/arbol/$n4_iz[2]";?>" class = "posicao posicao-n5 <?php echo $class;?>">
@@ -257,31 +174,6 @@
                                             <canvas id="mc3_2d" width="125" height="1" style="margin-top:-2px;"></canvas>
                                             <canvas id="mc3_2dl" width="120" height="23" style="margin-top:-4px;"></canvas>
                                         </div>
-                                        <script>
-                                            var c = document.getElementById("mc3_2d");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(0,0);
-                                            ctx.lineTo(120,0);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_2dt");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(58,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_2dl");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(0,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_2dl");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(120,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-                                        </script>
                                         
                                         <div class="nivel n4 esquerda">
                                             <?php $class = count($n4_3_iz) > 1?"consultant":"";?> 
@@ -326,31 +218,6 @@
                                     <canvas id="mc2d" width="250" height="1" style="margin-top:-2px;"></canvas>
                                     <canvas id="mc2dl" width="240" height="23" style="margin-top:-4px;"></canvas>
                                 </div>
-                                <script>
-                                    var c = document.getElementById("mc2d");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(240,0);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc2dt");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(115,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc2dl");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(0,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                    
-                                    var c = document.getElementById("mc2dl");
-                                    var ctx = c.getContext("2d");
-                                    ctx.moveTo(240,0);
-                                    ctx.lineTo(0,20000);
-                                    ctx.stroke();
-                                </script>
                                 
                                 <div class="nivel n3 esquerda">
                                     <?php $class = count($n3_2_de) > 1?"consultant":"";?>
@@ -369,31 +236,6 @@
                                             <canvas id="mc3_1z" width="125" height="1" style="margin-top:-2px;"></canvas>
                                             <canvas id="mc3_1zl" width="120" height="23" style="margin-top:-4px;"></canvas>
                                         </div>
-                                        <script>
-                                            var c = document.getElementById("mc3_1z");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(0,0);
-                                            ctx.lineTo(120,0);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_1zt");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(58,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_1zl");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(0,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_1zl");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(120,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-                                        </script>
                                         
                                     <div class="nivel n4 esquerda">
                                         <?php $class = count($n4_4_de) > 1?"consultant":"";?>
@@ -438,29 +280,7 @@
                                             <canvas id="mc3_2zl" width="120" height="23" style="margin-top:-4px;"></canvas>
                                         </div>
                                         <script>
-                                            var c = document.getElementById("mc3_2z");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(0,0);
-                                            ctx.lineTo(120,0);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_2zt");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(58,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_2zl");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(0,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
-
-                                            var c = document.getElementById("mc3_2zl");
-                                            var ctx = c.getContext("2d");
-                                            ctx.moveTo(120,0);
-                                            ctx.lineTo(0,20000);
-                                            ctx.stroke();
+                                           
                                         </script>                                       
                                     
                                     <div class="nivel n4 esquerda">
