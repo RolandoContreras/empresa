@@ -65,7 +65,7 @@
                                             <h2>Upline</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
-                                                <label for="username">Código</label>
+                                                <label for="username">Upline</label>
                                                 <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Posición</label>
@@ -76,8 +76,13 @@
                                             <h2>Información Personal</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
+                                                <label for="username">Username<span class="required">*</span> </label>
+                                                <input type="text" class="input-text" name="username" id="username" required="username" /> 
+                                            </p>
+                                            <p class="form-row form-row-wide">
                                                 <label for="username">Nombre<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="first_name" id="first_name" required="required" /> </p>
+                                                <input type="text" class="input-text" name="first_name" id="first_name" required="required" /> 
+                                            </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="password">Apellidos<span class="required">*</span> </label>
                                                 <input name="last_name" id="last_name" class="input-text" required="required" /> </p>

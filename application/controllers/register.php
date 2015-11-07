@@ -42,10 +42,12 @@ class Register extends CI_Controller {
             echo "window.history.back(-1)";
             echo "</script>";
         }else{
+            
+            $username = $this->input->post('username');
             $first_name = $this->input->post('first_name');
             $kit = $this->input->post('kit');
             $last_name = $this->input->post('last_name');
-            $dni = $this->input->post('dni');
+            $dni = $dni;
             $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));
             $phone = $this->input->post('phone');
             $mobile = $this->input->post('mobile');
@@ -62,6 +64,7 @@ class Register extends CI_Controller {
             
             $obj_products['data'] = array(
                        'kit'            => $kit,
+                       'username'       => $username,
                        'first_name'     => $first_name,
                        'last_name'      => $last_name,
                        'dni'            => $dni,
@@ -96,6 +99,8 @@ class Register extends CI_Controller {
     $kit = $this->input->post('kit');    
     $sub_total = $this->input->post('sub_total');
     //DATA TO PASS
+    
+    $user_name = $this->input->post('username');
     $first_name = $this->input->post('first_name');
     $last_name = $this->input->post('last_name');
     $dni = $this->input->post('dni');
@@ -410,7 +415,7 @@ class Register extends CI_Controller {
         //SELECT PRODUCT
         $param_customer = array(
                     "select" =>"customer_id",
-                    "where" => "dni = $dni");
+                    "where" => "dni = '$dni'");
 
         $customer = $this->obj_customer->get_search_row($param_customer);
         $customer = count($customer);
