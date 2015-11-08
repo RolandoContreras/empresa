@@ -61,35 +61,16 @@
                             <div class="span9 right right" id="content">
                                 <div id="post-1917" class="post-1917 page">
                                     <div class="woocommerce">
-                                        <?php //if(isset($_SESSION[ 'customer'])){ ?>
+                                        
                                         <form class="login">
                                             <h2>Upline</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Username</label>
-                                                <input type="text" class="input-text" id="upline" name="upline"/> </p>
-<!--                                                <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>-->
+                                                <input onblur="consul_upline(this.value);" type="text" class="input-text" id="upline" name="upline"/></p>
+                                           <div id="mensaje"></div>
                                         </form>
                                         
-                    <form>
-                        <fieldset>
-                            <div class="control-group">
-                                <label class="control-label" for="prependedInput">Usuario</label>
-                                <div class="controls">
-                                    <div class="input-prepend">
-                                        <span class="add-on"><img class="image_icons" src="<?php echo site_url().'static/images/png/user91.png';?>"></span>
-                                        <input class="input-xlarge-fluid" id="username" size="16" type="text" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <a onclick="consul_upline();" class="button add_to_cart_button">verificar</a>
-                            </div>
-                        </fieldset>
-                    </form>
-                                        <div id="mensaje"></div>
-                                        
-                                        <?php //} ?>
                                         <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
                                             <h2>Información Personal</h2>
                                             <hr>
@@ -220,13 +201,9 @@
             </div>
         </div>
         <?php $this->load->view("footer");?> </div>
-    
-    
-     <!--<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js?999';?>'></script>-->
         <script type="text/javascript" src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
-    
-    <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
+        <script type='text/javascript' src='<?php echo site_url().'static/js/login.js?999';?>'></script>
+        <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
 </body>
 
 </html>

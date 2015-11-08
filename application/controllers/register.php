@@ -424,18 +424,18 @@ class Register extends CI_Controller {
     
     public function consulta_upline(){    
         //SELECT NAME
-        echo "HOla1111";
-        die();
-        
-        $param_customer = array(
-                    "select" =>"first_name");
-
-        $customer = $this->obj_customer->get_search_row($param_customer);
-        
-        var_dump($customer);
-        die();
-        
-        return $customer;
+        $username = $this->input->post('username');
+        $param_customer = array("select" =>"first_name",
+                                "where" => "username = '$username'");
+        $customer = count($this->obj_customer->get_search_row($param_customer));
+        if($customer > 0){
+            $data['message'] = "true";
+            $data['print'] = "Verificado";
+        }else{
+            $data['message'] = "false";
+            $data['print'] = "No verificado";
+        }
+        echo json_encode($data);  
     }
     
     public function get_menu(){    

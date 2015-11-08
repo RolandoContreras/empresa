@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/empresa/application/views/checkout.php</file>
+            <file>file:/C:/wamp/www/empresa/static/js/login.js</file>
+            <file>file:/C:/wamp/www/empresa/application/views/registration_two.php</file>
             <file>file:/C:/wamp/www/empresa/static/js/registrar.js</file>
-            <file>file:/C:/wamp/www/empresa/application/templates/admin_tmp.php</file>
             <file>file:/C:/wamp/www/empresa/application/views/registration.php</file>
+            <file>file:/C:/wamp/www/empresa/application/views/shop.php</file>
             <file>file:/C:/wamp/www/empresa/static/js/add_car.js</file>
             <file>file:/C:/wamp/www/empresa/application/config/routes.php</file>
             <file>file:/C:/wamp/www/empresa/application/views/dashboard.php</file>
-            <file>file:/C:/wamp/www/empresa/application/views/myaccount.php</file>
-            <file>file:/C:/wamp/www/empresa/application/controllers/dashboard.php</file>
-            <file>file:/C:/wamp/www/empresa/static/cms/js/login2.js</file>
+            <file>file:/C:/wamp/www/empresa/application/controllers/register.php</file>
         </group>
     </open-files>
 </project-private>
