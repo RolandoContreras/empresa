@@ -2,10 +2,9 @@
      * ======================================================= */
 function consul_upline(e) {
      username = $("#username").val();
-     
-    $.ajax({
-        type: "Post",
-        url: "register/consulta_upline",
+        $.ajax({
+        type: "post",
+        url: site + "register/consulta_upline",
         dataType: "json",
         data: {username: username},
         success:function(data){            

@@ -1,3 +1,27 @@
+function consul_upline(e) {
+    bootbox.dialog("¿Desea Agregar el Producto?", [{
+        label: "Cancelar"
+    }, {
+        label: "Agregar",
+        "class": "btn-success",
+        callback: function() {
+            $.ajax({
+                type: "post",
+                url: site + "register/consulta_upline/",
+                dataType: "json",
+                data: {product_id: e
+                },
+                success: function(e) {
+                    bootbox.dialog("Producto Agregado", [{
+                        label: "Cerrar"
+                    }]);
+                    t.stop();
+                }
+            })
+        }
+    }])
+};
+
 function registrar() {
     kit = $("#kit").val();
     first_name = $("#first_name").val();

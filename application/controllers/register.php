@@ -424,7 +424,8 @@ class Register extends CI_Controller {
     
     public function consulta_upline(){    
         //SELECT NAME
-        
+        echo "HOla1111";
+        die();
         
         $param_customer = array(
                     "select" =>"first_name");

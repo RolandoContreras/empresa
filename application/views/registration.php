@@ -30,7 +30,6 @@
 
 <body class="page">
     <div id="motopress-main" class="main-holder">
-        <script src="<?php echo site_url().'static/cms/js/core/jquery.js?999';?>"></script>
         <header class="header">
             <div class="container">
                 <div class="row">
@@ -40,6 +39,7 @@
                 </div>
             </div>
         </header>
+        <script src="<?php echo site_url().'static/cms/js/core/jquery.js?999';?>"></script>
         <div class="content-holder">
             <div class="container">
                 <div class="row">
@@ -61,7 +61,7 @@
                             <div class="span9 right right" id="content">
                                 <div id="post-1917" class="post-1917 page">
                                     <div class="woocommerce">
-                                        <?php if(isset($_SESSION[ 'customer'])){ ?>
+                                        <?php //if(isset($_SESSION[ 'customer'])){ ?>
                                         <form class="login">
                                             <h2>Upline</h2>
                                             <hr>
@@ -71,7 +71,7 @@
 <!--                                                <input type="text" disabled="disabled" class="input-text" value="<?php echo $_SESSION['customer']['name'].' '.$_SESSION['customer']['last_name'];?>" /> </p>-->
                                         </form>
                                         
-                                        <form action="" method="get" id="login">
+                    <form>
                         <fieldset>
                             <div class="control-group">
                                 <label class="control-label" for="prependedInput">Usuario</label>
@@ -83,13 +83,13 @@
                                 </div>
                             </div>
                             <div>
-                                <button onclick="consul_upline();" class="btn btn-large btn-primary">Enviar</button>
+                                <a onclick="consul_upline();" class="button add_to_cart_button">verificar</a>
                             </div>
                         </fieldset>
                     </form>
                                         <div id="mensaje"></div>
                                         
-                                        <?php } ?>
+                                        <?php //} ?>
                                         <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
                                             <h2>Información Personal</h2>
                                             <hr>
@@ -220,10 +220,13 @@
             </div>
         </div>
         <?php $this->load->view("footer");?> </div>
-    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
+    
+    
+     <!--<script type='text/javascript' src='<?php echo site_url().'static/js/add_car.js?999';?>'></script>-->
+        <script type="text/javascript" src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
+    
+    <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
-    <script src="static/cms/js/login2.js"></script>
 </body>
 
 </html>
