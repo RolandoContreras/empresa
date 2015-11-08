@@ -40,6 +40,7 @@ class customer_model_atributos{
     var $phone='';
     var $mobile='';
     var $active='';
+    var $partnet='';
     var $status_value='';
     var $created_at='';
     var $created_by='';
@@ -77,6 +78,7 @@ class Customer_Model extends CI_Model{
 	$this->phone='';
 	$this->mobile='';
         $this->active='';
+        $this->partnet='';
 	$this->status_value='';
 	$this->created_at='';
 	$this->created_by='';

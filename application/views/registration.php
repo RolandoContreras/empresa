@@ -76,7 +76,8 @@
                                             <hr>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Username<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="username" id="username" required="username" /> 
+                                                <input onblur="validate_new(this.value);" type="text" class="input-text" name="username" id="username" required="username" /> 
+                                                <div id="mensaje_username"></div>
                                             </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Nombre<span class="required">*</span> </label>
@@ -152,9 +153,10 @@
                                             <h2>Selección de Paquetes</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
-                                                <input type="radio" name="kit" required="required" value="1"/> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
-                                                <input type="radio" name="kit" required="required" value="2"/> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
-                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="1"/> START <img width="93" style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/start.png';?>" />
+                                                <!--<input type="radio" name="kit" required="required" value="1"/> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />-->
+<!--                                                <input type="radio" name="kit" required="required" value="2"/> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
+                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />-->
                                             </p>
                                             <hr>
                                             
@@ -171,14 +173,14 @@
                                                 <input class="input-text" type="text" class="input-text" name="address2" id="address2" /> </p>
                                             
                                             <hr>
-<!--                                            <p class="form-row">
+                                            <p class="form-row">
                                             <input type="checkbox" name="partnet" id="partnet" required="required"/> &nbsp;&nbsp;&nbsp;S/. 49.00 Gastos de Partner 
-                                            </p>-->
+                                            </p>
                                             <p class="form-row">
                                             <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
                                             </p>
                                             <hr>
-                                            <p class="form-row"><input type="submit" class="button" value="Siguiente" /><hr></form>
+                                            <p class="form-row"><input type="submit" class="button" value="Registrar" /><hr></form>
                                     </div>
                                     <div class="clear"></div>
                                 </div>

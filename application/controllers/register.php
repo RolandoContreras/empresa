@@ -422,9 +422,9 @@ class Register extends CI_Controller {
         return $customer;
     }
     
-    public function consulta_upline(){    
+    public function consulta_upline(){ 
         //SELECT NAME
-        $username = $this->input->post('username');
+        $username = trim($this->input->post('username'));
         $param_customer = array("select" =>"first_name",
                                 "where" => "username = '$username'");
         $customer = count($this->obj_customer->get_search_row($param_customer));
@@ -434,6 +434,22 @@ class Register extends CI_Controller {
         }else{
             $data['message'] = "false";
             $data['print'] = "No verificado";
+        }
+        echo json_encode($data);  
+    }
+    
+    public function validate_new(){     
+        //VALIDATE USERNAME
+        $username_new = trim($this->input->post('username_new'));
+        $param_customer = array("select" =>"first_name",
+                                "where" => "username = '$username_new'");
+        $customer = count($this->obj_customer->get_search_row($param_customer));
+        if($customer > 0){
+            $data['message'] = "false";
+            $data['print'] = "No disponible";
+        }else{
+            $data['message'] = "true";
+            $data['print'] = "Disponible";
         }
         echo json_encode($data);  
     }
