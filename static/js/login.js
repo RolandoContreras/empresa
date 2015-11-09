@@ -36,7 +36,6 @@ function validate_new(username_new) {
                 $("#mensaje_username").html();
                  var texto = "";
                  texto = texto+'<div class="alert alert-success">';
-                 texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
                  texto = texto+'<p>'+data.print+'</p>';
                  texto = texto+'</div>';                 
                  $("#mensaje_username").html(texto); 
@@ -44,10 +43,34 @@ function validate_new(username_new) {
                 $("#mensaje_username").html();
                  var texto = "";
                  texto = texto+'<div class="alert alert-error">';
-                 texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
                  texto = texto+'<p>'+data.print+'</p>';
                  texto = texto+'</div>';                 
                  $("#mensaje_username").html(texto);
+            }
+        }            
+    });
+};
+function validate_dni(dni) {
+        $.ajax({
+        type: "post",
+        url: site + "register/validate_dni",
+        dataType: "json",
+        data: {dni: dni},
+        success:function(data){            
+                if(data.message == "false"){                         
+                $("#mensaje_dni").html();
+                 var texto = "";
+                 texto = texto+'<div class="alert alert-success">';
+                 texto = texto+'<p>'+data.print+'</p>';
+                 texto = texto+'</div>';                 
+                 $("#mensaje_dni").html(texto); 
+            }else{
+                $("#mensaje_dni").html();
+                 var texto = "";
+                 texto = texto+'<div class="alert alert-error">';
+                 texto = texto+'<p>'+data.print+'</p>';
+                 texto = texto+'</div>';                 
+                 $("#mensaje_dni").html(texto);
             }
         }            
     });

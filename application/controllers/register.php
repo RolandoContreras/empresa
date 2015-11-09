@@ -410,16 +410,21 @@ class Register extends CI_Controller {
         
     }
     
-    public function verify_customer($dni){    
-        
-        //SELECT PRODUCT
+    public function validate_dni(){
+        //SELECT DNI
+        $dni = trim($this->input->post('dni'));
         $param_customer = array(
                     "select" =>"customer_id",
                     "where" => "dni = '$dni'");
-
-        $customer = $this->obj_customer->get_search_row($param_customer);
-        $customer = count($customer);
-        return $customer;
+        $customer = count($this->obj_customer->get_search_row($param_customer));
+        if($customer > 0){
+            $data['message'] = "true";
+            $data['print'] = "x";
+        }else{
+            $data['message'] = "false";
+            $data['print'] = "✔";
+        }
+        echo json_encode($data); 
     }
     
     public function consulta_upline(){ 

@@ -67,18 +67,19 @@
                                             <hr>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Username</label>
-                                                <input onblur="consul_upline(this.value);" type="text" class="input-text" id="upline" name="upline"/></p>
+                                                <input onblur="consul_upline(this.value);" type="text" class="input-text" id="upline" name="upline"/>
+                                            </p>
                                            <div id="mensaje"></div>
                                         </form>
                                         
                                         <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
                                             <h2>Información Personal</h2>
                                             <hr>
-                                            <p class="form-row form-row-wide">
-                                                <label for="username">Username<span class="required">*</span> </label>
+                                            <p class="form-row form-row-wide"><label for="username">Username<span class="required">*</span> </label>
                                                 <input onblur="validate_new(this.value);" type="text" class="input-text" name="username" id="username" required="username" /> 
-                                                <div id="mensaje_username"></div>
                                             </p>
+                                            <div id="mensaje_username"></div>
+                                                
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Nombre<span class="required">*</span> </label>
                                                 <input type="text" class="input-text" name="first_name" id="first_name" required="required" /> 
@@ -88,7 +89,10 @@
                                                 <input name="last_name" id="last_name" class="input-text" required="required" /> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">DNI<span class="required">*</span> </label>
-                                                <input type="number" class="input-text" name="dni" id="dni" required="required" /></p>
+                                                <input type="number" onblur="validate_dni(this.value);" class="input-text" name="dni" id="dni" required="required" />
+                                            </p>
+                                            <div id="mensaje_dni"></div>
+                                            
                                             <label for="fecha de nacimiento">Fecha de Nacimiento<span class="required">*</span> </label>
                                             <div class="false">
                                                 <div class="controls">
@@ -154,9 +158,9 @@
                                             <hr>
                                             <p class="form-row form-row-wide">
                                                 <input type="radio" name="kit" required="required" value="1"/> START <img width="93" style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/start.png';?>" />
-                                                <!--<input type="radio" name="kit" required="required" value="1"/> Golden <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />-->
-<!--                                                <input type="radio" name="kit" required="required" value="2"/> Platinium <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
-                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> Diamond <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />-->
+                                                <input type="radio" name="kit" required="required" value="1"/> GOLDEN <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="2"/> PLATINIUM <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
+                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> DIAMOND <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
                                             </p>
                                             <hr>
                                             
@@ -174,7 +178,7 @@
                                             
                                             <hr>
                                             <p class="form-row">
-                                            <input type="checkbox" name="partnet" id="partnet" required="required"/> &nbsp;&nbsp;&nbsp;S/. 49.00 Gastos de Partner 
+                                                <input type="checkbox" name="partnet" id="partnet"  checked="checked" required="required"/> &nbsp;&nbsp;&nbsp;$ 60.00 Gastos de Partner 
                                             </p>
                                             <p class="form-row">
                                             <input type="checkbox" name="contract" id="contract" required="required"/> &nbsp;&nbsp;&nbsp;Acepto los <a href="<?php echo site_url().'static/document/contract/Contrato_waveline.pdf';?>" target="_blank">Terminos y Condiciones</a> y las políticas de waveline</input>
