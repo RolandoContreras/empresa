@@ -128,7 +128,7 @@
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/user91.png';?>">&nbsp;&nbsp;Mi Cuenta</span></a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url().'backoffice/micuenta';?>" style="color: whitesmoke !important;">
+                                <a href="<?php echo site_url().'backoffice/upgrade';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/advance2.png';?>">&nbsp;&nbsp;Upgrade</span></a>
                             </li>
                             <li>
