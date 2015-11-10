@@ -33,21 +33,13 @@ class Register extends CI_Controller {
     
      public function create_customer_two()
     {   
-        $dni = $this->input->post('dni');
-        //verify isn't exist dni
-        $customer = $this->verify_customer($dni);
-        //if exist customer come back
-        if($customer > 0){
-            echo "<script type='text/javascript'>";
-            echo "window.history.back(-1)";
-            echo "</script>";
-        }else{
-            
+            $upline_username = $this->input->post('upline');
+            $position_2 = $this->input->post('position_2');
+            $dni = $this->input->post('dni');
             $username = $this->input->post('username');
             $first_name = $this->input->post('first_name');
-            $kit = $this->input->post('kit');
+            $franchise = $this->input->post('kit');
             $last_name = $this->input->post('last_name');
-            $dni = $dni;
             $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));
             $phone = $this->input->post('phone');
             $mobile = $this->input->post('mobile');
@@ -61,35 +53,41 @@ class Register extends CI_Controller {
             $ruc = $this->input->post('ruc');
             $razon_social = $this->input->post('razon_social');
             $address2 = $this->input->post('address2');
-            
-            $obj_products['data'] = array(
-                       'kit'            => $kit,
-                       'username'       => $username,
-                       'first_name'     => $first_name,
-                       'last_name'      => $last_name,
-                       'dni'            => $dni,
-                       'birth_date'     => $date_birth,  
-                       'phone'          => $phone,  
-                       'mobile'         => $mobile,
-                       'address'        => $address,
-                       'references'     => $references,
-                       'city'           => $city,
-                       'department'     => $department,
-                       'country'        => $country,
-                       'email'          => $email,
-                       'password'       => $password,
-                       'ruc'            => $ruc,
-                       'razon_social'   => $razon_social,
-                       'address2'       => $address2);
-            }
-           
-            $obj_products['category'] = $this->obj_category->search($param_category);
-            
-            //SEO
-            $obj_products['title'] = "Contacto | Bienvenido a Nuestra Tienda Virtual";
-            $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. WaveLine S.A.C. Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru.";
-            $this->load->view('registration_two',$obj_products);
+
+            //INSERT CUSTOMER
+                $data_customer = array( 
+                                    'parents_id'      => $upline_username,
+                                    'email'           => $email,
+                                    'username'        => $username,
+                                    'password'        => $password,
+                                    'razon_social'    => $razon_social,
+                                    'position'        => $position_2,
+                                    'ruc'             => $ruc,  
+                                    'address2'        => $address2,
+                                    'first_name'      => $first_name, 
+                                    'dni'             => $dni,
+                                    'birth_date'      => $date_birth,
+                                    'last_name'       => $last_name,
+                                    'address'         => $address,
+                                    'references'      => $references,
+                                    'country'         => $country,  
+                                    'department'      => $department,
+                                    'city'            => $city, 
+                                    'phone'           => $phone,
+                                    'mobile'          => $mobile,
+                                    'active'          => 1,  
+                                    'franchise_id'    => $franchise,
+                                    'partnet'         => 1, 
+                                    'updated_at' => date("Y-m-d H:i:s"),
+                                    'created_at' => date("Y-m-d H:i:s"),
+                                    'status_value'    => 1,
+                                    );
+           $obj_products = $this->obj_customer->insert($data_customer);
+           //SEO
+           $obj_products['title'] = "Contacto | Bienvenido a Nuestra Tienda Virtual";
+           $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+           $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. WaveLine S.A.C. Urb. Los Nogales 230 Urb. Santa Rosa de Quives - Santa Anita, Lima- Peru.";
+           $this->load->view('registration_two',$obj_products);
     }
     
     public function create_customer()
@@ -419,7 +417,7 @@ class Register extends CI_Controller {
         $customer = count($this->obj_customer->get_search_row($param_customer));
         if($customer > 0){
             $data['message'] = "true";
-            $data['print'] = "x";
+            $data['print'] = "En uso";
         }else{
             $data['message'] = "false";
             $data['print'] = "✔";
@@ -430,12 +428,15 @@ class Register extends CI_Controller {
     public function consulta_upline(){ 
         //SELECT NAME
         $username = trim($this->input->post('username'));
-        $param_customer = array("select" =>"first_name",
+        $param_customer = array("select" =>"customer_id,first_name,position_temporal",
                                 "where" => "username = '$username'");
-        $customer = count($this->obj_customer->get_search_row($param_customer));
+        $obj_customer = $this->obj_customer->get_search_row($param_customer);
+        $customer = count($obj_customer);
         if($customer > 0){
             $data['message'] = "true";
-            $data['print'] = "Verificado";
+            $data['print'] = $obj_customer->first_name;
+            $data['print2'] = $obj_customer->customer_id;
+            $data['print3'] = $obj_customer->position_temporal;
         }else{
             $data['message'] = "false";
             $data['print'] = "No verificado";

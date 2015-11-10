@@ -57,26 +57,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            
                             <div class="span9 right right" id="content">
                                 <div id="post-1917" class="post-1917 page">
                                     <div class="woocommerce">
-                                        
-                                        <form class="login">
+                                        <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
                                             <h2>Upline</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
                                                 <label for="username">Username</label>
-                                                <input onblur="consul_upline(this.value);" type="text" class="input-text" id="upline" name="upline"/>
+                                                <input onblur="consul_upline(this.value);" type="text" class="input-text" id="upline" name="upline" required="required"/>
                                             </p>
+                                           <br/>
                                            <div id="mensaje"></div>
-                                        </form>
-                                        
-                                        <form method="post" class="login" id="register-form" name="register-form" action="<?php echo site_url().'registro/paso_2';?>">
+                                           <div id="mensaje_upline"></div>
                                             <h2>Información Personal</h2>
                                             <hr>
                                             <p class="form-row form-row-wide"><label for="username">Username<span class="required">*</span> </label>
-                                                <input onblur="validate_new(this.value);" type="text" class="input-text" name="username" id="username" required="username" /> 
+                                                <input onblur="validate_new(this.value);" type="text" class="input-text" name="username" id="username" required="required"/> 
                                             </p>
                                             <div id="mensaje_username"></div>
                                                 
@@ -88,7 +85,7 @@
                                                 <label for="password">Apellidos<span class="required">*</span> </label>
                                                 <input name="last_name" id="last_name" class="input-text" required="required" /> </p>
                                             <p class="form-row form-row-wide">
-                                                <label for="username">DNI<span class="required">*</span> </label>
+                                                <label for="username">DNI<span class="required">*</span></label>
                                                 <input type="number" onblur="validate_dni(this.value);" class="input-text" name="dni" id="dni" required="required" />
                                             </p>
                                             <div id="mensaje_dni"></div>
@@ -124,8 +121,8 @@
                                                 </div>
                                             </div>
                                             <p class="form-row form-row-wide">
-                                                <label for="Teléfono">Teléfono</label>
-                                                <input type="text" class="input-text" name="phone" id="phone"/> </p>
+                                                <label for="Teléfono">Teléfono<span class="required">*</span></label>
+                                                <input type="text" class="input-text" name="phone" id="phone" required="required"/> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="Celular">Celular</label>
                                                 <input type="text" class="input-text" name="mobile" id="mobile" /> </p>
@@ -157,7 +154,7 @@
                                             <h2>Selección de Paquetes</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
-                                                <input type="radio" name="kit" required="required" value="1"/> START <img width="93" style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/start.png';?>" />
+                                                <!--<input type="radio" name="kit" required="required" value="1"/> START <img width="93" style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/start.png';?>" />-->
                                                 <input type="radio" name="kit" required="required" value="1"/> GOLDEN <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
                                                 <input type="radio" name="kit" required="required" value="2"/> PLATINIUM <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
                                                 <input type="radio" name="kit" required="required" checked="checked" value="3"/> DIAMOND <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />

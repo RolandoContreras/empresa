@@ -72,7 +72,7 @@ $route['register/validate_new'] = "register/validate_new";
 $route['register/validate_dni'] = "register/validate_dni";
 
 $route['registro/paso_2'] = "register/create_customer_two";
-$route['registro/crear_cliente'] = "register/create_customer";
+//$route['registro/crear_cliente'] = "register/create_customer";
 
 $route['checkout'] = "checkout";
 $route['checkout/hacer_pedido'] = "checkout/make_order";

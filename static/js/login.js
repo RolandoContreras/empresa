@@ -14,13 +14,19 @@ function consul_upline(username) {
                  texto = texto+'<p>'+data.print+'</p>';
                  texto = texto+'</div>';                 
                  $("#mensaje").html(texto); 
+                 
+                 $("#mensaje_upline").html(); 
+                 var texto_code = "";
+                 texto_code = texto_code+'<input type="hidden" id="upline" name="upline" value="'+data.print2+'"/>';
+                 texto_code = texto_code+'<input type="hidden" id="position_2" name="position_2" value="'+data.print3+'"/>';
+                 $("#mensaje_upline").html(texto_code); 
             }else{
                 $("#mensaje").html();
                  var texto = "";
                  texto = texto+'<div class="alert alert-error">';
                  texto = texto+'<p>'+data.print+'</p>';
                  texto = texto+'</div>';                 
-                 $("#mensaje").html(texto);
+                 $("#mensaje_upline").html(texto);
             }
         }            
     });
