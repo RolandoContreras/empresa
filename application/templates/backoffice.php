@@ -132,6 +132,11 @@
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/advance2.png';?>">&nbsp;&nbsp;Upgrade</span></a>
                             </li>
                             <li>
+                                <a href="<?php echo site_url().'backoffice/pedidos';?>" style="color: whitesmoke !important;">
+                                    <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/bulleted.png';?>">&nbsp;&nbsp;Pedidos</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="<?php echo site_url().'backoffice/comisiones';?>" style="color: whitesmoke !important;">
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/data45.png';?>">&nbsp;&nbsp;Comisiones</span>
                                 </a>

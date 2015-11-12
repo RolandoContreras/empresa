@@ -1,33 +1,4 @@
 <?php $this->load->view("header");?>
-<style>
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-    }
-</style>
-<script src="<?php echo site_url().'static/js/spin.js';?>"></script>
-<script>
-    var opts = {
-        lines: 11,
-        length: 15,
-        width: 10,
-        radius: 30,
-        corners: 1,
-        rotate: 0,
-        direction: 1,
-        color: '#000',
-        speed: 0.6,
-        trail: 60,
-        shadow: false,
-        hwaccel: false,
-        className: 'spinner',
-        zIndex: 2e9,
-        top: 'auto',
-        left: 'auto'
-    };
-</script>
-
 <body class="page">
     <div id="motopress-main" class="main-holder">
         <header class="header">
@@ -154,10 +125,10 @@
                                             <h2>Selección de Paquetes</h2>
                                             <hr>
                                             <p class="form-row form-row-wide">
-                                                <!--<input type="radio" name="kit" required="required" value="1"/> START <img width="93" style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/start.png';?>" />-->
-                                                <input type="radio" name="kit" required="required" value="1"/> GOLDEN <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
-                                                <input type="radio" name="kit" required="required" value="2"/> PLATINIUM <img style="padding-right:9%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
-                                                <input type="radio" name="kit" required="required" checked="checked" value="3"/> DIAMOND <img src="<?php echo site_url().'static/backoffice/images/diamante.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="1"/> START <img width="93" style="padding-right:3%;" src="<?php echo site_url().'static/backoffice/images/start.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="2"/> GOLDEN <img style="padding-right:3%;" src="<?php echo site_url().'static/backoffice/images/golden.png';?>" />
+                                                <input type="radio" name="kit" required="required" value="3"/> PLATINIUM <img style="padding-right:3%;" src="<?php echo site_url().'static/backoffice/images/platinium.png';?>" /> 
+                                                <input type="radio" name="kit" required="required" checked="checked" value="4"/> DIAMOND <img src="<?php echo site_url().'static/backoffice/images/diamond.png';?>" />
                                             </p>
                                             <hr>
                                             

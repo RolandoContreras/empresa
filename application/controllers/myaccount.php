@@ -79,19 +79,19 @@ class Myaccount extends CI_Controller {
         $username = $this->input->post('username');  
         $password = $this->input->post('password');  
         $obj_user = $this->verificar_user($username, $password);
-        
+            
         if (count($obj_user)>0){            
             if ($obj_user->status_value == 1){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
                 $data_customer_session['parents_id'] = $obj_user->parents_id;
                 $data_customer_session['name'] = $obj_user->first_name;
                 $data_customer_session['last_name'] = $obj_user->last_name;
+                $data_customer_session['franchise_id'] = $obj_user->franchise_id;
+                $data_customer_session['franchise_name'] = $obj_user->franchise_name;
                 $data_customer_session['dni'] = $obj_user->dni;
                 $data_customer_session['references'] = $obj_user->references;
                 $data_customer_session['address'] = $obj_user->address;
                 $data_customer_session['email'] = $obj_user->email;
-                $data_customer_session['kit'] = $obj_user->kit_id;
-                $data_customer_session['kit_name'] = $obj_user->name;
                 $data_customer_session['position_temporal'] = $obj_user->position_temporal;
                 $data_customer_session['city'] = $obj_user->city;
                 $data_customer_session['department'] = $obj_user->department;
@@ -108,8 +108,11 @@ class Myaccount extends CI_Controller {
     
         public function verificar_user($username,$password){
              $param = array(
-                        "select" =>"",
-                        "where" => "customer.username ='$username' and customer.password='$password'");
+                        "select" =>"customer.customer_id,customer.parents_id,customer.first_name,customer.last_name,customer.franchise_id,"
+                                    ."customer.dni,customer.references,customer.address,customer.email,customer.position_temporal,customer.city,"
+                                    ."customer.department,customer.status_value,franchise.name as franchise_name",
+                        "where" => "customer.username ='$username' and customer.password='$password' and customer.status_value=1",             
+                        "join" => array('franchise, customer.franchise_id = franchise.franchise_id'));
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;
     }

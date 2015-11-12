@@ -81,6 +81,8 @@ $route['backoffice'] = "backoffice";
 
 $route['backoffice/upgrade'] = "b_upgrade";
 
+$route['backoffice/pedidos'] = "b_pedido";
+
 $route['backoffice/micuenta'] = "b_profile";
 $route['backoffice/micuenta/validate'] = "b_profile/validate";
 

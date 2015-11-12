@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class B_new_member extends CI_Controller {
+class B_pedido extends CI_Controller {
 	
     function __construct() {
         parent::__construct();

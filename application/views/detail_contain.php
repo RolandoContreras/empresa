@@ -157,7 +157,7 @@
                                     <li class="product">
                                         <p class="number_text">Comisión</p>
                                         <p class="number_price">
-                                            <?php echo format_number($value->pay_sale);?>
+                                            <?php //echo format_number($value->pay_sale);?>
                                         </p> 
                                         <span> <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png?999';?>"/> </span> 
                                         <a href="<?php echo site_url().convert_slug($value->category." / ".$value->name);?>"> <img class="image_products" src="<?php echo SERVER2.$value->big_image."?999";?>" class="attachment-shop_catalog" alt="<?php echo $value->name;?>"/> <h3><?php echo corta_texto($value->name,17);?></h3> </a>

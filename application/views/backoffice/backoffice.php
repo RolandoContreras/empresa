@@ -16,7 +16,6 @@
                                 <h3>Balance</h3>
                                 <p><?php echo format_number($total->total);?></p>
                             </div>
-                            
                             <div class="wg-content">
                                 <h3>Estado</h3>
                                 <p><?php echo "Inactivo";?></p>
@@ -29,24 +28,23 @@
                         
                         <div class="col-xs-4 .col-sm-4">
                             <div class="wg-content">
-                                <h3>Cuenta</h3>
+                                <h3>Cuenta:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo strtoupper($_SESSION['customer']['franchise_name'])?></h3>
                                 <p>
-                                    <?php ?> <?php echo strtoupper($_SESSION['customer']['kit_name'])?>
                                     <img src="<?php 
-                                    if($_SESSION['customer']['kit'] == 1){
+                                    if($_SESSION['customer']['franchise_id'] == 1){
+                                        echo site_url().'static/backoffice/images/start.png';
+                                    }elseif($_SESSION['customer']['franchise_id'] == 2){
                                         echo site_url().'static/backoffice/images/golden.png';
-                                    }elseif($_SESSION['customer']['kit'] == 2){
+                                    }elseif($_SESSION['customer']['franchise_id'] == 3){
                                         echo site_url().'static/backoffice/images/platinium.png';
                                     }else{
-                                        echo site_url().'static/backoffice/images/diamante.png';
+                                        echo site_url().'static/backoffice/images/diamond.png';
                                     }
-                                    
                                     ?>" />
-                                         <b style="margin-left: 43%;color: red;"> Upgrade</b>
+                                         <b style="margin-left: 4%;color: red;"> Upgrade</b>
                                 </p>
                             </div>
                         </div>
-                        
                     </div>
                 </section>
                 <section class="widget" style="margin-top:15px;">
