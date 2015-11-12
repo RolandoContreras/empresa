@@ -1,4 +1,6 @@
 $(document).ready(function(){	
+//    $("#area_comment").show();
+//    $("#area_description").hide();
         $('#commentform').validate({
 	    rules: {
               name: {
@@ -27,7 +29,6 @@ $(document).ready(function(){
 }); // end document.ready
 
 function send_comment(){
-     
      var product_id = $("#product_id").val();
      var name       = $("#name").val();
      var email      = $("#email").val();
@@ -36,4 +37,14 @@ function send_comment(){
     var url = 'detail_contain/comments/'+product_id+'/'+name+'/'+email+'/'+comment;
      location.href = site+url;
   //   location.reload();       
+}
+function hide_commend(){
+    $("#area_comment").hide();
+    $("#area_description").show();
+    
+}
+function hide_description(){
+    $("#area_comment").show();
+    $("#area_description").hide();
+    
 }

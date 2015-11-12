@@ -9,6 +9,19 @@
                 </div>
             </div>
         </header>
+<style>
+.area_description{display: block;}
+.area_comment{display: none;}
+
+.democlick2{display: none;}
+
+.description_tab:focus ~ .democlick2 {display: block;}
+.reviews_tab:focus ~ .democlick2 {display: none;}
+</style>
+
+
+
+
         <div class="content-holder woocommerce">
             <div class="container">
                 <div class="row">
@@ -27,10 +40,15 @@
                     </div>
                 </div>
                 <div class="row">
+                    
+<div class="democlick2">
+  ....... cualquier contenido .......
+</div>
+                    <span tabindex="0">demo con focus</span>
                     <div class="span9 right" id="content">
                         <div class="product">
                             <div class="images">
-                                <!--Principal Image--><a href="<?php echo SERVER2.$obj_products->custom_image."?999 ";?>" class="zoom"> <img src="<?php echo SERVER2.$obj_products->custom_image."?999";?>" class="attachment-shop_single wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/> </a>
+                                <!--Principal Image--><a href="<?php echo SERVER2.$obj_products->custom_image."?999";?>" class="zoom"> <img src="<?php echo SERVER2.$obj_products->custom_image."?999";?>" class="attachment-shop_single wp-post-image" alt="<?php echo convert_slug($obj_products->name);?>"/> </a>
                                 <!--Show Thumbnails-->
                                 <div class="thumbnails"> <a href="<?php echo SERVER2.$obj_products->big_image;?>" class="zoom first" data-rel="prettyPhoto[product-gallery]"> <img width="90" height="90" src="<?php echo SERVER2.$obj_products->big_image."?999";?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/> </a> <a href="<?php echo SERVER2.$obj_products->medium_image;?>" class="zoom" data-rel="prettyPhoto[product-gallery]"> <img width="90" height="90" src="<?php echo SERVER2.$obj_products->medium_image."?999";?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/> </a> <a href="<?php echo SERVER2.$obj_products->small_image;?>" class="zoom last" data-rel="prettyPhoto[product-gallery]"> <img width="90" height="90" src="<?php echo SERVER2.$obj_products->small_image."?999";?>" class="attachment-shop_thumbnail" alt="<?php echo convert_slug($obj_products->name);?>"/> </a> </div>
                             </div>
@@ -92,18 +110,20 @@
                             </div>
                             <div class="woocommerce-tabs">
                                 <ul class="tabs">
-                                    <li class="description_tab"> <a href="#tab-description">Descripción</a> </li>
-                                    <li class="reviews_tab"> <a href="#tab-reviews">Comentarios <?php echo "(".count($comments).")";?></a> </li>
+                                    <li class="description_tab"> <a href="#">Descripción</a> </li>
+                                    <li class="reviews_tab"> <a href="#">Comentarios <?php echo "(".count($comments).")";?></a> </li>
                                 </ul>
-                                <div class="panel entry-content" id="tab-description">
-                                    <h2>Descripcion del Producto</h2>
-                                    <br/>
-                                    <p>
-                                        <?php echo $obj_products->description;?></p>
+                                <div class="area_description">
+                                    <div class="panel entry-content" id="tabdescription">
+                                        <h2>Descripción del Producto</h2>
+                                        <br/>
+                                        <p><?php echo $obj_products->description;?></p>
+                                    </div>
                                 </div>
-                                <div class="panel entry-content" id="tab-reviews">
+                                
+                                <div  class="panel entry-content" id="tab-reviews">
                                     <div id="reviews" class="comments">
-                                        <div id="comments" class="comment_container">
+                                            <div id="comments" class="comment_container">
                                             <ol class="commentlist">
                                                 <?php foreach ($comments as $value) { ?>
                                                 <li class="comment even thread-even depth-1">
@@ -121,30 +141,36 @@
                                                     </div>
                                                 </li>
                                                 <?php } ?> </ol>
-                                        </div>
-                                        <div id="review_form_wrapper">
-                                            <div id="review_form">
-                                                <div id="respond" class="comment-respond">
-                                                    <h3 id="reply-title" class="comment-reply-title">Agregar un Comentario</h3>
-                                                    <p></p>
-                                                    <form id="commentform" action="<?php echo site_url();?>detail_contain/comments" method="post">
-                                                        <p class="comment-form-author">
-                                                            <input id="product_id" type="hidden" name="product_id" value="<?php echo $obj_products->product_id;?>" />
-                                                            <label for="author">Nombre <span class="required">*</span> </label>
-                                                            <input id="name" name="name" type="text" value="" size="30" aria-required="true" /> </p>
-                                                        <p class="comment-form-email">
-                                                            <label for="email">Correo <span class="required">*</span> </label>
-                                                            <input id="email" name="email" type="text" value="" size="30" aria-required="true" /> </p>
-                                                        <p class="comment-form-comment">
-                                                            <label for="comment">Comentario</label>
-                                                            <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
-                                                        </p>
-                                                        <p class="form-submit">
-                                                            <input name="submit" type="submit" id="submit" value="Enviar" /> </p>
-                                                    </form>
+                                            </div>
+                                        
+                                        
+                                        
+                                        
+                                        <div class="area_comment">
+                                            <div id="review_form_wrapper">
+                                                <div id="review_form">
+                                                    <div id="respond" class="comment-respond">
+                                                        <h3 id="reply-title" class="comment-reply-title">Agregar un Comentario</h3>
+                                                        <p></p>
+                                                        <form id="commentform" action="<?php echo site_url();?>detail_contain/comments" method="post">
+                                                            <p class="comment-form-author">
+                                                                <input id="product_id" type="hidden" name="product_id" value="<?php echo $obj_products->product_id;?>" />
+                                                                <label for="author">Nombre <span class="required">*</span> </label>
+                                                                <input id="name" name="name" type="text" value="" size="30" aria-required="true" /> </p>
+                                                            <p class="comment-form-email">
+                                                                <label for="email">Correo <span class="required">*</span> </label>
+                                                                <input id="email" name="email" type="text" value="" size="30" aria-required="true" /> </p>
+                                                            <p class="comment-form-comment">
+                                                                <label for="comment">Comentario</label>
+                                                                <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                                                            </p>
+                                                            <p class="form-submit">
+                                                                <input name="submit" type="submit" id="submit" value="Enviar" /> </p>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                         </div>
                                         <div class="clear"></div>
                                     </div>
                                 </div>
@@ -155,11 +181,11 @@
                                 <ul class="products">
                                     <?php foreach ($related as $value) { ?>
                                     <li class="product">
-                                        <p class="number_text">Comisión</p>
-                                        <p class="number_price">
+                                        <!--<p class="number_text">Comisión</p>-->
+<!--                                        <p class="number_price">
                                             <?php //echo format_number($value->pay_sale);?>
-                                        </p> 
-                                        <span> <img class="image_oferta" src="<?php echo site_url().'static/images/oferta.png?999';?>"/> </span> 
+                                        </p> -->
+                                        <span class="image_oferta"></span> 
                                         <a href="<?php echo site_url().convert_slug($value->category." / ".$value->name);?>"> <img class="image_products" src="<?php echo SERVER2.$value->big_image."?999";?>" class="attachment-shop_catalog" alt="<?php echo $value->name;?>"/> <h3><?php echo corta_texto($value->name,17);?></h3> </a>
                                         <div class="short_desc">
                                             <?php echo corta_texto($value->description,60);?> 
@@ -210,7 +236,7 @@
     <script type='text/javascript' src='<?php echo site_url().'static/backoffice/js/jquery.prettyPhoto.init.min.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/backoffice/js/single-product.min.js?999';?>'></script>
     <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>
+    <!--<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999';?>'></script>-->
 </body>
 
 </html>
