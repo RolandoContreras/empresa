@@ -41,9 +41,9 @@
                 </div>
                 <div class="row">
                     
-<div class="democlick2">
+<!--<div class="democlick2">
   ....... cualquier contenido .......
-</div>
+</div>-->
                     <span tabindex="0">demo con focus</span>
                     <div class="span9 right" id="content">
                         <div class="product">
@@ -142,10 +142,6 @@
                                                 </li>
                                                 <?php } ?> </ol>
                                             </div>
-                                        
-                                        
-                                        
-                                        
                                         <div class="area_comment">
                                             <div id="review_form_wrapper">
                                                 <div id="review_form">
@@ -186,7 +182,7 @@
                                             <?php //echo format_number($value->pay_sale);?>
                                         </p> -->
                                         <span class="image_oferta"></span> 
-                                        <a href="<?php echo site_url().convert_slug($value->category." / ".$value->name);?>"> <img class="image_products" src="<?php echo SERVER2.$value->big_image."?999";?>" class="attachment-shop_catalog" alt="<?php echo $value->name;?>"/> <h3><?php echo corta_texto($value->name,17);?></h3> </a>
+                                        <a href="<?php echo site_url().convert_slug($value->category."/".$value->name);?>"><img class="image_products" src="<?php echo SERVER2.$value->big_image."?999";?>" class="attachment-shop_catalog" alt="<?php echo $value->name;?>"/> <h3><?php echo corta_texto($value->name,17);?></h3> </a>
                                         <div class="short_desc">
                                             <?php echo corta_texto($value->description,60);?> 
                                         </div> 
@@ -198,7 +194,7 @@
                                                             <span class="amount"><?php echo $value->price_del;?></span>
                                                         </del>
                                                 <?php } ?>
-                                            <ins><span class="amount">S/.<?php echo $value->price; ?></span> </ins>
+                                            <ins><span class="amount">S/.<?php echo $value->price;?></span></ins>
                                         </span>
                                         <br/>
                                         <br/>
