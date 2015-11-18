@@ -81,3 +81,29 @@ function validate_dni(dni) {
         }            
     });
 };
+function validate_region(id_pais) {
+        $.ajax({
+        type: "post",
+        url: site + "register/validate_region",
+        dataType: "json",
+        data: {id_pais: id_pais},
+        success:function(data){            
+                if(data.message == "true"){                         
+                obj_region = data.obj_region;
+                $("#region").html();
+                var texto = "";
+                 texto = texto+'<option value="">Seleccionar</option>';
+                 texto = texto+'<?php  foreach ($obj_region as $key => $value) { ?>';
+                 texto = texto+'<option value="<?php echo $value->id;?>"><?php echo $value->nombre;?></option>'; 
+                 texto = texto+'<?php } ?>';
+                 $("#region").html(texto);
+                 
+            }else{
+                $("#region").html();
+                 var texto = "";
+                 texto = texto+'<option value="">'+data.print+'</option>';
+                 $("#region").html(texto);
+            }
+        }            
+    });
+};

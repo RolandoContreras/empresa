@@ -70,6 +70,7 @@ $route['registro'] = "register";
 $route['register/consulta_upline'] = "register/consulta_upline";  
 $route['register/validate_new'] = "register/validate_new";
 $route['register/validate_dni'] = "register/validate_dni";
+$route['register/validate_region'] = "register/validate_region";
 
 $route['registro/paso_2'] = "register/create_customer_two";
 //$route['registro/crear_cliente'] = "register/create_customer";

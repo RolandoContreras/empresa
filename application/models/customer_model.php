@@ -18,10 +18,9 @@
 class customer_model_atributos{	
     var $customer_id='';
     var $parents_id='';
+    var $franchise_id='';
     var $username='';
-    var $kit_id='';
     var $email='';
-    var $code='';
     var $position='';
     var $position_temporal='';
     var $password='';
@@ -40,7 +39,6 @@ class customer_model_atributos{
     var $phone='';
     var $mobile='';
     var $active='';
-    var $franchise_id='';
     var $partnet='';
     var $status_value='';
     var $created_at='';

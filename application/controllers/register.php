@@ -2,8 +2,12 @@
 class Register extends CI_Controller {
     function __construct() {
         parent::__construct();
-        $this->load->model("kit_model","obj_kit");
+//        $this->load->model("kit_model","obj_kit");
+//        $this->load->model("kit_model","obj_kit");
         $this->load->model("product_model","obj_product");
+        $this->load->model("franchise_model","obj_franchise");
+        $this->load->model("paises_model","obj_paises");
+        $this->load->model("regiones_model","obj_regiones");
         $this->load->model("customer_model","obj_customer");
         $this->load->model("orders_model","obj_order");
         $this->load->model("order_details_model","obj_detail");
@@ -23,12 +27,17 @@ class Register extends CI_Controller {
                         "where" => "status_value = 1");
            
             $obj_products['category'] = $this->obj_category->search($param_category);
-                    
-                    //SEO
-                    $obj_products['title'] = "Registro | Bienvenido a Nuestra Tienda Virtual";
-                    $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
-                    $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Escríbenos a: servicioalcliente@wavelinetwork.com";
-                    $this->load->view('registration',$obj_products);
+            
+            //SELECT COUNTRY
+            $param = array("select" =>"id,nombre,id_idioma",
+                            "where" => "id_idioma = 3");
+            $obj_products['country'] = $this->obj_paises->search($param);
+                      
+            //SEO
+            $obj_products['title'] = "Registro | Bienvenido a Nuestra Tienda Virtual";
+            $obj_products['meta_keywords'] = "Contacto, Marketing Multinivel, Zapatillas, Calzados, Moda, Ropa, Limpieza, Negocio, Oportunidad";
+            $obj_products['meta_description'] = "Compra Online tu TV, laptops, muebles, zapatillas, colchones, regalos y más. Escríbenos a: servicioalcliente@wavelinetwork.com";
+            $this->load->view('registration',$obj_products);
     }
     
      public function create_customer_two()
@@ -460,6 +469,27 @@ class Register extends CI_Controller {
         echo json_encode($data);  
     }
     
+    public function validate_region(){     
+        //VALIDATE USERNAME
+        $id_pais = trim($this->input->post('id_pais'));
+        $param = array("select" =>"id, id_pais,id_idioma,nombre",
+                                "where" => "id_pais = '$id_pais'");
+        $obj_region = $this->obj_regiones->search($param);
+        $obj_region_count = count($obj_region);
+                
+        if($obj_region_count > 0){
+            $data['message'] = "true";
+            $data['obj_region'] = $obj_region;
+            
+//            return $obj_region;
+//            $data['print'] = $obj_region;
+        }else{
+            $data['message'] = "false";
+            $data['print'] = "";
+        }
+        echo json_encode($data);  
+    }
+    
     public function get_menu(){    
         
         //SELECT CATEGORIES
@@ -505,5 +535,4 @@ class Register extends CI_Controller {
         $obj_submenutwo = $this->obj_brand_categories->search($params); 
         return $obj_submenutwo;
     }
-    
 }

@@ -68,7 +68,8 @@
                                                         <?php for ($i=1 ; $i <=31; $i++) { ?>
                                                         <option value="<?php echo $i;?>">
                                                             <?php echo $i?> </option>
-                                                        <?php } ?> </select>
+                                                        <?php } ?> 
+                                                    </select>
                                                     <select name="month" id="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" required="required">
                                                         <option value="01">Enero</option>
                                                         <option value="02">Febrero</option>
@@ -88,7 +89,8 @@
                                                         <?php for ($i=1924; $i <=$year; $i++) { ?>
                                                         <option value="<?php echo $i;?>">
                                                             <?php echo $i;?> </option>
-                                                        <?php } ?> </select>
+                                                        <?php } ?> 
+                                                    </select>
                                                 </div>
                                             </div>
                                             <p class="form-row form-row-wide">
@@ -105,13 +107,40 @@
                                                 <input type="text" class="input-text" name="references" id="references" required="required"/> </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="Ciudad">Ciudad<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="city" id="city" required="required" /> </p>
+                                                <input type="text" class="input-text" name="city" id="city" required="required" /> 
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="País">País<span class="required">*</span> </label>
+                                                <select onchange="validate_region(this.value);" name="country" id="country" class="form-control" required="required">
+                                                    <option value="">Seleccionar</option>
+                                                        <?php  foreach ($country as $key => $value) { ?>
+                                                             <option value="<?php echo $value->id;?>"><?php echo $value->nombre;?></option>
+                                                        <?php } ?>
+                                                </select>
+                                            </p>
+                                            <p class="form-row form-row-wide">
+                                                <label for="Región">Región<span class="required">*</span> </label>
+                                                <select name="region" id="region" class="form-control" required="required">
+                                                    <?php 
+                                                    var_dump($regiones = $_POST['obj_region']);
+                                                    
+                                                    ?>
+                                                    
+                                                         <?php 
+                                                             // foreach ($country as $key => $value) { ?>
+                                                             <!--<option value="<?php echo $value->id;?>"><?php echo $value->nombre;?></option>-->
+                                                        <?php //} ?>
+                                                </select>
+                                            </p>
+                                            
+                                            
                                             <p class="form-row form-row-wide">
                                                 <label for="Departamento">Departamento<span class="required">*</span> </label>
                                                 <input type="text" class="input-text" name="department" id="department" value="Lima" required="required" /> </p>
-                                            <p class="form-row form-row-wide">
+<!--                                            <p class="form-row form-row-wide">
                                                 <label for="País">País<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="country" value="Perú" id="country" required="required" /> </p>
+                                                <input type="text" class="input-text" name="country" value="Perú" id="country" required="required" /> 
+                                            </p>-->
                                             <p class="form-row form-row-wide">
                                                 <label for="E-mail">E-mail<span class="required">*</span> </label>
                                                 <input class="input-text" type="email" name="email" id="email" required="required" /> 

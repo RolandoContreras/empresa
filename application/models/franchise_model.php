@@ -25,7 +25,7 @@ class franchise_model_atributos{
     var $updated_by='';
 }
 
-class Brand_Model extends CI_Model{ 
+class Franchise_Model extends CI_Model{ 
 
     public function __construct() {
         parent::__construct();  
