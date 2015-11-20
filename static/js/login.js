@@ -90,14 +90,14 @@ function validate_region(id_pais) {
         success:function(data){            
                 if(data.message == "true"){                         
                 obj_region = data.obj_region;
-                $("#region").html();
                 var texto = "";
-                 texto = texto+'<option value="">Seleccionar</option>';
-                 texto = texto+'<?php  foreach ($obj_region as $key => $value) { ?>';
-                 texto = texto+'<option value="<?php echo $value->id;?>"><?php echo $value->nombre;?></option>'; 
-                 texto = texto+'<?php } ?>';
-                 $("#region").html(texto);
-                 
+                texto = texto+'<option value="">Seleccionar</option>';
+                var x = 0;               
+                $.each(obj_region, function(){
+                    texto = texto+'<option value="'+obj_region[x]['id']+'">'+obj_region[x]['nombre']+'</option>';
+                    x++; 
+                });
+                $("#region").html(texto);
             }else{
                 $("#region").html();
                  var texto = "";

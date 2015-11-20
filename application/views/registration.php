@@ -122,7 +122,7 @@
                                                 <label for="Región">Región<span class="required">*</span> </label>
                                                 <select name="region" id="region" class="form-control" required="required">
                                                     <?php 
-                                                    var_dump($regiones = $_POST['obj_region']);
+                                                    //var_dump($regiones = $_POST['obj_region']);
                                                     
                                                     ?>
                                                     

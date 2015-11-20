@@ -472,7 +472,7 @@ class Register extends CI_Controller {
     public function validate_region(){     
         //VALIDATE USERNAME
         $id_pais = trim($this->input->post('id_pais'));
-        $param = array("select" =>"id, id_pais,id_idioma,nombre",
+        $param = array("select" =>"id,nombre",
                                 "where" => "id_pais = '$id_pais'");
         $obj_region = $this->obj_regiones->search($param);
         $obj_region_count = count($obj_region);
