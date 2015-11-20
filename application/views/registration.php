@@ -120,27 +120,15 @@
                                             </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="Región">Región<span class="required">*</span> </label>
-                                                <select name="region" id="region" class="form-control" required="required">
-                                                    <?php 
-                                                    //var_dump($regiones = $_POST['obj_region']);
-                                                    
-                                                    ?>
-                                                    
-                                                         <?php 
-                                                             // foreach ($country as $key => $value) { ?>
-                                                             <!--<option value="<?php echo $value->id;?>"><?php echo $value->nombre;?></option>-->
-                                                        <?php //} ?>
+                                                <select onchange="validate_localidad(this.value);" name="region" id="region" class="form-control" required="required">
                                                 </select>
                                             </p>
                                             
-                                            
                                             <p class="form-row form-row-wide">
-                                                <label for="Departamento">Departamento<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="department" id="department" value="Lima" required="required" /> </p>
-<!--                                            <p class="form-row form-row-wide">
-                                                <label for="País">País<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="country" value="Perú" id="country" required="required" /> 
-                                            </p>-->
+                                                <label for="localidad">Localidad<span class="required">*</span> </label>
+                                                <select name="localidad" id="localidad" class="form-control" required="required">
+                                                </select>
+                                            </p>
                                             <p class="form-row form-row-wide">
                                                 <label for="E-mail">E-mail<span class="required">*</span> </label>
                                                 <input class="input-text" type="email" name="email" id="email" required="required" /> 

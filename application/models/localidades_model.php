@@ -15,42 +15,36 @@
 * Fecha: 29/09/2015
 ****/
 
-class comments_model_atributos{	
-    var $comment_id='';
-    var $product_id='';
-    var $name='';
-    var $email='';
-    var $comment='';
-    var $date_comment='';
-    var $status_value='';
-    var $created_at='';
-    var $created_by='';
-    var $updated_at='';
-    var $updated_by='';
+class localidades_model_atributos{	
+    var $id='';
+    var $id_region='';
+    var $id_idioma='';
+    var $id_pais='';
+    var $nombre='';
+    var $x='';
+    var $y='';
+    var $exacto='';
 }
 
-class Comments_Model extends CI_Model{ 
+class Localidades_Model extends CI_Model{ 
 
     public function __construct() {
         parent::__construct();  
-        $this->table = 'comments';
-	$this->table_id = 'comment_id';
-        $this->comment_id='';
-        $this->product_id='';
-	$this->name='';
-        $this->email='';
-        $this->comment='';
-        $this->date_comment='';
-	$this->status_value='';
-	$this->created_at='';
-	$this->created_by='';
-	$this->updated_at='';
-	$this->updated_by='';
-	
-	$this->fields = new comments_model_atributos();
+        $this->table = 'localidades';
+	$this->table_id = 'id';
+        $this->id='';
+	$this->id_region='';
+        $this->id_idioma='';
+        $this->id_pais='';
+        $this->nombre='';
+        $this->x='';
+        $this->y='';
+        $this->exacto='';
+	$this->fields = new localidades_model_atributos();
     }   
     public function insert($data){
       $this->db->insert($this->table, $data);
+      return $this->db->insert_id();
     }
   
     public function insert_lote($data){

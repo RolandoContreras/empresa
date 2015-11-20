@@ -107,3 +107,30 @@ function validate_region(id_pais) {
         }            
     });
 };
+function validate_localidad(id_region) {
+        $.ajax({
+        type: "post",
+        url: site + "register/validate_localidad",
+        dataType: "json",
+        data: {id_region: id_region},
+        success:function(data){            
+                if(data.message == "true"){ 
+                $("#localidad").html();
+                obj_localidad = data.obj_localidad;
+                var texto = "";
+                texto = texto+'<option value="">Seleccionar</option>';
+                var x = 0;               
+                $.each(obj_localidad, function(){
+                    texto = texto+'<option value="'+obj_localidad[x]['id']+'">'+obj_localidad[x]['nombre']+'</option>';
+                    x++; 
+                });
+                $("#localidad").html(texto);
+            }else{
+                $("#localidad").html();
+                 var texto = "";
+                 texto = texto+'<option value="">'+data.print+'</option>';
+                 $("#localidad").html(texto);
+            }
+        }            
+    });
+};

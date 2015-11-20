@@ -2,12 +2,11 @@
 class Register extends CI_Controller {
     function __construct() {
         parent::__construct();
-//        $this->load->model("kit_model","obj_kit");
-//        $this->load->model("kit_model","obj_kit");
         $this->load->model("product_model","obj_product");
         $this->load->model("franchise_model","obj_franchise");
         $this->load->model("paises_model","obj_paises");
         $this->load->model("regiones_model","obj_regiones");
+        $this->load->model("localidades_model","obj_localidades");
         $this->load->model("customer_model","obj_customer");
         $this->load->model("orders_model","obj_order");
         $this->load->model("order_details_model","obj_detail");
@@ -470,19 +469,32 @@ class Register extends CI_Controller {
     }
     
     public function validate_region(){     
-        //VALIDATE USERNAME
+        //VALIDATE REGION
         $id_pais = trim($this->input->post('id_pais'));
-        $param = array("select" =>"id,nombre",
-                                "where" => "id_pais = '$id_pais'");
+        $param = array("select" =>"id,id_pais,id_idioma,nombre",
+                                "where" => "id_pais = '$id_pais' and id_idioma = 3");
         $obj_region = $this->obj_regiones->search($param);
         $obj_region_count = count($obj_region);
                 
         if($obj_region_count > 0){
             $data['message'] = "true";
             $data['obj_region'] = $obj_region;
-            
-//            return $obj_region;
-//            $data['print'] = $obj_region;
+        }else{
+            $data['message'] = "false";
+            $data['print'] = "";
+        }
+        echo json_encode($data);  
+    }
+    
+    public function validate_localidad(){     
+        //VALIDATE LOCALIDAD
+        $id_region = trim($this->input->post('id_region'));
+        $param = array("select" =>"id,nombre,id_pais",
+                                "where" => "id_region = '$id_region' and id_idioma = 3");
+        $obj_localidad = $this->obj_localidades->search($param);
+        if(count($obj_localidad) > 0){
+            $data['message'] = "true";
+            $data['obj_localidad'] = $obj_localidad;
         }else{
             $data['message'] = "false";
             $data['print'] = "";

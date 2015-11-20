@@ -1,20 +1,19 @@
 <?php if ( ! defined("BASEPATH")) exit("No direct script access allowed"); 
 /*****
 * Generator Class MC v.1.55
-* FRECUENCIA LATINA.
+* WAVELINE S.A.C.
 * Proyecto
 * V. 1.0
-* Iniciado: 29/09/2012
+* Iniciado: 29/09/2015
 * Descripcion: Este Modelo controla la tabla de la base de datos con su mismo nombre
 ******/
 
 /***
 * @EXTIENDE EL MODELO
 * Descripcion: se utilizara para nuevas funciones
-* Creador: Marco Cristobal D.
-* Fecha: 29/09/2012
+* Creador: Rolando Contreras H.
+* Fecha: 29/09/2015
 ****/
-
 class order_commissions_model_atributos{	
     var $order_commissions_id='';
     var $order_id='';
