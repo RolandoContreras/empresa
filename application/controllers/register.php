@@ -29,7 +29,7 @@ class Register extends CI_Controller {
             
             //SELECT COUNTRY
             $param = array("select" =>"id,nombre,id_idioma",
-                            "where" => "id_idioma = 3");
+                            "where" => "id_idioma = 7");
             $obj_products['country'] = $this->obj_paises->search($param);
                       
             //SEO
@@ -40,7 +40,9 @@ class Register extends CI_Controller {
     }
     
      public function create_customer_two()
-    {   
+    {
+         
+         
             $upline_username = $this->input->post('upline');
             $position_2 = $this->input->post('position_2');
             $dni = $this->input->post('dni');
@@ -472,7 +474,7 @@ class Register extends CI_Controller {
         //VALIDATE REGION
         $id_pais = trim($this->input->post('id_pais'));
         $param = array("select" =>"id,id_pais,id_idioma,nombre",
-                                "where" => "id_pais = '$id_pais' and id_idioma = 3");
+                                "where" => "id_pais = '$id_pais' and id_idioma = 7");
         $obj_region = $this->obj_regiones->search($param);
         $obj_region_count = count($obj_region);
                 
@@ -488,10 +490,13 @@ class Register extends CI_Controller {
     
     public function validate_localidad(){     
         //VALIDATE LOCALIDAD
+        $id_pais = trim($this->input->post('id_pais'));
         $id_region = trim($this->input->post('id_region'));
+        
         $param = array("select" =>"id,nombre,id_pais",
-                                "where" => "id_region = '$id_region' and id_idioma = 3");
+                                "where" => "id_pais = '$id_pais' and id_region = '$id_region' and id_idioma = 7");
         $obj_localidad = $this->obj_localidades->search($param);
+                
         if(count($obj_localidad) > 0){
             $data['message'] = "true";
             $data['obj_localidad'] = $obj_localidad;

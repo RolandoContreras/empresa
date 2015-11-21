@@ -26,7 +26,7 @@ function consul_upline(username) {
                  texto = texto+'<div class="alert alert-error">';
                  texto = texto+'<p>'+data.print+'</p>';
                  texto = texto+'</div>';                 
-                 $("#mensaje_upline").html(texto);
+                 $("#mensaje").html(texto);
             }
         }            
     });
@@ -108,11 +108,14 @@ function validate_region(id_pais) {
     });
 };
 function validate_localidad(id_region) {
+        id_pais = document.getElementById("country").value;
         $.ajax({
         type: "post",
         url: site + "register/validate_localidad",
         dataType: "json",
-        data: {id_region: id_region},
+        data: {id_region: id_region,
+               id_pais     : id_pais
+              },
         success:function(data){            
                 if(data.message == "true"){ 
                 $("#localidad").html();

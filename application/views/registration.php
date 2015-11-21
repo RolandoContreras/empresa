@@ -106,10 +106,6 @@
                                                 <label for="Referencia">Referencia<span class="required">*</span> </label>
                                                 <input type="text" class="input-text" name="references" id="references" required="required"/> </p>
                                             <p class="form-row form-row-wide">
-                                                <label for="Ciudad">Ciudad<span class="required">*</span> </label>
-                                                <input type="text" class="input-text" name="city" id="city" required="required" /> 
-                                            </p>
-                                            <p class="form-row form-row-wide">
                                                 <label for="País">País<span class="required">*</span> </label>
                                                 <select onchange="validate_region(this.value);" name="country" id="country" class="form-control" required="required">
                                                     <option value="">Seleccionar</option>
