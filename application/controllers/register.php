@@ -41,10 +41,11 @@ class Register extends CI_Controller {
     
      public function create_customer_two()
     {
-         
-         
-            $upline_username = $this->input->post('upline');
-            $position_2 = $this->input->post('position_2');
+            //GET DATA AND SAVE IN TABLE CUSTMER
+            $upline_id = $this->input->post('upline');
+            //SELECT POSITION ALTERNATIVE FROM UPLINE
+            $position = $this->position_upline($upline_id);
+            
             $dni = $this->input->post('dni');
             $username = $this->input->post('username');
             $first_name = $this->input->post('first_name');
@@ -55,9 +56,9 @@ class Register extends CI_Controller {
             $mobile = $this->input->post('mobile');
             $address = $this->input->post('address');
             $references = $this->input->post('references');
-            $city = $this->input->post('city');
-            $department = $this->input->post('department');
-            $country = $this->input->post('country');
+            $localidad_id = $this->input->post('localidad');
+            $region_id = $this->input->post('region');
+            $pais_id = $this->input->post('country');
             $email = $this->input->post('email');
             $password = $this->input->post('password');
             $ruc = $this->input->post('ruc');
@@ -66,12 +67,13 @@ class Register extends CI_Controller {
 
             //INSERT CUSTOMER
                 $data_customer = array( 
-                                    'parents_id'      => $upline_username,
+                                    'parents_id'      => $upline_id,
                                     'email'           => $email,
                                     'username'        => $username,
                                     'password'        => $password,
                                     'razon_social'    => $razon_social,
-                                    'position'        => $position_2,
+                                    'position'        => $position,
+                                    'position_temporal'=> 1,
                                     'ruc'             => $ruc,  
                                     'address2'        => $address2,
                                     'first_name'      => $first_name, 
@@ -80,9 +82,9 @@ class Register extends CI_Controller {
                                     'last_name'       => $last_name,
                                     'address'         => $address,
                                     'references'      => $references,
-                                    'country'         => $country,  
-                                    'department'      => $department,
-                                    'city'            => $city, 
+                                    'localidad_id'    => $localidad_id,  
+                                    'region_id'       => $region_id,
+                                    'pais_id'         => $pais_id, 
                                     'phone'           => $phone,
                                     'mobile'          => $mobile,
                                     'active'          => 1,  
@@ -415,6 +417,16 @@ class Register extends CI_Controller {
          'updated_by'       => $customer_id,         
          );
         $this->obj_order_commissions->insert($data_order_commissions);
+        
+    }
+    
+    public function position_upline($upline_id){
+        //SELECT POSITION2 FROM UPLINE
+        $param_customer = array(
+                    "select" =>"position_temporal",
+                    "where" => "customer_id = '$upline_id'");
+        $position_upline = $this->obj_customer->get_search_row($param_customer);
+        return $position_upline->position_temporal;
         
     }
     

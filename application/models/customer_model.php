@@ -33,9 +33,9 @@ class customer_model_atributos{
     var $birth_date='';
     var $address='';
     var $references='';
-    var $country='';
-    var $department='';
-    var $city='';
+    var $localidad_id='';
+    var $region_id='';
+    var $pais_id='';
     var $phone='';
     var $mobile='';
     var $active='';
@@ -71,9 +71,9 @@ class Customer_Model extends CI_Model{
         $this->birth_date='';
         $this->address='';
         $this->references='';
-	$this->country='';
-	$this->department='';
-        $this->city='';
+	$this->localidad_id='';
+	$this->region_id='';
+        $this->pais_id='';
 	$this->phone='';
 	$this->mobile='';
         $this->franchise_id='';

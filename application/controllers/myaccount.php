@@ -109,9 +109,9 @@ class Myaccount extends CI_Controller {
         public function verificar_user($username,$password){
              $param = array(
                         "select" =>"customer.customer_id,customer.parents_id,customer.first_name,customer.last_name,customer.franchise_id,"
-                                    ."customer.dni,customer.references,customer.address,customer.email,customer.position_temporal,customer.city,"
-                                    ."customer.department,customer.status_value,franchise.name as franchise_name",
-                        "where" => "customer.username ='$username' and customer.password='$password' and customer.status_value=1",             
+                                    ."customer.dni,customer.references,customer.address,customer.email,customer.position_temporal,customer.localidad_id,"
+                                    ."customer.region_id,customer.pais_id,customer.status_value,franchise.name as franchise_name",
+                        "where" => "customer.username ='$username' and customer.password='$password' and customer.status_value BETWEEN 1 AND 2",             
                         "join" => array('franchise, customer.franchise_id = franchise.franchise_id'));
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;
