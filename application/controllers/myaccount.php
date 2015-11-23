@@ -79,9 +79,9 @@ class Myaccount extends CI_Controller {
         $username = $this->input->post('username');  
         $password = $this->input->post('password');  
         $obj_user = $this->verificar_user($username, $password);
-            
+        
         if (count($obj_user)>0){            
-            if ($obj_user->status_value == 1){                            
+            if ($obj_user->status_value == 1 || $obj_user->status_value == 2){                            
                 $data_customer_session['customer_id'] = $obj_user->customer_id;
                 $data_customer_session['parents_id'] = $obj_user->parents_id;
                 $data_customer_session['name'] = $obj_user->first_name;
@@ -98,7 +98,7 @@ class Myaccount extends CI_Controller {
                 $data_customer_session['code'] = $obj_user->code;
                 $data_customer_session['logged_customer'] = "TRUE";
                 $data_customer_session['status'] = $obj_user->status_value;
-                $_SESSION['customer'] = $data_customer_session;      
+                $_SESSION['customer'] = $data_customer_session;    
                redirect("backoffice");    
             }
         }else{
@@ -111,7 +111,7 @@ class Myaccount extends CI_Controller {
                         "select" =>"customer.customer_id,customer.parents_id,customer.first_name,customer.last_name,customer.franchise_id,"
                                     ."customer.dni,customer.references,customer.address,customer.email,customer.position_temporal,customer.localidad_id,"
                                     ."customer.region_id,customer.pais_id,customer.status_value,franchise.name as franchise_name",
-                        "where" => "customer.username ='$username' and customer.password='$password' and customer.status_value BETWEEN 1 AND 2",             
+                        "where" => "customer.username ='$username' and customer.password='$password' and customer.status_value >= 1 AND customer.status_value <=2",             
                         "join" => array('franchise, customer.franchise_id = franchise.franchise_id'));
              $obj_user = $this->obj_customer->get_search_row($param);
              return $obj_user;
