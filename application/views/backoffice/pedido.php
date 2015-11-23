@@ -1,3 +1,31 @@
+<style>
+    .spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+    }
+</style>
+<script src="<?php echo site_url().'static/js/spin.js';?>"></script>
+<script>
+    var opts = {
+        lines: 11,
+        length: 15,
+        width: 10,
+        radius: 30,
+        corners: 1,
+        rotate: 0,
+        direction: 1,
+        color: '#000',
+        speed: 0.6,
+        trail: 60,
+        shadow: false,
+        hwaccel: false,
+        className: 'spinner',
+        zIndex: 2e9,
+        top: 'auto',
+        left: 'auto'
+    };
+</script>
 <article class="main-content homepage" style="padding-bottom:20%;">
     <div class="breadcrumbs transition" id="breadcrumbs">
         <ul class="breadcrumb">
@@ -41,7 +69,6 @@
             <nav class="abas">
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#aba1" data-toggle="tab">Selección de Productos</a></li>
-                    <li class="blog"><a href="#aba2" data-toggle="tab">Informacion de Usuario</a></li>
                 </ul>
             </nav>
 
@@ -126,158 +153,20 @@
                                                     </tr>   
                                             </tbody>
                                         </table>
+                                        <button onclick="make_first_order();">Hacer Pedido</button>
                                     </form>
-                            
-                        <?php }else{ ?>
-                                <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
-                                <p class="return-to-shop">
-                                    <a class="button" href="<?php echo site_url().'compras';?>" target="_blank">Comprar</a> 
-                                </p>
+                            <?php }else{ ?>
+                                    <p class="cart-empty">Tu carrito esta actualmente vacio.</p>
+                                    <p class="return-to-shop">
+                                        <a class="button" href="<?php echo site_url().'compras';?>" target="_blank">Comprar</a> 
+                                    </p>
                         <?php } ?>
                     </div>
-                    
-                    <div class="tab-pane" id="aba2">
-                        <h2>Informacion Personal</h2><hr>
-                        <form action="<?php echo site_url().'backoffice/nuevomiembro/validate';?>" class="forms" method="post">
-                            <fieldset>
-                                <div class="form-group">
-                                    <label for="nome">Nombres</label>
-                                    <div class="input text required">
-                                        <input name="first_name" class="form-control input-small" maxlength="100" type="text" value="" required="required"/>
-                                    </div>                                
-                                </div>
-                                <div class="form-group">
-                                    <label for="nome">Apellidos</label>
-                                    <div class="input text required">
-                                        <input name="last_name" class="form-control input-small" maxlength="100" type="text" value="" required="required"/>
-                                    </div>                            
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="nome">DNI</label>
-                                    <div class="input text">
-                                        <input name="dni" class="form-control input-small" maxlength="45" type="text" value="" id="UserNationalIdentification" required="required"/>
-                                    </div>                            
-                                </div>
-
-                            <label for="date">Fecha de Nacimiento</label>
-                          
-                            <div class="false">
-                                <div class="controls">
-                                    <select name="date" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoDay">
-                                       <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                        <option value="<?php echo $i;?>"><?php echo $i?></option>
-                                       <?php } ?>
-                                    </select>
-                                    
-                                    <select name="month" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoMonth">
-                                        <option value="01">Enero</option>
-                                        <option value="02">Febrero</option>
-                                        <option value="03">Marzo</option>
-                                        <option value="04">Abril</option>
-                                        <option value="05">Mayo</option>
-                                        <option value="06">Junio</option>
-                                        <option value="07">Julio</option>
-                                        <option value="08">Agosto</option>
-                                        <option value="09">Setiembre</option>
-                                        <option value="10">Octubre</option>
-                                        <option value="11">Noviembre</option>
-                                        <option value="12">Diciembre</option>
-                                    </select>
-                                    
-                                    <select name="year" class="form-control" style="max-width: 120px; float: left; margin-right: 5px;" id="UserDataNascimentoYear">
-                                            <?php  $year = date("Y");?>
-                                            <?php for ($i = 1924; $i <= $year; $i++) { ?>
-                                                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
-                                            <?php } ?>
-                                    </select>
-                                </div>
-                            </div>                        
-
-                            <div class ="clearfix"></div>
-
-                            <div class="form-group" style = "margin-top: 15px;">
-                                <label for="phone">Teléfono</label>
-                                <div class="input text">
-                                    <input name="phone" class="form-control input-small" maxlength="45" type="text" value="" id="UserTelefone"/>
-                                </div>                            
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Celular</label>
-                                <div class="input text">
-                                    <input name="mobile" class="form-control input-small" maxlength="45" type="text" value="" id="UserTelemovel"/>
-                                </div>                            
-                            </div>
-  
-                            <h2 class="blue">Direccion</h2>
-                            <hr> 
-                            <div class="form-group">
-                                <label for="address">Dirección</label>
-                                <div class="input text">
-                                    <input name="address" class="form-control input-medium" maxlength="100" type="text" value="" id="UserMoradaComplementar" required="required"/>
-                                </div>                            
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="reference">Referencia</label>
-                                <div class="input text">
-                                    <input name="references" class="form-control input-medium" maxlength="100" type="text" value="" id="UserMoradaComplementar"/>
-                                </div>                            
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="city">Ciudad</label>
-                                <div class="input text">
-                                    <input name="city" class="form-control input-medium" maxlength="45" type="text" value="" id="UserCidade" required="required"/>
-                                </div>                            
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="department">Departamento</label>
-                                <div class="input text">
-                                    <input name="department" class="form-control input-medium" maxlength="45" type="text" value="Lima" id="UserCidade" required="required"/>
-                                </div>                            
-                            </div>
-
-                            <div class="form-group">
-                                <label for="department">País</label>
-                                <div class="input text">
-                                    <input name="country" class="form-control input-medium" maxlength="45" type="text" value="Perú" id="UserCidade" required="required"/>
-                                </div>                            
-                            </div>
-                           </fieldset> 
-                        
-                            <h2 class="blue">Login</h2>
-                            <hr> 
-                            
-                            <fieldset>                       
-                            <p style="font-size:14px;">La contraseña debería tener mínimo 8 caracteres, un numeral, una letra mayúscula y una letra minuscula.</p>
-
-                           <div class="form-group">
-                                    <label for="email">E-mail</label>
-                                    <div class="input email required">
-                                        <input name="email" class="form-control input-medium" maxlength="45" type="email" value="" id="UserEmail" required="required"/>
-                                    </div>                            
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <div class="input text">
-                                    <div class="input password">
-                                        <input name="password" value="" class="form-control input-medium" type="password" id="UserPasswordConfirm" required="required"/>
-                                    </div>                            
-                                </div>
-                            </div> 
-                         </fieldset>
-                            <input type="submit" class="btn btn-primary" value="Enviar Registro">
-                        </form>
-                    </div>
-                    
-                     
                 </div>
             </div>
             <br>
         </section>
     </div>
 </article>
-<script src="<?php echo site_url();?>static/backoffice/js/new_member.js"></script>
+<!--<script src="<?php echo site_url();?>static/backoffice/js/new_member.js"></script>-->
+<script type='text/javascript' src='<?php echo site_url().'static/js/make_order.js?999';?>'></script>

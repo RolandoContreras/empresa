@@ -1,5 +1,6 @@
-function registrar() {
-    kit = $("#kit").val();
+function make_first_order() {
+
+    //    kit = $("#kit").val();
     first_name = $("#first_name").val();
     last_name = $("#last_name").val();
     birth_date = $("#birth_date").val();

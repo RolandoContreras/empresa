@@ -153,9 +153,9 @@
         </div>
         <!--call footer-->
         <?php $this->load->view("footer");?></div>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/registrar.js?999 ';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/superfish.js?999 ';?>'></script>
-    <script type='text/javascript' src='<?php echo site_url().' static/js/jquery.mobilemenu.js?999 ';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/registrar.js?999 ';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/superfish.js?999 ';?>'></script>
+    <script type='text/javascript' src='<?php echo site_url().'static/js/jquery.mobilemenu.js?999 ';?>'></script>
 </body>
 
 </html>
