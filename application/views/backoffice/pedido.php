@@ -52,7 +52,7 @@
                                     }elseif($_SESSION['customer']['franchise_id'] == 3){
                                         echo site_url().'static/backoffice/images/platinium.png';
                                     }else{
-                                        echo site_url().'static/backoffice/images/diamante.png';
+                                        echo site_url().'static/backoffice/images/diamond.png';
                                     }
                                     ?>" />
                                          <b style="margin-left: 43%;color: red;"> Pendiente</b>

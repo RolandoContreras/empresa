@@ -38,7 +38,6 @@ class B_tree extends CI_Controller {
         //SELECT UPLINE CUSTOMER
         $param_uplinet = array(
                         "select" =>"customer_id,
-                                    code,
                                     position,
                                     password,
                                     first_name,
@@ -105,9 +104,8 @@ class B_tree extends CI_Controller {
                                     last_name,
                                     created_at,
                                     parents_id,
-                                    country,
-                                    position,
-                                    code",
+                                    pais_id,
+                                    position",
                          "where" => "status_value = 1 and created_at > '$creacion' and customer_id <> $customer_id",
                          "order" => "created_at ASC LIMIT 50", 
                         ); 
