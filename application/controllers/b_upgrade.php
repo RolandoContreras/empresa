@@ -18,6 +18,7 @@ class B_upgrade extends CI_Controller {
                         "where" => "customer_id = $customer_id"
                         ); 
         $obj_profile = $this->obj_customer->get_search_row($params);
+        
         $this->tmp_backoffice->set("obj_profile",$obj_profile);
         $this->tmp_backoffice->render("backoffice/upgrade");
     }
