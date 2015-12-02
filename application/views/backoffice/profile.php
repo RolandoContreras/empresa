@@ -1,4 +1,3 @@
-
 <!--<script type='text/javascript' src='<?php echo site_url().'static/js/jquery.js?999';?>'></script>-->
 <script type='text/javascript' src='<?php echo site_url().'static/js/validator.js';?>'></script>
 
@@ -42,7 +41,6 @@
             </li>
         </ul>
     </div>
-  
     <div class="content">
         <section class="widget">
             <nav class="abas">
@@ -55,10 +53,11 @@
             <div id='spinner' class='spinner'></div>
             <!--END SPINNER-->
             
-            <form id="form" class="forms" method="post" data-toggle="validator" onsubmit="return validator();">
+            <form id="form" class="forms" method="post" data-toggle="validator" onsubmit="return validator();" action="<?php echo site_url().'backoffice/micuenta/validate'?>">
                 <div class="wg-content_nav">
                     <div class="tab-content">
                         <div class="tab-pane active" id="aba1">
+                            <div id="mensaje"></div>
                             <h2>Información Personal</h2><hr>
 
                                 <fieldset>
@@ -157,7 +156,7 @@
                                 <div class="form-group">
                                     <label for="address" class="control-label">Dirección</label>
                                     <div class="input text">
-                                        <input name="address" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->address)?$obj_profile->address:"";?>" placeholder="Ingrese Dirección"/>
+                                        <input name="address" class="form-control input-medium" maxlength="100" type="text" value="<?php echo isset($obj_profile->address)?$obj_profile->address:"";?>" placeholder="Ingrese Dirección" required="required"/>
                                     </div> 
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                         <span class="help-block with-errors"></span>

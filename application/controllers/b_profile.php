@@ -47,21 +47,29 @@ class B_profile extends CI_Controller {
     
     public function validate(){
         
-        $password = $this->input->post('password');
-        $password2 = $this->input->post('password2');
+        $first_name     = $this->input->post('first_name');
+        $last_name      = $this->input->post('last_name');
+        $email          = $this->input->post('email');
+        $phone          = $this->input->post('phone');
+        $mobile         = $this->input->post('mobile');
+        $address        = $this->input->post('address');
+        $references     = $this->input->post('references');
+        $razon_social   = $this->input->post('razon_social');
+        $ruc            = $this->input->post('ruc');
+        $address2       = $this->input->post('address2');
+        $password       = $this->input->post('password');
         
-        if($password==$password2){
             $data = array(
-               'first_name' => $this->input->post('first_name'),
-               'last_name' => $this->input->post('last_name'),
-               'email' => $this->input->post('email'),
-               'phone' => $this->input->post('phone'),  
-               'mobile' => $this->input->post('mobile'),
-               'address' => $this->input->post('address'),
-               'references' => $this->input->post('references'),
-               'razon_social' => $this->input->post('razon_social'),
-               'ruc' => $this->input->post('ruc'),
-               'address2' => $this->input->post('address2'),
+               'first_name' => $first_name,
+               'last_name' => $last_name,
+               'email' => $email,
+               'phone' => $phone,  
+               'mobile' => $mobile,
+               'address' => $address,
+               'references' => $references,
+               'razon_social' => $razon_social,
+               'ruc' => $ruc,
+               'address2' => $address2,
                'password' => $password,
                'created_by' => $_SESSION['customer']['customer_id'],
                'updated_at' => date("Y-m-d H:i:s"),
@@ -72,8 +80,8 @@ class B_profile extends CI_Controller {
             if ($customer_id != ""){
                $this->obj_customer->update($customer_id, $data);
             }
+            
             redirect(site_url()."backoffice/micuenta");
-        }
     }
     
     public function get_session(){          
