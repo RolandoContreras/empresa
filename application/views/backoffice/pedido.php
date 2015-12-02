@@ -1,31 +1,3 @@
-<style>
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-    }
-</style>
-<script src="<?php echo site_url().'static/js/spin.js';?>"></script>
-<script>
-    var opts = {
-        lines: 11,
-        length: 15,
-        width: 10,
-        radius: 30,
-        corners: 1,
-        rotate: 0,
-        direction: 1,
-        color: '#000',
-        speed: 0.6,
-        trail: 60,
-        shadow: false,
-        hwaccel: false,
-        className: 'spinner',
-        zIndex: 2e9,
-        top: 'auto',
-        left: 'auto'
-    };
-</script>
 <article class="main-content homepage" style="padding-bottom:20%;">
     <div class="breadcrumbs transition" id="breadcrumbs">
         <ul class="breadcrumb">

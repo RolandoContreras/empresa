@@ -37,7 +37,14 @@
                                         echo site_url().'static/backoffice/images/diamond.png';
                                     }
                                     ?>" />
-                                         <b style="margin-left: 4%;color: red;"></b>
+                                    <?php 
+                                    if($_SESSION['customer']['status']==1){
+                                        $value="Pendiente";$style="red";
+                                    }elseif($_SESSION['customer']['status']==2){
+                                        $value="Pagado";$style="green";
+                                    }
+                                    ?>
+                                         <b style="margin-left: 4%;color: <?php echo $style;?>;"><?php echo $value;?></b>
                                 </p>
                             </div>
                             <div class="alert alert-info" style="margin-bottom:0;">

@@ -12,7 +12,7 @@ class Backoffice extends CI_Controller {
     public function index()
     {
         if(isset($_SESSION['customer'])){
-            if($_SESSION['customer']['status_value']==2){
+            if($_SESSION['customer']['status']==2){
                 $customer_id = $_SESSION['customer']['customer_id'];
                 $params = array(
                                 "select" =>"SUM(amount) as total",

@@ -166,7 +166,7 @@ class B_pedido extends CI_Controller {
     
     public function get_session(){          
         if (isset($_SESSION['customer'])){
-            if($_SESSION['customer']['logged_customer']=="TRUE" && $_SESSION['customer']['status']==1){               
+            if($_SESSION['customer']['logged_customer']=="TRUE" && $_SESSION['customer']['status']<=2){               
                 return true;
             }else{
                 redirect(site_url().'backoffice');

@@ -137,8 +137,6 @@
                                     <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/bulleted.png';?>">&nbsp;&nbsp;Pedidos</span>
                                 </a>
                             </li>
-                           <?php 
-//                           if($_SESSION['customer']['status']==2){ ?>
                                 <li>
                                     <a href="<?php echo site_url().'backoffice/comisiones';?>" style="color: whitesmoke !important;">
                                         <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/data45.png';?>">&nbsp;&nbsp;Comisiones</span>
@@ -149,11 +147,6 @@
                                         <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/cloud189.png';?>">&nbsp;&nbsp;Arbol</span>
                                     </a>
                                 </li>
-    <!--                            <li>
-                                    <a href="<?php echo site_url().'backoffice/nuevomiembro';?>">
-                                        <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/add133.png';?>">&nbsp;&nbsp;Nuevo Miembro</span>
-                                    </a>
-                                </li>-->
                                 <li>
                                     <a href="<?php echo site_url().'backoffice/faq';?>" style="color: whitesmoke !important;">
                                         <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/male172.png';?>">&nbsp;&nbsp;FAQ</span>
@@ -164,7 +157,6 @@
                                         <span><img class="image_icons_b" src="<?php echo site_url().'static/images/png/add133.png';?>">&nbsp;&nbsp;Recursos</span>
                                     </a>
                                 </li>
-                           <?php //}  ?> 
                         </ul>
                     </nav>
                     <nav class="main-menu"></nav>
