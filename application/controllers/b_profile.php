@@ -13,27 +13,32 @@ class B_profile extends CI_Controller {
         $customer_id = $_SESSION['customer']['customer_id'];
         /// VISTA
         $params = array(
-                        "select" =>"customer_id,
-                                    email,
-                                    password,
-                                    razon_social,
-                                    ruc,
-                                    address2,
-                                    first_name,
-                                    last_name,
-                                    dni,
-                                    birth_date,
-                                    address,
-                                    references,
-                                    pais_id,
-                                    region_id,
-                                    localidad_id,
-                                    phone,
-                                    mobile,
-                                    status_value",
-                         "where" => "customer_id = $customer_id",
-                        ); 
-        
+                        "select" =>"customer.customer_id,
+                                    customer.email,
+                                    customer.password,
+                                    customer.razon_social,
+                                    customer.ruc,
+                                    customer.address2,
+                                    customer.first_name,
+                                    customer.last_name,
+                                    customer.dni,
+                                    customer.birth_date,
+                                    customer.address,
+                                    customer.references,
+                                    customer.pais_id,
+                                    customer.region_id,
+                                    customer.localidad_id,
+                                    customer.phone,
+                                    customer.mobile,
+                                    customer.status_value,
+                                    paises.nombre as paises,
+                                    regiones.nombre as regiones,
+                                    localidades.nombre as localidades",
+                         "where" => "customer_id = $customer_id and paises.id_idioma = 7 and regiones.id_idioma = 7 and localidades.id_idioma = 7",
+                         "join" => array('paises, customer.pais_id = paises.id',
+                                         'regiones, customer.region_id = regiones.id',
+                                         'localidades, customer.localidad_id = localidades.id')
+                                        );
         // VISTA
         $obj_profile = $this->obj_customer->get_search_row($params);
         $this->tmp_backoffice->set("obj_profile",$obj_profile);
@@ -42,7 +47,6 @@ class B_profile extends CI_Controller {
     
     public function validate(){
         
-        $date_birth = convert_formato_fecha_db($this->input->post('date'), $this->input->post('month'), $this->input->post('year'));
         $password = $this->input->post('password');
         $password2 = $this->input->post('password2');
         
@@ -51,16 +55,13 @@ class B_profile extends CI_Controller {
                'first_name' => $this->input->post('first_name'),
                'last_name' => $this->input->post('last_name'),
                'email' => $this->input->post('email'),
-               'razon_social' => $this->input->post('razon_social'),
-               'ruc' => $this->input->post('ruc'),
-               'address2' => $this->input->post('address2'),
-               'dni' => $this->input->post('dni'),
-               'birth_date' => $date_birth,  
                'phone' => $this->input->post('phone'),  
                'mobile' => $this->input->post('mobile'),
                'address' => $this->input->post('address'),
                'references' => $this->input->post('references'),
-               'city' => $this->input->post('city'),
+               'razon_social' => $this->input->post('razon_social'),
+               'ruc' => $this->input->post('ruc'),
+               'address2' => $this->input->post('address2'),
                'password' => $password,
                'created_by' => $_SESSION['customer']['customer_id'],
                'updated_at' => date("Y-m-d H:i:s"),

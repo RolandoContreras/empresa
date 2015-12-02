@@ -1,70 +1,24 @@
-$(document).ready(function(){	
-        $('#product-form').validate({
-	    rules: {
-              id_category: {
-	      required: true
-	      },	
-	      tittle: {
-	      minlength: 2,
-	      required: true
-	      },	
-	      description: {
-	      minlength: 2,
-	      required: true
-	      },
-              precio: {
-	      required: true
-	      },
-              stock: {
-	      required: true
-	      },
-              comision: {
-	      required: true
-	      },
-              position: {
-	      minlength: 1,
-	      required: true
-	      },
-          status_value:{
-          required: true,
-          rangelength: [1,2]
-          }
-	    },
-	    highlight: function(label) {
-	    	$(label).closest('.control-group').addClass('error');
-	    },
-	    success: function(label) {
-	    	label
-	    		.text('OK!').addClass('valid')
-	    		.closest('.control-group').addClass('success');
-	    }
-	  });     
-	  
-}); // end document.ready
-
-function validate(){
-    username = $("#username").val();
-    password = $("#password").val();  
-    username = $("#username").val();
-    password = $("#password").val();  
-    username = $("#username").val();
-    password = $("#password").val();  
-    username = $("#username").val();
-    password = $("#password").val();  
-    username = $("#username").val();
-    password = $("#password").val();  
+function validate(){ 
     
+    first_name = $("#first_name").val();
     
+    alert();
     
-               $.ajax({
-                   type: "post",
-                   url: site+"dashboard/productos/delete/"+product_id,
-                   dataType: "json",
-                   data: {product_id : product_id},
-                   success:function(data){                             
-                   location.reload();
-                   }         
-           });
+    username = $("#username").val();
+    username = $("#username").val();
+    
+        n = $("#spinner").get(0);
+        t = (new Spinner(opts)).spin(n)
+        $.ajax({
+           type: "post",
+           url: site+"dashboard/productos/delete/"+product_id,
+           dataType: "json",
+           data: {product_id : product_id},
+           success:function(data){    
+               t.stop();
+//               location.reload();
+           }         
+       });
     
 }
 function edit_product(product_id){    
