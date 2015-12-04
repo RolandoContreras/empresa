@@ -12,13 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/empresa/static/js/login.js</file>
-            <file>file:/C:/wamp/www/empresa/application/views/registration.php</file>
-            <file>file:/C:/wamp/www/empresa/application/models/customer_model.php</file>
-            <file>file:/C:/wamp/www/empresa/application/models/localidades_model.php</file>
-            <file>file:/C:/wamp/www/empresa/application/config/config.php</file>
-            <file>file:/C:/wamp/www/empresa/application/config/routes.php</file>
-            <file>file:/C:/wamp/www/empresa/application/controllers/register.php</file>
+            <file>file:/C:/wamp/www/empresa/application/views/backoffice/upgrade.php</file>
+            <file>file:/C:/wamp/www/empresa/application/views/backoffice/contract.php</file>
+            <file>file:/C:/wamp/www/empresa/application/controllers/b_upgrade.php</file>
+            <file>file:/C:/wamp/www/empresa/application/views/backoffice/backoffice.php</file>
+            <file>file:/C:/wamp/www/empresa/application/views/backoffice/pedido.php</file>
         </group>
     </open-files>
 </project-private>
