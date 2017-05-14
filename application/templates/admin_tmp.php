@@ -30,7 +30,6 @@
 
         <script src="static/cms/plugins/datepicker/js/bootstrap-datepicker.js"></script>
         <script src="static/cms/plugins/wysiwyg/bootstrap-wysihtml5.js"></script>
-        <script type="text/javascript" src="static/cms/js/browserplus-min.js"></script>
 
         <script src="static/cms/js/core/jquery.validate.min.js"></script>
         <script src="static/cms/js/core/bootstrap-alert.js"></script>
